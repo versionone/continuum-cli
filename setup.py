@@ -21,13 +21,13 @@ from catoclient import __version__
 
 setuptools.setup(
     name='catoclient',
-    version=version.canonical_version_string(),
+    version = __version__,
     description='Cloud Sidekick Cato Community Edition (CE) Catoclient',
     license='Apache License (2.0)',
-    author='Patrick Dunnigan
+    author='Patrick Dunnigan',
     author_email='patrick.dunnigan@cloudsidekick.com',
     url='https://github.com/cloudsidekick/catoclient',
-    cmdclass=setup.get_cmdclass(),
+    #cmdclass=setup.get_cmdclass(),
     packages=setuptools.find_packages(exclude=['bin']),
     include_package_data=True,
     classifiers=[
