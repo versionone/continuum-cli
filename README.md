@@ -37,3 +37,21 @@ Python 2.6+
 ## Installation
 
 TBD
+
+## Usage
+
+No installation instructions or setuptools script is done yet. In the
+meantime, perform the following command before using the command line
+utilities:
+
+```
+export PYTHONPATH=<pathtolibrary>/catoclient
+```
+
+Then to run the command line tool:
+
+```
+<pathtolibrary>/catoclient/bin/cato-list-ecosystems --url=http://localhost:4001 --access-key=<catouseruuid> --secret-key <catopassword> 
+```
+
+See individual commands for usage.
