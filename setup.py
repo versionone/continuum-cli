@@ -1,0 +1,48 @@
+#########################################################################
+# Copyright 2011 Cloud Sidekick
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#########################################################################
+
+import os
+import setuptools
+
+from catoclient import __version__
+
+setuptools.setup(
+    name='catoclient',
+    version=version.canonical_version_string(),
+    description='Cloud Sidekick Cato Community Edition (CE) Catoclient',
+    license='Apache License (2.0)',
+    author='Patrick Dunnigan
+    author_email='patrick.dunnigan@cloudsidekick.com',
+    url='https://github.com/cloudsidekick/catoclient',
+    cmdclass=setup.get_cmdclass(),
+    packages=setuptools.find_packages(exclude=['bin']),
+    include_package_data=True,
+    classifiers=[
+        'Development Status :: 4 - Beta',
+        'License :: OSI Approved :: Apache Software License',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 2.6',
+        'Programming Language :: Python :: 2.7',
+        'Environment :: No Input/Output (Daemon)',
+    ],
+    scripts=['bin/cato-list-ecosystems',
+             'bin/cato-get-ecosystem-objects',
+             'bin/cato-get-ecosystem-log',
+             'bin/cato-get-ecosystem'],
+    py_modules=[])
+
