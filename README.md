@@ -36,7 +36,9 @@ Python 2.6+
 
 ## Installation
 
-TBD
+```
+python setup.py install
+```
 
 ## Usage
 
