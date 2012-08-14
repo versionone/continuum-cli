@@ -27,9 +27,8 @@ class GetEcosystemObjects(catoclient.catocommand.CatoCommand):
                      doc='Value can be either an ecosystem id or ecosystem name.')]
 
     def display_ecosystem_objects(self, results):
-
-        result_dict = json.loads(results)
-        self.print_results(result_dict, ['ecosystem_object_type','ecosystem_object_id', 'cloud_name', 'added_dt'])
+        result_dict = json.loads(results) if results else {}
+        self.print_results(result_dict, ['EcosystemObjectType','EcosystemObjectID', 'CloudName', 'AddedDate'])
 
     def main(self):
 

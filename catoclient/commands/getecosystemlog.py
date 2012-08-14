@@ -31,8 +31,8 @@ class GetEcosystemLog(catoclient.catocommand.CatoCommand):
 
     def display_rows(self, results):
 
-        result_dict = json.loads(results)
-        self.print_results(result_dict, ['ecosystem_object_type','logical_id','ecosystem_object_id', 'status', 'log'])
+        result_dict = json.loads(results) if results else {}
+        self.print_results(result_dict, ['EcosystemObjectType','LogicalID','EcosystemObjectID', 'Status', 'Log'])
 
     def main(self):
 

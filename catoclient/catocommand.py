@@ -33,6 +33,7 @@ import base64
 import hmac
 import urllib
 import urllib2
+import json
 from datetime import datetime
 from catoclient.param import Param
 
@@ -368,6 +369,9 @@ class CatoCommand(object):
         sig = "&signature=" + urllib.quote_plus(sig)
 
         url = "%s/%s%s%s" % (host, string_to_sign, sig, argstr)
+        
+        # for the command line client, we're using json output format from the API
+        url += "&output_format=json"
 
         #NOTE: if a --querystring was passed on the command line, we just use it, no questions asked
         #if querystring:
@@ -376,28 +380,49 @@ class CatoCommand(object):
         response = self.http_get(url)
         if self.debug:
             print(response)
-        xRoot = ET.fromstring(response)
-        if xRoot.findtext("error/code", None):
-            code = xRoot.findtext("error/code", "")
-            detail = xRoot.findtext("error/detail", None)
-            #detail = xRoot.findtext("error/detail", "")
-            msg = "ERROR: %s" % (code)
-            if detail:
-                msg = "%s, %s" % (msg, detail)
-            self.display_error_and_exit(msg)
-            #raise Exception(msg)
-        else:
-            return xRoot.findtext("response", None)
+            
+        if response:
+            try:
+                d = json.loads(response)
+                if d["ErrorCode"]:
+                    code = d["ErrorCode"]
+                    detail = d["ErrorDetail"]
+                    message = d["ErrorMessage"]
+                    if detail:
+                        msg = "%s, %s, %s" % code, (message, detail)
+                    self.display_error_and_exit(msg)
+                else:
+                    return d["Response"]
+            except ValueError:
+                print("Response JSON could not be parsed.")
+            except Exception as ex:
+                raise ex
+    #        xRoot = ET.fromstring(response)
+    #        if xRoot.findtext("error/code", None):
+    #            code = xRoot.findtext("error/code", "")
+    #            detail = xRoot.findtext("error/detail", None)
+    #            #detail = xRoot.findtext("error/detail", "")
+    #            msg = "ERROR: %s" % (code)
+    #            if detail:
+    #                msg = "%s, %s" % (msg, detail)
+    #            self.display_error_and_exit(msg)
+    #            #raise Exception(msg)
+    #        else:
+    #            return xRoot.findtext("response", None)
 
 
     def print_row(self, row, columns):
         
         values = []
         for col in columns:
-            if row[col]:
-                values.append(row[col])
+            if row.has_key(col):
+                if row[col]:
+                    values.append(row[col])
+                else:
+                    values.append("")
             else:
-                values.append("")
+                print("Error: result does not have attribute [%s]." % col)
+
         print "\t".join(values)
 
 

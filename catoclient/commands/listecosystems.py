@@ -28,8 +28,8 @@ class ListEcosystems(catoclient.catocommand.CatoCommand):
 
     def display_ecosystems(self, ecosystems):
 
-        ecosystems_dict = json.loads(ecosystems)
-        self.print_results(ecosystems_dict, ['ecosystem_id','ecosystem_name','storm_status'])
+        ecosystems_dict = json.loads(ecosystems) if ecosystems else {}
+        self.print_results(ecosystems_dict, ['ID','Name','StormStatus'])
 
     def main(self):
 
