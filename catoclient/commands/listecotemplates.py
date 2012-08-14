@@ -17,8 +17,6 @@
 import catoclient.catocommand
 from catoclient.param import Param
 
-import json
-
 class ListEcotemplates(catoclient.catocommand.CatoCommand):
 
     Description = 'Lists Ecotemplates'
@@ -29,8 +27,7 @@ class ListEcotemplates(catoclient.catocommand.CatoCommand):
     def main(self):
         try:
             results = self.call_api('ecoMethods/list_ecotemplates', ['filter'])
-            result_dict = json.loads(results) if results else {}
-            self.print_results(result_dict, ['ID','Name'])
+            print(results)
         except ValueError:
             # the results could not be parsed as JSON, just return them
             print(results)

@@ -17,8 +17,6 @@
 import catoclient.catocommand
 from catoclient.param import Param
 
-import json
-
 class ListEcosystems(catoclient.catocommand.CatoCommand):
 
     Description = 'Lists Ecosystems'
@@ -26,16 +24,11 @@ class ListEcosystems(catoclient.catocommand.CatoCommand):
                      optional=True, ptype='string',
                      doc='A filter.')]
 
-    def display_ecosystems(self, ecosystems):
-
-        ecosystems_dict = json.loads(ecosystems) if ecosystems else {}
-        self.print_results(ecosystems_dict, ['ID','Name','StormStatus'])
-
     def main(self):
 
         return self.call_api('ecoMethods/list_ecosystems', ['filter'])
 
     def main_cli(self):
-        ecosystems = self.main()
-        self.display_ecosystems(ecosystems)
+        results = self.main()
+        print(results)
 

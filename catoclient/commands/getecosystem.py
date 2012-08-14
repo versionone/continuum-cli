@@ -17,8 +17,6 @@
 import catoclient.catocommand
 from catoclient.param import Param
 
-import json
-
 class GetEcosystem(catoclient.catocommand.CatoCommand):
 
     Description = 'Gets an Ecosystem object.'
@@ -26,16 +24,11 @@ class GetEcosystem(catoclient.catocommand.CatoCommand):
                      optional=False, ptype='string',
                      doc='Value can be either an ecosystem id or ecosystem name.')]
 
-    def display_rows(self, results):
-
-        result_dict = json.loads(results) if results else {}
-        self.print_results(result_dict, ['ID','Name','StormStatus'])
-
     def main(self):
 
         return self.call_api('ecoMethods/get_ecosystem', ['ecosystem'])
 
     def main_cli(self):
         results = self.main()
-        self.display_rows(results)
+        print(results)
 

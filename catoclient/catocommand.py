@@ -51,7 +51,8 @@ except AttributeError as ex:
 class CatoCommand(object):
 
     Description = 'Base class'
-    StandardOptions = [Param(name='access_key',
+    StandardOptions = [
+                       Param(name='access_key',
                              short_name='a', long_name='access-key',
                              doc="User's Access Key ID.",
                              optional=True),
@@ -63,6 +64,9 @@ class CatoCommand(object):
                              short_name=None, long_name='config',
                              doc="""Read credentials from the specified config file.""",
                              optional=True),
+                       Param(name='output_format', short_name=None, long_name='format',
+                             doc='The output format.  (default=text, values=xml/json.)',
+                             optional=True, ptype='string', choices=['text', 'json', 'xml']),
                        Param(short_name=None, long_name='debug',
                              doc='Turn on debugging output.',
                              optional=True, ptype='boolean'),
@@ -74,7 +78,8 @@ class CatoCommand(object):
                              optional=True),
                        Param(short_name=None, long_name='version',
                              doc='Display the version of this tool.',
-                             optional=True, ptype='boolean')]
+                             optional=True, ptype='boolean')
+                       ]
     Options = []
     Args = []
 
@@ -129,7 +134,7 @@ class CatoCommand(object):
                         self.display_error_and_exit(msg)
                     if option.choices:
                         if value not in option.choices:
-                            msg = 'Value must be one of: %s' % '|'.join(option.choices)
+                            msg = '%s value must be one of: %s' % (option.long_name, '|'.join(option.choices))
                             self.display_error_and_exit(msg)
                     if option.cardinality in ('*', '+'):
                         if not hasattr(self, option.name):
@@ -141,7 +146,7 @@ class CatoCommand(object):
         self.check_required_options()
 
         for arg in self.Args:
-            if not arg.optional and len(args)==0:
+            if not arg.optional and len(args) == 0:
                 self.usage()
                 msg = 'Argument (%s) was not provided' % arg.name
                 self.display_error_and_exit(msg)
@@ -171,7 +176,7 @@ class CatoCommand(object):
                 opt.short_name = 'S'
 
     def find_option(self, op_name):
-        for option in self.StandardOptions+self.Options:
+        for option in self.StandardOptions + self.Options:
             if option.synopsis_short_name == op_name or option.synopsis_long_name == op_name:
                 return option
         return None
@@ -185,25 +190,25 @@ class CatoCommand(object):
 
     def long_options(self):
         l = []
-        for option in self.StandardOptions+self.Options:
+        for option in self.StandardOptions + self.Options:
             if option.long_name:
                 l.append(option.getopt_long_name)
         return l
 
     def required(self):
-        return [ opt for opt in self.StandardOptions+self.Options if not opt.optional ]
+        return [ opt for opt in self.StandardOptions + self.Options if not opt.optional ]
 
     def required_args(self):
         return [ arg for arg in self.Args if not arg.optional ]
 
     def optional(self):
-        return [ opt for opt in self.StandardOptions+self.Options if opt.optional ]
+        return [ opt for opt in self.StandardOptions + self.Options if opt.optional ]
 
     def optional_args(self):
         return [ arg for arg in self.Args if arg.optional ]
 
     def handle_defaults(self):
-        for option in self.Options+self.Args:
+        for option in self.Options + self.Args:
             if not hasattr(self, option.name):
                 value = option.default
                 if value is None and option.cardinality in ('+', '*'):
@@ -247,7 +252,7 @@ class CatoCommand(object):
                 if doclines:
                     print('    %s%s' % (','.join(names).ljust(n), doclines[0]))
                     for line in doclines[1:]:
-                        print('%s%s' % (' '*(n+4), line))
+                        print('%s%s' % (' ' * (n + 4), line))
 
     def option_synopsis(self, options):
         s = ''
@@ -287,17 +292,17 @@ class CatoCommand(object):
                     name = '[ %s ]' % name
                 arg_names.append(name)
             t += ' '.join(arg_names)
-        lines = textwrap.wrap(t, 80-n)
+        lines = textwrap.wrap(t, 80 - n)
         print s, lines[0]
         for line in lines[1:]:
-            print '%s%s' % (' '*n, line)
+            print '%s%s' % (' ' * n, line)
                 
     def usage(self):
         print '%s\n' % self.Description
         self.synopsis()
-        self.param_usage(self.required()+self.required_args(),
+        self.param_usage(self.required() + self.required_args(),
                          'REQUIRED PARAMETERS')
-        self.param_usage(self.optional()+self.optional_args(),
+        self.param_usage(self.optional() + self.optional_args(),
                          'OPTIONAL PARAMETERS')
 
     def display_error_and_exit(self, exc):
@@ -346,8 +351,19 @@ class CatoCommand(object):
         host = self.url
         key = self.access_key
         pw = self.secret_key
+        outfmt = "text"
+        # was a different output format specified?
+        # we limit the values to xml or json.
+        if hasattr(self, "output_format"):
+            x = getattr(self, "output_format")
+            if x:
+                if x == "xml" or x == "json":
+                    outfmt = x
+
+        
         args = {}
         for param in parameters:
+            #if hasattr(self, param):
             if getattr(self, param):
                 args[param] = getattr(self, param)
 
@@ -368,82 +384,56 @@ class CatoCommand(object):
         sig = base64.b64encode(hmac.new(str(pw), msg=string_to_sign, digestmod=hashlib.sha256).digest())
         sig = "&signature=" + urllib.quote_plus(sig)
 
-        url = "%s/%s%s%s" % (host, string_to_sign, sig, argstr)
+        of = "&output_format=%s" % outfmt
+        url = "%s/%s%s%s%s" % (host, string_to_sign, sig, argstr, of)
         
-        # for the command line client, we're using json output format from the API
-        url += "&output_format=json"
-
-        #NOTE: if a --querystring was passed on the command line, we just use it, no questions asked
-        #if querystring:
-        #    url += "&%s" % querystring
-
         response = self.http_get(url)
         if self.debug:
             print(response)
             
         if response:
-            try:
-                d = json.loads(response)
-                if d["ErrorCode"]:
-                    code = d["ErrorCode"]
-                    detail = d["ErrorDetail"]
-                    message = d["ErrorMessage"]
-                    if detail:
-                        msg = "%s, %s, %s" % code, (message, detail)
-                    self.display_error_and_exit(msg)
-                else:
-                    return d["Response"]
-            except ValueError:
-                print("Response JSON could not be parsed.")
-            except Exception as ex:
-                raise ex
-    #        xRoot = ET.fromstring(response)
-    #        if xRoot.findtext("error/code", None):
-    #            code = xRoot.findtext("error/code", "")
-    #            detail = xRoot.findtext("error/detail", None)
-    #            #detail = xRoot.findtext("error/detail", "")
-    #            msg = "ERROR: %s" % (code)
-    #            if detail:
-    #                msg = "%s, %s" % (msg, detail)
-    #            self.display_error_and_exit(msg)
-    #            #raise Exception(msg)
-    #        else:
-    #            return xRoot.findtext("response", None)
+            if outfmt == "json":
+                try:
+                    d = json.loads(response)
+                    if d["ErrorCode"]:
+                        code = d["ErrorCode"]
+                        detail = d["ErrorDetail"]
+                        message = d["ErrorMessage"]
+                        if detail:
+                            msg = "%s, %s, %s" % (code, message, detail)
+                        self.display_error_and_exit(msg)
+                    else:
+                        return d["Response"]
+                except ValueError:
+                    print("Response JSON could not be parsed.")
+                    return response
+                except Exception as ex:
+                    raise ex
+            elif outfmt == "xml":
+                try:
+                    xRoot = ET.fromstring(response)
+                    if xRoot.findtext("error/code", None):
+                        code = xRoot.findtext("error/code", "")
+                        detail = xRoot.findtext("error/detail", "")
+                        message = xRoot.findtext("error/message", "")
 
-
-    def print_row(self, row, columns):
-        
-        values = []
-        for col in columns:
-            if row.has_key(col):
-                if row[col]:
-                    values.append(row[col])
-                else:
-                    values.append("")
+                        msg = "%s, %s, %s" % (code, detail, message)
+                        self.display_error_and_exit(msg)
+                    else:
+                        innercontent = list(xRoot.find("response"))[0]
+                        return ET.tostring(innercontent)
+                except ValueError:
+                    print("Response XML could not be parsed.")
+                except Exception as ex:
+                    raise ex
             else:
-                print("Error: result does not have attribute [%s]." % col)
-
-        print "\t".join(values)
-
-
-    def print_results(self, results, columns=[]):
-
-        print "\t".join(columns)
-        if results:
-            if isinstance(results,list):
-                # if results is a list, there are more than one dicts
-                for row in results:
-                    self.print_row(row, columns)
-            else:
-                # should be a single dict
-                    self.print_row(results, columns)
-
-
+                return response
+                
     def get_relative_filename(self, filename):
         return os.path.split(filename)[-1]
 
     def get_file_path(self, filename):
-        relative_filename = self.get_relative_filename(filename)
+        # relative_filename = self.get_relative_filename(filename)
         file_path = os.path.dirname(filename)
         if len(file_path) == 0:
             file_path = '.'

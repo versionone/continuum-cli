@@ -17,8 +17,6 @@
 import catoclient.catocommand
 from catoclient.param import Param
 
-import json
-
 class GetEcosystemLog(catoclient.catocommand.CatoCommand):
 
     Description = 'Gets the run log for an Ecosystem.'
@@ -29,16 +27,11 @@ class GetEcosystemLog(catoclient.catocommand.CatoCommand):
                      optional=True, ptype='string',
                      doc='Will filter a value match in Object ID, Object Type, or Logical ID, Status or Log.')]
 
-    def display_rows(self, results):
-
-        result_dict = json.loads(results) if results else {}
-        self.print_results(result_dict, ['EcosystemObjectType','LogicalID','EcosystemObjectID', 'Status', 'Log'])
-
     def main(self):
 
         return self.call_api('ecoMethods/get_ecosystem_log', ['ecosystem', 'filter'])
 
     def main_cli(self):
         results = self.main()
-        self.display_rows(results)
+        print(results)
 
