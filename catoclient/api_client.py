@@ -15,8 +15,6 @@ base_path = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(sys.
 lib_path = os.path.join(base_path, "lib")
 sys.path.insert(0, lib_path)
 
-from catocommon import catocommon
-
 parser = argparse.ArgumentParser(description='Connect to the Cato API.')
 parser.add_argument('--host', help='The host url of the API service.')
 parser.add_argument('--method', '-m', help='The method to call.')
@@ -64,7 +62,7 @@ if files:
                 print("Unable to open file [%s]." % v)
             data = f_in.read()
             if data:
-                args[k] = catocommon.packData(data)
+                args[k] = packData(data)
 
 # Finally, a little magic here... if any unexpected args are passed, they'll be in the randomargs list.
 # there's no formatting there, so we're expecting the user to be smart enough to 
@@ -75,8 +73,10 @@ if files:
 print randomargs
 if randomargs:
     for pair in randomargs:
-        k, v = pair.split("=")
-        args[k] = v
+        print pair
+        if "=" in pair:
+            k, v = pair.split("=", 1)
+            args[k] = v
 
 
 
@@ -152,7 +152,11 @@ def call_api(host, method, key, pw, args):
     except Exception as ex:
         raise ex
 
-
+def packData(sIn):
+    # NOTE: this encoding scheme must match what's defined in the Cato server code.
+    # ( in the catocommon package )
+    sOut = base64.b64encode(str(sIn))
+    return sOut.replace("/", "%2F").replace("+", "%2B")
 
 # make the call
 result = call_api(host, method, access_key, secret_key, args)
