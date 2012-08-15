@@ -42,10 +42,10 @@ args = {}
 files = {}
 
 if methodargs:
-    host = methodargs["host"] if methodargs.has_key("host") and not cmdlineargs.host else cmdlineargs.host
+    host = methodargs["url"] if methodargs.has_key("url") and not cmdlineargs.host else cmdlineargs.host
     method = methodargs["method"] if methodargs.has_key("method") and not cmdlineargs.method else cmdlineargs.method
-    access_key = methodargs["accesskey"] if methodargs.has_key("accesskey") and not cmdlineargs.accesskey else cmdlineargs.accesskey
-    secret_key = methodargs["secretkey"] if methodargs.has_key("secretkey") and not cmdlineargs.secretkey else cmdlineargs.secretkey
+    access_key = methodargs["access_key"] if methodargs.has_key("access_key") and not cmdlineargs.accesskey else cmdlineargs.accesskey
+    secret_key = methodargs["secret_key"] if methodargs.has_key("secret_key") and not cmdlineargs.secretkey else cmdlineargs.secretkey
     args = methodargs["args"] if methodargs.has_key("args") else {}
     files = methodargs["files"] if methodargs.has_key("files") else {}
 

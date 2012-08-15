@@ -60,7 +60,7 @@ class CatoCommand(object):
                              short_name='s', long_name='secret-key',
                              doc="User's Secret Key.",
                              optional=True),
-                       Param(name='config_path',
+                       Param(name='config_file',
                              short_name=None, long_name='config',
                              doc="""Read credentials from the specified config file.""",
                              optional=True),
@@ -89,11 +89,38 @@ class CatoCommand(object):
         self.access_key = None
         self.secret_key = None
         self.url = None
-        self.config_file_path = None
+        self.config_file_name = None
         self.debug = 0
         self.set_debug(debug)
         self.cmd_name = os.path.basename(sys.argv[0])
         self.process_cli_args()
+        
+        # if there's a config file, we read it.
+        # any required values not explicitly specified on the command line,
+        # are read from the config file.
+        # there's a default file ".catoclient.conf", and you can override with the "config_file" argument
+        configargs = None
+        cfn = None
+        if self.config_file_name:
+            cfn = self.config_file_name
+        else:
+            cfn = "catoclient.conf"
+        
+        try:
+            with open(cfn, 'r') as f_in:
+                if f_in:
+                    configargs = json.loads(f_in.read())
+        except ValueError as ex:
+            # if a name was explicitly specified and is bad, bark... 
+            # if it's the default file and missing, don't complain
+            if cfn != "catoclient.conf":
+                print("The specified config file (%s) doesn't exist or the json format is invalid." % self.config_file_name)
+                self.error_exit()
+ 
+        if configargs:
+            # loop through the settings
+            for k, v in configargs.items():
+                setattr(self, k, v)
 
     def set_debug(self, debug=False):
         if debug:
@@ -122,7 +149,7 @@ class CatoCommand(object):
             elif name in ('-U', '--url'):
                 self.url = value
             elif name == '--config':
-                self.config_file_path = value
+                self.config_file_name = value
             else:
                 option = self.find_option(name)
                 if option:
