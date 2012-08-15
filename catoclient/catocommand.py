@@ -104,23 +104,43 @@ class CatoCommand(object):
         if self.config_file_name:
             cfn = self.config_file_name
         else:
-            cfn = "catoclient.conf"
+            cfn = ".catoclient.conf"
         
         try:
             with open(cfn, 'r') as f_in:
                 if f_in:
                     configargs = json.loads(f_in.read())
-        except ValueError as ex:
-            # if a name was explicitly specified and is bad, bark... 
-            # if it's the default file and missing, don't complain
-            if cfn != "catoclient.conf":
-                print("The specified config file (%s) doesn't exist or the json format is invalid." % self.config_file_name)
+        except IOError:
+            # if the file doesn't exist, warn and exit (but continue if there's no default config file).
+            if cfn != ".catoclient.conf":
+                print("The specified config file (%s) could not be found." % cfn)
                 self.error_exit()
+            else:
+                if self.debug:
+                    print("The default config file (%s) could not be found." % cfn)
+                    
+        except ValueError:
+            # if the format of either file is bad, bark about it
+            print("The specified config file (%s) json format is invalid." % cfn)
+            self.error_exit()
  
         if configargs:
             # loop through the settings
             for k, v in configargs.items():
-                setattr(self, k, v)
+                if hasattr(self, k):
+                    if not getattr(self, k):
+                        setattr(self, k, v)
+                        
+        # since the args can come from different sources, we have to explicitly check the required ones.
+        if not self.url:
+            print("URL is required, either via --url or in a config file.")
+            self.error_exit()
+        if not self.access_key:
+            print("Access Key is required, either via --access-key or in a config file.")
+            self.error_exit()
+        if not self.secret_key:
+            print("Secret Key is required, either via --secret-key or in a config file.")
+            self.error_exit()
 
     def set_debug(self, debug=False):
         if debug:

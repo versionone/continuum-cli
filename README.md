@@ -56,4 +56,25 @@ Then to run the command line tool:
 <pathtolibrary>/catoclient/bin/cato-list-ecosystems --url=http://localhost:4001 --access-key=<catouseruuid> --secret-key <catopassword> 
 ```
 
+### Configuration File
+
+A configuration file option is available to save common options (url, credentials, etc).
+The file, .catoclient.conf, is in json format.  Any values entered in this file become defaults for all commands.
+Typically this will include the url and access_key.
+
+An additional option, --config_file=foo.conf, allows you to specify a different json configuration file.
+This allows you to save your secret_key, if desired, in a more secure directory.
+
+Any arguments passed on the command line take precedence over values stored in config files.
+
+_NOTE: It's never a smart idea to save your secret key in a file, however the option is available._
+
+If url and credentials are put in the config file, then the commands can be executed more simply:
+
+```
+<pathtolibrary>/catoclient/bin/cato-list-ecosystems
+```
+
+
+
 See individual commands for usage.
