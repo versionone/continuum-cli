@@ -5,3 +5,11 @@
 *.egg-info
 
 bin/.catoclient.conf
+
+bin/run-storm
+
+bin/stop-storm
+
+catoclient/commands/runstorm.py
+
+catoclient/commands/stopstorm.py
