@@ -104,7 +104,7 @@ class CatoCommand(object):
         if self.config_file_name:
             cfn = self.config_file_name
         else:
-            cfn = ".catoclient.conf"
+            cfn = "%s/.catoclient.conf" % os.path.expanduser("~")
         
         try:
             with open(cfn, 'r') as f_in:
@@ -112,7 +112,7 @@ class CatoCommand(object):
                     configargs = json.loads(f_in.read())
         except IOError:
             # if the file doesn't exist, warn and exit (but continue if there's no default config file).
-            if cfn != ".catoclient.conf":
+            if cfn != "%s/.catoclient.conf" % os.path.expanduser("~"):
                 print("The specified config file (%s) could not be found." % cfn)
                 self.error_exit()
             else:
