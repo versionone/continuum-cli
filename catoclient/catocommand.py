@@ -75,10 +75,7 @@ class CatoCommand(object):
                              optional=True, ptype='boolean'),
                        Param(short_name='U', long_name='url',
                              doc='URL of the Cloud to connect to.',
-                             optional=True),
-                       Param(short_name=None, long_name='version',
-                             doc='Display the version of this tool.',
-                             optional=True, ptype='boolean')
+                             optional=True)
                        ]
     Options = []
     Args = []
@@ -158,8 +155,6 @@ class CatoCommand(object):
             if name in ('-h', '--help'):
                 self.usage()
                 sys.exit()
-            elif name == '--version':
-                self.version()
             elif name == '--debug':
                 self.set_debug(True)
             elif name in (self.access_key_short_name, '--access-key'):
@@ -274,10 +269,6 @@ class CatoCommand(object):
         if missing:
             msg = 'These required options are missing: %s' % ','.join(missing)
             self.display_error_and_exit(msg)
-
-    def version(self):
-        print('.01')
-        sys.exit(0)
 
     def param_usage(self, plist, label, n=30):
         nn = 80 - n - 4
