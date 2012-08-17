@@ -5,8 +5,7 @@
 Cato Client interacts with the Cato CE environment via a REST API.  Command line tools are provided, 
 but any of the API calls can be made directly from any technology capable of making HTTP requests.
 
-Cato Client is Python, so there's no shortage of examples.  Included here are basic examples 
-in other technologies.
+Included here are several basic examples in selected languages.
 
 ## General Concepts
 
