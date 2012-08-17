@@ -13,3 +13,9 @@ bin/stop-storm
 catoclient/commands/runstorm.py
 
 catoclient/commands/stopstorm.py
+
+bin/cato-run-storm
+
+bin/cato-stop-storm
+
+bin/.DS_Store
