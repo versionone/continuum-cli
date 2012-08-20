@@ -406,7 +406,7 @@ class CatoCommand(object):
                 args[param] = getattr(self, param)
 
         if len(args):
-            arglst = ["&%s=%s" % (k, urllib.quote_plus(v)) for k, v in args.items()]
+            arglst = ["&%s=%s" % (k, urllib.quote_plus(str(v))) for k, v in args.items()]
             argstr = "".join(arglst)
         else:
             argstr = ""
