@@ -58,6 +58,6 @@ setuptools.setup(
              'bin/cato-list-tasks',
              'bin/cato-run-ecosystem-action',
              'bin/cato-run-task',
-             'bin/cato-stop-task],
+             'bin/cato-stop-task'],
     py_modules=[])
 
