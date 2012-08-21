@@ -22,9 +22,12 @@ class ListTasks(catoclient.catocommand.CatoCommand):
     Description = 'Lists Tasks'
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',
-                     doc='A filter.')]
+                     doc='A filter.'),
+              Param(name='show_all_versions', short_name='v', long_name='show_all_versions',
+                     optional=True, ptype='boolean',
+                     doc='Show all Versions, not just the "default".')]
 
     def main(self):
-        results = self.call_api('taskMethods/list_tasks', ['filter'])
+        results = self.call_api('taskMethods/list_tasks', ['filter', 'show_all_versions'])
         print(results)
 
