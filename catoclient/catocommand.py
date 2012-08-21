@@ -53,27 +53,27 @@ class CatoCommand(object):
     Description = 'Base class'
     StandardOptions = [
                        Param(name='access_key',
-                             short_name='a', long_name='access-key',
+                             short_name='A', long_name='access-key',
                              doc="User's Access Key ID.",
                              optional=True),
                        Param(name='secret_key',
-                             short_name='s', long_name='secret-key',
+                             short_name='S', long_name='secret-key',
                              doc="User's Secret Key.",
                              optional=True),
                        Param(name='config_file',
-                             short_name=None, long_name='config',
+                             short_name='C', long_name='config',
                              doc="""Read credentials from the specified config file.""",
                              optional=True),
-                       Param(name='output_format', short_name=None, long_name='format',
+                       Param(name='output_format', short_name='F', long_name='format',
                              doc='The output format.  (default=text, values=xml/json.)',
                              optional=True, ptype='string', choices=['text', 'json', 'xml']),
-                       Param(short_name=None, long_name='debug',
+                       Param(name='debug', short_name='D', long_name='debug',
                              doc='Turn on debugging output.',
                              optional=True, ptype='boolean'),
-                       Param(short_name='h', long_name='help',
+                       Param(name='help', short_name='H', long_name='help',
                              doc='Display this help message.',
                              optional=True, ptype='boolean'),
-                       Param(short_name='U', long_name='url',
+                       Param(name='url', short_name='U', long_name='url',
                              doc='URL of the Cloud to connect to.',
                              optional=True)
                        ]
@@ -81,8 +81,6 @@ class CatoCommand(object):
     Args = []
 
     def __init__(self, debug=False):
-        self.access_key_short_name = '-a'
-        self.secret_key_short_name = '-s'
         self.access_key = None
         self.secret_key = None
         self.url = None
@@ -152,18 +150,12 @@ class CatoCommand(object):
             print(e)
             sys.exit(1)
         for (name, value) in opts:
-            if name in ('-h', '--help'):
+            if name in ('-H', '--help'):
                 self.usage()
                 sys.exit()
-            elif name == '--debug':
+            elif name in ('-D', '--debug'):
                 self.set_debug(True)
-            elif name in (self.access_key_short_name, '--access-key'):
-                self.access_key = value
-            elif name in (self.secret_key_short_name, '--secret-key'):
-                self.secret_key = value
-            elif name in ('-U', '--url'):
-                self.url = value
-            elif name == '--config':
+            elif name in ('-C', '--config'):
                 self.config_file_name = value
             else:
                 option = self.find_option(name)
@@ -174,6 +166,7 @@ class CatoCommand(object):
                         msg = '%s should be of type %s' % (option.long_name,
                                                            option.ptype)
                         self.display_error_and_exit(msg)
+
                     if option.choices:
                         if value not in option.choices:
                             msg = '%s value must be one of: %s' % (option.long_name, '|'.join(option.choices))
@@ -207,15 +200,15 @@ class CatoCommand(object):
                     msg = 'Only 1 argument (%s) permitted' % arg.name
                     self.display_error_and_exit(msg)
 
-    def check_for_conflict(self):
-        for option in self.Options:
-            if option.short_name == 'a' or option.short_name == 's':
-                self.access_key_short_name = '-A'
-                self.secret_key_short_name = '-S'
-                opt = self.find_option('--access-key')
-                opt.short_name = 'A'
-                opt = self.find_option('--secret-key')
-                opt.short_name = 'S'
+#    def check_for_conflict(self):
+#        for option in self.Options:
+#            if option.short_name == 'a' or option.short_name == 's':
+#                self.access_key_short_name = '-A'
+#                self.secret_key_short_name = '-S'
+#                opt = self.find_option('--access-key')
+#                opt.short_name = 'A'
+#                opt = self.find_option('--secret-key')
+#                opt.short_name = 'S'
 
     def find_option(self, op_name):
         for option in self.StandardOptions + self.Options:
