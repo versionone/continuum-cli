@@ -17,17 +17,20 @@
 import catoclient.catocommand
 from catoclient.param import Param
 
-class ListTasks(catoclient.catocommand.CatoCommand):
+class GetTask(catoclient.catocommand.CatoCommand):
 
-    Description = 'Lists Tasks'
-    Options = [Param(name='filter', short_name='f', long_name='filter',
+    Description = 'Gets a Task object.'
+    Options = [Param(name='task', short_name='t', long_name='task',
+                     optional=False, ptype='string',
+                     doc='The ID or Name of a Task.'),
+               Param(name='version', short_name='v', long_name='version',
                      optional=True, ptype='string',
-                     doc='A filter.'),
-              Param(name='show_all_versions', short_name='v', long_name='show_all_versions',
+                     doc='An optional specific Task Version. (Default if omitted.)'),
+              Param(name='include_code', short_name='v', long_name='include_code',
                      optional=True, ptype='boolean',
-                     doc='Show all Versions, not just the "default".')]
+                     doc='Include all code.')]
 
     def main(self):
-        results = self.call_api('taskMethods/list_tasks', ['filter', 'show_all_versions'])
+        results = self.call_api('taskMethods/get_task', ['task', 'version', 'include_code'])
         print(results)
 

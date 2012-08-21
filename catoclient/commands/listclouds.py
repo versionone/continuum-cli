@@ -17,17 +17,14 @@
 import catoclient.catocommand
 from catoclient.param import Param
 
-class ListTasks(catoclient.catocommand.CatoCommand):
+class ListClouds(catoclient.catocommand.CatoCommand):
 
-    Description = 'Lists Tasks'
+    Description = 'Lists Clouds'
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',
-                     doc='A filter.'),
-              Param(name='show_all_versions', short_name='v', long_name='show_all_versions',
-                     optional=True, ptype='boolean',
-                     doc='Show all Versions, not just the "default".')]
+                     doc='A filter.')]
 
     def main(self):
-        results = self.call_api('taskMethods/list_tasks', ['filter', 'show_all_versions'])
+        results = self.call_api('cloudMethods/list_clouds', ['filter'])
         print(results)
 
