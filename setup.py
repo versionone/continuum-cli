@@ -63,7 +63,9 @@ setuptools.setup(
             'bin/cato-list-processes',
             'bin/cato-list-tasks',
             'bin/cato-run-ecosystem-action',
+            'bin/cato-run-storm',
             'bin/cato-run-task',
+            'bin/cato-stop-storm',
             'bin/cato-stop-task',
             'bin/cato-version'],
     py_modules=[])
