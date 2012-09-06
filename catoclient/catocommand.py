@@ -451,8 +451,12 @@ class CatoCommand(object):
                         msg = "%s, %s, %s" % (code, detail, message)
                         self.display_error_and_exit(msg)
                     else:
-                        innercontent = list(xRoot.find("response"))[0]
-                        return ET.tostring(innercontent)
+                        # the response might have inner content, or it might have just text
+                        try:
+                            innercontent = list(xRoot.find("response"))[0]
+                            return ET.tostring(innercontent)
+                        except IndexError:
+                            return xRoot.findtext("response", "")
                 except ValueError:
                     print("Response XML could not be parsed.")
                 except Exception as ex:

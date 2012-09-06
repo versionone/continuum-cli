@@ -31,7 +31,7 @@ class RunStorm(catoclient.catocommand.CatoCommand):
                      doc='The ID or Name of Cloud Account credentials to use.'),
                Param(name='cloud', short_name='c', long_name='cloud',
                      optional=False, ptype='string',
-                     doc='The ID or Name of Cloud where the resources will be provisioned.'),
+                     doc='The ID or Name of a Cloud where the resources will be provisioned.'),
                Param(name='parameterfile', short_name='p', long_name='parameterfile',
                      optional=True, ptype='string',
                      doc='The file name of a Parameter XML file.')
