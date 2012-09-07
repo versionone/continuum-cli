@@ -7,3 +7,5 @@
 bin/.catoclient.conf
 
 bin/.DS_Store
+
+catoclient/commands/.DS_Store
