@@ -30,11 +30,11 @@ echo API CALL: $API
 # the command file
 sed -e "s/~CLASS~/$CLASS/g" bin/command-template > bin/$COMMANDFILENAME
 sed -i "" "s/~METHOD~/$METHOD/g" bin/$COMMANDFILENAME
+chmod 755 bin/$COMMANDFILENAME
 
 
 # the source file
 sed -e "s/~METHOD~/$METHOD/g" catoclient/commands/commandtemplate.py > catoclient/commands/$CLASS.py
 sed -i "" "s/~MODULE~/$MODULE/g" catoclient/commands/$CLASS.py
 sed -i "" "s/~APICALL~/$API/g" catoclient/commands/$CLASS.py
-
 
