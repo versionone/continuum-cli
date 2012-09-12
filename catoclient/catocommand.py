@@ -67,6 +67,9 @@ class CatoCommand(object):
                        Param(name='output_format', short_name='F', long_name='format',
                              doc='The output format.  (default=text, values=xml/json.)',
                              optional=True, ptype='string', choices=['text', 'json', 'xml']),
+                       Param(name='output_delimiter', short_name='L', long_name='output_delimiter',
+                             doc='Delimiter for "Text" output format. (Default is TAB)',
+                             optional=True, ptype='string'),
                        Param(name='debug', short_name='D', long_name='debug',
                              doc='Turn on debugging output.',
                              optional=True, ptype='boolean'),
@@ -75,7 +78,10 @@ class CatoCommand(object):
                              optional=True, ptype='boolean'),
                        Param(name='url', short_name='U', long_name='url',
                              doc='URL of the Cloud to connect to.',
-                             optional=True)
+                             optional=True),
+                       Param(name='force', long_name='force',
+                             doc='Force "yes" on "Are you sure?" prompts.',
+                             optional=True, ptype='boolean')
                        ]
     Options = []
     Args = []
@@ -86,6 +92,7 @@ class CatoCommand(object):
         self.url = None
         self.config_file_name = None
         self.debug = 0
+        self.force = False
         self.set_debug(debug)
         self.cmd_name = os.path.basename(sys.argv[0])
         self.process_cli_args()
@@ -140,6 +147,10 @@ class CatoCommand(object):
     def set_debug(self, debug=False):
         if debug:
             self.debug = 2
+
+    def set_force(self, force=True):
+        if force:
+            self.force = True
 
     def process_cli_args(self):
         try:
@@ -383,6 +394,7 @@ class CatoCommand(object):
         key = self.access_key
         pw = self.secret_key
         outfmt = "text"
+        outdel = ""
         # was a different output format specified?
         # we limit the values to xml or json.
         if hasattr(self, "output_format"):
@@ -390,6 +402,12 @@ class CatoCommand(object):
             if x:
                 if x == "xml" or x == "json":
                     outfmt = x
+        # are we using a custom delimiter?
+        if hasattr(self, "output_delimiter"):
+            x = getattr(self, "output_delimiter")
+            if x is not None:
+                outdel = x
+        
 
         
         args = {}
@@ -416,7 +434,8 @@ class CatoCommand(object):
         sig = "&signature=" + urllib.quote_plus(sig)
 
         of = "&output_format=%s" % outfmt
-        url = "%s/%s%s%s%s" % (host, string_to_sign, sig, argstr, of)
+        od = "&output_delimiter=%s" % urllib.quote_plus(outdel)
+        url = "%s/%s%s%s%s%s" % (host, string_to_sign, sig, argstr, of, od)
         
         response = self.http_get(url)
         if self.debug:
