@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 #########################################################################
 # Copyright 2011 Cloud Sidekick
 #
@@ -14,21 +16,10 @@
 # limitations under the License.
 #########################################################################
 
-import catoclient.catocommand
-from catoclient.param import Param
 
-class ListEcosystems(catoclient.catocommand.CatoCommand):
+import catoclient.commands.resubmittaskinstance
 
-    Description = 'Lists Ecosystems'
-    Options = [Param(name='filter', short_name='f', long_name='filter',
-                     optional=True, ptype='string',
-                     doc='A filter.')]
-
-    def main(self):
-
-        return self.call_api('ecoMethods/list_ecosystems', ['filter'])
-
-    def main_cli(self):
-        results = self.main()
-        print(results)
+if __name__ == '__main__':
+    cmd = catoclient.commands.resubmittaskinstance.ResubmitTaskInstance()
+    cmd.main()
 

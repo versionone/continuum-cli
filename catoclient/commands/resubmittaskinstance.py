@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 #########################################################################
 # Copyright 2011 Cloud Sidekick
 #
@@ -16,10 +14,16 @@
 # limitations under the License.
 #########################################################################
 
+import catoclient.catocommand
+from catoclient.param import Param
 
-import catoclient.commands.createecosystem
+class ResubmitTaskInstance(catoclient.catocommand.CatoCommand):
 
-if __name__ == '__main__':
-    cmd = catoclient.commands.createecosystem.CreateEcosystem()
-    cmd.main()
+    Description = 'Resubmit an Errored, Cancelled or Completed Cato Task Instance.'
+    Options = [Param(name='instance', short_name='i', long_name='instance',
+                     optional=False, ptype='string',
+                     doc='The Instance ID.')]
 
+    def main(self):
+        results = self.call_api('taskMethods/resubmit_task_instance', ['instance'])
+        print(results)

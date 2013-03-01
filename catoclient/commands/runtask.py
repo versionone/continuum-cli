@@ -32,9 +32,9 @@ class RunTask(catoclient.catocommand.CatoCommand):
                Param(name='account', short_name='a', long_name='account',
                      optional=True, ptype='string',
                      doc='The ID or Name of Cloud Account credentials for the Task.'),
-               Param(name='ecosystem', short_name='e', long_name='ecosystem',
+               Param(name='service_instance', short_name='i', long_name='service_instance',
                      optional=True, ptype='string',
-                     doc='The ID or Name of an Ecosystem.'),
+                     doc='The ID of a Service Instance.'),
                Param(name='parameterfile', short_name='p', long_name='parameterfile',
                      optional=True, ptype='string',
                      doc='The file name of a Parameter XML file.')
@@ -54,7 +54,7 @@ class RunTask(catoclient.catocommand.CatoCommand):
                     if data:
                         self.parameter_xml = data
 
-            results = self.call_api('taskMethods/run_task', ['task', 'version', 'log_level', 'account', 'ecosystem', 'parameter_xml'])
+            results = self.call_api('taskMethods/run_task', ['task', 'version', 'log_level', 'account', 'service_instance', 'parameter_xml'])
             print(results)
         except ValueError:
             # the results could not be parsed as JSON, just return them
