@@ -24,6 +24,9 @@ class ListMethods(catoclient.catocommand.CatoCommand):
 
     def main(self):
         self.listonly = True
+        # output format for this command is limited to text
+        self.output_format = "text"
+        
         results = self.call_api('', ['listonly'])
         print(results)
 

@@ -53,7 +53,7 @@ export PYTHONPATH=<pathtolibrary>/catoclient
 Then to run the command line tool:
 
 ```
-<pathtolibrary>/catoclient/bin/cato-list-ecosystems --url=http://localhost:4001 --access-key=<catouseruuid> --secret-key <catopassword> 
+<pathtolibrary>/catoclient/bin/cato-list-tasks --url=http://localhost:4001 --access-key=<catouseruuid> --secret-key <catopassword> 
 ```
 
 ### Configuration File
@@ -73,7 +73,7 @@ _NOTE: It's never a smart idea to save your secret key in a file, however the op
 If url and credentials are put in the config file, then the commands can be executed more simply:
 
 ```
-<pathtolibrary>/catoclient/bin/cato-list-ecosystems
+<pathtolibrary>/catoclient/bin/cato-list-tasks
 ```
 
 

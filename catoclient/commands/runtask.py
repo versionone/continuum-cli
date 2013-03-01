@@ -45,7 +45,8 @@ class RunTask(catoclient.catocommand.CatoCommand):
             # first, we need to load the parameters xml from a file
             self.parameter_xml = None
             if self.parameterfile:
-                fn = self.parameterfile
+                import os
+                fn = os.path.expanduser(self.parameterfile)
                 with open(fn, 'r') as f_in:
                     if not f_in:
                         print("Unable to open file [%s]." % fn)

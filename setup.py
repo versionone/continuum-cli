@@ -19,6 +19,10 @@ import setuptools
 
 from catoclient import __version__
 
+binscripts = []
+for f in os.listdir("bin"):
+    binscripts.append("bin/"+f)
+
 setuptools.setup(
     name='catoclient',
     version = __version__,
@@ -40,33 +44,6 @@ setuptools.setup(
         'Programming Language :: Python :: 2.7',
         'Environment :: No Input/Output (Daemon)',
     ],
-    scripts=['bin/cato-create-ecosystem',
-            'bin/cato-create-ecotemplate',
-            'bin/cato-describe-task-parameters',
-            'bin/cato-get-active-tasks',
-            'bin/cato-get-ecosystem',
-            'bin/cato-get-ecosystem-actions',
-            'bin/cato-get-ecosystem-log',
-            'bin/cato-get-ecosystem-objects',
-            'bin/cato-get-ecotemplate',
-            'bin/cato-get-task',
-            'bin/cato-get-task-instance',
-            'bin/cato-get-task-instance-status',
-            'bin/cato-get-task-instances',
-            'bin/cato-get-task-log',
-            'bin/cato-get-task-parameters-template',
-            'bin/cato-list-cloud-accounts',
-            'bin/cato-list-clouds',
-            'bin/cato-list-ecosystems',
-            'bin/cato-list-ecotemplates',
-            'bin/cato-list-methods',
-            'bin/cato-list-processes',
-            'bin/cato-list-tasks',
-            'bin/cato-run-ecosystem-action',
-            'bin/cato-run-storm',
-            'bin/cato-run-task',
-            'bin/cato-stop-storm',
-            'bin/cato-stop-task',
-            'bin/cato-version'],
+    scripts=binscripts,
     py_modules=[])
 

@@ -21,7 +21,7 @@ Making calls to the Cato REST API has a few requirements:
 All API requests must be signed with a specific mechanism.  Here's an example of a string to be signed:
 
 ```
-ecoMethods/list_ecosystems?key=0002bdaf-bfd5-4b9d-82d1-fd39c2947d19&timestamp=2012-08-16T15%3A54%3A27
+taskMethods/list_tasks?key=0002bdaf-bfd5-4b9d-82d1-fd39c2947d19&timestamp=2012-08-16T15%3A54%3A27
 ```
 
 The string to sign has the following components:
@@ -78,47 +78,33 @@ If there was an error, the following additional attributes will be available:
 
 ### XML
 
-Here's an example of a successful _ecoMethods/get_ecosystem_ request:
+Here's an example of a successful _taskMethods/get_task_ request:
+(not all properties are represented in the sample result)
 
 ```
 <apiResponse>
 	<method>
-		ecoMethods/get_ecosystem
+		taskMethods/get_task
 	</method>
 	<response>
-		<Ecosystem>
-			<LastUpdate>
-				2012-08-07 14:59:55
-			</LastUpdate>
-			<Description>
-				This is an example Ecosystem.
-			</Description>
-			<EcotemplateID>
-				e7c2c10e-1ee4-43af-847c-034ef34c23d8
-			</EcotemplateID>
-			<CreatedDate>
-				2012-08-07 14:59:55
-			</CreatedDate>
-			<EcotemplateName>
-				My Generic Template
-			</EcotemplateName>
+		<Task>
 			<Name>
-				Sample Ecosystem
+				Sample Task
 			</Name>
 			<ID>
 				1375d4d9-e0c2-11e1-84ac-c8bcc89c1491
 			</ID>
-		</Ecosystem>
+		</Task>
 	</response>
 </apiResponse>
 ```
 
-Here's an example of the same request, but with an invalid Ecosystem specified:
+Here's an example of the same request, but with an invalid Task specified:
 
 ```
 <apiResponse>
 	<method>
-		ecoMethods/get_ecosystem
+		taskMethods/get_task
 	</method>
 	<response />
 	<error>
@@ -127,7 +113,7 @@ Here's an example of the same request, but with an invalid Ecosystem specified:
 		</code>
 		<message />
 		<detail>
-			Error getting Ecosystem ID for Name [bogus] - no record found.
+			Error getting Task ID for Name [bogus] - no record found.
 		</detail>
 	</error>
 </apiResponse>
@@ -142,9 +128,9 @@ _Notice the Response here is also a JSON object, but escaped._
 {
     "ErrorCode": "",
     "ErrorMessage": "",
-    "Method": "ecoMethods/get_ecosystem",
+    "Method": "taskMethods/get_task",
     "ErrorDetail": "",
-    "Response": "{\"LastUpdate\": \"2012-08-07 14:59:55\", \"Description\": \"\", \"ParameterXML\": null, \"CloudID\": null, \"NumObjects\": \"0\", \"StormStatus\": \"Error\", \"EcotemplateID\": \"e7c2c10e-1ee4-43af-847c-034ef34c23d8\", \"CreatedDate\": \"2012-08-07 14:59:55\", \"EcotemplateName\": \"Text\", \"Name\": \"foo\", \"StormFile\": \"{\\n    \\\"AWSTemplateFormatVersion\\\": \\\"2010-09-09\\\",\\n    \\\"Description\\\": \\\"AWS CloudFormation Sample Template WordPress_Single_Instance: WordPress is web software you can use to create a beautiful website or blog. This template installs a single-instance WordPress deployment using a local MySQL database to store the data. It demonstrates using the AWS CloudFormation bootstrap scripts to install packages and files at instance launch time. **WARNING** This template creates an Amazon EC2 instance. You will be billed for the AWS resources used if you create a stack from this template.\\\"\\n}\", \"ID\": \"1375d4d9-e0c2-11e1-84ac-c8bcc89c1491\", \"AccountID\": \"asdf\"}"
+    "Response": "{\"TaskID\": \"e7c2c10e-1ee4-43af-847c-034ef34c23d8\", \"TaskName\": \"Sample Task\"}"
 }
 ```
 
@@ -154,8 +140,8 @@ And the error:
 {
     "ErrorCode": "Exception",
     "ErrorMessage": "",
-    "Method": "ecoMethods/get_ecosystem",
-    "ErrorDetail": "Error getting Ecosystem ID for Name [ttt] - no record found. ",
+    "Method": "taskMethods/get_task",
+    "ErrorDetail": "Error getting Task ID for Name [ttt] - no record found. ",
     "Response": ""
 }
 ```

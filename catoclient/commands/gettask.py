@@ -26,7 +26,7 @@ class GetTask(catoclient.catocommand.CatoCommand):
                Param(name='version', short_name='v', long_name='version',
                      optional=True, ptype='string',
                      doc='An optional specific Task Version. (Default if omitted.)'),
-              Param(name='include_code', short_name='v', long_name='include_code',
+              Param(name='include_code', short_name='i', long_name='include_code',
                      optional=True, ptype='boolean',
                      doc='Include all code.')]
 

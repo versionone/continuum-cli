@@ -25,8 +25,5 @@ class GetTaskInstance(catoclient.catocommand.CatoCommand):
                      doc='The Instance ID.')]
 
     def main(self):
-        try:
-            results = self.call_api('taskMethods/get_task_instance', ['instance'])
-            print(results)
-        except Exception as ex:
-            raise ex
+        results = self.call_api('taskMethods/get_task_instance', ['instance'])
+        print(results)
