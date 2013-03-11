@@ -275,9 +275,9 @@ class CatoCommand(object):
             self.display_error_and_exit(msg)
 
     def param_usage(self, plist, label, n=30):
-        nn = 80 - n - 4
+        nn = 80 - n - 8
         if plist:
-            print('\n%s' % label)
+            print('    %s' % label)
             for opt in plist:
                 names = []
                 if opt.short_name:
@@ -292,9 +292,9 @@ class CatoCommand(object):
                     vv = 'Valid Values: %s' % '|'.join(opt.choices)
                     doclines += textwrap.wrap(vv, nn)
                 if doclines:
-                    print('    %s%s' % (','.join(names).ljust(n), doclines[0]))
+                    print('        %s%s' % (','.join(names).ljust(n), doclines[0]))
                     for line in doclines[1:]:
-                        print('%s%s' % (' ' * (n + 4), line))
+                        print('%s%s' % (' ' * (n + 8), line))
 
     def option_synopsis(self, options):
         s = ''
@@ -340,12 +340,14 @@ class CatoCommand(object):
             print '%s%s' % (' ' * n, line)
                 
     def usage(self):
-        print '%s\n' % self.Description
-        self.synopsis()
-        self.param_usage(self.required() + self.required_args(),
+        print '    %s\n' % self.Description
+        # self.synopsis()
+        self.param_usage([ opt for opt in self.Options if not opt.optional ],
                          'REQUIRED PARAMETERS')
-        self.param_usage(self.optional() + self.optional_args(),
+        self.param_usage([ opt for opt in self.Options if opt.optional ],
                          'OPTIONAL PARAMETERS')
+#        self.param_usage([ opt for opt in self.StandardOptions ],
+#                         'STANDARD PARAMETERS')
 
     def display_error_and_exit(self, exc):
         try:
