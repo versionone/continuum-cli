@@ -20,9 +20,9 @@
 #########################################################################
 
 
-import catoclient.commands.createdeployment
+import maestroclient.commands.createdeployment
 
 if __name__ == '__main__':
-    cmd = catoclient.commands.createdeployment.CreateDeployment()
+    cmd = maestroclient.commands.createdeployment.CreateDeployment()
     cmd.main()
 

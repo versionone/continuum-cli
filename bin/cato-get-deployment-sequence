@@ -20,9 +20,9 @@
 #########################################################################
 
 
-import catoclient.commands.getdeploymentsequence
+import maestroclient.commands.getdeploymentsequence
 
 if __name__ == '__main__':
-    cmd = catoclient.commands.getdeploymentsequence.GetDeploymentSequence()
+    cmd = maestroclient.commands.getdeploymentsequence.GetDeploymentSequence()
     cmd.main()
 

@@ -20,9 +20,9 @@
 #########################################################################
 
 
-import catoclient.commands.resubmitsequenceinstance
+import maestroclient.commands.resubmitsequenceinstance
 
 if __name__ == '__main__':
-    cmd = catoclient.commands.resubmitsequenceinstance.ResubmitSequenceInstance()
+    cmd = maestroclient.commands.resubmitsequenceinstance.ResubmitSequenceInstance()
     cmd.main()
 

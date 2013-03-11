@@ -20,9 +20,9 @@
 #########################################################################
 
 
-import catoclient.commands.listdeployments
+import maestroclient.commands.listdeployments
 
 if __name__ == '__main__':
-    cmd = catoclient.commands.listdeployments.ListDeployments()
+    cmd = maestroclient.commands.listdeployments.ListDeployments()
     cmd.main()
 

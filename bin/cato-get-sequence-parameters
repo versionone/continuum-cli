@@ -20,9 +20,9 @@
 #########################################################################
 
 
-import catoclient.commands.getsequenceparameters
+import maestroclient.commands.getsequenceparameters
 
 if __name__ == '__main__':
-    cmd = catoclient.commands.getsequenceparameters.GetSequenceParameters()
+    cmd = maestroclient.commands.getsequenceparameters.GetSequenceParameters()
     cmd.main()
 

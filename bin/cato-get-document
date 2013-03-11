@@ -20,9 +20,9 @@
 #########################################################################
 
 
-import catoclient.commands.getdocument
+import maestroclient.commands.getdocument
 
 if __name__ == '__main__':
-    cmd = catoclient.commands.getdocument.GetDocument()
+    cmd = maestroclient.commands.getdocument.GetDocument()
     cmd.main()
 

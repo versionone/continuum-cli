@@ -20,9 +20,9 @@
 #########################################################################
 
 
-import catoclient.commands.deletedeploymentservicestate
+import maestroclient.commands.deletedeploymentservicestate
 
 if __name__ == '__main__':
-    cmd = catoclient.commands.deletedeploymentservicestate.DeleteDeploymentServiceState()
+    cmd = maestroclient.commands.deletedeploymentservicestate.DeleteDeploymentServiceState()
     cmd.main()
 

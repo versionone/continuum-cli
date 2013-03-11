@@ -20,9 +20,9 @@
 #########################################################################
 
 
-import catoclient.commands.stopsequence
+import maestroclient.commands.stopsequence
 
 if __name__ == '__main__':
-    cmd = catoclient.commands.stopsequence.StopSequence()
+    cmd = maestroclient.commands.stopsequence.StopSequence()
     cmd.main()
 

@@ -20,9 +20,9 @@
 #########################################################################
 
 
-import catoclient.commands.addsequencestep
+import maestroclient.commands.addsequencestep
 
 if __name__ == '__main__':
-    cmd = catoclient.commands.addsequencestep.AddSequenceStep()
+    cmd = maestroclient.commands.addsequencestep.AddSequenceStep()
     cmd.main()
 

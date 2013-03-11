@@ -20,9 +20,9 @@
 #########################################################################
 
 
-import catoclient.commands.addservicetosequencestep
+import maestroclient.commands.addservicetosequencestep
 
 if __name__ == '__main__':
-    cmd = catoclient.commands.addservicetosequencestep.AddServiceToSequenceStep()
+    cmd = maestroclient.commands.addservicetosequencestep.AddServiceToSequenceStep()
     cmd.main()
 

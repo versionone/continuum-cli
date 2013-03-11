@@ -20,9 +20,9 @@
 #########################################################################
 
 
-import catoclient.commands.runaction
+import maestroclient.commands.runaction
 
 if __name__ == '__main__':
-    cmd = catoclient.commands.runaction.RunAction()
+    cmd = maestroclient.commands.runaction.RunAction()
     cmd.main()
 

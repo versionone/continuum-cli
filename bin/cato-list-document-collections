@@ -20,9 +20,9 @@
 #########################################################################
 
 
-import catoclient.commands.listdocumentcollections
+import maestroclient.commands.listdocumentcollections
 
 if __name__ == '__main__':
-    cmd = catoclient.commands.listdocumentcollections.ListDocumentCollections()
+    cmd = maestroclient.commands.listdocumentcollections.ListDocumentCollections()
     cmd.main()
 

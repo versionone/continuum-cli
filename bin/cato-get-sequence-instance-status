@@ -20,9 +20,9 @@
 #########################################################################
 
 
-import catoclient.commands.getsequenceinstancestatus
+import maestroclient.commands.getsequenceinstancestatus
 
 if __name__ == '__main__':
-    cmd = catoclient.commands.getsequenceinstancestatus.GetSequenceInstanceStatus()
+    cmd = maestroclient.commands.getsequenceinstancestatus.GetSequenceInstanceStatus()
     cmd.main()
 

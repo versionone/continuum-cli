@@ -20,9 +20,9 @@
 #########################################################################
 
 
-import catoclient.commands.describedeployment
+import maestroclient.commands.describedeployment
 
 if __name__ == '__main__':
-    cmd = catoclient.commands.describedeployment.DescribeDeployment()
+    cmd = maestroclient.commands.describedeployment.DescribeDeployment()
     cmd.main()
 

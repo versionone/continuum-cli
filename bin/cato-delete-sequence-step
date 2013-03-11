@@ -20,9 +20,9 @@
 #########################################################################
 
 
-import catoclient.commands.deletesequencestep
+import maestroclient.commands.deletesequencestep
 
 if __name__ == '__main__':
-    cmd = catoclient.commands.deletesequencestep.DeleteSequenceStep()
+    cmd = maestroclient.commands.deletesequencestep.DeleteSequenceStep()
     cmd.main()
 

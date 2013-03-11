@@ -20,9 +20,9 @@
 #########################################################################
 
 
-import catoclient.commands.createdocument
+import maestroclient.commands.createdocument
 
 if __name__ == '__main__':
-    cmd = catoclient.commands.createdocument.CreateDocument()
+    cmd = maestroclient.commands.createdocument.CreateDocument()
     cmd.main()
 

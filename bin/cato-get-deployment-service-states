@@ -20,9 +20,9 @@
 #########################################################################
 
 
-import catoclient.commands.getdeploymentservicestates
+import maestroclient.commands.getdeploymentservicestates
 
 if __name__ == '__main__':
-    cmd = catoclient.commands.getdeploymentservicestates.GetDeploymentServiceStates()
+    cmd = maestroclient.commands.getdeploymentservicestates.GetDeploymentServiceStates()
     cmd.main()
 

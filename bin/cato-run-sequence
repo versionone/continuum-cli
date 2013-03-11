@@ -20,9 +20,9 @@
 #########################################################################
 
 
-import catoclient.commands.runsequence
+import maestroclient.commands.runsequence
 
 if __name__ == '__main__':
-    cmd = catoclient.commands.runsequence.RunSequence()
+    cmd = maestroclient.commands.runsequence.RunSequence()
     cmd.main()
 
