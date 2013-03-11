@@ -25,9 +25,13 @@ class GetTaskParametersTemplate(catoclient.catocommand.CatoCommand):
                      doc='The ID or Name of a Task.'),
                Param(name='version', short_name='v', long_name='version',
                      optional=True, ptype='string',
-                     doc='An optional specific Task Version. (Default if omitted.)')]
+                     doc='An optional specific Task Version. (Default if omitted.)'),
+               Param(name='basic', short_name='b', long_name='basic',
+                     optional=True, ptype='boolean',
+                     doc='Get a basic template with no descriptive details or default values.')]
+               
 
     def main(self):
-        results = self.call_api('taskMethods/get_task_parameters_template', ['task', 'version'])
+        results = self.call_api('taskMethods/get_task_parameters_template', ['task', 'version', 'basic'])
         print(results)
 
