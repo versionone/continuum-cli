@@ -20,10 +20,12 @@ from catoclient.param import Param
 class ListMethods(catoclient.catocommand.CatoCommand):
 
     Description = 'Lists Methods'
-    Options = []
+    Options = [Param(name='listonly', short_name='l', long_name='listonly',
+                     optional=True, ptype='boolean',
+                     doc='List the methods without documentation.')]
+               
 
     def main(self):
-        self.listonly = True
         # output format for this command is limited to text
         self.output_format = "text"
         
