@@ -33,8 +33,5 @@ nosetests.xml
 .project
 .pydevproject
 
-catoclient/.DS_Store
+*.DS_Store
 
-catoclient/commands/.DS_Store
-
-bin/.DS_Store
