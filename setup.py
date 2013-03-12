@@ -27,19 +27,18 @@ for f in os.listdir("bin"):
     binscripts.append("bin/"+f)
 
 setuptools.setup(
-    name='catoclient',
+    name='maestroclient',
     version = __version__,
-    description='Cloud Sidekick Cato Community Edition (CE) Catoclient',
-    license='Apache License (2.0)',
+    description='Cloud Sidekick Maestro Client',
+    license='Proprietary License',
     author='Patrick Dunnigan',
     author_email='patrick.dunnigan@cloudsidekick.com',
-    url='https://github.com/cloudsidekick/catoclient',
-    #cmdclass=setup.get_cmdclass(),
+    url='https://github.com/cloudsidekick/maestroclient',
     packages=setuptools.find_packages(exclude=['bin']),
     include_package_data=True,
     classifiers=[
-        'Development Status :: 4 - Beta',
-        'License :: OSI Approved :: Apache Software License',
+        'Development Status :: 5 - Production/Stable',
+        'License :: Other/Proprietary License',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
         'Programming Language :: Python :: 2',

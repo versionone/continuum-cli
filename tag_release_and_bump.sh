@@ -7,9 +7,10 @@ if [ "$version" = "" ] ; then
     exit 1
 fi
 git pull
+sed -i"" -e "s|^__version__=.*$|__version__='${version}'|" maestroclient/__init__.py
 echo $version > VERSION
 
-git add VERSION
+git add VERSION maestroclient/__init__.py
 git commit -m "bump release to $release"
 git push
 git tag -a $version -m "Version $version"
