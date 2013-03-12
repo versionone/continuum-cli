@@ -7,8 +7,8 @@ if [ "$version" = "" ] ; then
     exit 1
 fi
 git pull
-sed -i"" -e "s|^__version__=.*$|__version__='${version}'|" maestroclient/__init__.py
-sed -i"" -e "s|^    version=.*$|    version='${version}',|" setup.py
+sed -i "" -e "s|^__version__=.*$|__version__='${version}'|" maestroclient/__init__.py
+sed -i "" -e "s|^    version=.*$|    version='${version}',|" setup.py
 echo $version > VERSION
 
 git add VERSION maestroclient/__init__.py
