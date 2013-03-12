@@ -43,18 +43,16 @@ class RunTask(catoclient.catocommand.CatoCommand):
     def main(self):
         try:
             # first, we need to load the parameters xml from a file
-            self.parameter_xml = None
+            self.parameters = None
             if self.parameterfile:
                 import os
                 fn = os.path.expanduser(self.parameterfile)
                 with open(fn, 'r') as f_in:
                     if not f_in:
                         print("Unable to open file [%s]." % fn)
-                    data = f_in.read()
-                    if data:
-                        self.parameter_xml = data
+                    self.parameters = f_in.read()
 
-            results = self.call_api('taskMethods/run_task', ['task', 'version', 'log_level', 'account', 'service_instance', 'parameter_xml'])
+            results = self.call_api('taskMethods/run_task', ['task', 'version', 'log_level', 'account', 'service_instance', 'parameters'])
             print(results)
         except ValueError:
             # the results could not be parsed as JSON, just return them

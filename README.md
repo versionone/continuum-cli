@@ -77,5 +77,6 @@ If url and credentials are put in the config file, then the commands can be exec
 ```
 
 
+## Documentation
 
-See individual commands for usage.
+The [[wiki|wiki]] on this site contains documentation.
