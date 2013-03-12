@@ -17,21 +17,18 @@
 import os
 import setuptools
 
-from catoclient import __version__
-
 binscripts = []
 for f in os.listdir("bin"):
     binscripts.append("bin/"+f)
 
 setuptools.setup(
     name='catoclient',
-    version = __version__,
+    version='1.13rc5',
     description='Cloud Sidekick Cato Community Edition (CE) Catoclient',
     license='Apache License (2.0)',
     author='Patrick Dunnigan',
     author_email='patrick.dunnigan@cloudsidekick.com',
     url='https://github.com/cloudsidekick/catoclient',
-    #cmdclass=setup.get_cmdclass(),
     packages=setuptools.find_packages(exclude=['bin']),
     include_package_data=True,
     classifiers=[
