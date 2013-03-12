@@ -17,9 +17,9 @@
 #########################################################################
 
 
-import catoclient.commands.gettaskparameterstemplate
+import catoclient.commands.gettaskparameters
 
 if __name__ == '__main__':
-    cmd = catoclient.commands.gettaskparameterstemplate.GetTaskParametersTemplate()
+    cmd = catoclient.commands.gettaskparameters.GetTaskParameters()
     cmd.main()
 

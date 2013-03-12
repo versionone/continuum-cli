@@ -17,7 +17,7 @@
 import catoclient.catocommand
 from catoclient.param import Param
 
-class GetTaskParametersTemplate(catoclient.catocommand.CatoCommand):
+class GetTaskParameters(catoclient.catocommand.CatoCommand):
 
     Description = 'Gets a Parameters template for a Task.'
     Options = [Param(name='task', short_name='t', long_name='task',
@@ -32,6 +32,6 @@ class GetTaskParametersTemplate(catoclient.catocommand.CatoCommand):
                
 
     def main(self):
-        results = self.call_api('taskMethods/get_task_parameters_template', ['task', 'version', 'basic'])
+        results = self.call_api('taskMethods/get_task_parameters', ['task', 'version', 'basic'])
         print(results)
 
