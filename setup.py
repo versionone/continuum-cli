@@ -20,15 +20,13 @@
 import os
 import setuptools
 
-from catoclient import __version__
-
 binscripts = []
 for f in os.listdir("bin"):
     binscripts.append("bin/"+f)
 
 setuptools.setup(
     name='maestroclient',
-    version = __version__,
+    version='1.13rc5',
     description='Cloud Sidekick Maestro Client',
     license='Proprietary License',
     author='Patrick Dunnigan',
