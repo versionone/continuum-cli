@@ -346,8 +346,8 @@ class CatoCommand(object):
                          'REQUIRED PARAMETERS')
         self.param_usage([ opt for opt in self.Options if opt.optional ],
                          'OPTIONAL PARAMETERS')
-#        self.param_usage([ opt for opt in self.StandardOptions ],
-#                         'STANDARD PARAMETERS')
+        self.param_usage([ opt for opt in self.StandardOptions ],
+                         'STANDARD PARAMETERS')
 
     def display_error_and_exit(self, exc):
         try:
