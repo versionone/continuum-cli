@@ -12,7 +12,7 @@ sed -i "" -e "s|^    version=.*$|    version='${version}',|" setup.py
 echo $version > VERSION
 
 git add VERSION maestroclient/__init__.py setup.py
-git commit -m "bump release to $release"
+git commit -m "bump release to ${version}"
 git push
 git tag -a $version -m "Version $version"
 git push --tags
