@@ -35,6 +35,6 @@ class GetActionParameters(catoclient.catocommand.CatoCommand):
                
 
     def main(self):
-        results = self.call_api('depMethods/get_action_parameters', ['deployment', 'action', 'basic'])
+        results = self.call_api('depMethods/get_action_parameters', ['deployment', 'action', 'service', 'basic'])
         print(results)
 
