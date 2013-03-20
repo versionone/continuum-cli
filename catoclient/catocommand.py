@@ -378,11 +378,9 @@ class CatoCommand(object):
             except urllib2.URLError as ex:
                 if hasattr(ex, "reason"):
                     print "HTTPGet: failed to reach a server."
-                    print ex.reason
                     return ex.reason
                 elif hasattr(ex, "code"):
                     print "HTTPGet: The server couldn\'t fulfill the request."
-                    print ex.__str__()
                     return ex.__str__()
 
             # if all was well, we won't get here.
