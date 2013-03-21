@@ -47,7 +47,7 @@ python setup.py install
 Each command accepts Cato web service api connection parameters as command line arguments as follows. 
 
 ```
-<pathtolibrary>/catoclient/bin/cato-list-tasks --url=http://localhost:4001 --access-key=<catouseruuid> --secret-key <catopassword> 
+cato-list-tasks --url=http://localhost:4001 --access-key=<catouseruuid> --secret-key <catopassword> 
 ```
 
 ### Configuration File
@@ -67,7 +67,7 @@ _NOTE: It's never a smart idea to save your secret key in a file, however the op
 If url and credentials are put in the config file, then the commands can be executed more simply:
 
 ```
-<pathtolibrary>/catoclient/bin/cato-list-tasks
+cato-list-tasks
 ```
 
 Example .catoclient.conf file:
@@ -80,4 +80,4 @@ Example .catoclient.conf file:
 ```
 ## Documentation
 
-Visit the [[Cato Client wiki pages](https://github.com/cloudsidekick/catoclient/wiki) for more information on individual command usage.
+Visit the [Cato Client wiki pages](https://github.com/cloudsidekick/catoclient/wiki) for more information on individual command usage.
