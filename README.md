@@ -42,15 +42,9 @@ python setup.py install
 
 ## Usage
 
-No installation instructions or setuptools script is done yet. In the
-meantime, perform the following command before using the command line
-utilities:
+### Passing Credentials via Command Line
 
-```
-export PYTHONPATH=<pathtolibrary>/catoclient
-```
-
-Then to run the command line tool:
+Each command accepts Cato web service api connection parameters as command line arguments as follows. 
 
 ```
 <pathtolibrary>/catoclient/bin/cato-list-tasks --url=http://localhost:4001 --access-key=<catouseruuid> --secret-key <catopassword> 
@@ -58,7 +52,7 @@ Then to run the command line tool:
 
 ### Configuration File
 
-A configuration file option is available to save common options (url, credentials, etc).
+Alternatively configuration file option is available to save common options (url, credentials, etc).
 The file, .catoclient.conf, is in json format, and is looked for in your $HOME directory (~/.catoclient.conf).
 Any values entered in this file become defaults for all commands.
 Typically this will include the url and access_key.
@@ -76,7 +70,14 @@ If url and credentials are put in the config file, then the commands can be exec
 <pathtolibrary>/catoclient/bin/cato-list-tasks
 ```
 
-
+Example .catoclient.conf file:
+```
+{
+    "url": "http://ec2-54-234-163-202.compute-1.amazonaws.com:4001",
+    "access_key": "username",
+    "secret_key2: "password"
+}
+```
 ## Documentation
 
-The [[wiki|wiki]] on this site contains documentation.
+Visit the [[Cato Client wiki pages](https://github.com/cloudsidekick/catoclient/wiki) for more information on individual command usage.
