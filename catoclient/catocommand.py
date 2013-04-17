@@ -33,7 +33,9 @@ import base64
 import hmac
 import urllib
 import urllib2
+import httplib
 import json
+from urlparse import urlparse
 from datetime import datetime
 from catoclient.param import Param
 
@@ -369,19 +371,25 @@ class CatoCommand(object):
                 print "Trying an HTTP GET to %s" % url
 
             # for now, just use the url directly
-            try:
-                response = urllib2.urlopen(url, None, timeout)
-                result = response.read()
-                if result:
-                    return result
+            u = urlparse(url)
+            if u.scheme.lower() == "https":
+                conn = httplib.HTTPSConnection(u.netloc, timeout=timeout)
+            else:
+                conn = httplib.HTTPConnection(u.netloc, timeout=timeout)
+                
+            conn.request("GET", u.path + "?" + u.query)
+            response = conn.getresponse()
+            result = response.read()
+            if result:
+                return result
 
-            except urllib2.URLError as ex:
-                if hasattr(ex, "reason"):
-                    print "HTTPGet: failed to reach a server."
-                    return ex.reason
-                elif hasattr(ex, "code"):
-                    print "HTTPGet: The server couldn\'t fulfill the request."
-                    return ex.__str__()
+#            except httplib.HTTPException as ex:
+#                if hasattr(ex, "reason"):
+#                    print "HTTPGet: failed to reach a server."
+#                    return ex.reason
+#                elif hasattr(ex, "code"):
+#                    print "HTTPGet: The server couldn\'t fulfill the request."
+#                return ex.__str__()
 
             # if all was well, we won't get here.
             return "No results from request."
