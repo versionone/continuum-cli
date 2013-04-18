@@ -22,7 +22,10 @@ class DeleteTask(catoclient.catocommand.CatoCommand):
     Description = 'Deletes a Cato Task.'
     Options = [Param(name='task', short_name='t', long_name='task',
                      optional=False, ptype='string',
-                     doc='The ID or Name of the Task to delete.')]
+                     doc='The ID or Name of the Task to delete.'),
+               Param(name='force_delete', short_name='f', long_name='force_delete',
+                     optional=True, ptype='boolean',
+                     doc='Force the deletion of a Task, even if it has history and references.')]
 
     def main(self):
         go = False
@@ -35,5 +38,5 @@ class DeleteTask(catoclient.catocommand.CatoCommand):
                     go = True
 
         if go:
-            results = self.call_api('taskMethods/delete_task', ['task'])
+            results = self.call_api('taskMethods/delete_task', ['task', 'force_delete'])
             print(results)
