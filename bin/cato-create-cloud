@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 #########################################################################
 # Copyright 2011 Cloud Sidekick
 #
@@ -14,17 +16,10 @@
 # limitations under the License.
 #########################################################################
 
-import catoclient.catocommand
-from catoclient.param import Param
 
-class GetCloudAccount(catoclient.catocommand.CatoCommand):
+import catoclient.commands.createcloud
 
-    Description = 'Gets a Cloud Account.'
-    Options = [Param(name='name', short_name='n', long_name='name',
-                     optional=False, ptype='string',
-                     doc='The ID or Name of a Cloud Account.')
-               ]
+if __name__ == '__main__':
+    cmd = catoclient.commands.createcloud.CreateCloud()
+    cmd.main()
 
-    def main(self):
-        results = self.call_api('cloudMethods/get_account', ['name'])
-        print(results)
