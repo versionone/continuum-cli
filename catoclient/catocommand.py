@@ -393,7 +393,9 @@ class CatoCommand(object):
 
             # if all was well, we won't get here.
             return "No results from request."
-
+        except httplib.ssl.SSLError as ex:
+            # a friendlier message if it was a protocol error.
+            raise Exception("The protocol specified in the API url property is 'https'.  Is the API really running in SSL mode?")
         except Exception as ex:
             raise ex
 
