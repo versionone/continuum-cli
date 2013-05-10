@@ -83,6 +83,9 @@ class CatoCommand(object):
                              optional=True),
                        Param(name='force', long_name='force',
                              doc='Force "yes" on "Are you sure?" prompts.',
+                             optional=True, ptype='boolean'),
+                       Param(name='dumpdoc', long_name='dumpdoc',
+                             doc='Writes documentation for the command in Markdown format.',
                              optional=True, ptype='boolean')
                        ]
     Options = []
@@ -165,6 +168,9 @@ class CatoCommand(object):
         for (name, value) in opts:
             if name in ('-H', '--help'):
                 self.usage()
+                sys.exit()
+            elif name == '--dumpdoc':
+                self.dumpdoc()
                 sys.exit()
             elif name in ('-D', '--debug'):
                 self.set_debug(True)
@@ -350,6 +356,18 @@ class CatoCommand(object):
                          'OPTIONAL PARAMETERS')
         self.param_usage([ opt for opt in self.StandardOptions ],
                          'STANDARD PARAMETERS')
+
+    def dumpdoc(self):
+        print '## %s' % self.cmd_name
+        print '{:#%s}' % self.cmd_name
+        print '\n_%s_\n' % self.Description
+
+        self.param_usage([ opt for opt in self.Options if not opt.optional ],
+                         'REQUIRED PARAMETERS')
+        self.param_usage([ opt for opt in self.Options if opt.optional ],
+                         'OPTIONAL PARAMETERS')
+        
+        print '\n'
 
     def display_error_and_exit(self, exc):
         try:

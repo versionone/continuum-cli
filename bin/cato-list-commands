@@ -21,14 +21,12 @@
 # It simply lists all the commands in the $CATOHOME directory.
 
 import os
+import glob
 
 if __name__ == '__main__':
-    ccdir = os.environ['CATOCLIENT']
-    if ccdir:
-        files = os.listdir(os.path.join(ccdir, "bin"))
-        for fname in files:
-            if "cato-" in fname:
-                print fname
-    else:
-        print "$CATOCLIENT environment variable not set."
+	ccdir = os.path.dirname(os.path.realpath( __file__ ))
+	os.chdir(ccdir)
+	for fname in sorted(glob.glob("cato-*")):
+		print fname
+   
 
