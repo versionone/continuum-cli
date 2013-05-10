@@ -42,4 +42,4 @@ python setup.py install
 
 ## Documentation
 
-Visit the [Cato Client wiki pages](http://localhost:5001/docs/cato/restapi/command-line-tools.html) for more information on individual command usage.
+Visit the [Cato Client wiki pages](http://localhost:5001/docs/cato/restapi/cato-client.html) for more information on individual command usage.
