@@ -2,9 +2,25 @@
 
 ## Description
 
-The Catoclient is a command line toolset for accessing the Cato CE 
+Cato Client is a command line toolset for accessing the Cato CE 
 web service. It also provides a Python sdk for programmatically 
 interacting with the web service.
+
+## Requirements
+
+Python 2.6+ 
+
+## Installation
+
+```
+pip install https://github.com/cloudsidekick/catoclient/archive/latest.zip
+```
+
+-or-
+
+```
+python setup.py install
+```
 
 ## Repository and Download
 
@@ -30,16 +46,6 @@ git clone git://github.com/cloudsidekick/catoclient.git
 
 https://github.com/cloudsidekick/catoclient/issues
 
-## Requirements
-
-Python 2.6+ 
-
-## Installation
-
-```
-python setup.py install
-```
-
 ## Documentation
 
-Visit the [Cato Client wiki pages](http://docs.cloudsidekick.com/docs/cato/restapi/cato-client.html) for more information on individual command usage.
+Visit the [Cloud Sidekick Documentation](http://docs.cloudsidekick.com/docs/cato/restapi/cato-client.html) for more information on individual command usage.
