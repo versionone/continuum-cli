@@ -1,4 +1,4 @@
-# Cloud Sidekick Cato Community Edition (CE) Catoclient
+# Cloud Sidekick - Cato Client
 
 ## Description
 
