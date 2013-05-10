@@ -353,7 +353,7 @@ class CatoCommand(object):
 
     def display_error_and_exit(self, exc):
         try:
-            print '%s: %s' % (exc.error_code, exc.error_message)
+            print '%s: %s' % (exc.error_code, exc.error_message, exc.error_detail)
         except:
             print '%s' % exc
         finally:
@@ -459,8 +459,7 @@ class CatoCommand(object):
                         code = d["ErrorCode"]
                         detail = d["ErrorDetail"]
                         message = d["ErrorMessage"]
-                        if detail:
-                            msg = "%s, %s, %s" % (code, message, detail)
+                        msg = "%s, %s, %s" % (code, message, detail)
                         self.display_error_and_exit(msg)
                     else:
                         return d["Response"]
@@ -477,7 +476,7 @@ class CatoCommand(object):
                         detail = xRoot.findtext("error/detail", "")
                         message = xRoot.findtext("error/message", "")
 
-                        msg = "%s, %s, %s" % (code, detail, message)
+                        msg = "%s, %s, %s" % (code, message, detail)
                         self.display_error_and_exit(msg)
                     else:
                         # the response might have inner content, or it might have just text
