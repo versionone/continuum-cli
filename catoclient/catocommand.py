@@ -395,7 +395,6 @@ class CatoCommand(object):
             else:
                 conn = httplib.HTTPConnection(u.netloc, timeout=timeout)
                 
-            print u.path + "?" + u.query
             conn.request("GET", u.path + "?" + u.query)
             response = conn.getresponse()
             result = response.read()
