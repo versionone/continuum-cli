@@ -32,5 +32,15 @@ class ResetPassword(catoclient.catocommand.CatoCommand):
                ]
 
     def main(self):
-        results = self.call_api('sysMethods/reset_password', ['user', 'password', 'generate'])
-        print(results)
+        go = False
+        if self.force:
+            go = True
+        else:
+            answer = raw_input("Are you sure? ")
+            if answer:
+                if answer.lower() in ['y', 'yes']:
+                    go = True
+
+        if go:
+            results = self.call_api('sysMethods/reset_password', ['user', 'password', 'generate'])
+            print(results)
