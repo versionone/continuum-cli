@@ -17,22 +17,19 @@
 import catoclient.catocommand
 from catoclient.param import Param
 
-class CreateUser(catoclient.catocommand.CatoCommand):
+class UpdateUser(catoclient.catocommand.CatoCommand):
 
-    Description = 'Creates a new User.'
+    Description = 'Updates a User account.'
     Options = [Param(name='user', short_name='u', long_name='user',
                      optional=False, ptype='string',
-                     doc='A login name for the user.'),
+                     doc='The ID or Name of a User account.'),
                Param(name='name', short_name='n', long_name='name',
-                     optional=False, ptype='string',
+                     optional=True, ptype='string',
                      doc='The full name of the user.'),
                Param(name='role', short_name='r', long_name='role',
-                     optional=False, ptype='string',
+                     optional=True, ptype='string',
                      doc='The users role.  (Valid values: Administrator, Developer, User)',
                      choices=["Administrator", "Developer", "User"]),
-               Param(name='password', short_name='p', long_name='password',
-                     optional=True, ptype='string',
-                     doc='Password for the user. If "password" is not provided, a random password will be generated.'),
                Param(name='email', short_name='e', long_name='email',
                      optional=True, ptype='string',
                      doc='Email address for the user.  Required if "password" is omitted.'),
@@ -57,5 +54,15 @@ class CreateUser(catoclient.catocommand.CatoCommand):
                ]
 
     def main(self):
-        results = self.call_api('sysMethods/create_user', ['user', 'name', 'role', 'password', 'email', 'authtype', 'forcechange', 'expires', 'status', 'groups'])
-        print(results)
+        go = False
+        if self.force:
+            go = True
+        else:
+            answer = raw_input("Updating a User could affect their ability to log in and use Cato.\n\nAre you sure? ")
+            if answer:
+                if answer.lower() in ['y', 'yes']:
+                    go = True
+
+        if go:
+            results = self.call_api('sysMethods/update_user', ['user', 'name', 'role', 'email', 'authtype', 'forcechange', 'status', 'expires', 'groups'])
+            print(results)
