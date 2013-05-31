@@ -188,7 +188,7 @@ class CatoCommand(object):
 
                     if option.choices:
                         if value not in option.choices:
-                            msg = '%s value must be one of: %s' % (option.long_name, '|'.join(option.choices))
+                            msg = '%s value must be one of: %s' % (option.long_name, '|'.join(["%s" % str(x) for x in option.choices]))
                             self.display_error_and_exit(msg)
                     if option.cardinality in ('*', '+'):
                         if not hasattr(self, option.name):
