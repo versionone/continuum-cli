@@ -84,6 +84,9 @@ class CatoCommand(object):
                        Param(name='force', long_name='force',
                              doc='Force "yes" on "Are you sure?" prompts.',
                              optional=True, ptype='boolean'),
+                       Param(name='noheader', long_name='noheader',
+                             doc='For "text" output format, omit the column header.',
+                             optional=True, ptype='boolean'),
                        Param(name='dumpdoc', long_name='dumpdoc',
                              doc='Writes documentation for the command in Markdown format.',
                              optional=True, ptype='boolean')
@@ -297,7 +300,7 @@ class CatoCommand(object):
                 doc = textwrap.dedent(opt.doc)
                 doclines = textwrap.wrap(doc, nn)
                 if opt.choices:
-                    vv = 'Valid Values: %s' % '|'.join(opt.choices)
+                    vv = 'Valid Values: %s' % '|'.join(["%s" % str(x) for x in opt.choices])
                     doclines += textwrap.wrap(vv, nn)
                 if doclines:
                     print('        %s%s' % (','.join(names).ljust(n), doclines[0]))
@@ -423,6 +426,7 @@ class CatoCommand(object):
         pw = self.secret_key
         outfmt = "text"
         outdel = ""
+        noheader = None
         # was a different output format specified?
         # we limit the values to xml or json.
         if hasattr(self, "output_format"):
@@ -435,6 +439,9 @@ class CatoCommand(object):
             x = getattr(self, "output_delimiter")
             if x is not None:
                 outdel = x
+        # hide the headers in text mode?
+        if outfmt == "text":
+            noheader = getattr(self, "noheader", None)
         
 
         
@@ -463,7 +470,8 @@ class CatoCommand(object):
 
         of = "&output_format=%s" % outfmt
         od = "&output_delimiter=%s" % urllib.quote_plus(outdel)
-        url = "%s/%s%s%s%s%s" % (host, string_to_sign, sig, argstr, of, od)
+        nh = "&header=false" if noheader else ""
+        url = "%s/%s%s%s%s%s%s" % (host, string_to_sign, sig, argstr, of, od, nh)
         
         response = self.http_get(url)
         if self.debug:
