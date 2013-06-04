@@ -36,6 +36,9 @@ class CreateApplicationTemplate(catoclient.catocommand.CatoCommand):
                Param(name='version', short_name='v', long_name='version',
                      optional=False, ptype='string',
                      doc='The Application Template version.'),
+               Param(name='description', short_name='d', long_name='description',
+                     optional=True, ptype='string',
+                     doc='Description of this Maestro Application definition.'),
                Param(name='templatefile', short_name='t', long_name='templatefile',
                      optional=True, ptype='string',
                      doc='A JSON document formatted as a Maestro Application definition.'),
@@ -67,5 +70,5 @@ class CreateApplicationTemplate(catoclient.catocommand.CatoCommand):
                     print("Unable to open file [%s]." % fn)
                 self.icon = base64.b64encode(f_in.read())
 
-        results = self.call_api('depMethods/create_application_template', ['name', 'version', 'template', 'icon', 'makeavailable'])
+        results = self.call_api('depMethods/create_application_template', ['name', 'version', 'description', 'template', 'icon', 'makeavailable'])
         print(results)
