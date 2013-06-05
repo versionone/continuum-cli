@@ -22,16 +22,16 @@ from catoclient.param import Param
 
 class CreateDeployment(catoclient.catocommand.CatoCommand):
 
-    Description = 'Creates a new Deployment.'
+    Description = 'Deploys an Application Template.'
     Options = [Param(name='name', short_name='n', long_name='name',
                      optional=False, ptype='string',
                      doc='A name for the new Deployment.'),
                Param(name='template', short_name='t', long_name='template',
                      optional=False, ptype='string',
-                     doc='The Deployment Template to use.'),
+                     doc='The Application Template to use.'),
                Param(name='version', short_name='v', long_name='version',
                      optional=False, ptype='string',
-                     doc='The Deployment Template Version.'),
+                     doc='The Application Template Version.'),
                Param(name='desc', short_name='d', long_name='desc',
                      optional=True, ptype='string',
                      doc='A description of the new Deployment.'),
