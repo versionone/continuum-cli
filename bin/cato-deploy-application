@@ -20,9 +20,9 @@
 #########################################################################
 
 
-import maestroclient.commands.copydeploymenttemplate
+import maestroclient.commands.deployapplication
 
 if __name__ == '__main__':
-    cmd = maestroclient.commands.copydeploymenttemplate.CopyDeploymentTemplate()
+    cmd = maestroclient.commands.deployapplication.DeployApplication()
     cmd.main()
 

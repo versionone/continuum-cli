@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 #########################################################################
 # 
 # Copyright 2013 Cloud Sidekick
@@ -17,16 +19,10 @@
 #
 #########################################################################
 
-import catoclient.catocommand
-from catoclient.param import Param
 
-class ListDeploymentTemplates(catoclient.catocommand.CatoCommand):
+import maestroclient.commands.copyapplicationtemplate
 
-    Description = 'Lists Deployment Templatess'
-    Options = [Param(name='filter', short_name='f', long_name='filter',
-                     optional=True, ptype='string',
-                     doc='A filter.')]
+if __name__ == '__main__':
+    cmd = maestroclient.commands.copyapplicationtemplate.CopyApplicationTemplate()
+    cmd.main()
 
-    def main(self):
-        results = self.call_api('depMethods/list_deployment_templates', ['filter'])
-        print(results)

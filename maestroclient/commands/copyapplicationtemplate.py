@@ -20,26 +20,23 @@
 import catoclient.catocommand
 from catoclient.param import Param
 
-class CreateDeployment(catoclient.catocommand.CatoCommand):
+class CopyApplicationTemplate(catoclient.catocommand.CatoCommand):
 
-    Description = 'Deploys an Application Template.'
-    Options = [Param(name='name', short_name='n', long_name='name',
+    Description = 'Copies an Application Template.'
+    Options = [Param(name='template', short_name='t', long_name='template',
                      optional=False, ptype='string',
-                     doc='A name for the new Deployment.'),
-               Param(name='template', short_name='t', long_name='template',
-                     optional=False, ptype='string',
-                     doc='The Application Template to use.'),
+                     doc='The Application Template to copy.'),
                Param(name='version', short_name='v', long_name='version',
                      optional=False, ptype='string',
-                     doc='The Application Template Version.'),
-               Param(name='desc', short_name='d', long_name='desc',
-                     optional=True, ptype='string',
-                     doc='A description of the new Deployment.'),
-               Param(name='owner', short_name='o', long_name='owner',
-                     optional=True, ptype='string',
-                     doc='An owner of the new Deployment.')
+                     doc='A version for the new Template.'),
+               Param(name='newname', short_name='nn', long_name='newname',
+                     optional=False, ptype='string',
+                     doc='A name for the new Template.'),
+               Param(name='newversion', short_name='nv', long_name='newversion',
+                     optional=False, ptype='string',
+                     doc='A version for the new Template.')
                ]
 
     def main(self):
-        results = self.call_api('depMethods/create_deployment', ['name', 'template', 'version', 'owner', 'desc'])
+        results = self.call_api('depMethods/copy_application_template', ['newname', 'newversion', 'template', 'version'])
         print(results)

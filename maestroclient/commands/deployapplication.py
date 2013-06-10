@@ -20,23 +20,26 @@
 import catoclient.catocommand
 from catoclient.param import Param
 
-class CopyDeploymentTemplate(catoclient.catocommand.CatoCommand):
+class DeployApplication(catoclient.catocommand.CatoCommand):
 
-    Description = 'Copies a Deployment Template.'
-    Options = [Param(name='template', short_name='t', long_name='template',
+    Description = 'Deploys an Application Template.'
+    Options = [Param(name='name', short_name='n', long_name='name',
                      optional=False, ptype='string',
-                     doc='The Deployment Template to copy.'),
+                     doc='A name for the new Deployment.'),
+               Param(name='template', short_name='t', long_name='template',
+                     optional=False, ptype='string',
+                     doc='The Application Template to use.'),
                Param(name='version', short_name='v', long_name='version',
                      optional=False, ptype='string',
-                     doc='A version for the new Template.'),
-               Param(name='newname', short_name='nn', long_name='newname',
-                     optional=False, ptype='string',
-                     doc='A name for the new Template.'),
-               Param(name='newversion', short_name='nv', long_name='newversion',
-                     optional=False, ptype='string',
-                     doc='A version for the new Template.')
+                     doc='The Application Template Version.'),
+               Param(name='desc', short_name='d', long_name='desc',
+                     optional=True, ptype='string',
+                     doc='A description of the new Deployment.'),
+               Param(name='owner', short_name='o', long_name='owner',
+                     optional=True, ptype='string',
+                     doc='An owner of the new Deployment.')
                ]
 
     def main(self):
-        results = self.call_api('depMethods/copy_deployment_template', ['newname', 'newversion', 'template', 'version'])
+        results = self.call_api('depMethods/deploy_application', ['name', 'template', 'version', 'owner', 'desc'])
         print(results)

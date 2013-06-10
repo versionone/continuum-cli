@@ -20,9 +20,9 @@
 #########################################################################
 
 
-import maestroclient.commands.listdeploymenttemplates
+import maestroclient.commands.listapplicationtemplates
 
 if __name__ == '__main__':
-    cmd = maestroclient.commands.listdeploymenttemplates.ListDeploymentTemplates()
+    cmd = maestroclient.commands.listapplicationtemplates.ListApplicationTemplates()
     cmd.main()
 
