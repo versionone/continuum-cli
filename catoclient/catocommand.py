@@ -448,7 +448,7 @@ class CatoCommand(object):
         args = {}
         for param in parameters:
             #if hasattr(self, param):
-            if getattr(self, param):
+            if getattr(self, param, None):
                 args[param] = getattr(self, param)
 
         if len(args):
