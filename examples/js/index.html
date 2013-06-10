@@ -1,62 +1,67 @@
 <!--
-	Download the hmac and base64 libs from google code, or use your own.
-	jQuery is ised for the JSONP callback functionality.
+Download the hmac and base64 libs from google code, or use your own.
+jQuery is ised for the JSONP callback functionality.
 -->
 
 <script src="http://crypto-js.googlecode.com/svn/tags/3.0.2/build/rollups/hmac-sha256.js"></script>
 <script src="http://crypto-js.googlecode.com/svn/tags/3.0.2/build/components/enc-base64-min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
 <script>
-	var host = "http://localhost:4001";
-	var method = "sysMethods/list_processes";
-	var access_key = "";
-	var secret_key = "";
+	function go() {
+		var host = "https://localhost:4001";
+		var access_key = "administrator";
+		var secret_key = "c4t4lyss";
 
-	if (host == "")
-		alert("HOST not provided.");
-	else if (method == "")
-		alert("METHOD not provided.");
-	else if (access_key == "")
-		alert("ACCESS_KEY not provided.");
-	else if (secret_key == "")
-		alert("SECRET_KEY not provided.");
+		var method = $("#method").val();
 
-	// timestamp
-	var d = new Date();
-	var curr_date = d.getDate();
-	var curr_month = d.getMonth() + 1;
-	//Months are zero based 
-	var curr_year = d.getFullYear();
+		if (host == "")
+			alert("HOST not provided.");
+		else if (method == "")
+			alert("METHOD not provided.");
+		else if (access_key == "")
+			alert("ACCESS_KEY not provided.");
+		else if (secret_key == "")
+			alert("SECRET_KEY not provided.");
 
-	var d = new Date();
+		// timestamp
+		var d = new Date();
+		var curr_date = d.getDate();
+		var curr_month = d.getMonth() + 1;
+		//Months are zero based
+		var curr_year = d.getFullYear();
 
-	// "%Y-%m-%dT%H:%M:%S"
-	ts = d.getUTCFullYear() + "-" + (d.getUTCMonth() + 1) + "-" + d.getUTCDate();
-	ts += "T" + d.getUTCHours() + "%3A" + d.getUTCMinutes() + "%3A" + d.getUTCSeconds();
+		var d = new Date();
 
-	// string to sign
-	var string_to_sign = method + "?key=" + access_key + "&timestamp=" + ts
-	//alert(string_to_sign);
+		// "%Y-%m-%dT%H:%M:%S"
+		ts = d.getUTCFullYear() + "-" + (d.getUTCMonth() + 1) + "-" + d.getUTCDate();
+		ts += "T" + d.getUTCHours() + "%3A" + d.getUTCMinutes() + "%3A" + d.getUTCSeconds();
 
-	// the signature
-	var hash = CryptoJS.HmacSHA256(string_to_sign, secret_key);
-	var sig = encodeURIComponent(hash.toString(CryptoJS.enc.Base64));
-	sig = "&signature=" + sig;
+		// string to sign
+		var string_to_sign = method + "?key=" + access_key + "&timestamp=" + ts
+		//alert(string_to_sign);
 
-	// build the url
-	url = host + "/" + string_to_sign + sig + "&output_format=xml&callback=?";
+		// the signature
+		var hash = CryptoJS.HmacSHA256(string_to_sign, secret_key);
+		var sig = encodeURIComponent(hash.toString(CryptoJS.enc.Base64));
+		sig = "&signature=" + sig;
 
-	$.getJSON(url, function retorno(e) {
-		alert(e);
-	});
-	
+		// build the url
+		url = host + "/" + string_to_sign + sig + "&output_format=xml&callback=?";
+
+		$.getJSON(url, function retorno(e) {
+			$("#results").text(e);
+		});
+	}
 </script>
 
 <html>
-	<head>
-		<title>Cato API Example</title>
-	</head>
-	<body>
-		<pre id="results"></pre>
-	</body>
+    <head>
+        <title>Cato API Example</title>
+    </head>
+    <body>
+        Method:
+        <input id="method" type="text" value="sysMethods/list_processes" />
+        <button onclick="go();">Go!</button>
+        <pre id="results"></pre>
+    </body>
 </html>
