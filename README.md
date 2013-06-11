@@ -20,7 +20,7 @@ pip install https://github.com/cloudsidekick/maestroclient/archive/latest.zip
 If you already have Maestro Client and want the latest version:
 
 ```
-pip install --upgrade https://github.com/cloudsidekick/catoclient/archive/latest.zip
+pip install --upgrade https://github.com/cloudsidekick/maestroclient/archive/latest.zip
 ```
 
 ## Repository and Download
