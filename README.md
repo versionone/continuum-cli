@@ -15,6 +15,13 @@ Python 2.6+
 ```
 pip install https://github.com/cloudsidekick/maestroclient/archive/latest.zip
 ```
+## Update
+
+If you already have Maestro Client and want the latest version:
+
+```
+pip install --upgrade https://github.com/cloudsidekick/catoclient/archive/latest.zip
+```
 
 ## Repository and Download
 
