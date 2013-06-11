@@ -16,6 +16,12 @@ Python 2.6+
 pip install https://github.com/cloudsidekick/catoclient/archive/latest.zip
 ```
 
+If you already have Cato Client and want the latest version:
+
+```
+pip install --upgrade https://github.com/cloudsidekick/catoclient/archive/latest.zip
+```
+
 ## Repository and Download
 
 https://github.com/cloudsidekick/catoclient
