@@ -25,10 +25,10 @@ class GetServiceInstances(catoclient.catocommand.CatoCommand):
     Description = 'Gets Service Instances from an Deployment Service'
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',
-                     doc='Value can be either an deployment id or deployment name.'),
+                     doc='Value can be either a Deployment ID or Name.'),
                  Param(name='service', short_name='v', long_name='service',
-                     optional=False, ptype='string',
-                     doc='Value can be either a service id or service name.')]
+                     optional=True, ptype='string',
+                     doc='Value can be either a Service ID or Name.')]
 
     def main(self):
         results = self.call_api('depMethods/get_service_instances', ['deployment', 'service'])
