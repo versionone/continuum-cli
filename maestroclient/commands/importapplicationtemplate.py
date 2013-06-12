@@ -164,12 +164,15 @@ class ImportApplicationTemplate(catoclient.catocommand.CatoCommand):
             self.template = f_in.read()
  
         self.icon = None
-        fn = os.path.expanduser(os.path.join(icondir, "application.png"))
-        with open(fn, 'r') as f_in:
-            if not f_in:
-                print("Unable to open file [%s]." % fn)
-            self.icon = base64.b64encode(f_in.read())
- 
+        try:
+            fn = os.path.expanduser(os.path.join(icondir, "application.png"))
+            with open(fn, 'r') as f_in:
+                if not f_in:
+                    print("Unable to open file [%s]." % fn)
+                self.icon = base64.b64encode(f_in.read())
+        except:
+            pass
+        
         response = self.call_api('depMethods/create_application_template', ['name', 'version', 'description', 'template', 'icon', 'makeavailable'])
         response = json.loads(response)
         if response.get("ID"):
