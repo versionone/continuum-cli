@@ -53,9 +53,12 @@ class CreateUser(catoclient.catocommand.CatoCommand):
                      doc='Expiration date for this account.  Must be in mm/dd/yyyy format.'),
                Param(name='groups', short_name='g', long_name='groups',
                      optional=True, ptype='string',
-                     doc='A list of groups the user belongs to. Group names cannot contain spaces. Comma delimited list.')
+                     doc='A list of groups the user belongs to. Group names cannot contain spaces. Comma delimited list.'),
+               Param(name='get_token', long_name='get_token',
+                     optional=True, ptype='boolean',
+                     doc='Include a login token in the response. (Used for passthru login.)')
                ]
 
     def main(self):
-        results = self.call_api('sysMethods/create_user', ['user', 'name', 'role', 'password', 'email', 'authtype', 'forcechange', 'expires', 'status', 'groups'])
+        results = self.call_api('sysMethods/create_user', ['user', 'name', 'role', 'password', 'email', 'authtype', 'forcechange', 'expires', 'status', 'groups', 'get_token'])
         print(results)
