@@ -35,7 +35,10 @@ class ExportApplicationTemplate(catoclient.catocommand.CatoCommand):
                      doc='The Application Template Version.'),
                Param(name='outputdirectory', short_name='o', long_name='outputdirectory',
                      optional=True, ptype='string',
-                     doc='Directory where the output will be saved.  The directory must exist, and should be empty.')
+                     doc='Directory where the output will be saved.  The directory must exist, and should be empty.'),
+               Param(name='printoutput', short_name='p', long_name='printoutput',
+                     optional=True, ptype='boolean',
+                     doc='If provided, no file will be created.  The results of the API call will be printed.')
                ]
 
     def main(self):
@@ -50,13 +53,16 @@ class ExportApplicationTemplate(catoclient.catocommand.CatoCommand):
         3) We will create the subdirectories, but if they or any files already exist we'll just leave them be.
         
         """
-        rootdir = os.path.expanduser(self.outputdirectory)
-
-        # we can print the results if you like
-        if not rootdir:
+        # if no outputdirectory was provided, we will just print the results
+        if self.printoutput:
             results = self.call_api('depMethods/export_application_template', ['template', 'version'])
             print(results)
             return
+
+        # if no outputdirectory is provided, use the current directory
+        rootdir = os.getcwd()
+        if self.outputdirectory:
+            rootdir = os.path.expanduser(self.outputdirectory)
 
         # the directory must exist
         if not os.path.exists(rootdir):
