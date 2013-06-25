@@ -18,7 +18,7 @@
 
 
 # This command does not have an API counterpart.  
-# It simply lists all the commands in the $CATOHOME directory.
+# It simply lists all the 'cato' commands in the directory where it is installed.
 
 import os
 import glob
