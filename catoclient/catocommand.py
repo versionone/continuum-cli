@@ -43,11 +43,6 @@ try:
     import xml.etree.cElementTree as ET
 except (AttributeError, ImportError):
     import xml.etree.ElementTree as ET
-try:
-    ET.ElementTree.iterfind
-except AttributeError as ex:
-    del(ET)
-    import catoxml.etree.ElementTree as ET
 
 
 class CatoCommand(object):
