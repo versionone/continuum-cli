@@ -39,5 +39,5 @@ class DeleteCloudKeypair(catoclient.catocommand.CatoCommand):
                     go = True
 
         if go:
-            results = self.call_api('cloudMethods/delete_cloud_keypair', ['cloud', 'name'])
+            results = self.call_api('delete_cloud_keypair', ['cloud', 'name'])
             print(results)

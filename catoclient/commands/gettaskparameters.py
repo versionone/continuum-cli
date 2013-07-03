@@ -32,6 +32,6 @@ class GetTaskParameters(catoclient.catocommand.CatoCommand):
                
 
     def main(self):
-        results = self.call_api('taskMethods/get_task_parameters', ['task', 'version', 'basic'])
+        results = self.call_api('get_task_parameters', ['task', 'version', 'basic'])
         print(results)
 

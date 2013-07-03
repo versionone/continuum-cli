@@ -37,5 +37,5 @@ class SetDocumentValue(catoclient.catocommand.CatoCommand):
                      doc='A value to set.')]
 
     def main(self):
-        results = self.call_api('dsMethods/set_document_value', ['query', 'collection', 'lookupkey', 'value'])
+        results = self.call_api('set_document_value', ['query', 'collection', 'lookupkey', 'value'])
         print(results)

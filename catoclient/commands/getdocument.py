@@ -31,5 +31,5 @@ class GetDocument(catoclient.catocommand.CatoCommand):
                      doc='A document collection.  "Default" if omitted.')]
 
     def main(self):
-        results = self.call_api('dsMethods/get_document', ['query', 'collection'])
+        results = self.call_api('get_document', ['query', 'collection'])
         print(results)

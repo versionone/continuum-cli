@@ -44,5 +44,5 @@ class AddCloudKeypair(catoclient.catocommand.CatoCommand):
                     print("Unable to open file [%s]." % fn)
                 self.private_key = f_in.read()
 
-        results = self.call_api('cloudMethods/add_cloud_keypair', ['cloud', 'name', 'private_key', 'passphrase'])
+        results = self.call_api('add_cloud_keypair', ['cloud', 'name', 'private_key', 'passphrase'])
         print(results)

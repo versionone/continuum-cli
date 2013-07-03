@@ -28,6 +28,6 @@ class ListTasks(catoclient.catocommand.CatoCommand):
                      doc='Show all Versions, not just the "default".')]
 
     def main(self):
-        results = self.call_api('taskMethods/list_tasks', ['filter', 'show_all_versions'])
+        results = self.call_api('list_tasks', ['filter', 'show_all_versions'])
         print(results)
 

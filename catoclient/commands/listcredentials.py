@@ -25,6 +25,6 @@ class ListCredentials(catoclient.catocommand.CatoCommand):
                      doc='A filter.')]
 
     def main(self):
-        results = self.call_api('sysMethods/list_credentials', ['filter'])
+        results = self.call_api('list_credentials', ['filter'])
         print(results)
 

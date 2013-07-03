@@ -64,5 +64,5 @@ class UpdateUser(catoclient.catocommand.CatoCommand):
                     go = True
 
         if go:
-            results = self.call_api('sysMethods/update_user', ['user', 'name', 'role', 'email', 'authtype', 'forcechange', 'status', 'expires', 'groups'])
+            results = self.call_api('update_user', ['user', 'name', 'role', 'email', 'authtype', 'forcechange', 'status', 'expires', 'groups'])
             print(results)

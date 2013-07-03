@@ -31,5 +31,5 @@ class UntagObject(catoclient.catocommand.CatoCommand):
                      doc='The numeric object type of the object.')]
 
     def main(self):
-        results = self.call_api('sysMethods/remove_object_tag', ['tag', 'object_id', 'object_type'])
+        results = self.call_api('remove_object_tag', ['tag', 'object_id', 'object_type'])
         print(results)

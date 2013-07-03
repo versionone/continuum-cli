@@ -26,7 +26,7 @@ class StopTask(catoclient.catocommand.CatoCommand):
 
     def main(self):
         try:
-            results = self.call_api('taskMethods/stop_task', ['instance'])
+            results = self.call_api('stop_task', ['instance'])
             print(results)
         except Exception as ex:
             raise ex

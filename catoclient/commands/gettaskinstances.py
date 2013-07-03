@@ -39,7 +39,7 @@ class GetTaskInstances(catoclient.catocommand.CatoCommand):
 
     def main(self):
         try:
-            results = self.call_api('taskMethods/get_task_instances', ['filter', 'status', 'from', 'to', 'records'])
+            results = self.call_api('get_task_instances', ['filter', 'status', 'from', 'to', 'records'])
             print(results)
         except Exception as ex:
             raise ex

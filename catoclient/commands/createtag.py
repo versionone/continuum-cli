@@ -28,5 +28,5 @@ class CreateTag(catoclient.catocommand.CatoCommand):
                      doc='Tag description.')]
 
     def main(self):
-        results = self.call_api('sysMethods/create_tag', ['name', 'description'])
+        results = self.call_api('create_tag', ['name', 'description'])
         print(results)

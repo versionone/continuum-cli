@@ -26,5 +26,5 @@ class GetCloud(catoclient.catocommand.CatoCommand):
                ]
 
     def main(self):
-        results = self.call_api('cloudMethods/get_cloud', ['name'])
+        results = self.call_api('get_cloud', ['name'])
         print(results)

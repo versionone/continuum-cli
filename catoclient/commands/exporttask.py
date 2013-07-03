@@ -36,7 +36,7 @@ class ExportTask(catoclient.catocommand.CatoCommand):
 
     def main(self):
         try:
-            results = self.call_api('taskMethods/export_task', ['task', 'version', 'include_refs'])
+            results = self.call_api('export_task', ['task', 'version', 'include_refs'])
 
             if self.output_file:
                 import os

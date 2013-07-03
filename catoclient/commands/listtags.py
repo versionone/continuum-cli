@@ -25,6 +25,6 @@ class ListTags(catoclient.catocommand.CatoCommand):
                      doc='A filter.')]
 
     def main(self):
-        results = self.call_api('sysMethods/list_tags', ['filter'])
+        results = self.call_api('list_tags', ['filter'])
         print(results)
 

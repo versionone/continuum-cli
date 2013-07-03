@@ -28,5 +28,5 @@ class ListDocumentCollections(catoclient.catocommand.CatoCommand):
                      doc='A filter.')]
 
     def main(self):
-        results = self.call_api('dsMethods/list_document_collections', ['filter'])
+        results = self.call_api('list_document_collections', ['filter'])
         print(results)

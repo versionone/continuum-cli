@@ -31,5 +31,5 @@ class ListDocuments(catoclient.catocommand.CatoCommand):
                      doc='A document collection.  "Default" if omitted.')]
 
     def main(self):
-        results = self.call_api('dsMethods/list_documents', ['collection', 'filter'])
+        results = self.call_api('list_documents', ['collection', 'filter'])
         print(results)

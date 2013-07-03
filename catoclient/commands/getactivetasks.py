@@ -32,7 +32,7 @@ class GetActiveTasks(catoclient.catocommand.CatoCommand):
         try:
             self.status = "Processing"
             
-            results = self.call_api('taskMethods/get_task_instances', ['filter', 'status', 'records'])
+            results = self.call_api('get_task_instances', ['filter', 'status', 'records'])
             print(results)
         except Exception as ex:
             raise ex

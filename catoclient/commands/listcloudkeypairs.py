@@ -26,6 +26,6 @@ class ListCloudKeyPairs(catoclient.catocommand.CatoCommand):
                ]
 
     def main(self):
-        results = self.call_api('cloudMethods/list_cloud_keypairs', ['cloud'])
+        results = self.call_api('list_cloud_keypairs', ['cloud'])
         print(results)
 

@@ -26,7 +26,7 @@ class GetTaskInstanceStatus(catoclient.catocommand.CatoCommand):
 
     def main(self):
         try:
-            results = self.call_api('taskMethods/get_task_instance_status', ['instance'])
+            results = self.call_api('get_task_instance_status', ['instance'])
             print(results)
         except Exception as ex:
             raise ex

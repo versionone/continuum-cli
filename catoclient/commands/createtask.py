@@ -32,5 +32,5 @@ class CreateTask(catoclient.catocommand.CatoCommand):
                ]
 
     def main(self):
-        results = self.call_api('taskMethods/create_task', ['name', 'code', 'desc'])
+        results = self.call_api('create_task', ['name', 'code', 'desc'])
         print(results)

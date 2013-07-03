@@ -38,5 +38,5 @@ class DeleteTask(catoclient.catocommand.CatoCommand):
                     go = True
 
         if go:
-            results = self.call_api('taskMethods/delete_task', ['task', 'force_delete'])
+            results = self.call_api('delete_task', ['task', 'force_delete'])
             print(results)

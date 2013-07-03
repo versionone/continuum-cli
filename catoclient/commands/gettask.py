@@ -31,6 +31,6 @@ class GetTask(catoclient.catocommand.CatoCommand):
                      doc='Include all code.')]
 
     def main(self):
-        results = self.call_api('taskMethods/get_task', ['task', 'version', 'include_code'])
+        results = self.call_api('get_task', ['task', 'version', 'include_code'])
         print(results)
 

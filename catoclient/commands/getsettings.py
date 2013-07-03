@@ -26,5 +26,5 @@ class GetSettings(catoclient.catocommand.CatoCommand):
                ]
 
     def main(self):
-        results = self.call_api('sysMethods/get_settings', ['module'])
+        results = self.call_api('get_settings', ['module'])
         print(results)

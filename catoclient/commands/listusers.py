@@ -25,6 +25,6 @@ class ListUsers(catoclient.catocommand.CatoCommand):
                      doc='A filter.')]
 
     def main(self):
-        results = self.call_api('sysMethods/list_users', ['filter'])
+        results = self.call_api('list_users', ['filter'])
         print(results)
 

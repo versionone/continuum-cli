@@ -52,7 +52,7 @@ class RunTask(catoclient.catocommand.CatoCommand):
                         print("Unable to open file [%s]." % fn)
                     self.parameters = f_in.read()
 
-            results = self.call_api('taskMethods/run_task', ['task', 'version', 'log_level', 'account', 'service_instance', 'parameters'])
+            results = self.call_api('run_task', ['task', 'version', 'log_level', 'account', 'service_instance', 'parameters'])
             print(results)
         except ValueError:
             # the results could not be parsed as JSON, just return them

@@ -35,5 +35,5 @@ class UpdateCloud(catoclient.catocommand.CatoCommand):
                ]
 
     def main(self):
-        results = self.call_api('cloudMethods/update_cloud', ['name', 'apiurl', 'apiprotocol', 'default_account'])
+        results = self.call_api('update_cloud', ['name', 'apiurl', 'apiprotocol', 'default_account'])
         print(results)

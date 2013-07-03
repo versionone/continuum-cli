@@ -31,5 +31,5 @@ class TagObject(catoclient.catocommand.CatoCommand):
                      doc='The numeric object type of the object to Tag.')]
 
     def main(self):
-        results = self.call_api('sysMethods/add_object_tag', ['tag', 'object_id', 'object_type'])
+        results = self.call_api('add_object_tag', ['tag', 'object_id', 'object_type'])
         print(results)

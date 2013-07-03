@@ -60,5 +60,5 @@ class UpdateSettings(catoclient.catocommand.CatoCommand):
                     if not f_in:
                         print("Unable to open file [%s]." % fn)
                     self.settings = f_in.read()
-            results = self.call_api('sysMethods/update_settings', ['module', 'settings'])
+            results = self.call_api('update_settings', ['module', 'settings'])
             print(results)

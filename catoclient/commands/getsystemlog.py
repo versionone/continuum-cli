@@ -51,7 +51,7 @@ class GetSystemLog(catoclient.catocommand.CatoCommand):
 
     def main(self):
         try:
-            results = self.call_api('sysMethods/get_system_log', ['object_id', 'object_type', 'log_type', 'action', 'filter', 'from', 'to', 'records', 'user'])
+            results = self.call_api('get_system_log', ['object_id', 'object_type', 'log_type', 'action', 'filter', 'from', 'to', 'records', 'user'])
             print(results)
         except Exception as ex:
             raise ex

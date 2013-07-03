@@ -28,6 +28,6 @@ class DescribeTaskParameters(catoclient.catocommand.CatoCommand):
                      doc='An optional specific Task Version. (Default if omitted.)')]
 
     def main(self):
-        results = self.call_api('taskMethods/describe_task_parameters', ['task', 'version'])
+        results = self.call_api('describe_task_parameters', ['task', 'version'])
         print(results)
 

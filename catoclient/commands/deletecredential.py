@@ -36,5 +36,5 @@ class DeleteCredential(catoclient.catocommand.CatoCommand):
                     go = True
 
         if go:
-            results = self.call_api('sysMethods/delete_credential', ['credential'])
+            results = self.call_api('delete_credential', ['credential'])
             print(results)

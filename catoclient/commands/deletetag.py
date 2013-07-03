@@ -35,5 +35,5 @@ class DeleteTag(catoclient.catocommand.CatoCommand):
                     go = True
 
         if go:
-            results = self.call_api('sysMethods/delete_tag', ['name'])
+            results = self.call_api('delete_tag', ['name'])
             print(results)

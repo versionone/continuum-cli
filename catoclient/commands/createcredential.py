@@ -41,5 +41,5 @@ class CreateCredential(catoclient.catocommand.CatoCommand):
                ]
 
     def main(self):
-        results = self.call_api('sysMethods/create_credential', ['name', 'description', 'username', 'password', 'domain', 'privileged'])
+        results = self.call_api('create_credential', ['name', 'description', 'username', 'password', 'domain', 'privileged'])
         print(results)

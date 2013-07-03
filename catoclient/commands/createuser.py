@@ -60,5 +60,5 @@ class CreateUser(catoclient.catocommand.CatoCommand):
                ]
 
     def main(self):
-        results = self.call_api('sysMethods/create_user', ['user', 'name', 'role', 'password', 'email', 'authtype', 'forcechange', 'expires', 'status', 'groups', 'get_token'])
+        results = self.call_api('create_user', ['user', 'name', 'role', 'password', 'email', 'authtype', 'forcechange', 'expires', 'status', 'groups', 'get_token'])
         print(results)

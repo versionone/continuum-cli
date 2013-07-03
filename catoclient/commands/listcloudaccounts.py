@@ -25,6 +25,6 @@ class ListCloudAccounts(catoclient.catocommand.CatoCommand):
                      doc='A filter.')]
 
     def main(self):
-        results = self.call_api('cloudMethods/list_cloud_accounts', ['filter'])
+        results = self.call_api('list_cloud_accounts', ['filter'])
         print(results)
 

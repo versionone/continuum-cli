@@ -49,6 +49,6 @@ class ImportBackup(catoclient.catocommand.CatoCommand):
                     go = True
 
         if go:
-            results = self.call_api('sysMethods/import_backup', ['xml'])
+            results = self.call_api('import_backup', ['xml'])
             print(results)
 

@@ -24,7 +24,7 @@ class ListProcesses(catoclient.catocommand.CatoCommand):
 
     def main(self):
 
-        return self.call_api('sysMethods/list_processes', [])
+        return self.call_api('list_processes', [])
 
     def main_cli(self):
         results = self.main()

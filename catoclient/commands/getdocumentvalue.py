@@ -34,5 +34,5 @@ class GetDocumentValue(catoclient.catocommand.CatoCommand):
                      doc='A document collection.  "Default" if omitted.')]
 
     def main(self):
-        results = self.call_api('dsMethods/get_document_value', ['query', 'lookupkey', 'collection'])
+        results = self.call_api('get_document_value', ['query', 'lookupkey', 'collection'])
         print(results)

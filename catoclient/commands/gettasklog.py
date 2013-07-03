@@ -26,7 +26,7 @@ class GetTaskLog(catoclient.catocommand.CatoCommand):
 
     def main(self):
         try:
-            results = self.call_api('taskMethods/get_task_log', ['instance'])
+            results = self.call_api('get_task_log', ['instance'])
             print(results)
         except Exception as ex:
             raise ex

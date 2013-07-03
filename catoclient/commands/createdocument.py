@@ -31,5 +31,5 @@ class CreateDocument(catoclient.catocommand.CatoCommand):
                      doc=' A JSON document template.  A blank document will be created if omitted.')]
 
     def main(self):
-        results = self.call_api('dsMethods/create_document', ['template', 'collection'])
+        results = self.call_api('create_document', ['template', 'collection'])
         print(results)

@@ -41,5 +41,5 @@ class CreateCloudAccount(catoclient.catocommand.CatoCommand):
                ]
 
     def main(self):
-        results = self.call_api('cloudMethods/create_account', ['provider', 'name', 'login', 'password', 'default_cloud', 'account_number'])
+        results = self.call_api('create_account', ['provider', 'name', 'login', 'password', 'default_cloud', 'account_number'])
         print(results)
