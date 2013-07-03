@@ -44,5 +44,5 @@ class DeleteSequenceStep(catoclient.catocommand.CatoCommand):
                     go = True
 
         if go:
-            results = self.call_api('depMethods/delete_sequence_step', ['deployment', 'sequence', 'step'])
+            results = self.call_api('delete_sequence_step', ['deployment', 'sequence', 'step'])
             print(results)

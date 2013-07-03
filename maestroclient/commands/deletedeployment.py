@@ -38,5 +38,5 @@ class DeleteDeployment(catoclient.catocommand.CatoCommand):
                     go = True
 
         if go:
-            results = self.call_api('depMethods/delete_deployment', ['deployment'])
+            results = self.call_api('delete_deployment', ['deployment'])
             print(results)

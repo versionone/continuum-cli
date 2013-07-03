@@ -31,5 +31,5 @@ class GetDeploymentServices(catoclient.catocommand.CatoCommand):
                      doc='A filter.')]
 
     def main(self):
-        results = self.call_api('depMethods/get_deployment_services', ['deployment', 'filter'])
+        results = self.call_api('get_deployment_services', ['deployment', 'filter'])
         print(results)

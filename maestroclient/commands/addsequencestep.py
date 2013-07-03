@@ -34,5 +34,5 @@ class AddSequenceStep(catoclient.catocommand.CatoCommand):
                      doc='The step number before which to add the new Step.')]
 
     def main(self):
-        results = self.call_api('depMethods/add_sequence_step', ['deployment', 'sequence', 'before'])
+        results = self.call_api('add_sequence_step', ['deployment', 'sequence', 'before'])
         print(results)

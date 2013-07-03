@@ -26,5 +26,5 @@ class GetLicense(catoclient.catocommand.CatoCommand):
     Options = []
 
     def main(self):
-        results = self.call_api('depMethods/get_license', [])
+        results = self.call_api('get_license', [])
         print(results)

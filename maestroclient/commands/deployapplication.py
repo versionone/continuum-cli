@@ -41,5 +41,5 @@ class DeployApplication(catoclient.catocommand.CatoCommand):
                ]
 
     def main(self):
-        results = self.call_api('depMethods/deploy_application', ['name', 'template', 'version', 'owner', 'desc'])
+        results = self.call_api('deploy_application', ['name', 'template', 'version', 'owner', 'desc'])
         print(results)

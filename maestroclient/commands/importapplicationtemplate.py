@@ -107,7 +107,7 @@ class ImportApplicationTemplate(catoclient.catocommand.CatoCommand):
         
         # get a list of all defined tasks
         self.show_all_versions = True
-        existingtasks = self.call_api('taskMethods/list_tasks', ['filter', 'show_all_versions'])
+        existingtasks = self.call_api('list_tasks', ['filter', 'show_all_versions'])
         existingtasks = json.loads(existingtasks)
         existnames = [(x["Name"], x["Version"]) for x in existingtasks]
 
@@ -173,7 +173,7 @@ class ImportApplicationTemplate(catoclient.catocommand.CatoCommand):
         except:
             pass
         
-        response = self.call_api('depMethods/create_application_template', ['name', 'version', 'description', 'template', 'icon', 'makeavailable'])
+        response = self.call_api('create_application_template', ['name', 'version', 'description', 'template', 'icon', 'makeavailable'])
         response = json.loads(response)
         if response.get("ID"):
             print "Application Template successfully created."
@@ -181,7 +181,7 @@ class ImportApplicationTemplate(catoclient.catocommand.CatoCommand):
         for tjson in tasks2import:
             self.json = tjson
             self.on_conflict = "replace"
-            response = self.call_api('taskMethods/create_task_from_json', ['json', 'on_conflict'])
+            response = self.call_api('create_task_from_json', ['json', 'on_conflict'])
             response = json.loads(response)
             if response.get("Name"):
                 print "Created/Updated Task [%s]" % response.get("Name")

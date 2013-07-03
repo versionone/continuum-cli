@@ -49,5 +49,5 @@ class InstallLicense(catoclient.catocommand.CatoCommand):
                     if data:
                         self.license = data
 
-            results = self.call_api('depMethods/install_license', ['license'])
+            results = self.call_api('install_license', ['license'])
             print(results)

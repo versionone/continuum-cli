@@ -34,5 +34,5 @@ class GetSequenceParameters(catoclient.catocommand.CatoCommand):
                      doc='Get a basic template with no descriptive details or default values.')]
 
     def main(self):
-        results = self.call_api('depMethods/get_sequence_parameters', ['deployment', 'sequence', 'basic'])
+        results = self.call_api('get_sequence_parameters', ['deployment', 'sequence', 'basic'])
         print(results)

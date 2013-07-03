@@ -28,5 +28,5 @@ class GetSequenceInstanceStatus(catoclient.catocommand.CatoCommand):
                      doc='The Instance ID.')]
 
     def main(self):
-        results = self.call_api('depMethods/get_sequence_instance_status', ['instance'])
+        results = self.call_api('get_sequence_instance_status', ['instance'])
         print(results)

@@ -55,7 +55,7 @@ class ExportApplicationTemplate(catoclient.catocommand.CatoCommand):
         """
         # if no outputdirectory was provided, we will just print the results
         if self.printoutput:
-            results = self.call_api('depMethods/export_application_template', ['template', 'version'])
+            results = self.call_api('export_application_template', ['template', 'version'])
             print(results)
             return
 
@@ -80,7 +80,7 @@ class ExportApplicationTemplate(catoclient.catocommand.CatoCommand):
         if not os.path.exists(taskdir):
             os.makedirs(taskdir)
         
-        results = self.call_api('depMethods/export_application_template', ['template', 'version'])
+        results = self.call_api('export_application_template', ['template', 'version'])
 
         appbackup = json.loads(results)
         

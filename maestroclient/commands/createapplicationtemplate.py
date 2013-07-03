@@ -70,5 +70,5 @@ class CreateApplicationTemplate(catoclient.catocommand.CatoCommand):
                     print("Unable to open file [%s]." % fn)
                 self.icon = base64.b64encode(f_in.read())
 
-        results = self.call_api('depMethods/create_application_template', ['name', 'version', 'description', 'template', 'icon', 'makeavailable'])
+        results = self.call_api('create_application_template', ['name', 'version', 'description', 'template', 'icon', 'makeavailable'])
         print(results)

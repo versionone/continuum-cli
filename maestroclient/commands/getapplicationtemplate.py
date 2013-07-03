@@ -38,5 +38,5 @@ class GetApplicationTemplate(catoclient.catocommand.CatoCommand):
                ]
 
     def main(self):
-        results = self.call_api('depMethods/get_application_template', ['template', 'version', 'getdefinition', 'geticon'])
+        results = self.call_api('get_application_template', ['template', 'version', 'getdefinition', 'geticon'])
         print(results)

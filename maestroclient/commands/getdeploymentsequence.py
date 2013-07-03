@@ -31,5 +31,5 @@ class GetDeploymentSequence(catoclient.catocommand.CatoCommand):
                      doc='A Sequence name on this Deployment.')]
 
     def main(self):
-        results = self.call_api('depMethods/get_deployment_sequence', ['deployment', 'sequence'])
+        results = self.call_api('get_deployment_sequence', ['deployment', 'sequence'])
         print(results)

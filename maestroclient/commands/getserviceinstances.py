@@ -31,5 +31,5 @@ class GetServiceInstances(catoclient.catocommand.CatoCommand):
                      doc='Value can be either a Service ID or Name.')]
 
     def main(self):
-        results = self.call_api('depMethods/get_service_instances', ['deployment', 'service'])
+        results = self.call_api('get_service_instances', ['deployment', 'service'])
         print(results)

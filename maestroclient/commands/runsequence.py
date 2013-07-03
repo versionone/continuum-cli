@@ -59,5 +59,5 @@ class RunSequence(catoclient.catocommand.CatoCommand):
                     if data:
                         self.params = data
 
-            results = self.call_api('depMethods/run_sequence', ['deployment', 'sequence', 'onerror', 'params'])
+            results = self.call_api('run_sequence', ['deployment', 'sequence', 'onerror', 'params'])
             print(results)

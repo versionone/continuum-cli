@@ -31,5 +31,5 @@ class ListTemplateTasks(catoclient.catocommand.CatoCommand):
                      doc='The Application Template Version.')]
 
     def main(self):
-        results = self.call_api('depMethods/list_template_tasks', ['template', 'version'])
+        results = self.call_api('list_template_tasks', ['template', 'version'])
         print(results)

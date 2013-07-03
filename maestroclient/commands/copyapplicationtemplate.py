@@ -38,5 +38,5 @@ class CopyApplicationTemplate(catoclient.catocommand.CatoCommand):
                ]
 
     def main(self):
-        results = self.call_api('depMethods/copy_application_template', ['newname', 'newversion', 'template', 'version'])
+        results = self.call_api('copy_application_template', ['newname', 'newversion', 'template', 'version'])
         print(results)

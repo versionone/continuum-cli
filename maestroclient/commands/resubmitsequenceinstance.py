@@ -28,5 +28,5 @@ class ResubmitSequenceInstance(catoclient.catocommand.CatoCommand):
                      doc='The Instance ID to resubmit.')]
 
     def main(self):
-        results = self.call_api('depMethods/resubmit_sequence', ['instance'])
+        results = self.call_api('resubmit_sequence', ['instance'])
         print(results)

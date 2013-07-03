@@ -31,5 +31,5 @@ class ListDeployments(catoclient.catocommand.CatoCommand):
                      doc='Include Archived Deployments in the results.')]
 
     def main(self):
-        results = self.call_api('depMethods/list_deployments', ['filter', 'show_archived'])
+        results = self.call_api('list_deployments', ['filter', 'show_archived'])
         print(results)

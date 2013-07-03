@@ -82,8 +82,8 @@ class DeleteApplicationTemplate(catoclient.catocommand.CatoCommand):
                                 # there should be an API endpoint that deletes from a list of task name/version pairs.
                                 self.task = t["Name"]
                                 self.force_delete = True
-                                print self.call_api('taskMethods/delete_task', ['task', 'force_delete'])
+                                print self.call_api('delete_task', ['task', 'force_delete'])
 
             # now, lets do the api call that deletes the template
-            results = self.call_api('depMethods/delete_application_template', ['template', 'version', 'deletetasks'])
+            results = self.call_api('delete_application_template', ['template', 'version', 'deletetasks'])
             print(results)

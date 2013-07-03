@@ -47,5 +47,5 @@ class RemoveServiceFromSequenceStep(catoclient.catocommand.CatoCommand):
                     go = True
 
         if go:
-            results = self.call_api('depMethods/remove_service_from_sequence_step', ['deployment', 'sequence', 'step', 'service'])
+            results = self.call_api('remove_service_from_sequence_step', ['deployment', 'sequence', 'step', 'service'])
             print(results)

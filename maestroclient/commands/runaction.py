@@ -70,5 +70,5 @@ class RunAction(catoclient.catocommand.CatoCommand):
                     if data:
                         self.params = data
 
-            results = self.call_api('depMethods/run_action', ['deployment', 'action', 'service', 'service_instance', 'log_level', 'params'])
+            results = self.call_api('run_action', ['deployment', 'action', 'service', 'service_instance', 'log_level', 'params'])
             print(results)

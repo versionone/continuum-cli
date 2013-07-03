@@ -27,5 +27,5 @@ class GetDeploymentDocument(catoclient.catocommand.CatoCommand):
                      optional=False, ptype='string')]
 
     def main(self):
-        results = self.call_api('depMethods/get_deployment_document', ['deployment'])
+        results = self.call_api('get_deployment_document', ['deployment'])
         print(results)

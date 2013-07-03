@@ -28,5 +28,5 @@ class StopSequence(catoclient.catocommand.CatoCommand):
                      doc='The Instance ID to stop.')]
 
     def main(self):
-        results = self.call_api('depMethods/stop_sequence', ['instance'])
+        results = self.call_api('stop_sequence', ['instance'])
         print(results)

@@ -28,5 +28,5 @@ class ListApplicationTemplates(catoclient.catocommand.CatoCommand):
                      doc='A filter.')]
 
     def main(self):
-        results = self.call_api('depMethods/list_application_templates', ['filter'])
+        results = self.call_api('list_application_templates', ['filter'])
         print(results)

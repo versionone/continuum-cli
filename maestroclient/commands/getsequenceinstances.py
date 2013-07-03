@@ -44,5 +44,5 @@ class GetSequenceInstances(catoclient.catocommand.CatoCommand):
                ]
 
     def main(self):
-        results = self.call_api('depMethods/get_sequence_instances', ['deployment', 'filter', 'status', 'from', 'to', 'records'])
+        results = self.call_api('get_sequence_instances', ['deployment', 'filter', 'status', 'from', 'to', 'records'])
         print(results)

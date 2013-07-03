@@ -41,5 +41,5 @@ class RemoveServiceInstance(catoclient.catocommand.CatoCommand):
                     go = True
 
         if go:
-            results = self.call_api('depMethods/remove_service_instance', ['deployment', 'instance'])
+            results = self.call_api('remove_service_instance', ['deployment', 'instance'])
             print(results)

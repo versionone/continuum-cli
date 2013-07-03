@@ -31,5 +31,5 @@ class GetDeploymentSequences(catoclient.catocommand.CatoCommand):
                      doc='A filter.')]
 
     def main(self):
-        results = self.call_api('depMethods/get_deployment_sequences', ['deployment', 'filter'])
+        results = self.call_api('get_deployment_sequences', ['deployment', 'filter'])
         print(results)

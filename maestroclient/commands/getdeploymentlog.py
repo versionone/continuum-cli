@@ -41,5 +41,5 @@ class GetDeploymentLog(catoclient.catocommand.CatoCommand):
                ]
 
     def main(self):
-        results = self.call_api('depMethods/get_deployment_log', ['deployment', 'filter', 'from', 'to', 'records'])
+        results = self.call_api('get_deployment_log', ['deployment', 'filter', 'from', 'to', 'records'])
         print(results)

@@ -28,5 +28,5 @@ class DescribeDeployment(catoclient.catocommand.CatoCommand):
                      doc='Value can be either an deployment id or deployment name.')]
 
     def main(self):
-        results = self.call_api('depMethods/describe_deployment', ['deployment'])
+        results = self.call_api('describe_deployment', ['deployment'])
         print(results)
