@@ -35,5 +35,5 @@ class CreateDeploymentService(catoclient.catocommand.CatoCommand):
                ]
 
     def main(self):
-        results = self.call_api("create_deployment_service', ['deployment', 'name', 'desc'])
+        results = self.call_api('create_deployment_service', ['deployment', 'name', 'desc'])
         print(results)
