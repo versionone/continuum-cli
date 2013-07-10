@@ -7,7 +7,7 @@ require "base64"
 
 
 host = "http://localhost:4001"
-method = "taskMethods/list_tasks"
+method = "list_tasks"
 access_key = ""
 secret_key = ""
 

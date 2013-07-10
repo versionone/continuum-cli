@@ -21,7 +21,7 @@ Making calls to the Cato REST API has a few requirements:
 All API requests must be signed with a specific mechanism.  Here's an example of a string to be signed:
 
 ```
-taskMethods/list_tasks?key=0002bdaf-bfd5-4b9d-82d1-fd39c2947d19&timestamp=2012-08-16T15%3A54%3A27
+list_tasks?key=0002bdaf-bfd5-4b9d-82d1-fd39c2947d19&timestamp=2012-08-16T15%3A54%3A27
 ```
 
 The string to sign has the following components:
@@ -84,7 +84,7 @@ Here's an example of a successful _taskMethods/get_task_ request:
 ```
 <apiResponse>
 	<method>
-		taskMethods/get_task
+		get_task
 	</method>
 	<response>
 		<Task>
@@ -104,7 +104,7 @@ Here's an example of the same request, but with an invalid Task specified:
 ```
 <apiResponse>
 	<method>
-		taskMethods/get_task
+		get_task
 	</method>
 	<response />
 	<error>
@@ -128,7 +128,7 @@ _Notice the Response here is also a JSON object, but escaped._
 {
     "ErrorCode": "",
     "ErrorMessage": "",
-    "Method": "taskMethods/get_task",
+    "Method": "get_task",
     "ErrorDetail": "",
     "Response": "{\"TaskID\": \"e7c2c10e-1ee4-43af-847c-034ef34c23d8\", \"TaskName\": \"Sample Task\"}"
 }
@@ -140,7 +140,7 @@ And the error:
 {
     "ErrorCode": "Exception",
     "ErrorMessage": "",
-    "Method": "taskMethods/get_task",
+    "Method": "get_task",
     "ErrorDetail": "Error getting Task ID for Name [ttt] - no record found. ",
     "Response": ""
 }

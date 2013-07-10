@@ -8,11 +8,12 @@ jQuery is ised for the JSONP callback functionality.
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
 <script>
 	function go() {
-		var host = "https://localhost:4001";
-		var access_key = "administrator";
-		var secret_key = "c4t4lyss";
+		var host = $("#host").val();
+		var access_key = $("#accesskey").val();
+		var secret_key = $("#secretkey").val();
 
-		var method = $("#method").val();
+        var method = $("#method").val();
+        var args = $("#args").val();
 
 		if (host == "")
 			alert("HOST not provided.");
@@ -46,7 +47,7 @@ jQuery is ised for the JSONP callback functionality.
 		sig = "&signature=" + sig;
 
 		// build the url
-		url = host + "/" + string_to_sign + sig + "&output_format=xml&callback=?";
+		url = host + "/" + string_to_sign + sig + "&output_format=xml&callback=?&" + args;
 
 		$.getJSON(url, function retorno(e) {
 			$("#results").text(e);
@@ -59,8 +60,21 @@ jQuery is ised for the JSONP callback functionality.
         <title>Cato API Example</title>
     </head>
     <body>
+        API Host:
+        <input id="host" type="text" value="https://localhost:4001" />
+        <br />
+        Access Key:
+        <input id="accesskey" type="text" value="administrator" />
+        <br />
+        Secret Key:
+        <input id="secretkey" type="text" value="" />
+        <br />
         Method:
-        <input id="method" type="text" value="sysMethods/list_processes" />
+        <input id="method" type="text" value="list_processes" />
+        <br />
+        Args:
+        <input id="args" type="text" value="" />
+        <br />
         <button onclick="go();">Go!</button>
         <pre id="results"></pre>
     </body>

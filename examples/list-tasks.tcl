@@ -84,7 +84,7 @@ output "API Key: $::KEY"
 set timestamp [string map {: %3A} [clock format [clock seconds] -format "%Y-%m-%dT%H:%M:%S" -gmt true]]
 #output "Timestamp: $timestamp"
 
-set string_to_sign "taskMethods/list_tasks?key=$::KEY&timestamp=$timestamp"
+set string_to_sign "list_tasks?key=$::KEY&timestamp=$timestamp"
 #output "String to sign: $string_to_sign"
 
 # SHA256 the string_to_sign using the password
