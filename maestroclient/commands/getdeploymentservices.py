@@ -25,7 +25,7 @@ class GetDeploymentServices(catoclient.catocommand.CatoCommand):
     Description = 'Gets Services on an Deployment'
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',
-                     doc='Value can be either an deployment id or deployment name.'),
+                     doc='Value can be either a Deployment ID or Name.'),
                Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',
                      doc='A filter.')]

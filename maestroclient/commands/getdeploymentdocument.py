@@ -24,7 +24,8 @@ class GetDeploymentDocument(catoclient.catocommand.CatoCommand):
 
     Description = 'Gets a Deployment Datastore Document.'
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
-                     optional=False, ptype='string')]
+                     optional=False, ptype='string',
+                     doc='Value can be either a Deployment ID or Name.')]
 
     def main(self):
         results = self.call_api('get_deployment_document', ['deployment'])

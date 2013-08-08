@@ -25,7 +25,7 @@ class GetDeploymentSequence(catoclient.catocommand.CatoCommand):
     Description = 'Gets a Deployment Sequence.'
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',
-                     doc='Value can be either an deployment id or deployment name.'),
+                     doc='Value can be either a Deployment ID or Name.'),
                Param(name='sequence', short_name='s', long_name='sequence',
                      optional=False, ptype='string',
                      doc='A Sequence name on this Deployment.')]
