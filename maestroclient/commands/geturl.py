@@ -38,11 +38,14 @@ class GetURL(catoclient.catocommand.CatoCommand):
                Param(name='service_instance', short_name='i', long_name='service_instance',
                      optional=True, ptype='string',
                      doc='Value can be either a Service Instance ID or Name.'),
+               Param(name='task_instance', short_name='t', long_name='task_instance',
+                     optional=True, ptype='string',
+                     doc='A Task Instance ID.'),
                Param(name='sequence_instance', short_name='s', long_name='sequence_instance',
                      optional=True, ptype='string',
                      doc='A Sequence Instance ID.')]
 
     def main(self):
-        results = self.call_api('get_maestro_url', ['page', 'user', 'deployment', 'service', 'service_instance', 'sequence_instance'])
+        results = self.call_api('get_maestro_url', ['page', 'user', 'deployment', 'service', 'task_instance', 'service_instance', 'sequence_instance'])
         print(results)
 
