@@ -25,7 +25,7 @@ class GetURL(catoclient.catocommand.CatoCommand):
     Description = 'Gets a URL to a specific page in the Maestro UI.'
     Options = [Param(name='page', short_name='p', long_name='page',
                      optional=False, ptype='string',
-                     doc='Name of a detail page.'),
+                     doc='Name of a detail page. Valid values: deployment, service, service_instance, sequence_status, task_instance.'),
                Param(name='user', short_name='u', long_name='user',
                      optional=True, ptype='string',
                      doc='Value can be either a User ID or Name.'),
