@@ -25,7 +25,7 @@ class DescribeDeployment(catoclient.catocommand.CatoCommand):
     Description = 'Gets all the information about a Deployment'
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',
-                     doc='Value can be either an deployment id or deployment name.')]
+                     doc='Value can be either a Deployment ID or Name.')]
 
     def main(self):
         results = self.call_api('describe_deployment', ['deployment'])

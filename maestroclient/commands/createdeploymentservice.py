@@ -25,7 +25,7 @@ class CreateDeploymentService(catoclient.catocommand.CatoCommand):
     Description = 'Creates a new Deployment Service.'
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',
-                     doc='Value can be either an deployment id or deployment name.'),
+                     doc='Value can be either a Deployment ID or Name.'),
                Param(name='name', short_name='n', long_name='name',
                      optional=False, ptype='string',
                      doc='The name of the new Service.'),

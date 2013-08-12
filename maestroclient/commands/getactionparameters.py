@@ -22,13 +22,13 @@ class GetActionParameters(catoclient.catocommand.CatoCommand):
     Description = 'Gets a Parameters template for an Action.'
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',
-                     doc='Value can be either an deployment id or deployment name.'),
+                     doc='Value can be either a Deployment ID or Name.'),
                Param(name='action', short_name='a', long_name='action',
                      optional=False, ptype='string',
                      doc='Name of the Action.'),
                Param(name='service', short_name='v', long_name='service',
                      optional=True, ptype='string',
-                     doc='Value can be either a service id or service name.'),
+                     doc='Value can be either a Service ID or Name.'),
                Param(name='basic', short_name='b', long_name='basic',
                      optional=True, ptype='boolean',
                      doc='Get a basic template with no descriptive details or default values.')]

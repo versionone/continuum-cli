@@ -22,7 +22,7 @@ from catoclient.param import Param
 
 class GetDeploymentServices(catoclient.catocommand.CatoCommand):
 
-    Description = 'Gets Services on an Deployment'
+    Description = 'Gets Services on a Deployment'
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',
                      doc='Value can be either a Deployment ID or Name.'),
