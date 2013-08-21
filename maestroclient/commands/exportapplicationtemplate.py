@@ -79,6 +79,9 @@ class ExportApplicationTemplate(catoclient.catocommand.CatoCommand):
         taskdir = os.path.join(rootdir, "tasks")
         if not os.path.exists(taskdir):
             os.makedirs(taskdir)
+        reportdir = os.path.join(rootdir, "reports")
+        if not os.path.exists(reportdir):
+            os.makedirs(reportdir)
         
         results = self.call_api('export_application_template', ['template', 'version'])
 
@@ -127,4 +130,29 @@ class ExportApplicationTemplate(catoclient.catocommand.CatoCommand):
                 if not f_out:
                     print("Unable to open file [%s]." % fn)
                 f_out.write(t)
+        
+        # write all the report files
+        projs = appbackup.get("Reports", [])
+        for p in projs:
+            # create the project dir
+            pdir = os.path.join(reportdir, p["Name"])
+            if not os.path.exists(pdir):
+                os.makedirs(pdir)
+            
+            # Components
+            for c in p["Components"]:
+                # create the category dir 
+                cdir = os.path.join(pdir, c["Name"])
+                if not os.path.exists(cdir):
+                    os.makedirs(cdir)
+
+                # Files
+                for i in c["Items"]:
+                    # write this file into the category directory
+                    filename = i["Name"]
+                    fn = os.path.join(cdir, filename)
+                    with open(fn, 'w+') as f_out:
+                        if not f_out:
+                            print("Unable to open file [%s]." % fn)
+                        f_out.write(i["Data"])
             
