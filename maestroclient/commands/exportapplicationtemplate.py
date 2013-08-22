@@ -135,21 +135,21 @@ class ExportApplicationTemplate(catoclient.catocommand.CatoCommand):
         projs = appbackup.get("Reports", [])
         for p in projs:
             # create the project dir
-            pdir = os.path.join(reportdir, p["Name"])
+            pdir = os.path.join(reportdir, "proj_%s" % (p["Name"]))
             if not os.path.exists(pdir):
                 os.makedirs(pdir)
             
             # Components
             for c in p["Components"]:
                 # create the category dir 
-                cdir = os.path.join(pdir, c["Name"])
+                cdir = os.path.join(pdir, "comp_%s" % (c["Name"]))
                 if not os.path.exists(cdir):
                     os.makedirs(cdir)
 
                 # Files
                 for i in c["Items"]:
                     # write this file into the category directory
-                    filename = i["Name"]
+                    filename = "item_%s" % (i["Name"])
                     fn = os.path.join(cdir, filename)
                     with open(fn, 'w+') as f_out:
                         if not f_out:

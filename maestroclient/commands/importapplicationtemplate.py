@@ -75,6 +75,7 @@ class ImportApplicationTemplate(catoclient.catocommand.CatoCommand):
         defdir = os.path.join(rootdir, "definition")
         icondir = os.path.join(rootdir, "icon")
         taskdir = os.path.join(rootdir, "tasks")
+        reportdir = os.path.join(rootdir, "reports")
 
         
         app_details = None
@@ -173,11 +174,12 @@ class ImportApplicationTemplate(catoclient.catocommand.CatoCommand):
         except:
             pass
         
-        response = self.call_api('create_application_template', ['name', 'version', 'description', 'template', 'icon', 'makeavailable'])
+        response = self.call_api('create_application_template', ['name', 'version', 'description', 'template', 'icon', 'makeavailable', 'ignoreconflicts'])
         response = json.loads(response)
         if response.get("ID"):
             print "Application Template successfully created."
         
+        # spin and create the tasks
         for tjson in tasks2import:
             self.json = tjson
             self.on_conflict = "replace"
@@ -186,6 +188,44 @@ class ImportApplicationTemplate(catoclient.catocommand.CatoCommand):
             if response.get("Name"):
                 print "Created/Updated Task [%s]" % response.get("Name")
                 
+        # and the canvas elements
+
+        # importing canvas items is pretty easy.
+        # 1) The first directory is the 'project'
+        # 2) second directory is the component
+        # 3) files below that.
+        
+        # a flat list of all the details
+        everything = []
+        projects = [ d for d in os.listdir(reportdir) if os.path.isdir(os.path.join(reportdir, d)) ]
+        # filter out any invalid dirs
+        projects = [ p for p in projects if "proj_" in p]
+        if projects:
+            for p in projects:
+                pdir = os.path.join(reportdir, p)
+                components = [ d for d in os.listdir(pdir) if os.path.isdir(os.path.join(pdir, d)) ]
+                components = [ c for c in components if "comp_" in c]
+                if components:
+                    for c in components:
+                        cdir = os.path.join(pdir, c)
+                        files = [ f for f in os.listdir(cdir) if os.path.isfile(os.path.join(cdir, f)) ]
+                        files = [ f for f in files if "item_" in f]
+                        for f in files:
+                            # open each file ...
+                            fn = os.path.join(cdir, f)
+                            with open(fn, 'r') as f_in:
+                                if not f_in:
+                                    print("Unable to open file [%s]." % fn)
+                                data = f_in.read()
+                            
+                            everything.append((p.replace("proj_", ""), c.replace("comp_", ""), f.replace("item_", ""), data))
+                            
+        # finally, make the api call for each row (suboptimal I know, but whatever)
+        for row in everything:
+            self.project, self.component, self.name, self.data = row[:]        
+            response = self.call_api('create_canvas_item', ['project', 'component', 'name', 'data', 'ignoreconflicts'])
+            print response
+        
         print "Success!"
         
 
