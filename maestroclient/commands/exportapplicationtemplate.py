@@ -85,7 +85,18 @@ class ExportApplicationTemplate(catoclient.catocommand.CatoCommand):
         
         results = self.call_api('export_application_template', ['template', 'version'])
 
-        appbackup = json.loads(results)
+        # so, the result MIGHT be json and it MIGHT be an error message.
+        # we don't know... so let's trap the json parse and show the result if it fails
+        appbackup = None
+        try:
+            appbackup = json.loads(results)
+        except:
+            print(results)
+            return
+        
+        if not appbackup:
+            print("Unable to continue - API returned no export document. %s" % (results))
+            return
         
         # first, write the application details JSON file.
         app_details = {}
