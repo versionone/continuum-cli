@@ -140,7 +140,7 @@ class ExportApplicationTemplate(catoclient.catocommand.CatoCommand):
             with open(fn, 'w+') as f_out:
                 if not f_out:
                     print("Unable to open file [%s]." % fn)
-                f_out.write(t)
+                f_out.write("%s\n" % (t))
         
         # write all the report files
         projs = appbackup.get("Reports", [])
