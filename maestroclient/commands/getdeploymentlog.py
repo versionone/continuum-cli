@@ -26,6 +26,15 @@ class GetDeploymentLog(catoclient.catocommand.CatoCommand):
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',
                      doc='Value can be either a Deployment ID or Name.'),
+               Param(name='service', short_name='s', long_name='service',
+                     optional=True, ptype='string',
+                     doc='Value can be either a Service ID or Name.'),
+               Param(name='instance', short_name='i', long_name='instance',
+                     optional=True, ptype='string',
+                     doc='Value can be either a Service Instance ID or Name.'),
+               Param(name='seq_instance', short_name='q', long_name='seq_instance',
+                     optional=True, ptype='string',
+                     doc='Value must be a Sequence Instance ID.'),
                Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',
                      doc='A filter.'),
@@ -41,5 +50,5 @@ class GetDeploymentLog(catoclient.catocommand.CatoCommand):
                ]
 
     def main(self):
-        results = self.call_api('get_deployment_log', ['deployment', 'filter', 'from', 'to', 'records'])
+        results = self.call_api('get_deployment_log', ['deployment', 'service', 'instance', 'seq_instance', 'filter', 'from', 'to', 'records'])
         print(results)
