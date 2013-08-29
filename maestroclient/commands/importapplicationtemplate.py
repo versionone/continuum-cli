@@ -117,7 +117,7 @@ class ImportApplicationTemplate(catoclient.catocommand.CatoCommand):
         # That's the only way to get the name/version/conflict out of each file.
         tasks2import = []
         possibleconflicts = []
-        for fn in glob.glob(os.path.join(taskdir, "*.csk")):
+        for fn in glob.glob(os.path.join(taskdir, "*.json")):
             with open(fn, 'r') as f_in:
                 if not f_in:
                     print("Unable to open Task file [%s]." % fn)

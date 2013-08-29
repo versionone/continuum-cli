@@ -134,9 +134,9 @@ class ExportApplicationTemplate(catoclient.catocommand.CatoCommand):
             
             # ok, we want a fairly readable filename from the task name, which could contain anything
             # so this little bit of wizardry should give us a sane filename
-            keepcharacters = (' ','.','_')
+            keepcharacters = ('.','_')
             taskfilename = "".join(c for c in tobj["Name"] if c.isalnum() or c in keepcharacters).strip()                
-            fn = os.path.join(taskdir, "%s.csk" % taskfilename)
+            fn = os.path.join(taskdir, "%s.json" % taskfilename)
             with open(fn, 'w+') as f_out:
                 if not f_out:
                     print("Unable to open file [%s]." % fn)

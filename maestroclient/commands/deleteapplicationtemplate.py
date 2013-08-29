@@ -69,7 +69,7 @@ class DeleteApplicationTemplate(catoclient.catocommand.CatoCommand):
                     return
 
                 taskdir = os.path.join(rootdir, "tasks")
-                for fn in glob.glob(os.path.join(taskdir, "*.csk")):
+                for fn in glob.glob(os.path.join(taskdir, "*.json")):
                     with open(fn, 'r') as f_in:
                         if not f_in:
                             print("Unable to open Task file [%s]." % fn)
