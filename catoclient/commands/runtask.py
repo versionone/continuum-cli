@@ -32,9 +32,9 @@ class RunTask(catoclient.catocommand.CatoCommand):
                Param(name='account', short_name='a', long_name='account',
                      optional=True, ptype='string',
                      doc='The ID or Name of Cloud Account credentials for the Task.'),
-               Param(name='service_instance', short_name='i', long_name='service_instance',
+               Param(name='options', short_name='o', long_name='options',
                      optional=True, ptype='string',
-                     doc='The ID of a Service Instance.'),
+                     doc='A JSON object containing additional options for the Task.'),
                Param(name='parameterfile', short_name='p', long_name='parameterfile',
                      optional=True, ptype='string',
                      doc='The file name of a Parameter XML file.')
