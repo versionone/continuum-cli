@@ -32,6 +32,9 @@ class ExportCanvas(catoclient.catocommand.CatoCommand):
                Param(name='component', short_name='c', long_name='component',
                      optional=True, ptype='string',
                      doc='If provided, limits a Project to a specific Component. (project is required.)'),
+               Param(name='repository', short_name='r', long_name='repository',
+                     optional=True, ptype='string',
+                     doc='Specify either "file" or "db" repository. ("db" if omitted.)'),
                Param(name='outputdirectory', short_name='o', long_name='outputdirectory',
                      optional=True, ptype='string',
                      doc='Directory where the output will be saved.  The directory must exist, and should be empty.'),
@@ -65,15 +68,21 @@ class ExportCanvas(catoclient.catocommand.CatoCommand):
             print "The directory [%s] does not exist." % (rootdir)
             return
             
-        results = self.call_api('export_canvas', ['project', 'component'])
+        results = self.call_api('export_canvas', ['project', 'component', 'repository'])
 
-        projs = json.loads(results)
+        # the result MIGHT be an error!!! in which case the json.loads will fail
+        try:
+            projs = json.loads(results)
+        except:
+            print results
+            return
+        
         for p in projs:
             # create the project dir
             pdir = os.path.join(rootdir, "proj_%s" % (p["Name"]))
             if not os.path.exists(pdir):
                 os.makedirs(pdir)
-            
+                
             # Components
             for c in p["Components"]:
                 # create the category dir 

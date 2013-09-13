@@ -28,6 +28,10 @@ class ImportCanvas(catoclient.catocommand.CatoCommand):
     Options = [Param(name='inputdirectory', short_name='i', long_name='inputdirectory',
                      optional=True, ptype='string',
                      doc='Directory where the Canvas files exist.  Current directory if omitted.'),
+               Param(name='repository', short_name='r', long_name='repository',
+                     optional=True, ptype='string',
+                     doc=""""Specify either "file" or "db" repository. "db" if omitted. 
+                         Only Administrators are allowed to use the "file" option."""),
                Param(name='ignoreconflicts', long_name='ignoreconflicts',
                      optional=True, ptype='boolean',
                      doc="""If provided, the import process will handle Name conflicts aggressively.  
@@ -107,7 +111,7 @@ class ImportCanvas(catoclient.catocommand.CatoCommand):
         # finally, make the api call for each row (suboptimal I know, but whatever)
         for row in everything:
             self.project, self.component, self.name, self.data = row[:]        
-            response = self.call_api('create_canvas_item', ['project', 'component', 'name', 'data', 'ignoreconflicts'])
+            response = self.call_api('create_canvas_item', ['project', 'component', 'name', 'data', 'repository', 'ignoreconflicts'])
             print response
             
         print "Success!"

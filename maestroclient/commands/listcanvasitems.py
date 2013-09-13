@@ -28,8 +28,11 @@ class ListCanvasItems(catoclient.catocommand.CatoCommand):
                      doc='Filter by a single Canvas Project.'),
                Param(name='component', short_name='c', long_name='component',
                      optional=True, ptype='string',
-                     doc='Further filter a Project by Component. (project is required.)')]
+                     doc='Further filter a Project by Component. (project is required.)'),
+               Param(name='repository', short_name='r', long_name='repository',
+                     optional=True, ptype='string',
+                     doc='Specify either "file" or "db" repository. ("db" if omitted)')]
 
     def main(self):
-        results = self.call_api('list_canvas_items', ['project', 'component'])
+        results = self.call_api('list_canvas_items', ['project', 'component', 'repository'])
         print(results)
