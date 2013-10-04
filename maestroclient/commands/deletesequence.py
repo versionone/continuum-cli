@@ -20,19 +20,26 @@
 import catoclient.catocommand
 from catoclient.param import Param
 
-class AddSequenceStep(catoclient.catocommand.CatoCommand):
+class DeleteSequence(catoclient.catocommand.CatoCommand):
 
-    Description = 'Creates a new Step on a Deployment.'
+    Description = 'Deletes a Deployment Sequence.'
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',
                      doc='Value can be either a Deployment ID or Name.'),
                Param(name='sequence', short_name='s', long_name='sequence',
                      optional=False, ptype='string',
-                     doc='A Sequence name on this Deployment.'),
-               Param(name='before', short_name='b', long_name='before',
-                     optional=True, ptype='int',
-                     doc='The step number before which to add the new Step.')]
+                     doc='A Sequence name on this Deployment.')]
 
     def main(self):
-        results = self.call_api('add_sequence_step', ['deployment', 'sequence', 'before'])
-        print(results)
+        go = False
+        if self.force:
+            go = True
+        else:
+            answer = raw_input("Are you sure? ")
+            if answer:
+                if answer.lower() in ['y', 'yes']:
+                    go = True
+
+        if go:
+            results = self.call_api('delete_sequence', ['deployment', 'sequence'])
+            print(results)

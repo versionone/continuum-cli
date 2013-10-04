@@ -20,9 +20,9 @@
 #########################################################################
 
 
-import maestroclient.commands.createdeploymentservice
+import maestroclient.commands.deletesequence
 
 if __name__ == '__main__':
-    cmd = maestroclient.commands.createdeploymentservice.CreateDeploymentService()
+    cmd = maestroclient.commands.deletesequence.DeleteSequence()
     cmd.main()
 

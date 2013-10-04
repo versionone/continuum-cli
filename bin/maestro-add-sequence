@@ -20,9 +20,9 @@
 #########################################################################
 
 
-import maestroclient.commands.deletesequencestep
+import maestroclient.commands.addsequence
 
 if __name__ == '__main__':
-    cmd = maestroclient.commands.deletesequencestep.DeleteSequenceStep()
+    cmd = maestroclient.commands.addsequence.AddSequence()
     cmd.main()
 

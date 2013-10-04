@@ -20,29 +20,38 @@
 import catoclient.catocommand
 from catoclient.param import Param
 
-class DeleteSequenceStep(catoclient.catocommand.CatoCommand):
+class AddService(catoclient.catocommand.CatoCommand):
 
-    Description = 'Deletes a Deployment Sequence Step.'
+    Description = 'Creates a new Deployment Service.'
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',
                      doc='Value can be either a Deployment ID or Name.'),
-               Param(name='sequence', short_name='s', long_name='sequence',
+               Param(name='servicefile', short_name='s', long_name='servicefile',
                      optional=False, ptype='string',
-                     doc='A Sequence name on this Deployment.'),
-               Param(name='step', short_name='t', long_name='step',
-                     optional=False, ptype='int',
-                     doc='The step number to delete.')]
+                     doc='File name of a JSON Service definition file.')
+               ]
 
     def main(self):
         go = False
         if self.force:
             go = True
         else:
-            answer = raw_input("Are you sure? ")
+            answer = raw_input("\nAdding a Service to a running Deployment makes it different from the source Application Template.\n\nAre you sure? ")
             if answer:
                 if answer.lower() in ['y', 'yes']:
                     go = True
 
         if go:
-            results = self.call_api('delete_sequence_step', ['deployment', 'sequence', 'step'])
-            print(results)
+            self.service = None
+            if self.servicefile:
+                import os
+                fn = os.path.expanduser(self.servicefile)
+                with open(fn, 'r') as f_in:
+                    if not f_in:
+                        print("Unable to open file [%s]." % fn)
+                    data = f_in.read()
+                    if data:
+                        self.service = data
+
+        results = self.call_api('add_service', ['deployment', 'service'])
+        print(results)

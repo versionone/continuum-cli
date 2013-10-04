@@ -20,9 +20,9 @@
 #########################################################################
 
 
-import maestroclient.commands.addservicetosequencestep
+import maestroclient.commands.exportdeployment
 
 if __name__ == '__main__':
-    cmd = maestroclient.commands.addservicetosequencestep.AddServiceToSequenceStep()
+    cmd = maestroclient.commands.exportdeployment.ExportDeployment()
     cmd.main()
 

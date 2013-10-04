@@ -20,20 +20,37 @@
 import catoclient.catocommand
 from catoclient.param import Param
 
-class CreateDeploymentService(catoclient.catocommand.CatoCommand):
+class AddSequence(catoclient.catocommand.CatoCommand):
 
-    Description = 'Creates a new Deployment Service.'
+    Description = 'Creates a new Sequence on a Deployment.'
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',
                      doc='Value can be either a Deployment ID or Name.'),
-               Param(name='name', short_name='n', long_name='name',
+               Param(name='sequencefile', short_name='s', long_name='sequencefile',
                      optional=False, ptype='string',
-                     doc='The name of the new Service.'),
-               Param(name='desc', short_name='a', long_name='description',
-                     optional=True, ptype='string',
-                     doc='The description for this Service..')
-               ]
+                     doc='File name of a JSON Sequence definition file.')]
 
     def main(self):
-        results = self.call_api('create_deployment_service', ['deployment', 'name', 'desc'])
+        go = False
+        if self.force:
+            go = True
+        else:
+            answer = raw_input("\nAdding a Sequence to a running Deployment makes it different from the source Application Template.\n\nAre you sure? ")
+            if answer:
+                if answer.lower() in ['y', 'yes']:
+                    go = True
+
+        if go:
+            self.sequence = None
+            if self.sequencefile:
+                import os
+                fn = os.path.expanduser(self.sequencefile)
+                with open(fn, 'r') as f_in:
+                    if not f_in:
+                        print("Unable to open file [%s]." % fn)
+                    data = f_in.read()
+                    if data:
+                        self.sequence = data
+
+        results = self.call_api('add_sequence', ['deployment', 'sequence'])
         print(results)

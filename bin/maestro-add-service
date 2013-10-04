@@ -20,9 +20,9 @@
 #########################################################################
 
 
-import maestroclient.commands.addsequencestep
+import maestroclient.commands.addservice
 
 if __name__ == '__main__':
-    cmd = maestroclient.commands.addsequencestep.AddSequenceStep()
+    cmd = maestroclient.commands.addservice.AddService()
     cmd.main()
 
