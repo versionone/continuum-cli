@@ -22,7 +22,7 @@ from catoclient.param import Param
 
 class ExportDeployment(catoclient.catocommand.CatoCommand):
 
-    Description = 'Exports a Deployed Application into an Application Template, saved as a file or as a new version of the source template.'
+    Description = 'Exports a Deployed Application as an Application Template.  Optionally create a new version of the source Template.'
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',
                      doc='Value can be either a Deployment ID or Name.'),
