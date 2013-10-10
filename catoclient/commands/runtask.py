@@ -35,6 +35,9 @@ class RunTask(catoclient.catocommand.CatoCommand):
                Param(name='options', short_name='o', long_name='options',
                      optional=True, ptype='string',
                      doc='A JSON object containing additional options for the Task.'),
+               Param(name='run_later', short_name='r', long_name='run_later',
+                     optional=True, ptype='string',
+                     doc='The Task will be scheduled to run at the specified date/time.  ex. "7/4/1776 15:30".'),
                Param(name='parameterfile', short_name='p', long_name='parameterfile',
                      optional=True, ptype='string',
                      doc='The file name of a Parameter XML file.')
@@ -52,7 +55,7 @@ class RunTask(catoclient.catocommand.CatoCommand):
                         print("Unable to open file [%s]." % fn)
                     self.parameters = f_in.read()
 
-            results = self.call_api('run_task', ['task', 'version', 'log_level', 'account', 'service_instance', 'parameters'])
+            results = self.call_api('run_task', ['task', 'version', 'log_level', 'account', 'service_instance', 'parameters', 'run_later'])
             print(results)
         except ValueError:
             # the results could not be parsed as JSON, just return them
