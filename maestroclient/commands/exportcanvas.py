@@ -79,12 +79,14 @@ class ExportCanvas(catoclient.catocommand.CatoCommand):
         
         for p in projs:
             # create the project dir
+            print "Project: %s" % (p["Name"])
             pdir = os.path.join(rootdir, "proj_%s" % (p["Name"]))
             if not os.path.exists(pdir):
                 os.makedirs(pdir)
                 
             # Components
             for c in p["Components"]:
+                print "    Component: %s" % (c["Name"])
                 # create the category dir 
                 cdir = os.path.join(pdir, "comp_%s" % (c["Name"]))
                 if not os.path.exists(cdir):
@@ -92,6 +94,7 @@ class ExportCanvas(catoclient.catocommand.CatoCommand):
 
                 # Files
                 for i in c["Items"]:
+                    print "        Item: %s" % (i["Name"])
                     # write this file into the category directory
                     filename = "item_%s" % (i["Name"])
                     fn = os.path.join(cdir, filename)
