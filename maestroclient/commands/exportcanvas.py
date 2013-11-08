@@ -101,5 +101,5 @@ class ExportCanvas(catoclient.catocommand.CatoCommand):
                     with open(fn, 'w+') as f_out:
                         if not f_out:
                             print("Unable to open file [%s]." % fn)
-                        f_out.write(i["Data"] if i["Data"] else "")
+                        f_out.write(i["Data"].encode("utf-8", "ignore") if i["Data"] else "")
             
