@@ -38,22 +38,32 @@ class RunTask(catoclient.catocommand.CatoCommand):
                Param(name='run_later', short_name='r', long_name='run_later',
                      optional=True, ptype='string',
                      doc='The Task will be scheduled to run at the specified date/time.  ex. "7/4/1776 15:30".'),
-               Param(name='parameterfile', short_name='p', long_name='parameterfile',
+               Param(name='parameters', short_name='p', long_name='parameters',
                      optional=True, ptype='string',
-                     doc='The file name of a Parameter XML file.')
+                     doc='JSON or XML formatted parameters, or a path to a file containing JSON or XML parameters.')
                ]
 
     def main(self):
         try:
-            # first, we need to load the parameters xml from a file
-            self.parameters = None
-            if self.parameterfile:
-                import os
-                fn = os.path.expanduser(self.parameterfile)
-                with open(fn, 'r') as f_in:
-                    if not f_in:
-                        print("Unable to open file [%s]." % fn)
-                    self.parameters = f_in.read()
+            # first, check if the "parameters" argument is json, xml, or a filename.
+            if self.parameters:
+                try:
+                    import xml.etree.ElementTree as ET
+                    ET.fromstring(self.parameters)
+                except:  # couldn't parse it.  Maybe it's JSON
+                    try:
+                        import json
+                        json.loads(self.parameters)
+                    except:  # nope, last try, maybe it's a file path
+                        try:
+                            import os
+                            fn = os.path.expanduser(self.parameters)
+                            with open(fn, 'r') as f_in:
+                                if not f_in:
+                                    print("Unable to open parameters file [%s]." % fn)
+                                self.parameters = f_in.read()
+                        except:  # well, nothing worked so let's just whine
+                            print ("'parameters' argument was provided, but unable to reconcile parameters as JSON, XML or a valid and existing file.")
 
             results = self.call_api('run_task', ['task', 'version', 'log_level', 'account', 'service_instance', 'parameters', 'run_later'])
             print(results)
