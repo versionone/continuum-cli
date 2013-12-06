@@ -32,9 +32,10 @@ class RunSequence(catoclient.catocommand.CatoCommand):
                Param(name='onerror', short_name='e', long_name='onerror',
                      optional=True, ptype='string',
                      doc='The on_error directive for this Sequence. ("pause" or "halt", "pause" if omitted)'),
-               Param(name='parameterfile', short_name='p', long_name='parameterfile',
+               Param(name='parameters', short_name='p', long_name='parameters',
                      optional=True, ptype='string',
-                     doc='The file name of an optional Parameter definition file.')]
+                     doc='JSON or XML formatted parameters, or a path to a file containing JSON or XML parameters.')
+               ]
 
     def main(self):
         go = False
@@ -47,17 +48,25 @@ class RunSequence(catoclient.catocommand.CatoCommand):
                     go = True
 
         if go:
-            # first, we need to load the parameters data from a file
-            self.params = None
-            if self.parameterfile:
-                import os
-                fn = os.path.expanduser(self.parameterfile)
-                with open(fn, 'r') as f_in:
-                    if not f_in:
-                        print("Unable to open file [%s]." % fn)
-                    data = f_in.read()
-                    if data:
-                        self.params = data
+            # first, check if the "parameters" argument is json, xml, or a filename.
+            if self.parameters:
+                try:
+                    import xml.etree.ElementTree as ET
+                    ET.fromstring(self.parameters)
+                except:  # couldn't parse it.  Maybe it's JSON
+                    try:
+                        import json
+                        json.loads(self.parameters)
+                    except:  # nope, last try, maybe it's a file path
+                        try:
+                            import os
+                            fn = os.path.expanduser(self.parameters)
+                            with open(fn, 'r') as f_in:
+                                if not f_in:
+                                    print("Unable to open parameters file [%s]." % fn)
+                                self.parameters = f_in.read()
+                        except:  # well, nothing worked so let's just whine
+                            print ("'parameters' argument was provided, but unable to reconcile parameters as JSON, XML or a valid and existing file.")
 
-            results = self.call_api('run_sequence', ['deployment', 'sequence', 'onerror', 'params'])
+            results = self.call_api('run_sequence', ['deployment', 'sequence', 'onerror', 'parameters'])
             print(results)
