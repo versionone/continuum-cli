@@ -32,10 +32,16 @@ class ListDeployments(catoclient.catocommand.CatoCommand):
                Param(name='groups', short_name='g', long_name='groups',
                      optional=True, ptype='string',
                      doc='A comma separated list of groups.'),
+               Param(name='from', short_name='', long_name='from',
+                     optional=True, ptype='string',
+                     doc='Filter to items created after the "from" date.'),
+               Param(name='to', short_name='', long_name='to',
+                     optional=True, ptype='string',
+                     doc='Filter to items created before the "to" date.'),
                Param(name='show_archived', short_name='a', long_name='show_archived',
                      optional=True, ptype='boolean',
                      doc='Include Archived Deployments in the results.')]
 
     def main(self):
-        results = self.call_api('list_deployments', ['filter', 'hostfilter', 'groups', 'show_archived'])
+        results = self.call_api('list_deployments', ['filter', 'hostfilter', 'groups', 'show_archived', 'from', 'to'])
         print(results)
