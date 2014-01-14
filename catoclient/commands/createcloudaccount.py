@@ -19,12 +19,14 @@ from catoclient.param import Param
 
 class CreateCloudAccount(catoclient.catocommand.CatoCommand):
 
-    Description = 'Creates a new Cloud Account.'
+    Description = 'Creates new Cloud Account credentials in Cato used to access a cloud endpoint.'
     API = 'create_account'
-    Examples = ''''''
+    Examples = '''
+        cato-create-cloud-account -name "vcloudtest" -v "vCloud" -l "tom.thumb@example.com" -p "passw0rd" -d "vcloud-test"
+    '''
     Options = [Param(name='provider', short_name='v', long_name='provider',
                      optional=False, ptype='string',
-                     doc='The name of a Cato supported Cloud Provider.'),
+                     doc='The name of a Cato supported Cloud Provider. One of: Eucalyptus, vCloud, VMware, AWS, OpenStackAws'),
                Param(name='name', short_name='n', long_name='name',
                      optional=False, ptype='string',
                      doc='A name for the new Cloud Account.'),
