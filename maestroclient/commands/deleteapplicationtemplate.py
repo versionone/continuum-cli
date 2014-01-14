@@ -26,15 +26,15 @@ from catoclient.param import Param
 
 class DeleteApplicationTemplate(catoclient.catocommand.CatoCommand):
 
-    Description = """Deletes an Application Template.
-        
-        * If --deletetasks is provided, the command will delte Tasks *directly referenced* by the definition file.
-            (Indirectly referenced Tasks, such at those included in 'Subtask' and 'Run Task' commands.) 
-        
-        * If --inputdirectory is provided, then ALL TASKS listed in the backup directory will be deleted from the target system.
-        """
+    Description = """Deletes an Application Template."""
     API = 'delete_application_template'
     Examples = ''''''
+    Info = '''
+If `--deletetasks` is provided, the command will delete Tasks *directly referenced* by the definition file.
+    (Indirectly referenced Tasks, such at those included in 'Subtask' and 'Run Task' commands.) 
+
+If `--inputdirectory` is provided, then ALL TASKS listed in the backup directory will be deleted from the target system.
+'''
     Options = [Param(name='template', short_name='t', long_name='template',
                      optional=False, ptype='string',
                      doc='Name of the Application Template.'),

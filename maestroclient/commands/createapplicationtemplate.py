@@ -24,11 +24,11 @@ class CreateApplicationTemplate(catoclient.catocommand.CatoCommand):
 
     Description = """Creates a new Application Template.
     
-    Name and Version are required properties.
-    
-    Specify a JSON definition file if desired.  
-    
-    If no Template is provided, the Application Template will be created with an empty definition file."""
+Name and Version are required properties.
+
+Specify a JSON definition file if desired.  
+
+If no Template is provided, the Application Template will be created with an empty definition file."""
     
     API = 'create_application_template'
     Examples = ''''''
