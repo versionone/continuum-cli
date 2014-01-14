@@ -23,6 +23,8 @@ from catoclient.param import Param
 class GetSequenceParameters(catoclient.catocommand.CatoCommand):
 
     Description = 'Gets the Parameters template for a Sequence.'
+    API = 'get_sequence_parameters'
+    Examples = ''''''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',
                      doc='Value can be either a Deployment ID or Name.'),
@@ -34,5 +36,5 @@ class GetSequenceParameters(catoclient.catocommand.CatoCommand):
                      doc='Get a basic template with no descriptive details or default values.')]
 
     def main(self):
-        results = self.call_api('get_sequence_parameters', ['deployment', 'sequence', 'basic'])
+        results = self.call_api(self.API, ['deployment', 'sequence', 'basic'])
         print(results)

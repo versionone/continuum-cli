@@ -27,6 +27,8 @@ from catoclient.param import Param
 class ExportApplicationTemplate(catoclient.catocommand.CatoCommand):
 
     Description = 'Exports an Application Template to a directory.'
+    API = 'export_application_template'
+    Examples = ''''''
     Options = [Param(name='template', short_name='t', long_name='template',
                      optional=False, ptype='string',
                      doc='Name of the Application Template.'),
@@ -55,7 +57,7 @@ class ExportApplicationTemplate(catoclient.catocommand.CatoCommand):
         """
         # if no outputdirectory was provided, we will just print the results
         if self.printoutput:
-            results = self.call_api('export_application_template', ['template', 'version'])
+            results = self.call_api(self.API, ['template', 'version'])
             print(results)
             return
 
@@ -83,7 +85,7 @@ class ExportApplicationTemplate(catoclient.catocommand.CatoCommand):
         if not os.path.exists(reportdir):
             os.makedirs(reportdir)
         
-        results = self.call_api('export_application_template', ['template', 'version'])
+        results = self.call_api(self.API, ['template', 'version'])
 
         # so, the result MIGHT be json and it MIGHT be an error message.
         # we don't know... so let's trap the json parse and show the result if it fails

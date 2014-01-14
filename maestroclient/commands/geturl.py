@@ -23,6 +23,8 @@ from catoclient.param import Param
 class GetURL(catoclient.catocommand.CatoCommand):
 
     Description = 'Gets a URL to a specific page in the Maestro UI.'
+    API = 'get_maestro_url'
+    Examples = ''''''
     Options = [Param(name='page', short_name='p', long_name='page',
                      optional=False, ptype='string',
                      doc='Name of a detail page. Valid values: deployment, service, service_instance, sequence_status, task_instance.'),
@@ -46,6 +48,6 @@ class GetURL(catoclient.catocommand.CatoCommand):
                      doc='A Sequence Instance ID.')]
 
     def main(self):
-        results = self.call_api('get_maestro_url', ['page', 'user', 'deployment', 'service', 'task_instance', 'service_instance', 'sequence_instance'])
+        results = self.call_api(self.API, ['page', 'user', 'deployment', 'service', 'task_instance', 'service_instance', 'sequence_instance'])
         print(results)
 

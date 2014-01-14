@@ -23,6 +23,8 @@ from catoclient.param import Param
 class GetDeploymentSequences(catoclient.catocommand.CatoCommand):
 
     Description = 'Gets a list of Deployment Sequences and Steps.'
+    API = 'get_deployment_sequences'
+    Examples = ''''''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',
                      doc='Value can be either a Deployment ID or Name.'),
@@ -31,5 +33,5 @@ class GetDeploymentSequences(catoclient.catocommand.CatoCommand):
                      doc='A filter.')]
 
     def main(self):
-        results = self.call_api('get_deployment_sequences', ['deployment', 'filter'])
+        results = self.call_api(self.API, ['deployment', 'filter'])
         print(results)

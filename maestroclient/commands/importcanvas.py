@@ -25,6 +25,8 @@ from catoclient.param import Param
 class ImportCanvas(catoclient.catocommand.CatoCommand):
 
     Description = 'Imports Canvas items from a properly formatted directory.'
+    API = ''
+    Examples = ''''''
     Options = [Param(name='inputdirectory', short_name='i', long_name='inputdirectory',
                      optional=True, ptype='string',
                      doc='Directory where the Canvas files exist.  Current directory if omitted.'),

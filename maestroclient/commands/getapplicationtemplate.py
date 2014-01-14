@@ -23,6 +23,8 @@ from catoclient.param import Param
 class GetApplicationTemplate(catoclient.catocommand.CatoCommand):
 
     Description = 'Gets an Application Template.'
+    API = 'get_application_template'
+    Examples = ''''''
     Options = [Param(name='template', short_name='t', long_name='template',
                      optional=False, ptype='string',
                      doc='Name of the Application Template.'),
@@ -38,5 +40,5 @@ class GetApplicationTemplate(catoclient.catocommand.CatoCommand):
                ]
 
     def main(self):
-        results = self.call_api('get_application_template', ['template', 'version', 'getdefinition', 'geticon'])
+        results = self.call_api(self.API, ['template', 'version', 'getdefinition', 'geticon'])
         print(results)

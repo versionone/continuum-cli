@@ -23,8 +23,10 @@ from catoclient.param import Param
 class GetLicense(catoclient.catocommand.CatoCommand):
 
     Description = 'Get the current license.'
+    API = 'get_license'
+    Examples = ''''''
     Options = []
 
     def main(self):
-        results = self.call_api('get_license', [])
+        results = self.call_api(self.API, [])
         print(results)

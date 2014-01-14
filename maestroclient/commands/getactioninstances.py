@@ -23,6 +23,8 @@ from catoclient.param import Param
 class GetActionInstances(catoclient.catocommand.CatoCommand):
 
     Description = 'Get a list of Deployment Action Instances.'
+    API = 'get_action_instances'
+    Examples = ''''''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',
                      doc='Value can be either a Deployment ID or Name.'),
@@ -53,5 +55,5 @@ class GetActionInstances(catoclient.catocommand.CatoCommand):
                ]
 
     def main(self):
-        results = self.call_api('get_action_instances', ['deployment', 'service', 'instance', 'action', 'filter', 'status', 'from', 'to', 'records'])
+        results = self.call_api(self.API, ['deployment', 'service', 'instance', 'action', 'filter', 'status', 'from', 'to', 'records'])
         print(results)

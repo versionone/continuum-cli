@@ -23,6 +23,8 @@ from catoclient.param import Param
 class DeployApplication(catoclient.catocommand.CatoCommand):
 
     Description = 'Deploys an Application Template.'
+    API = 'deploy_application'
+    Examples = ''''''
     Options = [Param(name='template', short_name='t', long_name='template',
                      optional=False, ptype='string',
                      doc='The Application Template to use.'),
@@ -41,5 +43,5 @@ class DeployApplication(catoclient.catocommand.CatoCommand):
                ]
 
     def main(self):
-        results = self.call_api('deploy_application', ['name', 'template', 'version', 'owner', 'desc'])
+        results = self.call_api(self.API, ['name', 'template', 'version', 'owner', 'desc'])
         print(results)

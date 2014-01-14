@@ -23,6 +23,8 @@ from catoclient.param import Param
 class InstallLicense(catoclient.catocommand.CatoCommand):
 
     Description = 'Install a new license.'
+    API = 'install_license'
+    Examples = ''''''
     Options = [Param(name='inputfile', short_name='i', long_name='inputfile',
                      optional=False, ptype='string',
                      doc='Path to a Maestro license.dat file.')]
@@ -49,5 +51,5 @@ class InstallLicense(catoclient.catocommand.CatoCommand):
                     if data:
                         self.license = data
 
-            results = self.call_api('install_license', ['license'])
+            results = self.call_api(self.API, ['license'])
             print(results)

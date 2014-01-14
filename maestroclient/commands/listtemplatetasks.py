@@ -23,6 +23,8 @@ from catoclient.param import Param
 class ListTemplateTasks(catoclient.catocommand.CatoCommand):
 
     Description = 'Lists all Tasks associated with an Application Template'
+    API = 'list_template_tasks'
+    Examples = ''''''
     Options = [Param(name='template', short_name='t', long_name='template',
                      optional=False, ptype='string',
                      doc='Name of the Application Template.'),
@@ -31,5 +33,5 @@ class ListTemplateTasks(catoclient.catocommand.CatoCommand):
                      doc='The Application Template Version.')]
 
     def main(self):
-        results = self.call_api('list_template_tasks', ['template', 'version'])
+        results = self.call_api(self.API, ['template', 'version'])
         print(results)

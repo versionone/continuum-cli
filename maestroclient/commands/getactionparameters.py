@@ -20,6 +20,8 @@ from catoclient.param import Param
 class GetActionParameters(catoclient.catocommand.CatoCommand):
 
     Description = 'Gets a Parameters template for an Action.'
+    API = 'get_action_parameters'
+    Examples = ''''''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',
                      doc='Value can be either a Deployment ID or Name.'),
@@ -35,6 +37,6 @@ class GetActionParameters(catoclient.catocommand.CatoCommand):
                
 
     def main(self):
-        results = self.call_api('get_action_parameters', ['deployment', 'action', 'service', 'basic'])
+        results = self.call_api(self.API, ['deployment', 'action', 'service', 'basic'])
         print(results)
 

@@ -23,6 +23,8 @@ from catoclient.param import Param
 class ListCanvasItems(catoclient.catocommand.CatoCommand):
 
     Description = 'Lists Canvas Items'
+    API = 'list_canvas_items'
+    Examples = ''''''
     Options = [Param(name='project', short_name='p', long_name='project',
                      optional=True, ptype='string',
                      doc='Filter by a single Canvas Project.'),
@@ -34,5 +36,5 @@ class ListCanvasItems(catoclient.catocommand.CatoCommand):
                      doc='Specify either "file" or "db" repository. ("db" if omitted)')]
 
     def main(self):
-        results = self.call_api('list_canvas_items', ['project', 'component', 'repository'])
+        results = self.call_api(self.API, ['project', 'component', 'repository'])
         print(results)

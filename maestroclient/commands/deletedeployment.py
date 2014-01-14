@@ -23,6 +23,8 @@ from catoclient.param import Param
 class DeleteDeployment(catoclient.catocommand.CatoCommand):
 
     Description = 'Destructively delete a Deployment.'
+    API = 'delete_deployment'
+    Examples = ''''''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',
                      doc='Value can be either a Deployment ID or Name.')]
@@ -38,5 +40,5 @@ class DeleteDeployment(catoclient.catocommand.CatoCommand):
                     go = True
 
         if go:
-            results = self.call_api('delete_deployment', ['deployment'])
+            results = self.call_api(self.API, ['deployment'])
             print(results)

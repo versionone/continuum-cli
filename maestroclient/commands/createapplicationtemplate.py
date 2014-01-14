@@ -30,6 +30,8 @@ class CreateApplicationTemplate(catoclient.catocommand.CatoCommand):
     
     If no Template is provided, the Application Template will be created with an empty definition file."""
     
+    API = 'create_application_template'
+    Examples = ''''''
     Options = [Param(name='name', short_name='n', long_name='name',
                      optional=False, ptype='string',
                      doc='A name for the Application Template.'),
@@ -70,5 +72,5 @@ class CreateApplicationTemplate(catoclient.catocommand.CatoCommand):
                     print("Unable to open file [%s]." % fn)
                 self.icon = base64.b64encode(f_in.read())
 
-        results = self.call_api('create_application_template', ['name', 'version', 'description', 'template', 'icon', 'makeavailable'])
+        results = self.call_api(self.API, ['name', 'version', 'description', 'template', 'icon', 'makeavailable'])
         print(results)
