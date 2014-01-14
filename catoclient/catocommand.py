@@ -84,6 +84,9 @@ class CatoCommand(object):
                              optional=True, ptype='boolean'),
                        Param(name='dumpdoc', long_name='dumpdoc',
                              doc='Writes documentation for the command in Markdown format.',
+                             optional=True, ptype='boolean'),
+                       Param(name='api', long_name='api',
+                             doc='Identifies the API endpoint associated with this command.',
                              optional=True, ptype='boolean')
                        ]
     Options = []
@@ -169,6 +172,9 @@ class CatoCommand(object):
                 sys.exit()
             elif name == '--dumpdoc':
                 self.dumpdoc()
+                sys.exit()
+            elif name == '--api':
+                print self.API
                 sys.exit()
             elif name in ('-D', '--debug'):
                 self.set_debug(True)
@@ -365,8 +371,9 @@ class CatoCommand(object):
         self.param_usage([ opt for opt in self.Options if opt.optional ],
                          'OPTIONAL PARAMETERS')
         
-        print '\n'
-
+        print "**Examples**"
+        print self.Examples
+        
     def display_error_and_exit(self, exc):
         try:
             print '%s: %s' % (exc.error_code, exc.error_message, exc.error_detail)
