@@ -31,7 +31,7 @@ class CreateAsset(catoclient.catocommand.CatoCommand):
                Param(name='address', short_name='a', long_name='address',
                      optional=True, ptype='string',
                      doc='Network address of the Asset.'),
-               Param(name='port', short_name='p', long_name='port',
+               Param(name='port', short_name='t', long_name='port',
                      optional=True, ptype='string',
                      doc='Service port of the Asset.'),
                Param(name='db_name', short_name='d', long_name='db_name',
