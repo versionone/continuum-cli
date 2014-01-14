@@ -20,6 +20,8 @@ from catoclient.param import Param
 class AddCloudKeypair(catoclient.catocommand.CatoCommand):
 
     Description = 'Adds a Key Pair to a Cloud'
+    API = 'add_cloud_keypair'
+    Examples = """"""
     Options = [Param(name='cloud', short_name='c', long_name='cloud',
                      optional=False, ptype='string',
                      doc='The ID or Name of a Cloud.'),
@@ -44,5 +46,5 @@ class AddCloudKeypair(catoclient.catocommand.CatoCommand):
                     print("Unable to open file [%s]." % fn)
                 self.private_key = f_in.read()
 
-        results = self.call_api('add_cloud_keypair', ['cloud', 'name', 'private_key', 'passphrase'])
+        results = self.call_api(self.API, ['cloud', 'name', 'private_key', 'passphrase'])
         print(results)

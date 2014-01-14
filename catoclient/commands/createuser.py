@@ -20,6 +20,8 @@ from catoclient.param import Param
 class CreateUser(catoclient.catocommand.CatoCommand):
 
     Description = 'Creates a new User.'
+    API = 'create_user'
+    Examples = ''''''
     Options = [Param(name='user', short_name='u', long_name='user',
                      optional=False, ptype='string',
                      doc='A login name for the user.'),
@@ -60,5 +62,5 @@ class CreateUser(catoclient.catocommand.CatoCommand):
                ]
 
     def main(self):
-        results = self.call_api('create_user', ['user', 'name', 'role', 'password', 'email', 'authtype', 'forcechange', 'expires', 'status', 'groups', 'get_token'])
+        results = self.call_api(self.API, ['user', 'name', 'role', 'password', 'email', 'authtype', 'forcechange', 'expires', 'status', 'groups', 'get_token'])
         print(results)

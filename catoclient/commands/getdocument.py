@@ -23,6 +23,8 @@ from catoclient.param import Param
 class GetDocument(catoclient.catocommand.CatoCommand):
 
     Description = 'Gets a Datastore document.'
+    API = 'get_document'
+    Examples = ''''''
     Options = [Param(name='query', short_name='q', long_name='query',
                      optional=False, ptype='string',
                      doc='A query in JSON format.'),
@@ -31,5 +33,5 @@ class GetDocument(catoclient.catocommand.CatoCommand):
                      doc='A document collection.  "Default" if omitted.')]
 
     def main(self):
-        results = self.call_api('get_document', ['query', 'collection'])
+        results = self.call_api(self.API, ['query', 'collection'])
         print(results)

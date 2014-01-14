@@ -23,6 +23,8 @@ from catoclient.param import Param
 class SetDocumentValue(catoclient.catocommand.CatoCommand):
 
     Description = 'Sets the value for a given key in a Datastore document.'
+    API = 'set_document_value'
+    Examples = ''''''
     Options = [Param(name='query', short_name='q', long_name='query',
                      optional=False, ptype='string',
                      doc='A query in JSON format to select the correct Document.'),
@@ -37,5 +39,5 @@ class SetDocumentValue(catoclient.catocommand.CatoCommand):
                      doc='A value to set.')]
 
     def main(self):
-        results = self.call_api('set_document_value', ['query', 'collection', 'lookupkey', 'value'])
+        results = self.call_api(self.API, ['query', 'collection', 'lookupkey', 'value'])
         print(results)

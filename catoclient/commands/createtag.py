@@ -20,6 +20,8 @@ from catoclient.param import Param
 class CreateTag(catoclient.catocommand.CatoCommand):
 
     Description = 'Creates a new Tag.'
+    API = 'create_tag'
+    Examples = ''''''
     Options = [Param(name='name', short_name='n', long_name='name',
                      optional=False, ptype='string',
                      doc='The name of the new Tag.  (AlphaNumeric ONLY. Cannot contain spaces, punctuation or special characters.)'),
@@ -28,5 +30,5 @@ class CreateTag(catoclient.catocommand.CatoCommand):
                      doc='Tag description.')]
 
     def main(self):
-        results = self.call_api('create_tag', ['name', 'description'])
+        results = self.call_api(self.API, ['name', 'description'])
         print(results)

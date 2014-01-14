@@ -20,6 +20,8 @@ from catoclient.param import Param
 class DeleteCloudKeypair(catoclient.catocommand.CatoCommand):
 
     Description = 'Removes a Key Pair from a Cloud'
+    API = 'delete_cloud_keypair'
+    Examples = ''''''
     Options = [Param(name='cloud', short_name='c', long_name='cloud',
                      optional=False, ptype='string',
                      doc='The ID or Name of a Cloud.'),
@@ -39,5 +41,5 @@ class DeleteCloudKeypair(catoclient.catocommand.CatoCommand):
                     go = True
 
         if go:
-            results = self.call_api('delete_cloud_keypair', ['cloud', 'name'])
+            results = self.call_api(self.API, ['cloud', 'name'])
             print(results)

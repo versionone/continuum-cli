@@ -20,6 +20,8 @@ from catoclient.param import Param
 class SendMessage(catoclient.catocommand.CatoCommand):
 
     Description = 'Sends a message to a User or email address.'
+    API = 'send_message'
+    Examples = ''''''
     Options = [Param(name='to', short_name='t', long_name='to',
                      optional=False, ptype='string',
                      doc='Comma-separated Users or addresses.'),
@@ -38,5 +40,5 @@ class SendMessage(catoclient.catocommand.CatoCommand):
                ]
 
     def main(self):
-        results = self.call_api('send_message', ['to', 'subject', 'message', 'cc', 'bcc'])
+        results = self.call_api(self.API, ['to', 'subject', 'message', 'cc', 'bcc'])
         print(results)

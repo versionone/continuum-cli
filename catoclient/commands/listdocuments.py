@@ -23,6 +23,8 @@ from catoclient.param import Param
 class ListDocuments(catoclient.catocommand.CatoCommand):
 
     Description = 'A list of Datastore Documents.'
+    API = 'list_documents'
+    Examples = ''''''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',
                      doc='A filter.'),
@@ -31,5 +33,5 @@ class ListDocuments(catoclient.catocommand.CatoCommand):
                      doc='A document collection.  "Default" if omitted.')]
 
     def main(self):
-        results = self.call_api('list_documents', ['collection', 'filter'])
+        results = self.call_api(self.API, ['collection', 'filter'])
         print(results)

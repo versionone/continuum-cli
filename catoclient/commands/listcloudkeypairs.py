@@ -20,12 +20,14 @@ from catoclient.param import Param
 class ListCloudKeyPairs(catoclient.catocommand.CatoCommand):
 
     Description = 'Lists Cloud Key Pairs'
+    API = 'list_cloud_keypairs'
+    Examples = ''''''
     Options = [Param(name='cloud', short_name='c', long_name='cloud',
                      optional=False, ptype='string',
                      doc='The ID or Name of a Cloud.')
                ]
 
     def main(self):
-        results = self.call_api('list_cloud_keypairs', ['cloud'])
+        results = self.call_api(self.API, ['cloud'])
         print(results)
 

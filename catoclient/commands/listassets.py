@@ -20,11 +20,13 @@ from catoclient.param import Param
 class ListAssets(catoclient.catocommand.CatoCommand):
 
     Description = 'Lists Assets'
+    API = 'list_assets'
+    Examples = ''''''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',
                      doc='A filter.')]
 
     def main(self):
-        results = self.call_api('list_assets', ['filter'])
+        results = self.call_api(self.API, ['filter'])
         print(results)
 

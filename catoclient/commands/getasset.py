@@ -20,11 +20,13 @@ from catoclient.param import Param
 class GetAsset(catoclient.catocommand.CatoCommand):
 
     Description = 'Gets an Asset.'
+    API = 'get_asset'
+    Examples = ''''''
     Options = [Param(name='asset', short_name='a', long_name='asset',
                      optional=False, ptype='string',
                      doc='The ID or Name of an Asset.')
                ]
 
     def main(self):
-        results = self.call_api('get_asset', ['asset'])
+        results = self.call_api(self.API, ['asset'])
         print(results)

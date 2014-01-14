@@ -20,6 +20,8 @@ from catoclient.param import Param
 class RunTask(catoclient.catocommand.CatoCommand):
 
     Description = 'Runs a Cato Task.'
+    API = 'run_task'
+    Examples = ''''''
     Options = [Param(name='task', short_name='t', long_name='task',
                      optional=False, ptype='string',
                      doc='The ID or Name of the Task to run.'),
@@ -65,7 +67,7 @@ class RunTask(catoclient.catocommand.CatoCommand):
                         except:  # well, nothing worked so let's just whine
                             print ("'parameters' argument was provided, but unable to reconcile parameters as JSON, XML or a valid and existing file.")
 
-            results = self.call_api('run_task', ['task', 'version', 'log_level', 'account', 'service_instance', 'parameters', 'run_later'])
+            results = self.call_api(self.API, ['task', 'version', 'log_level', 'account', 'service_instance', 'parameters', 'run_later'])
             print(results)
         except ValueError:
             # the results could not be parsed as JSON, just return them

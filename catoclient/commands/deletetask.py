@@ -20,6 +20,8 @@ from catoclient.param import Param
 class DeleteTask(catoclient.catocommand.CatoCommand):
 
     Description = 'Deletes a Cato Task.'
+    API = 'delete_task'
+    Examples = ''''''
     Options = [Param(name='task', short_name='t', long_name='task',
                      optional=False, ptype='string',
                      doc='The ID or Name of the Task to delete.'),
@@ -38,5 +40,5 @@ class DeleteTask(catoclient.catocommand.CatoCommand):
                     go = True
 
         if go:
-            results = self.call_api('delete_task', ['task', 'force_delete'])
+            results = self.call_api(self.API, ['task', 'force_delete'])
             print(results)

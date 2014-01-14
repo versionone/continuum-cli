@@ -20,6 +20,8 @@ from catoclient.param import Param
 class ExportTask(catoclient.catocommand.CatoCommand):
 
     Description = 'Exports a Cato Task.'
+    API = 'export_task'
+    Examples = ''''''
     Options = [Param(name='task', short_name='t', long_name='task',
                      optional=False, ptype='string',
                      doc='The ID or Name of the Task to export.'),
@@ -36,7 +38,7 @@ class ExportTask(catoclient.catocommand.CatoCommand):
 
     def main(self):
         try:
-            results = self.call_api('export_task', ['task', 'version', 'include_refs'])
+            results = self.call_api(self.API, ['task', 'version', 'include_refs'])
 
             if self.output_file:
                 import os

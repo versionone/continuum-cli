@@ -20,6 +20,8 @@ from catoclient.param import Param
 class DeleteTag(catoclient.catocommand.CatoCommand):
 
     Description = 'Deletes a Cato Tag.'
+    API = 'delete_tag'
+    Examples = ''''''
     Options = [Param(name='name', short_name='n', long_name='name',
                      optional=False, ptype='string',
                      doc='The Name of the Tag to delete.')]
@@ -35,5 +37,5 @@ class DeleteTag(catoclient.catocommand.CatoCommand):
                     go = True
 
         if go:
-            results = self.call_api('delete_tag', ['name'])
+            results = self.call_api(self.API, ['name'])
             print(results)

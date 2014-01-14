@@ -20,6 +20,8 @@ from catoclient.param import Param
 class DeleteAsset(catoclient.catocommand.CatoCommand):
 
     Description = 'Deletes a Cato Asset.'
+    API = 'delete_asset'
+    Examples = ''''''
     Options = [Param(name='asset', short_name='a', long_name='asset',
                      optional=False, ptype='string',
                      doc='The ID or Name of the Asset to delete.')]
@@ -35,5 +37,5 @@ class DeleteAsset(catoclient.catocommand.CatoCommand):
                     go = True
 
         if go:
-            results = self.call_api('delete_asset', ['asset'])
+            results = self.call_api(self.API, ['asset'])
             print(results)

@@ -20,11 +20,13 @@ from catoclient.param import Param
 class ListProcesses(catoclient.catocommand.CatoCommand):
 
     Description = 'Lists Cato Processes'
+    API = 'list_processes'
+    Examples = ''''''
     Options = []
 
     def main(self):
 
-        return self.call_api('list_processes', [])
+        return self.call_api(self.API, [])
 
     def main_cli(self):
         results = self.main()

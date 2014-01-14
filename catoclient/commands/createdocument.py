@@ -23,6 +23,8 @@ from catoclient.param import Param
 class CreateDocument(catoclient.catocommand.CatoCommand):
 
     Description = 'Creates a new Datastore document.'
+    API = 'create_document'
+    Examples = ''''''
     Options = [Param(name='collection', short_name='c', long_name='collection',
                      optional=True, ptype='string',
                      doc='A document collection.  "Default" if omitted.'),
@@ -31,5 +33,5 @@ class CreateDocument(catoclient.catocommand.CatoCommand):
                      doc=' A JSON document template.  A blank document will be created if omitted.')]
 
     def main(self):
-        results = self.call_api('create_document', ['template', 'collection'])
+        results = self.call_api(self.API, ['template', 'collection'])
         print(results)

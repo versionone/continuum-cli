@@ -20,13 +20,15 @@ from catoclient.param import Param
 class StopTask(catoclient.catocommand.CatoCommand):
 
     Description = 'Stop a running Cato Task.'
+    API = 'stop_task'
+    Examples = ''''''
     Options = [Param(name='instance', short_name='i', long_name='instance',
                      optional=False, ptype='string',
                      doc='The Instance ID to stop.')]
 
     def main(self):
         try:
-            results = self.call_api('stop_task', ['instance'])
+            results = self.call_api(self.API, ['instance'])
             print(results)
         except Exception as ex:
             raise ex

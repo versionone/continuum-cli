@@ -20,6 +20,8 @@ from catoclient.param import Param
 class DeletePlan(catoclient.catocommand.CatoCommand):
 
     Description = 'Deletes a specific queued execution Plans.'
+    API = 'delete_plan'
+    Examples = ''''''
     Options = [Param(name='plan_id', short_name='p', long_name='plan_id',
                      optional=False, ptype='string',
                      doc='The integer ID of the Plan to delete.')]
@@ -35,5 +37,5 @@ class DeletePlan(catoclient.catocommand.CatoCommand):
                     go = True
 
         if go:
-            results = self.call_api('delete_plan', ['plan_id'])
+            results = self.call_api(self.API, ['plan_id'])
             print(results)

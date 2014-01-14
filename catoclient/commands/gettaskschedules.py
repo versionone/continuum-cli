@@ -20,6 +20,8 @@ from catoclient.param import Param
 class GetTaskSchedules(catoclient.catocommand.CatoCommand):
 
     Description = 'Gets a list of Schedule definitions for a Task.'
+    API = 'get_task_schedules'
+    Examples = ''''''
     Options = [Param(name='task', short_name='t', long_name='task',
                      optional=False, ptype='string',
                      doc='The ID or Name of a Task.'),
@@ -29,5 +31,5 @@ class GetTaskSchedules(catoclient.catocommand.CatoCommand):
               ]
 
     def main(self):
-        results = self.call_api('get_task_schedules', ['task', 'version'])
+        results = self.call_api(self.API, ['task', 'version'])
         print(results)

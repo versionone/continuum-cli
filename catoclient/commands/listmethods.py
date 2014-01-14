@@ -20,6 +20,8 @@ from catoclient.param import Param
 class ListMethods(catoclient.catocommand.CatoCommand):
 
     Description = 'Lists Methods'
+    API = ''
+    Examples = ''''''
     Options = [Param(name='listonly', short_name='l', long_name='listonly',
                      optional=True, ptype='boolean',
                      doc='List the methods without documentation.')]
@@ -29,6 +31,6 @@ class ListMethods(catoclient.catocommand.CatoCommand):
         # output format for this command is limited to text
         self.output_format = "text"
         
-        results = self.call_api('', ['listonly'])
+        results = self.call_api(self.API, ['listonly'])
         print(results)
 

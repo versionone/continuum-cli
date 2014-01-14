@@ -20,11 +20,13 @@ from catoclient.param import Param
 class ListCloudAccounts(catoclient.catocommand.CatoCommand):
 
     Description = 'Lists Cloud Accounts'
+    API = 'list_cloud_accounts'
+    Examples = ''''''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',
                      doc='A filter.')]
 
     def main(self):
-        results = self.call_api('list_cloud_accounts', ['filter'])
+        results = self.call_api(self.API, ['filter'])
         print(results)
 

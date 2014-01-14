@@ -21,6 +21,8 @@ import json
 class ScheduleTasks(catoclient.catocommand.CatoCommand):
 
     Description = 'Schedules one or more Cato Tasks.'
+    API = 'schedule_tasks'
+    Examples = ''''''
     Options = [Param(name='schedulefile', short_name='s', long_name='schedulefile',
                      optional=False, ptype='string',
                      doc='The path to a schedule definition file.')
@@ -38,7 +40,7 @@ class ScheduleTasks(catoclient.catocommand.CatoCommand):
                         print("Unable to open file [%s]." % fn)
                     self.tasks = f_in.read()
 
-            results = self.call_api('schedule_tasks', ['tasks'])
+            results = self.call_api(self.API, ['tasks'])
             print(results)
         except Exception as ex:
             raise ex

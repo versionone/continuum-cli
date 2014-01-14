@@ -20,11 +20,13 @@ from catoclient.param import Param
 class GetSettings(catoclient.catocommand.CatoCommand):
 
     Description = 'Gets all the Cato settings.'
+    API = 'get_settings'
+    Examples = ''''''
     Options = [Param(name='module', short_name='m', long_name='module',
                      optional=True, ptype='string',
                      doc='Filter to a specific Cato module.')
                ]
 
     def main(self):
-        results = self.call_api('get_settings', ['module'])
+        results = self.call_api(self.API, ['module'])
         print(results)
