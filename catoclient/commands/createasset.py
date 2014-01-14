@@ -20,6 +20,8 @@ from catoclient.param import Param
 class CreateAsset(catoclient.catocommand.CatoCommand):
 
     Description = 'Creates a new Asset.'
+    API = 'create_asset'
+    Examples = ''''''
     Options = [Param(name='name', short_name='n', long_name='name',
                      optional=False, ptype='string',
                      doc='A name for the new Asset.'),
@@ -50,5 +52,5 @@ class CreateAsset(catoclient.catocommand.CatoCommand):
                ]
 
     def main(self):
-        results = self.call_api('create_asset', ['name', 'status', 'address', 'port', 'db_name', 'user', 'password', 'shared_credential', 'conn_string'])
+        results = self.call_api(self.API, ['name', 'status', 'address', 'port', 'db_name', 'user', 'password', 'shared_credential', 'conn_string'])
         print(results)

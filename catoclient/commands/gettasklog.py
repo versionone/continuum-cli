@@ -20,13 +20,15 @@ from catoclient.param import Param
 class GetTaskLog(catoclient.catocommand.CatoCommand):
 
     Description = 'Get the log for a Cato Task Instance.'
+    API = 'get_task_log'
+    Examples = ''''''
     Options = [Param(name='instance', short_name='i', long_name='instance',
                      optional=False, ptype='string',
                      doc='The Instance ID.')]
 
     def main(self):
         try:
-            results = self.call_api('get_task_log', ['instance'])
+            results = self.call_api(self.API, ['instance'])
             print(results)
         except Exception as ex:
             raise ex

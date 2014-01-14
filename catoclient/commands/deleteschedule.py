@@ -20,6 +20,8 @@ from catoclient.param import Param
 class DeleteSchedule(catoclient.catocommand.CatoCommand):
 
     Description = 'Deletes a Task Schedule and all queued execution Plans.'
+    API = 'delete_schedule'
+    Examples = ''''''
     Options = [Param(name='schedule_id', short_name='s', long_name='schedule_id',
                      optional=False, ptype='string',
                      doc='The UUID of the Schedule to delete.')]
@@ -35,5 +37,5 @@ class DeleteSchedule(catoclient.catocommand.CatoCommand):
                     go = True
 
         if go:
-            results = self.call_api('delete_schedule', ['schedule_id'])
+            results = self.call_api(self.API, ['schedule_id'])
             print(results)

@@ -20,6 +20,8 @@ from catoclient.param import Param
 class UntagObject(catoclient.catocommand.CatoCommand):
 
     Description = 'Removed a security Tag from an object.'
+    API = 'remove_object_tag'
+    Examples = ''''''
     Options = [Param(name='tag', short_name='t', long_name='tag',
                      optional=False, ptype='string',
                      doc='The name of the Tag.'),
@@ -31,5 +33,5 @@ class UntagObject(catoclient.catocommand.CatoCommand):
                      doc='The numeric object type of the object.')]
 
     def main(self):
-        results = self.call_api('remove_object_tag', ['tag', 'object_id', 'object_type'])
+        results = self.call_api(self.API, ['tag', 'object_id', 'object_type'])
         print(results)

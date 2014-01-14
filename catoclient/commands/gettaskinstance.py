@@ -20,10 +20,12 @@ from catoclient.param import Param
 class GetTaskInstance(catoclient.catocommand.CatoCommand):
 
     Description = 'Get a Cato Task Instance.'
+    API = 'get_task_instance'
+    Examples = ''''''
     Options = [Param(name='instance', short_name='i', long_name='instance',
                      optional=False, ptype='string',
                      doc='The Instance ID.')]
 
     def main(self):
-        results = self.call_api('get_task_instance', ['instance'])
+        results = self.call_api(self.API, ['instance'])
         print(results)

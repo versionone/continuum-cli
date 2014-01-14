@@ -20,6 +20,8 @@ from catoclient.param import Param
 class UpdateCloud(catoclient.catocommand.CatoCommand):
 
     Description = 'Updates a Cloud.'
+    API = 'update_cloud'
+    Examples = ''''''
     Options = [Param(name='name', short_name='n', long_name='name',
                      optional=False, ptype='string',
                      doc='The ID or Name of a Cloud.'),
@@ -35,5 +37,5 @@ class UpdateCloud(catoclient.catocommand.CatoCommand):
                ]
 
     def main(self):
-        results = self.call_api('update_cloud', ['name', 'apiurl', 'apiprotocol', 'default_account'])
+        results = self.call_api(self.API, ['name', 'apiurl', 'apiprotocol', 'default_account'])
         print(results)

@@ -20,11 +20,13 @@ from catoclient.param import Param
 class ListUsers(catoclient.catocommand.CatoCommand):
 
     Description = 'Lists Users'
+    API = 'list_users'
+    Examples = ''''''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',
                      doc='A filter.')]
 
     def main(self):
-        results = self.call_api('list_users', ['filter'])
+        results = self.call_api(self.API, ['filter'])
         print(results)
 

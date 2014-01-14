@@ -20,6 +20,8 @@ from catoclient.param import Param
 class ImportBackup(catoclient.catocommand.CatoCommand):
 
     Description = 'Lists Tasks'
+    API = 'import_backup'
+    Examples = ''''''
     Options = [Param(name='file', short_name='f', long_name='file',
                      optional=False, ptype='string',
                      doc='The file name of the backup file.')]
@@ -49,6 +51,6 @@ class ImportBackup(catoclient.catocommand.CatoCommand):
                     go = True
 
         if go:
-            results = self.call_api('import_backup', ['xml'])
+            results = self.call_api(self.API, ['xml'])
             print(results)
 

@@ -31,6 +31,8 @@ class UpdateSettings(catoclient.catocommand.CatoCommand):
     
         cato-update-settings -mMessenger -f/tmp/messenger_settings.json
     """
+    API = 'update_settings'
+    Examples = ''''''
     Options = [Param(name='module', short_name='m', long_name='module',
                      optional=False, ptype='string',
                      doc='Name of the Cato module to update.'),
@@ -60,5 +62,5 @@ class UpdateSettings(catoclient.catocommand.CatoCommand):
                     if not f_in:
                         print("Unable to open file [%s]." % fn)
                     self.settings = f_in.read()
-            results = self.call_api('update_settings', ['module', 'settings'])
+            results = self.call_api(self.API, ['module', 'settings'])
             print(results)

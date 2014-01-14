@@ -20,6 +20,8 @@ from catoclient.param import Param
 class GetTaskInstances(catoclient.catocommand.CatoCommand):
 
     Description = 'Get a list of Cato Task Instances.'
+    API = 'get_task_instances'
+    Examples = ''''''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',
                      doc='A filter.'),
@@ -39,7 +41,7 @@ class GetTaskInstances(catoclient.catocommand.CatoCommand):
 
     def main(self):
         try:
-            results = self.call_api('get_task_instances', ['filter', 'status', 'from', 'to', 'records'])
+            results = self.call_api(self.API, ['filter', 'status', 'from', 'to', 'records'])
             print(results)
         except Exception as ex:
             raise ex

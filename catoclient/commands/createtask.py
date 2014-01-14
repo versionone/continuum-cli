@@ -20,6 +20,8 @@ from catoclient.param import Param
 class CreateTask(catoclient.catocommand.CatoCommand):
 
     Description = 'Creates a new Task.'
+    API = 'create_task'
+    Examples = ''''''
     Options = [Param(name='name', short_name='n', long_name='name',
                      optional=False, ptype='string',
                      doc='A name for the new Task.'),
@@ -32,5 +34,5 @@ class CreateTask(catoclient.catocommand.CatoCommand):
                ]
 
     def main(self):
-        results = self.call_api('create_task', ['name', 'code', 'desc'])
+        results = self.call_api(self.API, ['name', 'code', 'desc'])
         print(results)

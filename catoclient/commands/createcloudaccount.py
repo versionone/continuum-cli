@@ -20,6 +20,8 @@ from catoclient.param import Param
 class CreateCloudAccount(catoclient.catocommand.CatoCommand):
 
     Description = 'Creates a new Cloud Account.'
+    API = 'create_account'
+    Examples = ''''''
     Options = [Param(name='provider', short_name='v', long_name='provider',
                      optional=False, ptype='string',
                      doc='The name of a Cato supported Cloud Provider.'),
@@ -41,5 +43,5 @@ class CreateCloudAccount(catoclient.catocommand.CatoCommand):
                ]
 
     def main(self):
-        results = self.call_api('create_account', ['provider', 'name', 'login', 'password', 'default_cloud', 'account_number'])
+        results = self.call_api(self.API, ['provider', 'name', 'login', 'password', 'default_cloud', 'account_number'])
         print(results)

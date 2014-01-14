@@ -20,6 +20,8 @@ from catoclient.param import Param
 class GetTask(catoclient.catocommand.CatoCommand):
 
     Description = 'Gets a Task object.'
+    API = 'get_task'
+    Examples = ''''''
     Options = [Param(name='task', short_name='t', long_name='task',
                      optional=False, ptype='string',
                      doc='The ID or Name of a Task.'),
@@ -31,6 +33,6 @@ class GetTask(catoclient.catocommand.CatoCommand):
                      doc='Include all code.')]
 
     def main(self):
-        results = self.call_api('get_task', ['task', 'version', 'include_code'])
+        results = self.call_api(self.API, ['task', 'version', 'include_code'])
         print(results)
 

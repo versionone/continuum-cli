@@ -20,6 +20,8 @@ from catoclient.param import Param
 class CreateCredential(catoclient.catocommand.CatoCommand):
 
     Description = 'Creates a new Shared Credential.'
+    API = 'create_credential'
+    Examples = ''''''
     Options = [Param(name='name', short_name='n', long_name='name',
                      optional=False, ptype='string',
                      doc='A name for the new Credential.'),
@@ -41,5 +43,5 @@ class CreateCredential(catoclient.catocommand.CatoCommand):
                ]
 
     def main(self):
-        results = self.call_api('create_credential', ['name', 'description', 'username', 'password', 'domain', 'privileged'])
+        results = self.call_api(self.API, ['name', 'description', 'username', 'password', 'domain', 'privileged'])
         print(results)

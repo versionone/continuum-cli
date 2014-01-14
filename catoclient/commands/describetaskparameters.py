@@ -20,6 +20,8 @@ from catoclient.param import Param
 class DescribeTaskParameters(catoclient.catocommand.CatoCommand):
 
     Description = 'Describes the Parameters defined for a Task.'
+    API = 'describe_task_parameters'
+    Examples = ''''''
     Options = [Param(name='task', short_name='t', long_name='task',
                      optional=False, ptype='string',
                      doc='The ID or Name of a Task.'),
@@ -28,6 +30,6 @@ class DescribeTaskParameters(catoclient.catocommand.CatoCommand):
                      doc='An optional specific Task Version. (Default if omitted.)')]
 
     def main(self):
-        results = self.call_api('describe_task_parameters', ['task', 'version'])
+        results = self.call_api(self.API, ['task', 'version'])
         print(results)
 

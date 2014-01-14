@@ -20,6 +20,8 @@ from catoclient.param import Param
 class GetSystemLog(catoclient.catocommand.CatoCommand):
 
     Description = 'Get the System Log.'
+    API = 'get_system_log'
+    Examples = ''''''
     Options = [Param(name='object_id', short_name='i', long_name='object_id',
                      optional=True, ptype='string',
                      doc='An Object ID filter.'),
@@ -51,7 +53,7 @@ class GetSystemLog(catoclient.catocommand.CatoCommand):
 
     def main(self):
         try:
-            results = self.call_api('get_system_log', ['object_id', 'object_type', 'log_type', 'action', 'filter', 'from', 'to', 'records', 'user'])
+            results = self.call_api(self.API, ['object_id', 'object_type', 'log_type', 'action', 'filter', 'from', 'to', 'records', 'user'])
             print(results)
         except Exception as ex:
             raise ex

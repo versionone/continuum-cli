@@ -20,11 +20,13 @@ from catoclient.param import Param
 class ListCredentials(catoclient.catocommand.CatoCommand):
 
     Description = 'Lists Shared Credentials'
+    API = 'list_credentials'
+    Examples = ''''''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',
                      doc='A filter.')]
 
     def main(self):
-        results = self.call_api('list_credentials', ['filter'])
+        results = self.call_api(self.API, ['filter'])
         print(results)
 

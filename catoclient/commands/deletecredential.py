@@ -20,6 +20,8 @@ from catoclient.param import Param
 class DeleteCredential(catoclient.catocommand.CatoCommand):
 
     Description = 'Deletes a Shared Credential.'
+    API = 'delete_credential'
+    Examples = ''''''
     Options = [Param(name='credential', short_name='c', long_name='credential',
                      optional=False, ptype='string',
                      doc='ID or Name of the Credential.')
@@ -36,5 +38,5 @@ class DeleteCredential(catoclient.catocommand.CatoCommand):
                     go = True
 
         if go:
-            results = self.call_api('delete_credential', ['credential'])
+            results = self.call_api(self.API, ['credential'])
             print(results)

@@ -20,11 +20,13 @@ from catoclient.param import Param
 class GetCloudAccount(catoclient.catocommand.CatoCommand):
 
     Description = 'Gets a Cloud Account.'
+    API = 'get_account'
+    Examples = ''''''
     Options = [Param(name='name', short_name='n', long_name='name',
                      optional=False, ptype='string',
                      doc='The ID or Name of a Cloud Account.')
                ]
 
     def main(self):
-        results = self.call_api('get_account', ['name'])
+        results = self.call_api(self.API, ['name'])
         print(results)

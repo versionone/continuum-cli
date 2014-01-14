@@ -20,6 +20,8 @@ from catoclient.param import Param
 class UpdateUser(catoclient.catocommand.CatoCommand):
 
     Description = 'Updates a User account.'
+    API = 'update_user'
+    Examples = ''''''
     Options = [Param(name='user', short_name='u', long_name='user',
                      optional=False, ptype='string',
                      doc='The ID or Name of a User account.'),
@@ -64,5 +66,5 @@ class UpdateUser(catoclient.catocommand.CatoCommand):
                     go = True
 
         if go:
-            results = self.call_api('update_user', ['user', 'name', 'role', 'email', 'authtype', 'forcechange', 'status', 'expires', 'groups'])
+            results = self.call_api(self.API, ['user', 'name', 'role', 'email', 'authtype', 'forcechange', 'status', 'expires', 'groups'])
             print(results)

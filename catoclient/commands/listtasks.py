@@ -20,6 +20,8 @@ from catoclient.param import Param
 class ListTasks(catoclient.catocommand.CatoCommand):
 
     Description = 'Lists Tasks'
+    API = 'list_tasks'
+    Examples = ''''''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',
                      doc='A filter.'),
@@ -28,6 +30,6 @@ class ListTasks(catoclient.catocommand.CatoCommand):
                      doc='Show all Versions, not just the "default".')]
 
     def main(self):
-        results = self.call_api('list_tasks', ['filter', 'show_all_versions'])
+        results = self.call_api(self.API, ['filter', 'show_all_versions'])
         print(results)
 

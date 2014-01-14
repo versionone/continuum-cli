@@ -20,6 +20,8 @@ from catoclient.param import Param
 class ResetPassword(catoclient.catocommand.CatoCommand):
 
     Description = 'Resets a User Password.'
+    API = 'reset_password'
+    Examples = ''''''
     Options = [Param(name='password', short_name='p', long_name='password',
                      optional=True, ptype='string',
                      doc='The new password.'),
@@ -42,5 +44,5 @@ class ResetPassword(catoclient.catocommand.CatoCommand):
                     go = True
 
         if go:
-            results = self.call_api('reset_password', ['user', 'password', 'generate'])
+            results = self.call_api(self.API, ['user', 'password', 'generate'])
             print(results)
