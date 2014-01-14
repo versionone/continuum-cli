@@ -19,9 +19,11 @@ from catoclient.param import Param
 
 class Version(catoclient.catocommand.CatoCommand):
 
-    Description = 'Displays the Cato Version'
+    Description = 'Displays the Cato Version by request from the Cato API webservice'
     API = 'version'
-    Examples = ''''''
+    Examples = '''
+        cato-version
+    '''
     Options = []
 
     def main(self):
