@@ -26,6 +26,8 @@ from catoclient.param import Param
 class ExportCanvas(catoclient.catocommand.CatoCommand):
 
     Description = 'Exports Canvas items to a directory.'
+    API = 'export_canvas'
+    Examples = ''''''
     Options = [Param(name='project', short_name='p', long_name='project',
                      optional=True, ptype='string',
                      doc='If provided, limits export to a specific Project.'),
@@ -54,7 +56,7 @@ class ExportCanvas(catoclient.catocommand.CatoCommand):
         """
         # if no outputdirectory was provided, we will just print the results
         if self.printoutput:
-            results = self.call_api('export_canvas', ['project', 'component'])
+            results = self.call_api(self.API, ['project', 'component'])
             print(results)
             return
 
@@ -68,7 +70,7 @@ class ExportCanvas(catoclient.catocommand.CatoCommand):
             print "The directory [%s] does not exist." % (rootdir)
             return
             
-        results = self.call_api('export_canvas', ['project', 'component', 'repository'])
+        results = self.call_api(self.API, ['project', 'component', 'repository'])
 
         # the result MIGHT be an error!!! in which case the json.loads will fail
         try:

@@ -23,6 +23,8 @@ from catoclient.param import Param
 class AddService(catoclient.catocommand.CatoCommand):
 
     Description = 'Creates a new Deployment Service.'
+    API = 'add_service'
+    Examples = ''''''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',
                      doc='Value can be either a Deployment ID or Name.'),
@@ -53,5 +55,5 @@ class AddService(catoclient.catocommand.CatoCommand):
                     if data:
                         self.service = data
 
-        results = self.call_api('add_service', ['deployment', 'service'])
+        results = self.call_api(self.API, ['deployment', 'service'])
         print(results)

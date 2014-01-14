@@ -23,6 +23,8 @@ from catoclient.param import Param
 class GetServiceInstanceDocument(catoclient.catocommand.CatoCommand):
 
     Description = 'Gets a Service Instance Datastore Document.'
+    API = 'get_service_instance_document'
+    Examples = ''''''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',
                      doc='Value can be either a Deployment ID or Name.'),
@@ -31,5 +33,5 @@ class GetServiceInstanceDocument(catoclient.catocommand.CatoCommand):
                      doc='Value can be either a Service Instance ID or Name.')]
 
     def main(self):
-        results = self.call_api('get_service_instance_document', ['deployment', 'instance'])
+        results = self.call_api(self.API, ['deployment', 'instance'])
         print(results)

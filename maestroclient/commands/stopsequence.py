@@ -23,10 +23,12 @@ from catoclient.param import Param
 class StopSequence(catoclient.catocommand.CatoCommand):
 
     Description = 'Stop a running Sequence Instance.'
+    API = 'stop_sequence'
+    Examples = ''''''
     Options = [Param(name='instance', short_name='i', long_name='instance',
                      optional=False, ptype='string',
                      doc='The Instance ID to stop.')]
 
     def main(self):
-        results = self.call_api('stop_sequence', ['instance'])
+        results = self.call_api(self.API, ['instance'])
         print(results)

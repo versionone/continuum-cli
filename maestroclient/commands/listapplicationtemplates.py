@@ -23,10 +23,12 @@ from catoclient.param import Param
 class ListApplicationTemplates(catoclient.catocommand.CatoCommand):
 
     Description = 'Lists Deployment Templatess'
+    API = 'list_application_templates'
+    Examples = ''''''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',
                      doc='A filter.')]
 
     def main(self):
-        results = self.call_api('list_application_templates', ['filter'])
+        results = self.call_api(self.API, ['filter'])
         print(results)

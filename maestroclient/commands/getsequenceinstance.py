@@ -23,10 +23,12 @@ from catoclient.param import Param
 class GetSequenceInstance(catoclient.catocommand.CatoCommand):
 
     Description = 'Get a Deployment Sequence Instance.'
+    API = 'get_sequence_instance'
+    Examples = ''''''
     Options = [Param(name='instance', short_name='i', long_name='instance',
                      optional=False, ptype='string',
                      doc='The Instance ID.')]
 
     def main(self):
-        results = self.call_api('get_sequence_instance', ['instance'])
+        results = self.call_api(self.API, ['instance'])
         print(results)

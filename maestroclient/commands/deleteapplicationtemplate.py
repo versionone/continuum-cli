@@ -33,6 +33,8 @@ class DeleteApplicationTemplate(catoclient.catocommand.CatoCommand):
         
         * If --inputdirectory is provided, then ALL TASKS listed in the backup directory will be deleted from the target system.
         """
+    API = 'delete_application_template'
+    Examples = ''''''
     Options = [Param(name='template', short_name='t', long_name='template',
                      optional=False, ptype='string',
                      doc='Name of the Application Template.'),
@@ -85,5 +87,5 @@ class DeleteApplicationTemplate(catoclient.catocommand.CatoCommand):
                                 print self.call_api('delete_task', ['task', 'force_delete'])
 
             # now, lets do the api call that deletes the template
-            results = self.call_api('delete_application_template', ['template', 'version', 'deletetasks'])
+            results = self.call_api(self.API, ['template', 'version', 'deletetasks'])
             print(results)

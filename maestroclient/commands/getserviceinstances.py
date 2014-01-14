@@ -23,6 +23,8 @@ from catoclient.param import Param
 class GetServiceInstances(catoclient.catocommand.CatoCommand):
 
     Description = 'Gets Service Instances from an Deployment Service'
+    API = 'get_service_instances'
+    Examples = ''''''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',
                      doc='Value can be either a Deployment ID or Name.'),
@@ -31,5 +33,5 @@ class GetServiceInstances(catoclient.catocommand.CatoCommand):
                      doc='Value can be either a Service ID or Name.')]
 
     def main(self):
-        results = self.call_api('get_service_instances', ['deployment', 'service'])
+        results = self.call_api(self.API, ['deployment', 'service'])
         print(results)

@@ -23,6 +23,8 @@ from catoclient.param import Param
 class GetDeploymentServices(catoclient.catocommand.CatoCommand):
 
     Description = 'Gets Services on a Deployment'
+    API = 'get_deployment_services'
+    Examples = ''''''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',
                      doc='Value can be either a Deployment ID or Name.'),
@@ -35,5 +37,5 @@ class GetDeploymentServices(catoclient.catocommand.CatoCommand):
                ]
 
     def main(self):
-        results = self.call_api('get_deployment_services', ['deployment', 'filter', 'hostfilter'])
+        results = self.call_api(self.API, ['deployment', 'filter', 'hostfilter'])
         print(results)

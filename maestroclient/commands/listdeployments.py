@@ -22,7 +22,17 @@ from catoclient.param import Param
 
 class ListDeployments(catoclient.catocommand.CatoCommand):
 
-    Description = 'Lists Deployments'
+    Description = 'Lists all deployed Applications.'
+    API = 'list_deployments'
+    Examples = '''
+_Basic Usage_
+
+    maestro-list-deployments
+
+_Limit results by name._
+
+    maestro-list-deployments -f"My App 4"
+'''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',
                      doc='A filter.'),
@@ -43,5 +53,5 @@ class ListDeployments(catoclient.catocommand.CatoCommand):
                      doc='Include Archived Deployments in the results.')]
 
     def main(self):
-        results = self.call_api('list_deployments', ['filter', 'hostfilter', 'groups', 'show_archived', 'from', 'to'])
+        results = self.call_api(self.API, ['filter', 'hostfilter', 'groups', 'show_archived', 'from', 'to'])
         print(results)

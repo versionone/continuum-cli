@@ -28,6 +28,8 @@ from catoclient.param import Param
 class ImportApplicationTemplate(catoclient.catocommand.CatoCommand):
 
     Description = 'Imports an Application Template from a properly formatted directory.'
+    API = ''
+    Examples = ''''''
     Options = [Param(name='inputdirectory', short_name='i', long_name='inputdirectory',
                      optional=False, ptype='string',
                      doc='Directory where the Application Template files exist.'),

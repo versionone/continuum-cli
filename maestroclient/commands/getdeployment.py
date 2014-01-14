@@ -23,11 +23,13 @@ from catoclient.param import Param
 class GetDeployment(catoclient.catocommand.CatoCommand):
 
     Description = 'Gets a Deployment object.'
+    API = 'get_deployment'
+    Examples = ''''''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',
                      doc='Value can be either a Deployment ID or Name.')]
 
     def main(self):
-        results = self.call_api('get_deployment', ['deployment'])
+        results = self.call_api(self.API, ['deployment'])
         print(results)
 

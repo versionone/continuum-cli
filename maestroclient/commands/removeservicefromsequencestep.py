@@ -23,6 +23,8 @@ from catoclient.param import Param
 class RemoveServiceFromSequenceStep(catoclient.catocommand.CatoCommand):
 
     Description = 'Remove a Service from a Deployment Sequence Step.'
+    API = 'remove_service_from_sequence_step'
+    Examples = ''''''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',
                      doc='Value can be either a Deployment ID or Name.'),
@@ -47,5 +49,5 @@ class RemoveServiceFromSequenceStep(catoclient.catocommand.CatoCommand):
                     go = True
 
         if go:
-            results = self.call_api('remove_service_from_sequence_step', ['deployment', 'sequence', 'step', 'service'])
+            results = self.call_api(self.API, ['deployment', 'sequence', 'step', 'service'])
             print(results)

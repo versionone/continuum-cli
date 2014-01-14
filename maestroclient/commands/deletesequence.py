@@ -23,6 +23,8 @@ from catoclient.param import Param
 class DeleteSequence(catoclient.catocommand.CatoCommand):
 
     Description = 'Deletes a Deployment Sequence.'
+    API = 'delete_sequence'
+    Examples = ''''''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',
                      doc='Value can be either a Deployment ID or Name.'),
@@ -41,5 +43,5 @@ class DeleteSequence(catoclient.catocommand.CatoCommand):
                     go = True
 
         if go:
-            results = self.call_api('delete_sequence', ['deployment', 'sequence'])
+            results = self.call_api(self.API, ['deployment', 'sequence'])
             print(results)

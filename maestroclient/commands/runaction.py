@@ -23,6 +23,8 @@ from catoclient.param import Param
 class RunAction(catoclient.catocommand.CatoCommand):
 
     Description = 'Runs a Deployment Action'
+    API = 'run_action'
+    Examples = ''''''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',
                      doc='Value can be either a Deployment ID or Name.'),
@@ -79,5 +81,5 @@ class RunAction(catoclient.catocommand.CatoCommand):
                         except:  # well, nothing worked so let's just whine
                             print ("'parameters' argument was provided, but unable to reconcile parameters as JSON, XML or a valid and existing file.")
 
-            results = self.call_api('run_action', ['deployment', 'action', 'service', 'service_instance', 'log_level', 'parameters'])
+            results = self.call_api(self.API, ['deployment', 'action', 'service', 'service_instance', 'log_level', 'parameters'])
             print(results)

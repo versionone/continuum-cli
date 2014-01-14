@@ -23,6 +23,8 @@ from catoclient.param import Param
 class GetMonitorInstances(catoclient.catocommand.CatoCommand):
 
     Description = 'Get a list of Deployment Monitor Instances.'
+    API = 'get_monitor_instances'
+    Examples = ''''''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',
                      doc='Value can be either a Deployment ID or Name.'),
@@ -50,5 +52,5 @@ class GetMonitorInstances(catoclient.catocommand.CatoCommand):
                ]
 
     def main(self):
-        results = self.call_api('get_monitor_instances', ['deployment', 'service', 'instance', 'filter', 'status', 'from', 'to', 'records'])
+        results = self.call_api(self.API, ['deployment', 'service', 'instance', 'filter', 'status', 'from', 'to', 'records'])
         print(results)

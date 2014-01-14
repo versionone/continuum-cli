@@ -23,6 +23,8 @@ from catoclient.param import Param
 class ExportDeployment(catoclient.catocommand.CatoCommand):
 
     Description = 'Exports a Deployed Application as an Application Template.  Optionally create a new version of the source Template.'
+    API = 'export_deployment'
+    Examples = ''''''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',
                      doc='Value can be either a Deployment ID or Name.'),
@@ -35,5 +37,5 @@ class ExportDeployment(catoclient.catocommand.CatoCommand):
                ]
 
     def main(self):
-        results = self.call_api('export_deployment', ['deployment', 'new_version', 'makeavailable'])
+        results = self.call_api(self.API, ['deployment', 'new_version', 'makeavailable'])
         print(results)

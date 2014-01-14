@@ -23,6 +23,8 @@ from catoclient.param import Param
 class AddSequence(catoclient.catocommand.CatoCommand):
 
     Description = 'Creates a new Sequence on a Deployment.'
+    API = 'add_sequence'
+    Examples = ''''''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',
                      doc='Value can be either a Deployment ID or Name.'),
@@ -52,5 +54,5 @@ class AddSequence(catoclient.catocommand.CatoCommand):
                     if data:
                         self.sequence = data
 
-        results = self.call_api('add_sequence', ['deployment', 'sequence'])
+        results = self.call_api(self.API, ['deployment', 'sequence'])
         print(results)

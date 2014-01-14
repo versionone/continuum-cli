@@ -23,6 +23,8 @@ from catoclient.param import Param
 class CopyApplicationTemplate(catoclient.catocommand.CatoCommand):
 
     Description = 'Copies an Application Template.'
+    API = 'copy_application_template'
+    Examples = ''''''
     Options = [Param(name='template', short_name='t', long_name='template',
                      optional=False, ptype='string',
                      doc='The Application Template to copy.'),
@@ -38,5 +40,5 @@ class CopyApplicationTemplate(catoclient.catocommand.CatoCommand):
                ]
 
     def main(self):
-        results = self.call_api('copy_application_template', ['newname', 'newversion', 'template', 'version'])
+        results = self.call_api(self.API, ['newname', 'newversion', 'template', 'version'])
         print(results)

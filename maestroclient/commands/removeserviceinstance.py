@@ -23,6 +23,8 @@ from catoclient.param import Param
 class RemoveServiceInstance(catoclient.catocommand.CatoCommand):
 
     Description = 'Remove a Service Instance from a Service.'
+    API = 'remove_service_instance'
+    Examples = ''''''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',
                      doc='The Name or ID of a Deployment.'),
@@ -41,5 +43,5 @@ class RemoveServiceInstance(catoclient.catocommand.CatoCommand):
                     go = True
 
         if go:
-            results = self.call_api('remove_service_instance', ['deployment', 'instance'])
+            results = self.call_api(self.API, ['deployment', 'instance'])
             print(results)
