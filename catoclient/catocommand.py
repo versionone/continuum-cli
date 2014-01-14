@@ -371,8 +371,9 @@ class CatoCommand(object):
         self.param_usage([ opt for opt in self.Options if opt.optional ],
                          'OPTIONAL PARAMETERS')
         
-        print "**Examples**"
-        print self.Examples
+        if self.Examples:
+            print "**Examples**"
+            print self.Examples
         
     def display_error_and_exit(self, exc):
         try:
