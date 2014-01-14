@@ -19,12 +19,19 @@ from catoclient.param import Param
 
 class ListTasks(catoclient.catocommand.CatoCommand):
 
-    Description = 'Lists Tasks'
+    Description = 'Lists Cato Tasks'
     API = 'list_tasks'
-    Examples = ''''''
+    Examples = '''
+        _List all Cato tasks_
+        cato-list-tasks
+
+        _List all Cato tasks with a particular string in the name, all versions_
+        cato-list-tasks -f "Test Logging Level" -v
+    '''
     Options = [Param(name='filter', short_name='f', long_name='filter',
-                     optional=True, ptype='string',
-                     doc='A filter.'),
+                    optional=True, ptype='string',
+                    doc='''A string to use to filter the resulting data. Any row of
+                            data that has one field contains the string will be returned.'''),
               Param(name='show_all_versions', short_name='v', long_name='show_all_versions',
                      optional=True, ptype='boolean',
                      doc='Show all Versions, not just the "default".')]
