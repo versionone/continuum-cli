@@ -19,12 +19,19 @@ from catoclient.param import Param
 
 class ListUsers(catoclient.catocommand.CatoCommand):
 
-    Description = 'Lists Users'
+    Description = 'Lists Cato Users'
     API = 'list_users'
-    Examples = ''''''
+    Examples = '''
+        _List all Cato users_
+        cato-list-users
+
+        _List all users with Administrator role_
+        cato-list-users -f "Administrator"
+    '''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',
-                     doc='A filter.')]
+                     doc='''A string to use to filter the resulting data. Any row of
+                            data that has one field contains the string will be returned.''')]
 
     def main(self):
         results = self.call_api(self.API, ['filter'])

@@ -22,15 +22,21 @@ from catoclient.param import Param
 
 class CreateDocument(catoclient.catocommand.CatoCommand):
 
-    Description = 'Creates a new Datastore document.'
+    Description = 'Creates a new Datastore document in the Cato MongoDB datastore.'
     API = 'create_document'
-    Examples = ''''''
+    Examples = '''
+        _Single quotes wrapping the json document, double inside_
+        cato-create-document -c "inventory" -t '{ "type": "book", "item": "notebook", "qty": 40 }'
+
+        _Double quotes wrapping the json document, double quotes escaped inside_
+        cato-create-document -c "inventory" -t "{ \"type\": \"book\", \"item\": \"notebook\", \"qty\": 40 }"
+    '''
     Options = [Param(name='collection', short_name='c', long_name='collection',
                      optional=True, ptype='string',
-                     doc='A document collection.  "Default" if omitted.'),
+                     doc='The MongoDB collection in which to store the data.  "Default" if omitted.'),
                Param(name='template', short_name='t', long_name='template',
                      optional=True, ptype='string',
-                     doc=' A JSON document template.  A blank document will be created if omitted.')]
+                     doc='A valid JSON document.  A blank document will be created if omitted.')]
 
     def main(self):
         results = self.call_api(self.API, ['template', 'collection'])

@@ -21,7 +21,9 @@ class CreateUser(catoclient.catocommand.CatoCommand):
 
     Description = 'Creates a new User.'
     API = 'create_user'
-    Examples = ''''''
+    Examples = '''
+        cato-create-user -u "dave.thomas" -n "Dave Thomas" -r "User" -e "dave.thomas@example.com" -p "passw0rd" -a "local" -s "enabled"
+    '''
     Options = [Param(name='user', short_name='u', long_name='user',
                      optional=False, ptype='string',
                      doc='A login name for the user.'),
