@@ -22,11 +22,20 @@
 
 import os
 import glob
+import sys
 
 if __name__ == '__main__':
-	ccdir = os.path.dirname(os.path.realpath( __file__ ))
-	os.chdir(ccdir)
-	for fname in sorted(glob.glob("cato-*")):
-		print fname
+    if len(sys.argv) > 1:
+        # if there's an argument, simply switch on it.  It'll only be asking for the api or dumpdoc.
+        if sys.argv[1] == "--dumpdoc" or sys.argv[1] == "-H":
+            print """Lists all installed Cato commands.  Accepts no arguments."""
+            exit()
+        else:
+            exit()
+            
+    ccdir = os.path.dirname(os.path.realpath( __file__ ))
+    os.chdir(ccdir)
+    for fname in sorted(glob.glob("cato-*")):
+        print fname
    
 

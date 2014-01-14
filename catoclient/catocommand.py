@@ -47,7 +47,10 @@ except (AttributeError, ImportError):
 
 class CatoCommand(object):
 
-    Description = 'Base class'
+    Description = ''
+    API = ''
+    Examples = ''
+    Info = ''
     StandardOptions = [
                        Param(name='access_key',
                              short_name='A', long_name='access-key',
@@ -287,7 +290,7 @@ class CatoCommand(object):
             msg = 'These required options are missing: %s' % ','.join(missing)
             self.display_error_and_exit(msg)
 
-    def param_usage(self, plist, label, n=30):
+    def param_usage(self, plist, label, n=25):
         nn = 80 - n - 8
         if plist:
             print('    %s' % label)
@@ -362,16 +365,21 @@ class CatoCommand(object):
         self.param_usage([ opt for opt in self.StandardOptions ],
                          'STANDARD PARAMETERS')
 
+        if self.Info:
+            print self.Info
+            
     def dumpdoc(self):
         print '## %s' % self.cmd_name
         print '{:#%s}' % self.cmd_name
-        print '\n_%s_\n' % self.Description
+        print '\n%s\n' % self.Description
 
         self.param_usage([ opt for opt in self.Options if not opt.optional ],
                          'REQUIRED PARAMETERS')
         self.param_usage([ opt for opt in self.Options if opt.optional ],
                          'OPTIONAL PARAMETERS')
-        
+        if self.Info:
+            print self.Info
+            
         if self.Examples:
             print "**Examples**"
             print self.Examples
