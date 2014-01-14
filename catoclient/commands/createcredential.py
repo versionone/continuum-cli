@@ -19,15 +19,17 @@ from catoclient.param import Param
 
 class CreateCredential(catoclient.catocommand.CatoCommand):
 
-    Description = 'Creates a new Shared Credential.'
+    Description = 'Creates a new set of Shared Credentials in Cato that can be used to log into other systems.'
     API = 'create_credential'
-    Examples = ''''''
+    Examples = '''
+        cato-create-credential -n "adminuser" -d "Administrator User" -u "root" -p "passw0rd"
+    '''
     Options = [Param(name='name', short_name='n', long_name='name',
                      optional=False, ptype='string',
-                     doc='A name for the new Credential.'),
+                     doc='A name for the new Credential, must be unique.'),
                Param(name='description', short_name='d', long_name='description',
                      optional=False, ptype='string',
-                     doc='Credential description.'),
+                     doc='Credential description or long name.'),
                Param(name='username', short_name='u', long_name='username',
                      optional=False, ptype='string',
                      doc='The user/login name.'),
@@ -36,10 +38,10 @@ class CreateCredential(catoclient.catocommand.CatoCommand):
                      doc='The password/privatekey.'),
                Param(name='domain', short_name='o', long_name='domain',
                      optional=True, ptype='string',
-                     doc='An optional domain for the credential.'),
+                     doc='An optional domain name for the credential.'),
                Param(name='privileged', short_name='v', long_name='privileged',
                      optional=True, ptype='string',
-                     doc='Additional password required to put certain devices into "privileged" mode.')
+                     doc='Additional password required to put certain Cisco IOS devices into "privileged" mode.')
                ]
 
     def main(self):
