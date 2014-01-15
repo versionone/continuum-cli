@@ -19,9 +19,11 @@ from catoclient.param import Param
 
 class DeletePlan(catoclient.catocommand.CatoCommand):
 
-    Description = 'Deletes a specific queued execution Plans.'
+    Description = 'Deletes a specific queued execution plan for a scheduled task.'
     API = 'delete_plan'
-    Examples = ''''''
+    Examples = '''
+        cato-delete-plan -p 55
+    '''
     Options = [Param(name='plan_id', short_name='p', long_name='plan_id',
                      optional=False, ptype='string',
                      doc='The integer ID of the Plan to delete.')]

@@ -19,9 +19,11 @@ from catoclient.param import Param
 
 class DeleteAsset(catoclient.catocommand.CatoCommand):
 
-    Description = 'Deletes a Cato Asset.'
+    Description = 'Deletes a Cato asset.'
     API = 'delete_asset'
-    Examples = ''''''
+    Examples = '''
+        cato-delete-asset -a "testdb"
+    '''
     Options = [Param(name='asset', short_name='a', long_name='asset',
                      optional=False, ptype='string',
                      doc='The ID or Name of the Asset to delete.')]

@@ -19,9 +19,15 @@ from catoclient.param import Param
 
 class GetTaskPlans(catoclient.catocommand.CatoCommand):
 
-    Description = 'Gets a list of queued execution Plans for a Task.'
+    Description = 'Gets a list of queued schedule execution plans for a task.'
     API = 'get_task_plans'
-    Examples = ''''''
+    Examples = '''
+        _Get all scheduled execution plans for a particular task_
+        cato-get-task-plans -t "mytask01"
+
+        _Get all scheduled execution plans for a specific verions of a task_
+        cato-get-task-plans -t "mytask01" -v "2.000"
+'''
     Options = [Param(name='task', short_name='t', long_name='task',
                      optional=False, ptype='string',
                      doc='The ID or Name of a Task.'),
