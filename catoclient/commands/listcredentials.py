@@ -19,12 +19,20 @@ from catoclient.param import Param
 
 class ListCredentials(catoclient.catocommand.CatoCommand):
 
-    Description = 'Lists Shared Credentials'
+    Description = 'Lists shared credentials defined in Cato'
     API = 'list_credentials'
-    Examples = ''''''
+    Examples = '''
+        _List all shared credentials_
+        cato-list-credentials
+
+        _List all shared credentials with root in the name or description_
+        cato-list-credentials -f "root"
+    '''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',
-                     doc='A filter.')]
+                     doc='''A string to use to filter the resulting data. Any row of
+                            data that has one field contains the string will be returned.''')]
+
 
     def main(self):
         results = self.call_api(self.API, ['filter'])

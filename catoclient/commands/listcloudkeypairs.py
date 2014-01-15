@@ -19,12 +19,15 @@ from catoclient.param import Param
 
 class ListCloudKeyPairs(catoclient.catocommand.CatoCommand):
 
-    Description = 'Lists Cloud Key Pairs'
+    Description = 'Lists cloud endpoint key pairs (ssh private keys)'
     API = 'list_cloud_keypairs'
-    Examples = ''''''
+    Examples = '''
+        _List all keypair names associated with the AWS us-east-1 cloud endpoint_
+        cato-list-cloud-keypairs -c "us-east-1"
+    '''
     Options = [Param(name='cloud', short_name='c', long_name='cloud',
                      optional=False, ptype='string',
-                     doc='The ID or Name of a Cloud.')
+                     doc='The cloud id (uuid) or name of a cloud endpoint in Cato.')
                ]
 
     def main(self):
