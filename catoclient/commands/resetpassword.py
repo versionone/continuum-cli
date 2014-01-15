@@ -19,9 +19,15 @@ from catoclient.param import Param
 
 class ResetPassword(catoclient.catocommand.CatoCommand):
 
-    Description = 'Resets a User Password.'
+    Description = "Resets a Cato user's login password."
     API = 'reset_password'
-    Examples = ''''''
+    Examples = '''
+        _Reset a Cato user's password to a random password which will be emailed to the user_
+        cato-reset-password -u "username1" bob -g
+
+        _Reset a Cato user's password to a specified password_
+        cato-reset-password -u "username1" -p "passw0rd"
+    '''
     Options = [Param(name='password', short_name='p', long_name='password',
                      optional=True, ptype='string',
                      doc='The new password.'),
