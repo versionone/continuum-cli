@@ -34,7 +34,7 @@ _To get the most basic parameter template of a task, minus descriptions and defa
 
     cato-get-task-parameters -t "new example" -b
 '''
-Options = [Param(name='task', short_name='t', long_name='task',
+    Options = [Param(name='task', short_name='t', long_name='task',
                      optional=False, ptype='string',
                      doc='The ID or Name of a Task.'),
                Param(name='version', short_name='v', long_name='version',
