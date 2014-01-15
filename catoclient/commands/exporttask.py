@@ -19,9 +19,21 @@ from catoclient.param import Param
 
 class ExportTask(catoclient.catocommand.CatoCommand):
 
-    Description = 'Exports a Cato Task.'
+    Description = 'Exports a Cato task that can be checked into version control or imported elsewhere.'
     API = 'export_task'
-    Examples = ''''''
+    Examples = '''
+        _To export the default version of a task in the default xml format_
+        cato-export-task -t "mytask01"
+
+        _To export a specific version of a task in json format_
+        cato-export-task -t "mytask01" -v "2.000" -F "json"
+
+        _To export the default version of a task and redirect to a file_
+        cato-export-task -t "mytask01" > mytask01.xml
+
+        _To export the default version of a task, include all subtask references and put results in a file_
+        cato-export-task -t "mytask01" -r -f "~/mytask01.xml"
+    '''
     Options = [Param(name='task', short_name='t', long_name='task',
                      optional=False, ptype='string',
                      doc='The ID or Name of the Task to export.'),
@@ -30,7 +42,7 @@ class ExportTask(catoclient.catocommand.CatoCommand):
                      doc='An optional specific Task Version. (Default if omitted.)'),
                Param(name='include_refs', short_name='r', long_name='include_refs',
                      optional=True, ptype='boolean',
-                     doc='If provided, will include all referenced Tasks.'),
+                     doc='If provided, will include all referenced subtasks.'),
                Param(name='output_file', short_name='f', long_name='output_file',
                      optional=True, ptype='string',
                      doc='Save the exported Task(s) to the specified file.')

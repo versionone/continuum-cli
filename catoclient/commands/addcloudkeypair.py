@@ -19,21 +19,27 @@ from catoclient.param import Param
 
 class AddCloudKeypair(catoclient.catocommand.CatoCommand):
 
-    Description = 'Adds a Key Pair to a Cloud'
+    Description = 'Adds a key pair (ssh private key) to a Cato defined cloud endpoint'
     API = 'add_cloud_keypair'
-    Examples = """"""
+    Examples = """
+        _To add a private key to the us-east-1 cloud endpoint_ 
+        cato-add-cloud-keypair -c "us-east-1" -n "privatekey01" -k ~/privatekey01.pem
+
+        _To add a private key with a passphrase to the cloud endpoint_
+        cato-add-cloud-keypair -c "us-east-1" -n "privatekey01" -k ~/.ssh/csk_www.pem -p "passw0rd"
+    """
     Options = [Param(name='cloud', short_name='c', long_name='cloud',
                      optional=False, ptype='string',
-                     doc='The ID or Name of a Cloud.'),
+                     doc='The ID or Name of a Cloud endpoint.'),
                Param(name='name', short_name='n', long_name='name',
                      optional=False, ptype='string',
                      doc='A name for the Key Pair.'),
                Param(name='keyfile', short_name='k', long_name='keyfile',
                      optional=False, ptype='string',
-                     doc='The Private Key.'),
+                     doc='The path and filename for the private key pem file.'),
                Param(name='passphrase', short_name='p', long_name='passphrase',
                      optional=True, ptype='string',
-                     doc='A Passphrase for the Key Pair.')
+                     doc='A Passphrase for the private key.')
                ]
 
     def main(self):
