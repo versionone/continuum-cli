@@ -24,7 +24,7 @@ class CreateDocument(catoclient.catocommand.CatoCommand):
 
     Description = 'Creates a new Datastore document in the Cato MongoDB datastore.'
     API = 'create_document'
-    Examples = '''
+    Examples = r'''
 _Single quotes wrapping the json document, double inside_
 
     cato-create-document -c "inventory" -t '{ "type": "book", "item": "notebook", "qty": 40 }'
