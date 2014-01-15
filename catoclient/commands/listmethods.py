@@ -19,9 +19,15 @@ from catoclient.param import Param
 
 class ListMethods(catoclient.catocommand.CatoCommand):
 
-    Description = 'Lists Methods'
+    Description = 'Retrieves a list of all Cato rest api methods or commands and their documentation'
     API = ''
-    Examples = ''''''
+    Examples = '''
+        _To print a full listing of all api commands with documentation_
+        cato-list-methods
+
+        _To print only the names with the api commands sorted_
+        cato-list-methods -l
+    '''
     Options = [Param(name='listonly', short_name='l', long_name='listonly',
                      optional=True, ptype='boolean',
                      doc='List the methods without documentation.')]
