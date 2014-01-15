@@ -19,12 +19,14 @@ from catoclient.param import Param
 
 class GetTaskLog(catoclient.catocommand.CatoCommand):
 
-    Description = 'Get the log for a Cato Task Instance.'
+    Description = 'Retrieve the task instance log from the database'
     API = 'get_task_log'
-    Examples = ''''''
+    Examples = '''
+    cato-get-task-log -i 43667
+'''
     Options = [Param(name='instance', short_name='i', long_name='instance',
                      optional=False, ptype='string',
-                     doc='The Instance ID.')]
+                     doc='The task instance number.')]
 
     def main(self):
         try:

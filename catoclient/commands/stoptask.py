@@ -19,9 +19,11 @@ from catoclient.param import Param
 
 class StopTask(catoclient.catocommand.CatoCommand):
 
-    Description = 'Stop a running Cato Task.'
+    Description = 'Cancels a task instance in a runnning status'
     API = 'stop_task'
-    Examples = ''''''
+    Examples = '''
+    cato-stop-task -i 43675
+'''
     Options = [Param(name='instance', short_name='i', long_name='instance',
                      optional=False, ptype='string',
                      doc='The Instance ID to stop.')]

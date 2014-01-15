@@ -19,20 +19,21 @@ from catoclient.param import Param
 
 class UpdateSettings(catoclient.catocommand.CatoCommand):
 
-    Description = """Update the settings of a Cato module.
+    Description = """Update the configuration settings of a Cato module.
     
 This command accepts a JSON object representing the settings for a module.
     
-For example, to change the SMTPServerAddress of the Cato Messenger:
-    
-    cato-update-settings -mMessenger -s'{"SMTPServerAddress":"smtp.gmail.com"}'
-    
-Additionally, a JSON file can be used:
-    
-    cato-update-settings -mMessenger -f/tmp/messenger_settings.json
 """
     API = 'update_settings'
-    Examples = ''''''
+    Examples = '''
+_To change the SMTPServerAddress of the Cato Messenger_
+    
+    cato-update-settings -m Messenger -s '{"SMTPServerAddress":"smtp.gmail.com"}'
+    
+_To update all settings for a particular module using a json formatted settings file__
+    
+    cato-update-settings -m Messenger -f /tmp/messenger_settings.json
+'''
     Options = [Param(name='module', short_name='m', long_name='module',
                      optional=False, ptype='string',
                      doc='Name of the Cato module to update.'),

@@ -22,9 +22,11 @@ from catoclient.param import Param
 
 class SetDocumentValue(catoclient.catocommand.CatoCommand):
 
-    Description = 'Sets the value for a given key in a Datastore document.'
+    Description = 'Sets the value for a given key in a document in the MongoDB datastore.'
     API = 'set_document_value'
-    Examples = ''''''
+    Examples = '''
+    cato-set-document-value -c "workflow_stages" -q '{"stage" : "stage 1"}' -k "status" -v "running"
+'''
     Options = [Param(name='query', short_name='q', long_name='query',
                      optional=False, ptype='string',
                      doc='A query in JSON format to select the correct Document.'),
@@ -33,7 +35,7 @@ class SetDocumentValue(catoclient.catocommand.CatoCommand):
                      doc='A document collection.  "Default" if omitted.'),
                Param(name='lookupkey', short_name='k', long_name='lookupkey',
                      optional=False, ptype='string',
-                     doc='A key to look up.'),
+                     doc='A key to look up in the document.'),
                Param(name='value', short_name='v', long_name='value',
                      optional=True, ptype='string',
                      doc='A value to set.')]
