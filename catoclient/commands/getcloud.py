@@ -19,9 +19,11 @@ from catoclient.param import Param
 
 class GetCloud(catoclient.catocommand.CatoCommand):
 
-    Description = 'Gets a Cloud.'
+    Description = 'Prints the properties of a Cato defined cloud endpoint'
     API = 'get_cloud'
-    Examples = ''''''
+    Examples = '''
+        cato-get-cloud -n "us-east-1"
+    '''
     Options = [Param(name='name', short_name='n', long_name='name',
                      optional=False, ptype='string',
                      doc='The ID or Name of a Cloud.')

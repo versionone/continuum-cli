@@ -19,9 +19,15 @@ from catoclient.param import Param
 
 class GetTask(catoclient.catocommand.CatoCommand):
 
-    Description = 'Gets a Task object.'
+    Description = 'Prints the properties of a Cato task'
     API = 'get_task'
-    Examples = ''''''
+    Examples = '''
+    _To print the high level properties of a specific task version_
+    cato-get-task -t "mytask01" -v "2.000"
+
+    _To print the properties and code of the default version of a task_
+    cato-get-task -t "new example" -i
+'''
     Options = [Param(name='task', short_name='t', long_name='task',
                      optional=False, ptype='string',
                      doc='The ID or Name of a Task.'),
@@ -30,7 +36,7 @@ class GetTask(catoclient.catocommand.CatoCommand):
                      doc='An optional specific Task Version. (Default if omitted.)'),
               Param(name='include_code', short_name='i', long_name='include_code',
                      optional=True, ptype='boolean',
-                     doc='Include all code.')]
+                     doc='Include all task step code.')]
 
     def main(self):
         results = self.call_api(self.API, ['task', 'version', 'include_code'])

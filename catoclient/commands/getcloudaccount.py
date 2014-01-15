@@ -19,9 +19,11 @@ from catoclient.param import Param
 
 class GetCloudAccount(catoclient.catocommand.CatoCommand):
 
-    Description = 'Gets a Cloud Account.'
+    Description = 'Prints the properties of a Cato defined cloud account'
     API = 'get_account'
-    Examples = ''''''
+    Examples = '''
+        cato-get-cloud-account -n "vclouddev"
+    '''
     Options = [Param(name='name', short_name='n', long_name='name',
                      optional=False, ptype='string',
                      doc='The ID or Name of a Cloud Account.')

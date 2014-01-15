@@ -22,9 +22,13 @@ from catoclient.param import Param
 
 class GetDocument(catoclient.catocommand.CatoCommand):
 
-    Description = 'Gets a Datastore document.'
+    Description = '''Gets a Cato datastore document based on a MongoDB query. For query syntax, see the 
+                    MongDB find() syntax http://docs.mongodb.org/manual/reference/method/db.collection.find'''
     API = 'get_document'
-    Examples = ''''''
+    Examples = '''
+        _To get the json document from a collection based on a specific query_
+        cato-get-document -c "workflow_stages" -q '{"stage" : "stage 1"}'
+    '''
     Options = [Param(name='query', short_name='q', long_name='query',
                      optional=False, ptype='string',
                      doc='A query in JSON format.'),
