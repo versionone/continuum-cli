@@ -19,9 +19,24 @@ from catoclient.param import Param
 
 class GetTaskInstances(catoclient.catocommand.CatoCommand):
 
-    Description = 'Get a list of Cato Task Instances.'
+    Description = 'Get a list of Cato task instances and their properties (status, dates, etc.).'
     API = 'get_task_instances'
-    Examples = ''''''
+    Examples = '''
+        _To retrieve the the last 200 task instances_
+        cato-get-task-instances
+
+        _To get all Processing and Submitted task instances, max 200_
+        cato-get-task-instances -s "Processing,Submitted"
+
+        _To get a set of task instances between two dates_
+        cato-get-task-instances --from "01/14/2014" --to "01/16/2014"
+
+        _To get the last 1000 task instances, overriding the default max of 200_
+        cato-get-task-instances -r 1000
+
+        _To get the last 10 task instance for any tasks with a particular string in the name_
+        cato-get-task-instances -r 10 -f "mytask01"
+    '''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',
                      doc='A filter.'),
