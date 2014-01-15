@@ -19,9 +19,11 @@ from catoclient.param import Param
 
 class DeleteTag(catoclient.catocommand.CatoCommand):
 
-    Description = 'Deletes a Cato Tag.'
+    Description = 'Deletes a Cato tag.'
     API = 'delete_tag'
-    Examples = ''''''
+    Examples = '''
+        cato-delete-tag -n "staging01"
+    '''
     Options = [Param(name='name', short_name='n', long_name='name',
                      optional=False, ptype='string',
                      doc='The Name of the Tag to delete.')]

@@ -19,9 +19,11 @@ from catoclient.param import Param
 
 class DeleteSchedule(catoclient.catocommand.CatoCommand):
 
-    Description = 'Deletes a Task Schedule and all queued execution Plans.'
+    Description = 'Deletes a Cato task schedule and all queued execution plans.'
     API = 'delete_schedule'
-    Examples = ''''''
+    Examples = '''
+        cato-delete-schedule -s "157545d8-7df9-11e3-ab87-da5f4e6a2990"
+    '''
     Options = [Param(name='schedule_id', short_name='s', long_name='schedule_id',
                      optional=False, ptype='string',
                      doc='The UUID of the Schedule to delete.')]
