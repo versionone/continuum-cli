@@ -22,8 +22,8 @@ class DeleteCloudKeypair(catoclient.catocommand.CatoCommand):
     Description = 'Removes a key pair (ssh private key) from a Cato cloud endpoint definition'
     API = 'delete_cloud_keypair'
     Examples = '''
-        cato-delete-cloud-keypair -c "us-east-1" -n "privatekey001"
-    '''
+    cato-delete-cloud-keypair -c "us-east-1" -n "privatekey001"
+'''
     Options = [Param(name='cloud', short_name='c', long_name='cloud',
                      optional=False, ptype='string',
                      doc='The ID or Name of a Cloud.'),

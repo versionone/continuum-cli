@@ -25,12 +25,14 @@ class ListDocuments(catoclient.catocommand.CatoCommand):
     Description = 'Lists documents in the MongoDB datastore'
     API = 'list_documents'
     Examples = '''
-        _To list all documents in a specific collection_
-        cato-list-documents -c "workflow_stages"
+_To list all documents in a specific collection_
 
-        _To list all documents in a specific collection that have a string match_
-        cato-list-documents -c "workflow_stages" -f "stage 1"
-    '''
+    cato-list-documents -c "workflow_stages"
+
+_To list all documents in a specific collection that have a string match_
+
+    cato-list-documents -c "workflow_stages" -f "stage 1"
+'''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',
                     doc='''A string to use to filter the resulting data. Any row of

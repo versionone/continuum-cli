@@ -22,8 +22,8 @@ class UpdateUser(catoclient.catocommand.CatoCommand):
     Description = 'Updates a User account.'
     API = 'update_user'
     Examples = '''
-        cato-update-user -u "dave.thomas" -s "disabled"  --force
-    '''
+    cato-update-user -u "dave.thomas" -s "disabled"  --force
+'''
     Options = [Param(name='user', short_name='u', long_name='user',
                      optional=False, ptype='string',
                      doc='The ID or Name of a User account.'),

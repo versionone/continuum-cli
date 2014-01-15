@@ -22,12 +22,14 @@ class ListTags(catoclient.catocommand.CatoCommand):
     Description = 'Lists tags that have been defined in Cato and prints whether they are in use or not'
     API = 'list_tags'
     Examples = '''
-        _To print all tags_
-        cato-list-tags
+_To print all tags_
 
-        _To print all tags containing a specific string in the name or description_
-        cato-list-tags -f "development"
-    '''
+    cato-list-tags
+
+_To print all tags containing a specific string in the name or description_
+
+    cato-list-tags -f "development"
+'''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                     optional=True, ptype='string',
                     doc='''A string to use to filter the resulting data. Any row of

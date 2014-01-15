@@ -22,8 +22,8 @@ class DeleteCredential(catoclient.catocommand.CatoCommand):
     Description = 'Deletes a Cato defined shared credential.'
     API = 'delete_credential'
     Examples = '''
-        cato-delete-credential -c "adminuser"
-    '''
+    cato-delete-credential -c "adminuser"
+'''
     Options = [Param(name='credential', short_name='c', long_name='credential',
                      optional=False, ptype='string',
                      doc='ID or Name of the Credential.')

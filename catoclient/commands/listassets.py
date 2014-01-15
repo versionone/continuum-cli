@@ -22,12 +22,14 @@ class ListAssets(catoclient.catocommand.CatoCommand):
     Description = 'Lists Assets'
     API = 'list_assets'
     Examples = '''
-        _List all Cato assets with test in the name_
-        cato-list-assets -f "test"
+_List all Cato assets with test in the name_
 
-        _List all Cato assets that are active_
-        cato-list-assets -f "Active"
-    '''
+    cato-list-assets -f "test"
+
+_List all Cato assets that are active_
+
+    cato-list-assets -f "Active"
+'''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',
                      doc='''A string to use to filter the resulting data. Any row of 

@@ -22,18 +22,22 @@ class ExportTask(catoclient.catocommand.CatoCommand):
     Description = 'Exports a Cato task that can be checked into version control or imported elsewhere.'
     API = 'export_task'
     Examples = '''
-        _To export the default version of a task in the default xml format_
-        cato-export-task -t "mytask01"
+_To export the default version of a task in the default xml format_
 
-        _To export a specific version of a task in json format_
-        cato-export-task -t "mytask01" -v "2.000" -F "json"
+    cato-export-task -t "mytask01"
 
-        _To export the default version of a task and redirect to a file_
-        cato-export-task -t "mytask01" > mytask01.xml
+_To export a specific version of a task in json format_
 
-        _To export the default version of a task, include all subtask references and put results in a file_
-        cato-export-task -t "mytask01" -r -f "~/mytask01.xml"
-    '''
+    cato-export-task -t "mytask01" -v "2.000" -F "json"
+
+_To export the default version of a task and redirect to a file_
+
+    cato-export-task -t "mytask01" > mytask01.xml
+
+_To export the default version of a task, include all subtask references and put results in a file_
+
+    cato-export-task -t "mytask01" -r -f "~/mytask01.xml"
+'''
     Options = [Param(name='task', short_name='t', long_name='task',
                      optional=False, ptype='string',
                      doc='The ID or Name of the Task to export.'),

@@ -22,8 +22,8 @@ class GetTaskInstanceStatus(catoclient.catocommand.CatoCommand):
     Description = 'Get the status of a Cato Task Instance.'
     API = 'get_task_instance_status'
     Examples = '''
-        cato-get-task-instance-status -i 43668
-    '''
+    cato-get-task-instance-status -i 43668
+'''
     Options = [Param(name='instance', short_name='i', long_name='instance',
                      optional=False, ptype='string',
                      doc='The Instance ID.')]

@@ -22,12 +22,14 @@ class GetTaskSchedules(catoclient.catocommand.CatoCommand):
     Description = 'Gets a list of schedule definitions for a given task.'
     API = 'get_task_schedules'
     Examples = '''
-        _To list the schedules for a particular task_
-        cato-get-task-schedules -t "mytask01"
+_To list the schedules for a particular task_
 
-        _To list the schedules for a particular version of a task_
-        cato-get-task-schedules -t "new example" -v "2.000"
-    '''
+    cato-get-task-schedules -t "mytask01"
+
+_To list the schedules for a particular version of a task_
+
+    cato-get-task-schedules -t "new example" -v "2.000"
+'''
     Options = [Param(name='task', short_name='t', long_name='task',
                      optional=False, ptype='string',
                      doc='The ID or Name of a Task.'),

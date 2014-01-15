@@ -22,8 +22,8 @@ class CreateTask(catoclient.catocommand.CatoCommand):
     Description = 'Creates a new blank Task object in Cato.'
     API = 'create_task'
     Examples = '''
-        cato-create-task -n "mytask" -d "This is a sample task" -c "test2001"
-    '''
+    cato-create-task -n "mytask" -d "This is a sample task" -c "test2001"
+'''
     Options = [Param(name='name', short_name='n', long_name='name',
                      optional=False, ptype='string',
                      doc='A name for the new Task.'),

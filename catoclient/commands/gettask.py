@@ -22,10 +22,12 @@ class GetTask(catoclient.catocommand.CatoCommand):
     Description = 'Prints the properties of a Cato task'
     API = 'get_task'
     Examples = '''
-    _To print the high level properties of a specific task version_
+_To print the high level properties of a specific task version_
+
     cato-get-task -t "mytask01" -v "2.000"
 
-    _To print the properties and code of the default version of a task_
+_To print the properties and code of the default version of a task_
+
     cato-get-task -t "new example" -i
 '''
     Options = [Param(name='task', short_name='t', long_name='task',

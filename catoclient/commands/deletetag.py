@@ -22,8 +22,8 @@ class DeleteTag(catoclient.catocommand.CatoCommand):
     Description = 'Deletes a Cato tag.'
     API = 'delete_tag'
     Examples = '''
-        cato-delete-tag -n "staging01"
-    '''
+    cato-delete-tag -n "staging01"
+'''
     Options = [Param(name='name', short_name='n', long_name='name',
                      optional=False, ptype='string',
                      doc='The Name of the Tag to delete.')]

@@ -25,12 +25,14 @@ class CreateDocument(catoclient.catocommand.CatoCommand):
     Description = 'Creates a new Datastore document in the Cato MongoDB datastore.'
     API = 'create_document'
     Examples = '''
-        _Single quotes wrapping the json document, double inside_
-        cato-create-document -c "inventory" -t '{ "type": "book", "item": "notebook", "qty": 40 }'
+_Single quotes wrapping the json document, double inside_
 
-        _Double quotes wrapping the json document, double quotes escaped inside_
-        cato-create-document -c "inventory" -t "{ \"type\": \"book\", \"item\": \"notebook\", \"qty\": 40 }"
-    '''
+    cato-create-document -c "inventory" -t '{ "type": "book", "item": "notebook", "qty": 40 }'
+
+_Double quotes wrapping the json document, double quotes escaped inside_
+
+    cato-create-document -c "inventory" -t "{ \"type\": \"book\", \"item\": \"notebook\", \"qty\": 40 }"
+'''
     Options = [Param(name='collection', short_name='c', long_name='collection',
                      optional=True, ptype='string',
                      doc='The MongoDB collection in which to store the data.  "Default" if omitted.'),

@@ -23,8 +23,8 @@ class ImportBackup(catoclient.catocommand.CatoCommand):
                     more tasks within it and must be XML or JSON formatted'''
     API = 'import_backup'
     Examples = '''
-        cato-import-backup -f ~/mytask01.xml
-    '''
+    cato-import-backup -f ~/mytask01.xml
+'''
     Options = [Param(name='file', short_name='f', long_name='file',
                      optional=False, ptype='string',
                      doc='The file name of the backup file.')]

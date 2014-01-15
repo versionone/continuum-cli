@@ -22,12 +22,14 @@ class ListClouds(catoclient.catocommand.CatoCommand):
     Description = 'Lists cloud endpoints defined in Cato'
     API = 'list_clouds'
     Examples = '''
-        _List all cloud endpoints_
-        cato-list-clouds
+_List all cloud endpoints_
 
-        _List all vcloud cloud endpoints_
-        cato-list-clouds -f "vCloud"
-    '''
+    cato-list-clouds
+
+_List all vcloud cloud endpoints_
+
+    cato-list-clouds -f "vCloud"
+'''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',
                      doc='''A string to use to filter the resulting data. Any row of

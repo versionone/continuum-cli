@@ -22,12 +22,14 @@ class DescribeTaskParameters(catoclient.catocommand.CatoCommand):
     Description = 'Describes the parameters defined for a task in a text readable format.'
     API = 'describe_task_parameters'
     Examples = '''
-        _Print the parameters of the default version of a task_
-        cato-describe-task-parameters -t "mytask01"
+_Print the parameters of the default version of a task_
 
-        _Print the parameters of a specific version of a task_
-        cato-describe-task-parameters -t "new example" -v "2.000"
-    '''
+    cato-describe-task-parameters -t "mytask01"
+
+_Print the parameters of a specific version of a task_
+
+    cato-describe-task-parameters -t "new example" -v "2.000"
+'''
     Options = [Param(name='task', short_name='t', long_name='task',
                      optional=False, ptype='string',
                      doc='The ID or Name of a Task.'),

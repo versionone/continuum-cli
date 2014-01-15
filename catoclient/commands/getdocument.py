@@ -26,9 +26,10 @@ class GetDocument(catoclient.catocommand.CatoCommand):
                     MongDB find() syntax http://docs.mongodb.org/manual/reference/method/db.collection.find'''
     API = 'get_document'
     Examples = '''
-        _To get the json document from a collection based on a specific query_
-        cato-get-document -c "workflow_stages" -q '{"stage" : "stage 1"}'
-    '''
+_To get the json document from a collection based on a specific query_
+
+    cato-get-document -c "workflow_stages" -q '{"stage" : "stage 1"}'
+'''
     Options = [Param(name='query', short_name='q', long_name='query',
                      optional=False, ptype='string',
                      doc='A query in JSON format.'),

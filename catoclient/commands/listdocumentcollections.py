@@ -25,12 +25,14 @@ class ListDocumentCollections(catoclient.catocommand.CatoCommand):
     Description = 'List all collections in the MongoDB datastore.'
     API = 'list_document_collections'
     Examples = '''
-        _List all datastore collections_
-        cato-list-document-collections
+_List all datastore collections_
 
-        _List all datastore collections, with workflow in the name_
-        cato-list-document-collections -f "workflow"
-    '''
+    cato-list-document-collections
+
+_List all datastore collections, with workflow in the name_
+
+    cato-list-document-collections -f "workflow"
+'''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',
                      doc='''A string to use to filter the resulting data. Any row of

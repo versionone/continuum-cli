@@ -22,8 +22,9 @@ class ListCloudAccounts(catoclient.catocommand.CatoCommand):
     Description = 'Lists cloud accounts defined in Cato'
     API = 'list_cloud_accounts'
     Examples = '''
-        _List all cloud accounts with AWS in the name or cloud type_
-        cato-list-cloud-accounts -f "AWS"
+_List all cloud accounts with AWS in the name or cloud type_
+
+    cato-list-cloud-accounts -f "AWS"
 '''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',

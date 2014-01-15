@@ -22,10 +22,10 @@ class CreateCloud(catoclient.catocommand.CatoCommand):
     Description = 'Creates a new Cloud endpoint in Cato.'
     API = 'create_cloud'
     Examples = '''
-        _Create vCloud endpoint_
-    
-        cato-create-cloud -n "vcloud-test" -p "HTTP" -v "vCloud" -u "iad.vcloudservice.vmware.com" -d "vcloudtest"
-    '''
+_Create vCloud endpoint_
+
+    cato-create-cloud -n "vcloud-test" -p "HTTP" -v "vCloud" -u "iad.vcloudservice.vmware.com" -d "vcloudtest"
+'''
     Options = [Param(name='provider', short_name='v', long_name='provider',
                      optional=False, ptype='string',
                      doc='The name of a Cato supported Cloud Provider. One of: Eucalyptus, vCloud, VMware, AWS, OpenStackAws'),

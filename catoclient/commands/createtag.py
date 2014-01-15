@@ -22,8 +22,8 @@ class CreateTag(catoclient.catocommand.CatoCommand):
     Description = 'Creates a new Tag to be used to associate Cato objects with one another.'
     API = 'create_tag'
     Examples = '''
-        cato-create-tag -n "staging01" -d "staging environment 1"
-    '''
+    cato-create-tag -n "staging01" -d "staging environment 1"
+'''
     Options = [Param(name='name', short_name='n', long_name='name',
                      optional=False, ptype='string',
                      doc='The name of the new Tag.  (AlphaNumeric ONLY. Cannot contain spaces, punctuation or special characters.)'),

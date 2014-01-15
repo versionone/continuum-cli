@@ -22,8 +22,8 @@ class GetCloudAccount(catoclient.catocommand.CatoCommand):
     Description = 'Prints the properties of a Cato defined cloud account'
     API = 'get_account'
     Examples = '''
-        cato-get-cloud-account -n "vclouddev"
-    '''
+    cato-get-cloud-account -n "vclouddev"
+'''
     Options = [Param(name='name', short_name='n', long_name='name',
                      optional=False, ptype='string',
                      doc='The ID or Name of a Cloud Account.')

@@ -22,8 +22,8 @@ class GetAsset(catoclient.catocommand.CatoCommand):
     Description = 'Prints the properties of a Cato defined fixed asset'
     API = 'get_asset'
     Examples = '''
-        cato-get-asset -a "database001"
-    '''
+    cato-get-asset -a "database001"
+'''
     Options = [Param(name='asset', short_name='a', long_name='asset',
                      optional=False, ptype='string',
                      doc='The ID or Name of an Asset.')

@@ -22,12 +22,14 @@ class ListUsers(catoclient.catocommand.CatoCommand):
     Description = 'Lists Cato Users'
     API = 'list_users'
     Examples = '''
-        _List all Cato users_
-        cato-list-users
+_List all Cato users_
 
-        _List all users with Administrator role_
-        cato-list-users -f "Administrator"
-    '''
+    cato-list-users
+
+_List all users with Administrator role_
+
+    cato-list-users -f "Administrator"
+'''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',
                      doc='''A string to use to filter the resulting data. Any row of

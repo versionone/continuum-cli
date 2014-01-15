@@ -22,12 +22,14 @@ class DeleteTask(catoclient.catocommand.CatoCommand):
     Description = 'Deletes a Cato task'
     API = 'delete_task'
     Examples = '''
-        _To delete a task that does not have any runtime history_
-        cato-delete-task -t "mytask01"
+_To delete a task that does not have any runtime history_
 
-        _To force a delete of a task that has runtime history_
-        cato-delete-task -f "mytask01" -f
-    '''
+    cato-delete-task -t "mytask01"
+
+_To force a delete of a task that has runtime history_
+
+    cato-delete-task -f "mytask01" -f
+'''
     Options = [Param(name='task', short_name='t', long_name='task',
                      optional=False, ptype='string',
                      doc='The ID or Name of the Task to delete.'),

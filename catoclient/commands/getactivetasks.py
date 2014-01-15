@@ -22,18 +22,22 @@ class GetActiveTasks(catoclient.catocommand.CatoCommand):
     Description = 'Gets a list of active Cato task instances (Submitted, Staged, Pending, Processing).'
     API = 'get_task_instances'
     Examples = '''
-        _Get all active task instances_
-        cato-get-active-tasks
+_Get all active task instances_
 
-        _Get all active task instances that have a status of Processing_
-        cato-get-active-tasks -f "Processing"
+    cato-get-active-tasks
 
-        _Get all active task instance with a particular string in the name_
-        cato-get-active-tasks -f "mytask01"
+_Get all active task instances that have a status of Processing_
 
-        _Limit the number of task instances returned_
-        cato-get-active-tasks -r 10
-    '''
+    cato-get-active-tasks -f "Processing"
+
+_Get all active task instance with a particular string in the name_
+
+    cato-get-active-tasks -f "mytask01"
+
+_Limit the number of task instances returned_
+
+    cato-get-active-tasks -r 10
+'''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',
                      doc='A filter.'),

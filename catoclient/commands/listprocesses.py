@@ -22,8 +22,8 @@ class ListProcesses(catoclient.catocommand.CatoCommand):
     Description = 'Lists Cato server processes (poller, messenger, etc.) along with heartbeat information'
     API = 'list_processes'
     Examples = '''
-        cato-list-processes
-    '''
+    cato-list-processes
+'''
     Options = []
 
     def main(self):

@@ -22,12 +22,14 @@ class ListCredentials(catoclient.catocommand.CatoCommand):
     Description = 'Lists shared credentials defined in Cato'
     API = 'list_credentials'
     Examples = '''
-        _List all shared credentials_
-        cato-list-credentials
+_List all shared credentials_
 
-        _List all shared credentials with root in the name or description_
-        cato-list-credentials -f "root"
-    '''
+    cato-list-credentials
+
+_List all shared credentials with root in the name or description_
+
+    cato-list-credentials -f "root"
+'''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',
                      doc='''A string to use to filter the resulting data. Any row of
