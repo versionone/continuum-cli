@@ -19,9 +19,17 @@ from catoclient.param import Param
 
 class SendMessage(catoclient.catocommand.CatoCommand):
 
-    Description = 'Sends a message to a User or email address.'
+    Description = 'Sends a message to an email address using the Cato messenger.'
     API = 'send_message'
-    Examples = ''''''
+    Examples = '''
+_To send an email to an email address_
+
+    cato-send-message -t "bob.thomas@example.com" -s "hello world" -m "this is a test message"
+
+_To send an email to a list of email addresses with a blind copy_
+
+    cato-send-message -t "bob.thomas@example.com,tom.thumb@example.com" -b "hellen.hunt@example.com -s "hello world" -m "this is a test message"
+'''
     Options = [Param(name='to', short_name='t', long_name='to',
                      optional=False, ptype='string',
                      doc='Comma-separated Users or addresses.'),
