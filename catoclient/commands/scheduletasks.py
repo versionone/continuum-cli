@@ -27,8 +27,7 @@ class ScheduleTasks(catoclient.catocommand.CatoCommand):
 '''
     Options = [Param(name='schedulefile', short_name='s', long_name='schedulefile',
                      optional=False, ptype='string',
-                     doc='''The path to a json formatted schedule definition file.
-                        See the schedule_tasks API documentation for the format of the file.''')
+                     doc='''The path to a json formatted schedule definition file. See the schedule_tasks API documentation for the format of the file.''')
                ]
 
     def main(self):

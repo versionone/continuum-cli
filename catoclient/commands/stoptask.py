@@ -26,7 +26,7 @@ class StopTask(catoclient.catocommand.CatoCommand):
 '''
     Options = [Param(name='instance', short_name='i', long_name='instance',
                      optional=False, ptype='string',
-                     doc='The Instance ID to stop.')]
+                     doc='The Task Instance ID to stop.')]
 
     def main(self):
         try:

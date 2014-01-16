@@ -26,7 +26,7 @@ class ResubmitTaskInstance(catoclient.catocommand.CatoCommand):
 '''
     Options = [Param(name='instance', short_name='i', long_name='instance',
                      optional=False, ptype='string',
-                     doc='The task instance number.')]
+                     doc='The Task Instance number.')]
 
     def main(self):
         results = self.call_api(self.API, ['instance'])
