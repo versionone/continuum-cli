@@ -32,8 +32,7 @@ _List all shared credentials with root in the name or description_
 '''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',
-                     doc='''A string to use to filter the resulting data. Any row of
-                            data that has one field contains the string will be returned.''')]
+                     doc='''A string to use to filter the resulting data. Any row of data that has one field contains the string will be returned.''')]
 
 
     def main(self):

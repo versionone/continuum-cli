@@ -39,22 +39,7 @@ _To get the last 300 task modifications_
                      doc='An Object ID filter.'),
                Param(name='object_type', short_name='t', long_name='object_type',
                      optional=True, ptype='string',
-                     doc='''The integer representation of a Cato object type. Can be used
-                        with when log_type = Object.
-                        One of the following:
-                            User = 1
-                            Asset = 2
-                            Task = 3
-                            Schedule = 4
-                            Tag = 7
-                            Image = 8
-                            MessageTemplate = 18
-                            Parameter = 34
-                            Credential = 35
-                            Domain = 36
-                            CloudAccount = 40
-                            Cloud = 41
-                            CloudKeyPair = 45'''),
+                     doc='''The integer representation of a Cato object type. Can be used with one of the following when log_type = Object: (User = 1, Asset = 2, Task = 3, Schedule = 4, Tag = 7, Image = 8, MessageTemplate = 18, Parameter = 34, Credential = 35, Domain = 36, CloudAccount = 40, Cloud = 41, CloudKeyPair = 45)'''),
                Param(name='user', short_name='u', long_name='user',
                      optional=True, ptype='string',
                      doc='A user name to filter result on.'),
@@ -64,17 +49,7 @@ _To get the last 300 task modifications_
                Param(name='action', short_name='a', long_name='action',
                      optional=True, ptype='string',
                      doc='''The action that triggered a log entry. One of the following:
-                            UserLogin
-                            UserLogout
-                            UserLoginAttempt
-                            UserPasswordChange
-                            UserSessionDrop
-                            ObjectAdd
-                            ObjectModify
-                            ObjectDelete
-                            ObjectView
-                            ObjectCopy
-                            ConfigChange'''),
+(UserLogin, UserLogout, UserLoginAttempt, UserPasswordChange, UserSessionDrop, ObjectAdd, ObjectModify, ObjectDelete, bjectView, ObjectCopy, ConfigChange)'''),
                Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',
                      doc='A filter whereby the results would contain this string'),

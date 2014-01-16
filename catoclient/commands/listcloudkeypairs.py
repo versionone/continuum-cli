@@ -28,7 +28,7 @@ _List all keypair names associated with the AWS us-east-1 cloud endpoint_
 '''
     Options = [Param(name='cloud', short_name='c', long_name='cloud',
                      optional=False, ptype='string',
-                     doc='The cloud id (uuid) or name of a cloud endpoint in Cato.')
+                     doc='A Cloud ID or Name.')
                ]
 
     def main(self):

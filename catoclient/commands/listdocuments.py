@@ -35,12 +35,10 @@ _To list all documents in a specific collection that have a string match_
 '''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',
-                    doc='''A string to use to filter the resulting data. Any row of
-                            data that has one field contains the string will be returned.'''),
+                    doc='''A string to use to filter the resulting data. Any row of data that has one field contains the string will be returned.'''),
                Param(name='collection', short_name='c', long_name='collection',
                      optional=True, ptype='string',
-                     doc='''A document collection.  "Default" collection will be used 
-                        if omitted.''')]
+                     doc='''A document collection.  "Default" collection will be used if omitted.''')]
 
     def main(self):
         results = self.call_api(self.API, ['collection', 'filter'])
