@@ -34,8 +34,7 @@ _To untag a task using task uuid and the task object type_
                      doc='The ID of the object.'),
                Param(name='object_type', short_name='y', long_name='object_type',
                      optional=False, ptype='string',
-                     doc='''The numeric object type of the object.
-                        User = 1, Asset = 2, Task = 3'''')]
+                     doc='''The numeric object type of the object. User = 1, Asset = 2, Task = 3''')]
 
     def main(self):
         results = self.call_api(self.API, ['tag', 'object_id', 'object_type'])
