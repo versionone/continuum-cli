@@ -39,11 +39,11 @@ class ImportApplicationTemplate(catoclient.catocommand.CatoCommand):
                Param(name='ignoreconflicts', long_name='ignoreconflicts',
                      optional=True, ptype='boolean',
                      doc="""If provided, the import process will handle Task and Report name conflicts aggressively.  
-                         If Tasks or Reports with the same Name/Version exist, they will be overwritten.
-                         
-                         Tasks do have an individual on_conflict option as well.  If 'ignoreconflicts' is set, 
-                         but a Task also has explicitly set 'on_conflict=cancel', then that Task will be skipped
-                         but the Template creation will complete.""")
+If Tasks or Reports with the same Name/Version exist, they will be overwritten.
+
+Tasks do have an individual on_conflict option as well.  If 'ignoreconflicts' is set, 
+but a Task also has explicitly set 'on_conflict=cancel', then that Task will be skipped
+but the Template creation will complete.""")
                ]
 
     def main(self):

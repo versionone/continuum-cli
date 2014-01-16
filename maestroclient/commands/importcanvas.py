@@ -37,7 +37,7 @@ class ImportCanvas(catoclient.catocommand.CatoCommand):
                Param(name='ignoreconflicts', long_name='ignoreconflicts',
                      optional=True, ptype='boolean',
                      doc="""If provided, the import process will handle Name conflicts aggressively.  
-                         If Canvas items with the same Project/Component/Name exist, they will be overwritten.""")
+If Canvas items with the same Project/Component/Name exist, they will be overwritten.""")
                ]
 
     def main(self):
