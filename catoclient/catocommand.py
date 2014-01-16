@@ -291,7 +291,7 @@ class CatoCommand(object):
             self.display_error_and_exit(msg)
 
     def param_usage(self, plist, label, n=25):
-        nn = 80 - n - 8
+        nn = 80 - n - 13
         if plist:
             print('    %s' % label)
             for opt in plist:
@@ -310,7 +310,7 @@ class CatoCommand(object):
                 if doclines:
                     print('        %s%s' % (','.join(names).ljust(n), doclines[0]))
                     for line in doclines[1:]:
-                        print('%s%s' % (' ' * (n + 8), line))
+                        print('%s%s' % (' ' * (n + 13), line))
 
     def option_synopsis(self, options):
         s = ''
