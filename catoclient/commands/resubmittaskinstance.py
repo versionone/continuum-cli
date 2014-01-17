@@ -19,7 +19,7 @@ from catoclient.param import Param
 
 class ResubmitTaskInstance(catoclient.catocommand.CatoCommand):
 
-    Description = 'Resubmit an Errored, Cancelled or Completed Cato task instance for execution.'
+    Description = 'Resubmit an Errored or Cancelled Task Instance, for another attempt at completion.  Only valid on Instances that ended with Error or were Cancelled.'
     API = 'resubmit_task_instance'
     Examples = '''
     cato-resubmit-task-instance -i 43667
