@@ -22,9 +22,13 @@ from catoclient.param import Param
 
 class GetSequenceParameters(catoclient.catocommand.CatoCommand):
 
-    Description = 'Gets the Parameters template for a Sequence.'
+    Description = 'Gets the Parameters template for a Sequence which can be used to pass to a sequence.'
     API = 'get_sequence_parameters'
-    Examples = ''''''
+    Examples = '''
+_To get the json formatted parameters for a particular sequence and redirect to a file_
+
+    maestro-get-sequence-parameters -d "MyApp20" -s "Start" > myapp_parms.json
+'''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',
                      doc='Value can be either a Deployment ID or Name.'),

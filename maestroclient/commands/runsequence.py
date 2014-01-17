@@ -24,7 +24,20 @@ class RunSequence(catoclient.catocommand.CatoCommand):
 
     Description = 'Runs a Deployment Sequence'
     API = 'run_sequence'
-    Examples = ''''''
+    Examples = '''
+_To run a sequence with no parameters_
+
+    maestro-run-sequence -d "MyApp20" -s "Start"
+
+_To run a sequence while passing in parameters stored in a file_
+
+    maestro-run-sequence -d "MyApp20" -s "Start" -p "./myapp_parms.json"
+
+_To run a sequence that should halt instead of pause on error, also not prompt to continue_
+
+    maestro-run-sequence -d "MyApp20" -s "Start" -e "halt" --force
+    
+'''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',
                      doc='Value can be either a Deployment ID or Name.'),

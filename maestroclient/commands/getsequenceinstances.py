@@ -24,13 +24,29 @@ class GetSequenceInstances(catoclient.catocommand.CatoCommand):
 
     Description = 'Get a list of Deployment Sequence Instances.'
     API = 'get_sequence_instances'
-    Examples = ''''''
+    Examples = '''
+_To get all past and present sequence instances for a given deployment_
+
+    maestro-get-sequence-instances -d "MyApp20"
+
+_To get only completed sequence instances_
+
+    maestro-get-sequence-instances -d "MyApp20" -s "completed"
+
+_To get all sequence instances for a particular sequence name_
+
+    maestro-get-sequence-instances -d "MyApp20" -f "Start"
+
+_To get any sequence instance between two dates_
+
+    maestro-get-sequence-instances -d "MyApp20" --from "1/16/14" --to "0/17/14"
+'''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',
                      doc='Value can be either a Deployment ID or Name.'),
                Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',
-                     doc='A filter.'),
+                     doc='Filters the results if any part of the result contains the string.'),
                Param(name='status', short_name='s', long_name='status',
                      optional=True, ptype='string',
                      doc='A comma separated list of statuses.'),

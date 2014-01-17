@@ -24,10 +24,14 @@ class GetSequenceInstance(catoclient.catocommand.CatoCommand):
 
     Description = 'Get a Deployment Sequence Instance.'
     API = 'get_sequence_instance'
-    Examples = ''''''
+    Examples = '''
+_To get the properties, status of a sequence instance_
+
+   maestro-get-sequence-instance -i 501 
+'''
     Options = [Param(name='instance', short_name='i', long_name='instance',
                      optional=False, ptype='string',
-                     doc='The Instance ID.')]
+                     doc='The sequence instance number.')]
 
     def main(self):
         results = self.call_api(self.API, ['instance'])
