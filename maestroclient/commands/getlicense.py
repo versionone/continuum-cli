@@ -22,9 +22,11 @@ from catoclient.param import Param
 
 class GetLicense(catoclient.catocommand.CatoCommand):
 
-    Description = 'Get the current license.'
+    Description = 'Prints the license information including expiration date'
     API = 'get_license'
-    Examples = ''''''
+    Examples = '''
+    maestro-get-license
+'''
     Options = []
 
     def main(self):

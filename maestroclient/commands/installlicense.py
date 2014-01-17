@@ -22,9 +22,11 @@ from catoclient.param import Param
 
 class InstallLicense(catoclient.catocommand.CatoCommand):
 
-    Description = 'Install a new license.'
+    Description = 'Installs or updates the Cloud Sidekick license by importing a license file'
     API = 'install_license'
-    Examples = ''''''
+    Examples = '''
+    maestro-install-license -i "~/maestro_license.lic"
+'''
     Options = [Param(name='inputfile', short_name='i', long_name='inputfile',
                      optional=False, ptype='string',
                      doc='Path to a Maestro license.dat file.')]
