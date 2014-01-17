@@ -22,9 +22,11 @@ from catoclient.param import Param
 
 class DescribeDeployment(catoclient.catocommand.CatoCommand):
 
-    Description = 'Gets all the information about a Deployment'
+    Description = 'Gets all the high level properties about a Deployment such as status and health'
     API = 'describe_deployment'
-    Examples = ''''''
+    Examples = '''
+    maestro-get-deployment -d "MyApp20"
+'''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',
                      doc='Value can be either a Deployment ID or Name.')]

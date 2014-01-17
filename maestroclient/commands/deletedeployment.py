@@ -24,7 +24,11 @@ class DeleteDeployment(catoclient.catocommand.CatoCommand):
 
     Description = 'Destructively delete a Deployment.'
     API = 'delete_deployment'
-    Examples = ''''''
+    Examples = '''
+_To delete a deployment without confirmation prompt_
+
+    maestro-delete-deployment -d "Test 66" --force
+'''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',
                      doc='Value can be either a Deployment ID or Name.')]

@@ -22,12 +22,20 @@ from catoclient.param import Param
 
 class ListApplicationTemplates(catoclient.catocommand.CatoCommand):
 
-    Description = 'Lists Deployment Templatess'
+    Description = 'Lists application deployment template and their high level properties'
     API = 'list_application_templates'
-    Examples = ''''''
+    Examples = '''
+_To list all application templates_
+    
+    maestro-list-application-templates
+
+_To list all application templates with a certain string in the name or description_
+
+    maestro-list-application-templates -f "sample app"
+'''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',
-                     doc='A filter.')]
+                     doc='matches if the filter string is in the result')]
 
     def main(self):
         results = self.call_api(self.API, ['filter'])

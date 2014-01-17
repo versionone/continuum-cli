@@ -22,9 +22,13 @@ from catoclient.param import Param
 
 class ListTemplateTasks(catoclient.catocommand.CatoCommand):
 
-    Description = 'Lists all Tasks associated with an Application Template'
+    Description = 'Lists all Tasks associated with an Application Template and the corresponding sequence or action'
     API = 'list_template_tasks'
-    Examples = ''''''
+    Examples = '''
+_To list all tasks associated with an application template and version_
+
+    maestro-list-application-template-tasks -t "Sample Application" -v 5 
+'''
     Options = [Param(name='template', short_name='t', long_name='template',
                      optional=False, ptype='string',
                      doc='Name of the Application Template.'),
