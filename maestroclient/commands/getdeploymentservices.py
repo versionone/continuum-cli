@@ -22,9 +22,21 @@ from catoclient.param import Param
 
 class GetDeploymentServices(catoclient.catocommand.CatoCommand):
 
-    Description = 'Gets Services on a Deployment'
+    Description = 'Displays a list of service names for a given deployment'
     API = 'get_deployment_services'
-    Examples = ''''''
+    Examples = '''
+_To get all service names on a deployment_
+
+    maestro-get-deployment-services  -d "Spring Petclinic 11"
+
+_To get all service names on a deployment with Balancer in the service name_
+
+    maestro-get-deployment-services  -d "Spring Petclinic 11" -f "Balancer"
+
+_To get all service names on a deployment associated with a particular host_
+
+    maestro-get-deployment-services  -d "Spring Petclinic 11" -h "i-a653e588"
+'''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',
                      doc='Value can be either a Deployment ID or Name.'),

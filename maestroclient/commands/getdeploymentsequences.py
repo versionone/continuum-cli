@@ -22,9 +22,15 @@ from catoclient.param import Param
 
 class GetDeploymentSequences(catoclient.catocommand.CatoCommand):
 
-    Description = 'Gets a list of Deployment Sequences and Steps.'
+    Description = 'Displays all deployment sequences in a readable format_
     API = 'get_deployment_sequences'
-    Examples = ''''''
+    Examples = '''
+_To retrieve all sequences and their steps and display in text format_
+    maestro-get-deployment-sequences -d "Spring Petclinic 11"
+
+_To retrieve all sequences  and their steps filtered by sequence name_
+    maestro-get-deployment-sequences -d "Spring Petclinic 11" -f "Terminate"
+'''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',
                      doc='Value can be either a Deployment ID or Name.'),

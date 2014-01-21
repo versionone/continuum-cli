@@ -19,9 +19,13 @@ from catoclient.param import Param
 
 class GetActionParameters(catoclient.catocommand.CatoCommand):
 
-    Description = 'Gets a Parameters template for an Action.'
+    Description = 'Retreives a json formatted Parameters template for an Action.'
     API = 'get_action_parameters'
-    Examples = ''''''
+    Examples = '''
+_To get a parameters template file for a particular action on a deployment, redirecting to a file_
+
+    maestro-get-action-parameters -d "MyApp10" -v "Weblogic" -a "Trim Logfiles" > trim_logfiles.json
+'''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',
                      doc='Value can be either a Deployment ID or Name.'),

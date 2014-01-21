@@ -22,9 +22,24 @@ from catoclient.param import Param
 
 class GetApplicationTemplate(catoclient.catocommand.CatoCommand):
 
-    Description = 'Gets an Application Template.'
+    Description = 'Retrieves the properties of an application template'
     API = 'get_application_template'
-    Examples = ''''''
+    Examples = '''
+_To get the high level properties of an application template_
+
+    maestro-get-application-template -t "Spring Petclinic" -v 1
+
+_To get the json formatted definition for the application template and redirect to a file_
+
+    maestro-get-application-template -t "Spring Petclinic" -v 1 -d > petclinic.json
+
+_To get retrieve a base64 encoded icon file for an application template and decode it_
+
+    maestro-get-application-template -t "Spring Petclinic" -v 1 -i | base64 --decode > petclinic.png
+
+
+
+'''
     Options = [Param(name='template', short_name='t', long_name='template',
                      optional=False, ptype='string',
                      doc='Name of the Application Template.'),
@@ -34,7 +49,7 @@ class GetApplicationTemplate(catoclient.catocommand.CatoCommand):
                Param(name='getdefinition', short_name='d', long_name='desc',
                      optional=True, ptype='boolean',
                      doc='Will only return the JSON definition file.'),
-               Param(name='geticon', short_name='i', long_name='owner',
+               Param(name='geticon', short_name='i', long_name='icon',
                      optional=True, ptype='boolean',
                      doc='Will only return the Base64 encoded icon.')
                ]

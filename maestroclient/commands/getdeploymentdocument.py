@@ -22,9 +22,13 @@ from catoclient.param import Param
 
 class GetDeploymentDocument(catoclient.catocommand.CatoCommand):
 
-    Description = 'Gets a Deployment Datastore Document.'
+    Description = 'Retrieves the datastore data for a deployment in json format'
     API = 'get_deployment_document'
-    Examples = ''''''
+    Examples = '''
+_To retrieve the data for a deployment and redirect to a file_
+
+    maestro-get-deployment-document -d "Spring Petclinic 11" > petclinic11.json
+'''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',
                      doc='Value can be either a Deployment ID or Name.')]
