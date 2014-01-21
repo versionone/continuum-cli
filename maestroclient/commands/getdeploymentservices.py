@@ -42,7 +42,7 @@ _To get all service names on a deployment associated with a particular host_
                      doc='Value can be either a Deployment ID or Name.'),
                Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',
-                     doc='A filter.'),
+                     doc='Filter results with part of the string in the service name'),
               Param(name='hostfilter', short_name='h', long_name='hostfilter',
                      optional=True, ptype='string',
                      doc='Will filter results by the ID, Name or Address of any associated Hosts.')
