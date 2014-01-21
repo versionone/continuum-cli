@@ -22,7 +22,7 @@ from catoclient.param import Param
 
 class GetDeploymentSequences(catoclient.catocommand.CatoCommand):
 
-    Description = 'Displays all deployment sequences in a readable format_
+    Description = 'Displays all deployment sequences in a readable format.'
     API = 'get_deployment_sequences'
     Examples = '''
 _To retrieve all sequences and their steps and display in text format_
