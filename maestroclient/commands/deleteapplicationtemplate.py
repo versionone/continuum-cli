@@ -28,7 +28,15 @@ class DeleteApplicationTemplate(catoclient.catocommand.CatoCommand):
 
     Description = """Deletes an Application Template."""
     API = 'delete_application_template'
-    Examples = ''''''
+    Examples = '''
+_To delete an application template_
+    
+    maestro-delete-application-template -t "Test Actions 2" -v "1"
+
+_To delete an application template and also delete any referenced tasks_
+    
+    maestro-delete-application-template -t "Test Actions 2" -v "1" --deletetasks
+'''
     Info = '''
 If `--deletetasks` is provided, the command will delete Tasks *directly referenced* by the definition file.
     (Indirectly referenced Tasks, such at those included in 'Subtask' and 'Run Task' commands.) 

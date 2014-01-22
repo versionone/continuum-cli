@@ -28,7 +28,11 @@ class ExportApplicationTemplate(catoclient.catocommand.CatoCommand):
 
     Description = 'Exports an Application Template to a directory.'
     API = 'export_application_template'
-    Examples = ''''''
+    Examples = '''
+_To export an application template to a directory_
+
+    maestro-export-application-template -t "MyApp" -v "1" -o "./myapp"
+'''
     Options = [Param(name='template', short_name='t', long_name='template',
                      optional=False, ptype='string',
                      doc='Name of the Application Template.'),
