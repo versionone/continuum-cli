@@ -22,13 +22,17 @@ from catoclient.param import Param
 
 class GetServiceDocument(catoclient.catocommand.CatoCommand):
 
-    Description = 'Gets a Service Datastore Document.'
+    Description = 'Retrieves a json formatted datastore document for a service on a deployment'
     API = 'get_service_document'
-    Examples = ''''''
+    Examples = '''
+_To retieve the datastore document for a service and output it to a file_
+
+    maestro-get-service-document -d "MyApp20" -s "Weblogic" > weblogic.json
+'''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',
                      doc='Value can be either a Deployment ID or Name.'),
-                 Param(name='service', short_name='v', long_name='service',
+                 Param(name='service', short_name='s', long_name='service',
                      optional=False, ptype='string',
                      doc='Value can be either a Service ID or Name.')]
 

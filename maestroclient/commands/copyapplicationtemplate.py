@@ -22,19 +22,23 @@ from catoclient.param import Param
 
 class CopyApplicationTemplate(catoclient.catocommand.CatoCommand):
 
-    Description = 'Copies an Application Template.'
+    Description = 'Copies an Application Template to a new name or version.'
     API = 'copy_application_template'
-    Examples = ''''''
+    Examples = '''
+_To copy an application template to a new version, same name_
+
+    maestro-copy-application-template -t "MyApp" -v "1" -n "MyApp" -r "2"
+'''
     Options = [Param(name='template', short_name='t', long_name='template',
                      optional=False, ptype='string',
                      doc='The Application Template to copy.'),
                Param(name='version', short_name='v', long_name='version',
                      optional=False, ptype='string',
                      doc='A version for the new Template.'),
-               Param(name='newname', short_name='nn', long_name='newname',
+               Param(name='newname', short_name='n', long_name='newname',
                      optional=False, ptype='string',
                      doc='A name for the new Template.'),
-               Param(name='newversion', short_name='nv', long_name='newversion',
+               Param(name='newversion', short_name='r', long_name='newversion',
                      optional=False, ptype='string',
                      doc='A version for the new Template.')
                ]
