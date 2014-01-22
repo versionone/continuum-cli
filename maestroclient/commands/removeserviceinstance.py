@@ -22,9 +22,13 @@ from catoclient.param import Param
 
 class RemoveServiceInstance(catoclient.catocommand.CatoCommand):
 
-    Description = 'Remove a Service Instance from a Service.'
+    Description = 'Remove a Service Instance from a Deployment.'
     API = 'remove_service_instance'
-    Examples = ''''''
+    Examples = '''
+_To delete a service instance from a deployment without confirmation prompt_
+
+    maestro-remove-service-instance -d "MyApp20" -i "Weblogic 2" --force
+'''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',
                      doc='The Name or ID of a Deployment.'),

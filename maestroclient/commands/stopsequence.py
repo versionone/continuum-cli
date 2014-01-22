@@ -22,12 +22,17 @@ from catoclient.param import Param
 
 class StopSequence(catoclient.catocommand.CatoCommand):
 
-    Description = 'Stop a running Sequence Instance.'
+    Description = 'Stops a running Sequence Instance.'
     API = 'stop_sequence'
-    Examples = ''''''
+    Examples = '''
+_To stop a running sequence instance without confirmation prompt_
+
+    maestro-stop-sequence -i 514 --force
+
+'''
     Options = [Param(name='instance', short_name='i', long_name='instance',
                      optional=False, ptype='string',
-                     doc='The Instance ID to stop.')]
+                     doc='The sequence instance number to stop')]
 
     def main(self):
         results = self.call_api(self.API, ['instance'])

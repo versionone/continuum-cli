@@ -24,7 +24,9 @@ class ResubmitSequenceInstance(catoclient.catocommand.CatoCommand):
 
     Description = 'Resubmit a halted Sequence Instance.'
     API = 'resubmit_sequence'
-    Examples = ''''''
+    Examples = '''
+    maestro-resubmit-sequence-instance -i 514
+'''
     Options = [Param(name='instance', short_name='i', long_name='instance',
                      optional=False, ptype='string',
                      doc='The Instance ID to resubmit.')]
