@@ -500,7 +500,11 @@ class CatoCommand(object):
                         msg = "%s, %s, %s" % (code, message, detail)
                         self.display_error_and_exit(msg)
                     else:
-                        return d["Response"]
+                        # JSON is a bit confusing...
+                        # the entire 'payload' is json formatted, so by using json.loads above,
+                        # we've converted THE WHOLE PAYLOAD to a python object
+                        # However, we need to return a JSON *string* of the stuff *inside* the 'Response' property.
+                        return json.dumps(d["Response"], indent=4)
                 except ValueError:
                     print("Response JSON could not be parsed.")
                     return response
