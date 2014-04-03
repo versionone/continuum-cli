@@ -27,10 +27,13 @@ class ImportBackup(catoclient.catocommand.CatoCommand):
 '''
     Options = [Param(name='file', short_name='f', long_name='file',
                      optional=False, ptype='string',
-                     doc='The file name of the backup file.')]
+                     doc='The file name of the backup file.'),
+               Param(name='on_conflict', short_name='c', long_name='on_conflict',
+                     optional=False, ptype='string',
+                     doc='Action to take if one or more Tasks have a conflict. "replace", "minor", "major", "cancel".')]
 
     def main(self):
-        self.xml = None
+        self.import_text = None
         if self.file:
             import os
             fn = os.path.expanduser(self.file)
@@ -39,7 +42,7 @@ class ImportBackup(catoclient.catocommand.CatoCommand):
                     print("Unable to open file [%s]." % fn)
                 data = f_in.read()
                 if data:
-                    self.xml = data
+                    self.import_text = data
                 else:
                     print("File is empty.")
                     return
@@ -54,6 +57,6 @@ class ImportBackup(catoclient.catocommand.CatoCommand):
                     go = True
 
         if go:
-            results = self.call_api(self.API, ['xml'])
+            results = self.call_api(self.API, ['import_text', 'on_conflict'])
             print(results)
 
