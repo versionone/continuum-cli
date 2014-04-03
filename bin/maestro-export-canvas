@@ -19,6 +19,11 @@
 #
 #########################################################################
 
+import os
+import sys
+if "MAESTRO_HOME" in os.environ:
+    MAESTRO_HOME = os.environ["MAESTRO_HOME"]
+    sys.path.append(os.path.join(MAESTRO_HOME, "lib"))
 
 import maestroclient.commands.exportcanvas
 
