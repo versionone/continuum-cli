@@ -29,7 +29,7 @@ class ImportBackup(catoclient.catocommand.CatoCommand):
                      optional=False, ptype='string',
                      doc='The file name of the backup file.'),
                Param(name='on_conflict', short_name='c', long_name='on_conflict',
-                     optional=False, ptype='string',
+                     optional=True, ptype='string',
                      doc='Action to take if one or more Tasks have a conflict. "replace", "minor", "major", "cancel".')]
 
     def main(self):
