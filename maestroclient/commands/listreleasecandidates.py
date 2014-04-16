@@ -32,8 +32,14 @@ _List all Release Candidates
 '''
     Options = [Param(name='pipeline', short_name='p', long_name='pipeline',
                      optional=True, ptype='string',
-                     doc='Limit the results to a specific Pipeline.')]
+                     doc='Limit the results to a specific Pipeline.'),
+               Param(name='project', short_name='r', long_name='project',
+                     optional=True, ptype='string',
+                     doc='Limit the results to a specific project.'),
+               Param(name='story', short_name='s', long_name='story',
+                     optional=True, ptype='string',
+                     doc='Limit the results to a specific story.')]
 
     def main(self):
-        results = self.call_api(self.API, ['pipeline'])
+        results = self.call_api(self.API, ['pipeline', 'project', 'story'])
         print(results)

@@ -21,13 +21,7 @@
 
 import os
 import sys
-if "CATO_HOME" in os.environ:
-    CATO_HOME = os.environ["CATO_HOME"]
-    sys.path.append(os.path.join(CATO_HOME, "lib"))
-if "MAESTRO_HOME" in os.environ:
-    MAESTRO_HOME = os.environ["MAESTRO_HOME"]
-    sys.path.append(os.path.join(MAESTRO_HOME, "lib"))
-
+sys.path.append(os.path.join(os.environ["CSK_HOME"], "maestro", "lib"))
 import maestroclient.commands.listdeployments
 
 if __name__ == '__main__':
