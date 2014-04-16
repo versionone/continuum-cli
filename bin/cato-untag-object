@@ -18,10 +18,7 @@
 
 import os
 import sys
-if "CATO_HOME" in os.environ:
-    CATO_HOME = os.environ["CATO_HOME"]
-    sys.path.append(os.path.join(CATO_HOME, "lib"))
-
+sys.path.append(os.path.join(os.environ["CSK_HOME"], "cato", "lib"))
 import catoclient.commands.untagobject
 
 if __name__ == '__main__':
