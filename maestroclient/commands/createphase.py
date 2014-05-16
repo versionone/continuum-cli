@@ -21,17 +21,17 @@ import catoclient.catocommand
 from catoclient.param import Param
 
 
-class CreatePipeline(catoclient.catocommand.CatoCommand):
+class CreatePhase(catoclient.catocommand.CatoCommand):
 
-    Description = """Creates a Pipeline definition from a JSON document.
+    Description = """Create a new Phase in the Phases library.
 
-Returns a Pipeline Object."""
+Returns a Phase Object."""
 
-    API = 'create_pipeline'
+    API = 'create_phase'
     Examples = ''''''
     Options = [Param(name='templatefile', short_name='t', long_name='templatefile',
                      optional=False, ptype='string',
-                     doc='A JSON document formatted as a CSK Pipeline definition.')
+                     doc='A JSON document formatted as a CSK Phase definition.')
                ]
 
     def main(self):

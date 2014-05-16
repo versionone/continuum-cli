@@ -21,29 +21,32 @@ import catoclient.catocommand
 from catoclient.param import Param
 
 
-class CreatePipeline(catoclient.catocommand.CatoCommand):
+class ImportPipeline(catoclient.catocommand.CatoCommand):
 
-    Description = """Creates a Pipeline definition from a JSON document.
+    Description = """Imports a Pipeline definition from a JSON document.
 
 Returns a Pipeline Object."""
 
-    API = 'create_pipeline'
+    API = 'import_pipeline'
     Examples = ''''''
-    Options = [Param(name='templatefile', short_name='t', long_name='templatefile',
+    Options = [Param(name='backupfile', short_name='b', long_name='backupfile',
                      optional=False, ptype='string',
-                     doc='A JSON document formatted as a CSK Pipeline definition.')
+                     doc='A JSON document formatted as a complete CSK Pipeline backup.'),
+               Param(name='overwrite', short_name='o', long_name='overwrite',
+                     optional=True, ptype='string',
+                     doc="""Valid values: pipeline|phases|all|none (default).""")
                ]
 
     def main(self):
         import os
 
-        self.template = None
-        if self.templatefile:
-            fn = os.path.expanduser(self.templatefile)
+        self.backup = None
+        if self.backupfile:
+            fn = os.path.expanduser(self.backupfile)
             with open(fn, 'r') as f_in:
                 if not f_in:
                     print("Unable to open file [%s]." % fn)
-                self.template = f_in.read()
+                self.backup = f_in.read()
 
-        results = self.call_api(self.API, ['template'])
+        results = self.call_api(self.API, ['backup', 'overwrite'])
         print(results)
