@@ -1,8 +1,8 @@
-!/usr/bin/env python
+#!/usr/bin/env python
 
 #########################################################################
-# Copyright 201Write failed: Broken pipe
-patricks-mbp:legato pdunnigan$
+# Copyright 2014 Cloud Sidekick
+#
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -18,7 +18,8 @@ patricks-mbp:legato pdunnigan$
 
 import os
 import sys
-sys.path.append(os.path.join(os.environ["CSK_HOME"], "cato", "lib"))
+if "CSK_HOME" in os.environ:
+    sys.path.append(os.path.join(os.environ["CSK_HOME"], "cato", "lib"))
 import catoclient.commands.updatecloud
 
 if __name__ == '__main__':
