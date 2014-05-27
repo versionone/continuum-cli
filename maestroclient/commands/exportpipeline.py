@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 #########################################################################
 # 
 # Copyright 2013 Cloud Sidekick
@@ -19,14 +17,22 @@
 #
 #########################################################################
 
-import os
-import sys
-if "CSK_HOME" in os.environ:
-    sys.path.append(os.path.join(os.environ["CSK_HOME"], "cato", "lib"))
-    sys.path.append(os.path.join(os.environ["CSK_HOME"], "maestro", "lib"))
-import maestroclient.commands.getdeploymentsequences
+import catoclient.catocommand
+from catoclient.param import Param
 
-if __name__ == '__main__':
-    cmd = maestroclient.commands.getdeploymentsequences.GetDeploymentSequences()
-    cmd.main()
+class ExportPipeline(catoclient.catocommand.CatoCommand):
 
+    Description = 'Exports a Pipeline backup file.  Includes complete versions of all Phases and Stages.'
+    API = 'export_pipeline'
+    Examples = '''
+_To export a Pipeline backup file._
+
+    csk-export-pipeline -p "MyPipeline" > mypipeline.json 
+'''
+    Options = [Param(name='pipeline', short_name='p', long_name='pipeline',
+                     optional=False, ptype='string',
+                     doc='Value can be either a Pipeline ID or Name.')]
+
+    def main(self):
+        results = self.call_api(self.API, ['pipeline'])
+        print(results)

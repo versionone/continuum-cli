@@ -1,10 +1,10 @@
 #########################################################################
-# 
+#
 # Copyright 2013 Cloud Sidekick
 # __________________
-# 
+#
 #  All Rights Reserved.
-# 
+#
 # NOTICE:  All information contained herein is, and remains
 # the property of Cloud Sidekick and its suppliers,
 # if any.  The intellectual and technical concepts contained
@@ -58,7 +58,7 @@ If Canvas items with the same Project/Component/Name exist, they will be overwri
         if not os.path.exists(rootdir):
             print "The directory [%s] does not exist." % (rootdir)
             return
-            
+
         go = False
         if self.force:
             go = True
@@ -69,7 +69,7 @@ If Canvas items with the same Project/Component/Name exist, they will be overwri
                     go = True
         if not go:
             return
-        
+
         """
         OK, let's keep this clear in our heads... making an API call from a command
             assumes that all the properties of the call are defined as attributes of 'self'.
@@ -84,22 +84,22 @@ If Canvas items with the same Project/Component/Name exist, they will be overwri
         # 1) The first directory is the 'project'
         # 2) second directory is the component
         # 3) files below that.
-        
+
         # a flat list of all the details
         everything = []
-        projects = [ d for d in os.listdir(rootdir) if os.path.isdir(os.path.join(rootdir, d)) ]
+        projects = [d for d in os.listdir(rootdir) if os.path.isdir(os.path.join(rootdir, d))]
         # filter out any invalid dirs
-        projects = [ p for p in projects if "proj_" in p]
+        projects = [p for p in projects if "proj_" in p]
         if projects:
             for p in projects:
                 pdir = os.path.join(rootdir, p)
-                components = [ d for d in os.listdir(pdir) if os.path.isdir(os.path.join(pdir, d)) ]
-                components = [ c for c in components if "comp_" in c]
+                components = [d for d in os.listdir(pdir) if os.path.isdir(os.path.join(pdir, d))]
+                components = [c for c in components if "comp_" in c]
                 if components:
                     for c in components:
                         cdir = os.path.join(pdir, c)
-                        files = [ f for f in os.listdir(cdir) if os.path.isfile(os.path.join(cdir, f)) ]
-                        files = [ f for f in files if "item_" in f]
+                        files = [f for f in os.listdir(cdir) if os.path.isfile(os.path.join(cdir, f))]
+                        files = [f for f in files if "item_" in f]
                         for f in files:
                             # open each file ...
                             fn = os.path.join(cdir, f)
@@ -107,16 +107,13 @@ If Canvas items with the same Project/Component/Name exist, they will be overwri
                                 if not f_in:
                                     print("Unable to open file [%s]." % fn)
                                 data = f_in.read()
-                            
+
                             everything.append((p.replace("proj_", ""), c.replace("comp_", ""), f.replace("item_", ""), data))
-                            
+
         # finally, make the api call for each row (suboptimal I know, but whatever)
         for row in everything:
-            self.project, self.component, self.name, self.data = row[:]        
+            self.project, self.component, self.name, self.data = row[:]
             response = self.call_api('create_canvas_item', ['project', 'component', 'name', 'data', 'repository', 'ignoreconflicts'])
             print response
-            
-        print "Success!"
-        
 
-            
+        print "Success!"

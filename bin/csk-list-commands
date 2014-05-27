@@ -16,14 +16,25 @@
 # limitations under the License.
 #########################################################################
 
+
+# This command does not have an API counterpart.  
+# It simply lists all the 'maestro' commands in the directory where it is installed.
+
 import os
+import glob
 import sys
-if "CSK_HOME" in os.environ:
-    sys.path.append(os.path.join(os.environ["CSK_HOME"], "cato", "lib"))
-    sys.path.append(os.path.join(os.environ["CSK_HOME"], "maestro", "lib"))
-import maestroclient.commands.getactionparameters
 
 if __name__ == '__main__':
-    cmd = maestroclient.commands.getactionparameters.GetActionParameters()
-    cmd.main()
-
+    if len(sys.argv) > 1:
+        # if there's an argument, simply switch on it.  It'll only be asking for the api or dumpdoc.
+        if sys.argv[1] == "--dumpdoc" or sys.argv[1] == "-H":
+            print """Lists all installed 'flow' commands.  Accepts no arguments."""
+            exit()
+        else:
+            exit()
+            
+    ccdir = os.path.dirname(os.path.realpath( __file__ ))
+    os.chdir(ccdir)
+    for fname in sorted(glob.glob("csk-*")):
+        print fname
+        

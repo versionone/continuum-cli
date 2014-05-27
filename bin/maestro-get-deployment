@@ -21,7 +21,9 @@
 
 import os
 import sys
-sys.path.append(os.path.join(os.environ["CSK_HOME"], "maestro", "lib"))
+if "CSK_HOME" in os.environ:
+    sys.path.append(os.path.join(os.environ["CSK_HOME"], "cato", "lib"))
+    sys.path.append(os.path.join(os.environ["CSK_HOME"], "maestro", "lib"))
 import maestroclient.commands.getdeployment
 
 if __name__ == '__main__':
