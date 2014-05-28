@@ -29,7 +29,7 @@ class InstallLicense(catoclient.catocommand.CatoCommand):
 '''
     Options = [Param(name='inputfile', short_name='i', long_name='inputfile',
                      optional=False, ptype='string',
-                     doc='Path to a Maestro license.dat file.')]
+                     doc='Path to a license.dat file.')]
 
     def main(self):
         go = False

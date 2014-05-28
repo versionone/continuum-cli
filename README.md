@@ -1,8 +1,8 @@
-# Cloud Sidekick - Maestro Client
+# Cloud Sidekick - Client Tools
 
 ## Description
 
-Maestro Client is a command line toolset for accessing the Cato  
+Cloud Sidekick Client is a command line toolset for accessing the Cloud Sidekick  
 REST API. It also provides a Python SDK for programmatically 
 interacting with the web service.
 
@@ -17,7 +17,7 @@ pip install https://github.com/cloudsidekick/maestroclient/archive/latest.zip
 ```
 ## Update
 
-If you already have Maestro Client and want the latest version:
+If you already have Client and want the latest version:
 
 ```
 pip install --upgrade https://github.com/cloudsidekick/maestroclient/archive/latest.zip

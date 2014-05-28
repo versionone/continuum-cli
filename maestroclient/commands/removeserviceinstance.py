@@ -41,7 +41,7 @@ _To delete a service instance from a deployment without confirmation prompt_
         if self.force:
             go = True
         else:
-            answer = raw_input("WARNING: This is a utility function.\n\nRemoving a Service Instance removes Maestro records, but WILL NOT terminate any provisioned infrastructure. This cannot be undone.\n\nAre you sure? ")
+            answer = raw_input("WARNING: This is a utility function.\n\nRemoving a Service Instance removes references, but WILL NOT terminate any provisioned infrastructure. This cannot be undone.\n\nAre you sure? ")
             if answer:
                 if answer.lower() in ['y', 'yes']:
                     go = True

@@ -22,7 +22,7 @@ from catoclient.param import Param
 
 class GetURL(catoclient.catocommand.CatoCommand):
 
-    Description = 'Gets a URL to a specific page in the Maestro UI.'
+    Description = 'Gets a URL to a specific page in the "deploy" UI.'
     API = 'get_maestro_url'
     Examples = ''''''
     Options = [Param(name='page', short_name='p', long_name='page',

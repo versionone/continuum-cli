@@ -1,10 +1,10 @@
 #########################################################################
-# 
+#
 # Copyright 2013 Cloud Sidekick
 # __________________
-# 
+#
 #  All Rights Reserved.
-# 
+#
 # NOTICE:  All information contained herein is, and remains
 # the property of Cloud Sidekick and its suppliers,
 # if any.  The intellectual and technical concepts contained
@@ -22,12 +22,12 @@ import setuptools
 
 binscripts = []
 for f in os.listdir("bin"):
-    binscripts.append("bin/"+f)
+    binscripts.append("bin/" + f)
 
 setuptools.setup(
     name='maestroclient',
     version='1.25',
-    description='Cloud Sidekick Maestro Client',
+    description='Cloud Sidekick Client Tools',
     license='Proprietary License',
     author='Patrick Dunnigan',
     author_email='patrick.dunnigan@cloudsidekick.com',
