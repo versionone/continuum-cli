@@ -22,7 +22,7 @@ from catoclient.param import Param
 
 class GetDocument(catoclient.catocommand.CatoCommand):
 
-    Description = '''Gets a Cato datastore document based on a MongoDB query. For query syntax, see the 
+    Description = '''Gets a datastore document based on a MongoDB query. For query syntax, see the 
                     MongDB find() syntax http://docs.mongodb.org/manual/reference/method/db.collection.find'''
     API = 'get_document'
     Examples = '''

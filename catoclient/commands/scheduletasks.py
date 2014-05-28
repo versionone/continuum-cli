@@ -20,7 +20,7 @@ import json
 
 class ScheduleTasks(catoclient.catocommand.CatoCommand):
 
-    Description = 'Schedules one or more Cato tasks using a json template file.'
+    Description = 'Schedules one or more Tasks using a json template file.'
     API = 'schedule_tasks'
     Examples = '''
     cato-schedule-tasks -s ./schedule_template.json

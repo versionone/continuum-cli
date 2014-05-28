@@ -19,7 +19,7 @@ from catoclient.param import Param
 
 class DeleteTask(catoclient.catocommand.CatoCommand):
 
-    Description = 'Deletes a Cato task'
+    Description = 'Deletes a Task.'
     API = 'delete_task'
     Examples = '''
 _To delete a task that does not have any runtime history_

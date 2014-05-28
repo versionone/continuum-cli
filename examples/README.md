@@ -1,19 +1,19 @@
-# Cloud Sidekick Cato Community Edition (CE) Catoclient
+# Cloud Sidekick Client Tools
 
 ## Examples
 
-Cato Client interacts with the Cato CE environment via a REST API.  Command line tools are provided, 
+The Cloud Sidekick Client interacts with the **velocity** platform via a REST API.  Command line tools are provided, 
 but any of the API calls can be made directly from any technology capable of making HTTP requests.
 
 Included here are several basic examples in selected languages.
 
 ## General Concepts
 
-Making calls to the Cato REST API has a few requirements:
+Making calls to the REST API has a few requirements:
 
-* An _Access Key_ is required.  This will be the 36 character UUID of a Cato user.
-* A _Secret Key_ is required.  This will be the password of the Cato User.
-* A _URL_ is required.  This is the host and port where the Cato REST API service is running.
+* An _Access Key_ is required.  This will be the 36 character UUID of a User.
+* A _Secret Key_ is required.  This will be the password of the User.
+* A _URL_ is required.  This is the host and port where the REST API service is running.
 * A _Method_ is required.  This is the specific API method being called.
 
 ### Signing the Request
@@ -26,14 +26,14 @@ list_tasks?key=0002bdaf-bfd5-4b9d-82d1-fd39c2947d19&timestamp=2012-08-16T15%3A54
 
 The string to sign has the following components:
 
-* key=<access_key> - where <access_key> is a Cato User UUID.
+* key=<access_key> - where <access_key> is a User UUID.
 * timestamp=<timestamp> - where <timestamp> is a date and time, _strictly formatted_ like this:
 	** 2011-12-20T13%3A58%3A14
 	** (Notice the colons in the time portion are URL encoded _before being signed_.)
 
 Once you have the string to sign, encode it as follows:
 
-1.  Create a SHA256 digest (raw mode, not hex) using the appropriate Cato User password as the 'key'.
+1.  Create a SHA256 digest (raw mode, not hex) using the appropriate User password as the 'key'.
 2.  BASE64 encode the SHA256 digest
 3.  URL encode the BASE64 string.
 
@@ -60,7 +60,7 @@ The final step is to send the request via HTTP.  Obviously, the methods for doin
 
 ## The Response
 
-By default, the Cato REST API returns results in XML format.  This is configurable via the querystring argument:
+By default, the REST API returns results in XML format.  This is configurable via the querystring argument:
 ```
 &output_format=<xml|json|text>
 ```

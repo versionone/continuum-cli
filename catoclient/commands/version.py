@@ -19,7 +19,7 @@ from catoclient.param import Param
 
 class Version(catoclient.catocommand.CatoCommand):
 
-    Description = 'Displays the Cato Version by request from the Cato API webservice'
+    Description = 'Displays the Version by request from the API.'
     API = 'version'
     Examples = '''
     cato-version

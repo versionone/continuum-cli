@@ -22,7 +22,7 @@ from catoclient.param import Param
 
 class CreateDocument(catoclient.catocommand.CatoCommand):
 
-    Description = 'Creates a new Datastore document in the Cato MongoDB datastore.'
+    Description = 'Creates a new Datastore document in the MongoDB datastore.'
     API = 'create_document'
     Examples = r'''
 _Single quotes wrapping the json document, double inside_

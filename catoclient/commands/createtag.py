@@ -19,7 +19,7 @@ from catoclient.param import Param
 
 class CreateTag(catoclient.catocommand.CatoCommand):
 
-    Description = 'Creates a new Tag to be used to associate Cato objects with one another.'
+    Description = 'Creates a new Tag to be used to associate objects with one another.'
     API = 'create_tag'
     Examples = '''
     cato-create-tag -n "staging01" -d "staging environment 1"

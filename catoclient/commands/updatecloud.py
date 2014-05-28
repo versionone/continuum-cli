@@ -19,7 +19,7 @@ from catoclient.param import Param
 
 class UpdateCloud(catoclient.catocommand.CatoCommand):
 
-    Description = 'Updates the properties of a  Cato defined cloud endpoint.'
+    Description = 'Updates the properties of a Cloud Endpoint.'
     API = 'update_cloud'
     Examples = '''
 _Update the address of a vCloud cloud endpoint_

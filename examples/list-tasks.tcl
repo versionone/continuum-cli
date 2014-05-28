@@ -65,7 +65,7 @@ proc http_get {url} {
 # MAIN CODE #
 #############
 
-output "Cato ListTasks Utility\n"
+output "ListTasks Utility\n"
 
 # do not continue unless we have all the required arguments
 if {"$::API_URL" == "" || "$::KEY" == "" || "$::PASSWORD" == ""} {

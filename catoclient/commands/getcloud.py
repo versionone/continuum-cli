@@ -19,7 +19,7 @@ from catoclient.param import Param
 
 class GetCloud(catoclient.catocommand.CatoCommand):
 
-    Description = 'Prints the properties of a Cato defined cloud endpoint'
+    Description = 'Prints the properties of a Cloud endpoint'
     API = 'get_cloud'
     Examples = '''
     cato-get-cloud -n "us-east-1"

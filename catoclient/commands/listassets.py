@@ -22,11 +22,11 @@ class ListAssets(catoclient.catocommand.CatoCommand):
     Description = 'Lists Assets'
     API = 'list_assets'
     Examples = '''
-_List all Cato assets with test in the name_
+_List all Assets with test in the name_
 
     cato-list-assets -f "test"
 
-_List all Cato assets that are active_
+_List all Assets that are active_
 
     cato-list-assets -f "Active"
 '''

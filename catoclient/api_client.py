@@ -15,7 +15,7 @@ base_path = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(sys.
 lib_path = os.path.join(base_path, "lib")
 sys.path.insert(0, lib_path)
 
-parser = argparse.ArgumentParser(description='Connect to the Cato API.')
+parser = argparse.ArgumentParser(description='Connect to the API.')
 parser.add_argument('--host', help='The host url of the API service.')
 parser.add_argument('--method', '-m', help='The method to call.')
 parser.add_argument('--accesskey', '-k', help='The access key for the request.')
@@ -153,7 +153,7 @@ def call_api(host, method, key, pw, args):
         raise ex
 
 def packData(sIn):
-    # NOTE: this encoding scheme must match what's defined in the Cato server code.
+    # NOTE: this encoding scheme must match what's defined in the server code.
     # ( in the catocommon package )
     sOut = base64.b64encode(str(sIn))
     return sOut.replace("/", "%2F").replace("+", "%2B")

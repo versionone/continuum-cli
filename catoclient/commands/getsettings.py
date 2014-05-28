@@ -19,14 +19,14 @@ from catoclient.param import Param
 
 class GetSettings(catoclient.catocommand.CatoCommand):
 
-    Description = 'Gets all the Cato configuration settings from the database in json format'
+    Description = 'Gets all the configuration settings from the database in json format'
     API = 'get_settings'
     Examples = '''
-_To get all Cato config settings in text format_
+_To get all config settings in text format_
 
     cato-get-settings
 
-_To get all Cato config settings in json format_
+_To get all config settings in json format_
 
     cato-get-settings -F "json"
 
@@ -40,7 +40,7 @@ _To get a list of the module names available in the settings configurations_
 '''
     Options = [Param(name='module', short_name='m', long_name='module',
                      optional=True, ptype='string',
-                     doc='Filter to a specific Cato module.')
+                     doc='Filter to a specific module.')
                ]
 
     def main(self):

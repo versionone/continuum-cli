@@ -19,7 +19,7 @@ from catoclient.param import Param
 
 class GetAsset(catoclient.catocommand.CatoCommand):
 
-    Description = 'Prints the properties of a Cato defined fixed asset'
+    Description = 'Prints the properties of an Asset'
     API = 'get_asset'
     Examples = '''
     cato-get-asset -a "database001"

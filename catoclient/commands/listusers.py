@@ -19,10 +19,10 @@ from catoclient.param import Param
 
 class ListUsers(catoclient.catocommand.CatoCommand):
 
-    Description = 'Lists Cato Users'
+    Description = 'Lists Users'
     API = 'list_users'
     Examples = '''
-_List all Cato users_
+_List all users_
 
     cato-list-users
 

@@ -19,7 +19,7 @@ from catoclient.param import Param
 
 class GetTaskInstances(catoclient.catocommand.CatoCommand):
 
-    Description = 'Get a list of Cato task instances and their properties (status, dates, etc.).'
+    Description = 'Get a list of Task Instances and their properties (status, dates, etc.).'
     API = 'get_task_instances'
     Examples = '''
 _To retrieve the the last 200 task instances_

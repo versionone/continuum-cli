@@ -19,7 +19,7 @@ from catoclient.param import Param
 
 class ListCloudAccounts(catoclient.catocommand.CatoCommand):
 
-    Description = 'Lists cloud accounts defined in Cato'
+    Description = 'Lists Cloud Accounts.'
     API = 'list_cloud_accounts'
     Examples = '''
 _List all cloud accounts with AWS in the name or cloud type_

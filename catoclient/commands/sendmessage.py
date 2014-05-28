@@ -19,7 +19,7 @@ from catoclient.param import Param
 
 class SendMessage(catoclient.catocommand.CatoCommand):
 
-    Description = 'Sends a message to an email address using the Cato messenger.'
+    Description = 'Sends a message to an email address using the messenger.'
     API = 'send_message'
     Examples = '''
 _To send an email to an email address_

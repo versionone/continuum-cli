@@ -19,7 +19,7 @@ from catoclient.param import Param
 
 class CreateCredential(catoclient.catocommand.CatoCommand):
 
-    Description = 'Creates a new set of Shared Credentials in Cato that can be used to log into other systems.'
+    Description = 'Creates a new set of Shared Credentials that can be used to log into other systems.'
     API = 'create_credential'
     Examples = '''
     cato-create-credential -n "adminuser" -d "Administrator User" -u "root" -p "passw0rd"

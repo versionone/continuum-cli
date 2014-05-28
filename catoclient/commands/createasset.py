@@ -19,7 +19,7 @@ from catoclient.param import Param
 
 class CreateAsset(catoclient.catocommand.CatoCommand):
 
-    Description = 'Creates a new fixed address Asset in Cato.'
+    Description = 'Creates a new fixed address Asset.'
     API = 'create_asset'
     Examples = '''
     cato-create-asset -n "Test 123" -s "Active" -a "10.10.2.2" -d "test02" -t "1433" -u "appuser" -p "passw0rd"

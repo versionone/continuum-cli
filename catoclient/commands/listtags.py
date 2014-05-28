@@ -19,7 +19,7 @@ from catoclient.param import Param
 
 class ListTags(catoclient.catocommand.CatoCommand):
 
-    Description = 'Lists tags that have been defined in Cato and prints whether they are in use or not'
+    Description = 'Lists Tags and indicates whether they are in use or not.'
     API = 'list_tags'
     Examples = '''
 _To print all tags_

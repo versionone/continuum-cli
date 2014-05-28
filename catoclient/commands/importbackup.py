@@ -19,7 +19,7 @@ from catoclient.param import Param
 
 class ImportBackup(catoclient.catocommand.CatoCommand):
 
-    Description = '''Imports a task backup file into Cato. This file can include one or
+    Description = '''Imports a task backup file into the system. This file can include one or
                     more tasks within it and must be XML or JSON formatted'''
     API = 'import_backup'
     Examples = '''

@@ -19,14 +19,14 @@ from catoclient.param import Param
 
 class UpdateSettings(catoclient.catocommand.CatoCommand):
 
-    Description = """Update the configuration settings of a Cato module.
+    Description = """Update the configuration settings of a specific module.
     
 This command accepts a JSON object representing the settings for a module.
     
 """
     API = 'update_settings'
     Examples = '''
-_To change the SMTPServerAddress of the Cato Messenger_
+_To change the SMTPServerAddress of the Messenger_
     
     cato-update-settings -m Messenger -s '{"SMTPServerAddress":"smtp.gmail.com"}'
     
@@ -36,7 +36,7 @@ _To update all settings for a particular module using a json formatted settings 
 '''
     Options = [Param(name='module', short_name='m', long_name='module',
                      optional=False, ptype='string',
-                     doc='Name of the Cato module to update.'),
+                     doc='Name of the module to update.'),
                Param(name='settings', short_name='s', long_name='settings',
                      optional=True, ptype='string',
                      doc='JSON Settings object.'),
@@ -50,7 +50,7 @@ _To update all settings for a particular module using a json formatted settings 
         if self.force:
             go = True
         else:
-            answer = raw_input("WARNING: This is a Administrator function.\n\nUpdating settings will change the operation of Cato.\n\nAre you sure? ")
+            answer = raw_input("WARNING: This is a Administrator function.\n\nUpdating settings will change the operation of the system.\n\nAre you sure? ")
             if answer:
                 if answer.lower() in ['y', 'yes']:
                     go = True

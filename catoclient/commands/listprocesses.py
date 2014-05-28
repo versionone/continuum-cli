@@ -19,7 +19,7 @@ from catoclient.param import Param
 
 class ListProcesses(catoclient.catocommand.CatoCommand):
 
-    Description = 'Lists Cato server processes (poller, messenger, etc.) along with heartbeat information'
+    Description = 'Lists server processes (poller, messenger, etc.) along with heartbeat information.'
     API = 'list_processes'
     Examples = '''
     cato-list-processes

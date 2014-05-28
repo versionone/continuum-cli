@@ -19,7 +19,7 @@ from catoclient.param import Param
 
 class CreateTask(catoclient.catocommand.CatoCommand):
 
-    Description = 'Creates a new blank Task object in Cato.'
+    Description = 'Creates a new blank Task object.'
     API = 'create_task'
     Examples = '''
     cato-create-task -n "mytask" -d "This is a sample task" -c "test2001"

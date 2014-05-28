@@ -19,7 +19,7 @@ from catoclient.param import Param
 
 class GetTaskInstanceStatus(catoclient.catocommand.CatoCommand):
 
-    Description = 'Get the status of a Cato Task Instance.'
+    Description = 'Get the status of a Task Instance.'
     API = 'get_task_instance_status'
     Examples = '''
     cato-get-task-instance-status -i 43668

@@ -19,7 +19,7 @@ from catoclient.param import Param
 
 class ListMethods(catoclient.catocommand.CatoCommand):
 
-    Description = 'Retrieves a list of all Cato rest api methods or commands and their documentation'
+    Description = 'Retrieves a list of all REST API methods and their documentation.'
     API = ''
     Examples = '''
 _To print a full listing of all api commands with documentation_

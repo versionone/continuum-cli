@@ -19,7 +19,7 @@ from catoclient.param import Param
 
 class CreateCloud(catoclient.catocommand.CatoCommand):
 
-    Description = 'Creates a new Cloud endpoint in Cato.'
+    Description = 'Creates a new Cloud endpoint.'
     API = 'create_cloud'
     Examples = '''
 _Create vCloud endpoint_
@@ -28,7 +28,7 @@ _Create vCloud endpoint_
 '''
     Options = [Param(name='provider', short_name='v', long_name='provider',
                      optional=False, ptype='string',
-                     doc='The name of a Cato supported Cloud Provider. One of: Eucalyptus, vCloud, VMware, AWS, OpenStackAws'),
+                     doc='The name of a supported Cloud Provider. One of: Eucalyptus, vCloud, VMware, AWS, OpenStackAws'),
                Param(name='name', short_name='n', long_name='name',
                      optional=False, ptype='string',
                      doc='A name for the new Cloud.'),

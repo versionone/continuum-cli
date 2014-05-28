@@ -19,7 +19,7 @@ from catoclient.param import Param
 
 class GetActiveTasks(catoclient.catocommand.CatoCommand):
 
-    Description = 'Gets a list of active Cato task instances (Submitted, Staged, Pending, Processing).'
+    Description = 'Gets a list of active Task Instances (Submitted, Staged, Pending, Processing).'
     API = 'get_task_instances'
     Examples = '''
 _Get all active task instances_

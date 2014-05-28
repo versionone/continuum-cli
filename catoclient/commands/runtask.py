@@ -19,7 +19,7 @@ from catoclient.param import Param
 
 class RunTask(catoclient.catocommand.CatoCommand):
 
-    Description = 'Submits a Cato task for execution'
+    Description = 'Submits a Task for execution'
     API = 'run_task'
     Examples = '''
 _To submit a particular task_
@@ -38,7 +38,7 @@ _To submit a task logging on critical errors only_
 
     cato-run-task -t "mytask01" -l 50
 
-_To submit a task with a certain Cato defined cloud account_
+_To submit a task with a certain Cloud Account_
 
     cato-run-task -t "mytask01" -a "vcloudaccount01"
 

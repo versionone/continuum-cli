@@ -19,7 +19,7 @@ from catoclient.param import Param
 
 class AddCloudKeypair(catoclient.catocommand.CatoCommand):
 
-    Description = 'Adds a key pair (ssh private key) to a Cato defined cloud endpoint'
+    Description = 'Adds a key pair (ssh private key) to a defined cloud endpoint'
     API = 'add_cloud_keypair'
     Examples = """
 _To add a private key to the us-east-1 cloud endpoint_ 

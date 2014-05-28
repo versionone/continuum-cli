@@ -19,7 +19,7 @@ from catoclient.param import Param
 
 class DeleteAsset(catoclient.catocommand.CatoCommand):
 
-    Description = 'Deletes a Cato asset.'
+    Description = 'Deletes an asset.'
     API = 'delete_asset'
     Examples = '''
     cato-delete-asset -a "testdb"

@@ -19,7 +19,7 @@ from catoclient.param import Param
 
 class ListClouds(catoclient.catocommand.CatoCommand):
 
-    Description = 'Lists cloud endpoints defined in Cato'
+    Description = 'Lists Cloud endpoints.'
     API = 'list_clouds'
     Examples = '''
 _List all cloud endpoints_

@@ -62,7 +62,7 @@ class UpdateUser(catoclient.catocommand.CatoCommand):
         if self.force:
             go = True
         else:
-            answer = raw_input("Updating a User could affect their ability to log in and use Cato.\n\nAre you sure? ")
+            answer = raw_input("Updating a User could affect their ability to log in and use the system.\n\nAre you sure? ")
             if answer:
                 if answer.lower() in ['y', 'yes']:
                     go = True

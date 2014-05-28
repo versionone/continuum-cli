@@ -19,7 +19,7 @@ from catoclient.param import Param
 
 class ListCredentials(catoclient.catocommand.CatoCommand):
 
-    Description = 'Lists shared credentials defined in Cato'
+    Description = 'Lists Shared Credentials.'
     API = 'list_credentials'
     Examples = '''
 _List all shared credentials_

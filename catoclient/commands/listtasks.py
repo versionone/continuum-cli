@@ -19,14 +19,14 @@ from catoclient.param import Param
 
 class ListTasks(catoclient.catocommand.CatoCommand):
 
-    Description = 'Lists Cato Tasks'
+    Description = 'Lists Tasks'
     API = 'list_tasks'
     Examples = '''
-_List all Cato tasks_
+_List all tasks_
 
     cato-list-tasks
 
-_List all Cato tasks with a particular string in the name, all versions_
+_List all tasks with a particular string in the name, all versions_
 
     cato-list-tasks -f "Test Logging Level" -v
 '''

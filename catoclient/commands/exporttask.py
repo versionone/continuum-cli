@@ -19,7 +19,7 @@ from catoclient.param import Param
 
 class ExportTask(catoclient.catocommand.CatoCommand):
 
-    Description = 'Exports a Cato task that can be checked into version control or imported elsewhere.'
+    Description = 'Exports a Task that can be checked into version control or imported elsewhere.'
     API = 'export_task'
     Examples = '''
 _To export the default version of a task in the default xml format_

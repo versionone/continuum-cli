@@ -19,7 +19,7 @@ from catoclient.param import Param
 
 class GetTaskInstance(catoclient.catocommand.CatoCommand):
 
-    Description = 'Get the properties of a Cato task instance such as status, submitted and completed dates, etc.'
+    Description = 'Get the properties of a Task Instance such as status, submitted and completed dates, etc.'
     API = 'get_task_instance'
     Examples = '''
     cato-get-task-instance -i 43669
