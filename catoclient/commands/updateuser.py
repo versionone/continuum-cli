@@ -54,8 +54,13 @@ class UpdateUser(catoclient.catocommand.CatoCommand):
                      doc='Expiration date for this account.  Must be in mm/dd/yyyy format.'),
                Param(name='groups', short_name='g', long_name='groups',
                      optional=True, ptype='string',
-                     doc='A list of groups the user belongs to. Group names cannot contain spaces. Comma delimited list.')
-               ]
+                     doc='A list of groups the user belongs to. Group names cannot contain spaces. Comma delimited list.'),
+               Param(name='password', short_name='p', long_name='password',
+                     optional=True, ptype='string',
+                     doc='The new password.'),
+               Param(name='generate', long_name='generate',
+                     optional=True, ptype='boolean',
+                     doc='Generate a new, random password.')               ]
 
     def main(self):
         go = False
@@ -68,5 +73,5 @@ class UpdateUser(catoclient.catocommand.CatoCommand):
                     go = True
 
         if go:
-            results = self.call_api(self.API, ['user', 'name', 'role', 'email', 'authtype', 'forcechange', 'status', 'expires', 'groups'])
+            results = self.call_api(self.API, ['user', 'name', 'role', 'email', 'authtype', 'forcechange', 'status', 'expires', 'groups', 'password', 'generate'])
             print(results)
