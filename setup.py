@@ -26,7 +26,7 @@ for f in os.listdir("bin"):
 
 setuptools.setup(
     name='maestroclient',
-    version='1.26',
+    version='1.27',
     description='Cloud Sidekick Client Tools',
     license='Proprietary License',
     author='Patrick Dunnigan',
