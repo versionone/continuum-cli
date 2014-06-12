@@ -23,7 +23,7 @@ for f in os.listdir("bin"):
 
 setuptools.setup(
     name='catoclient',
-    version='1.26',
+    version='1.27',
     description='Cloud Sidekick Client Tools',
     license='Apache License (2.0)',
     author='Patrick Dunnigan',
