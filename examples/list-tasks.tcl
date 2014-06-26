@@ -69,7 +69,7 @@ output "ListTasks Utility\n"
 
 # do not continue unless we have all the required arguments
 if {"$::API_URL" == "" || "$::KEY" == "" || "$::PASSWORD" == ""} {
-	output "Usage:\n list-tasks.tcl <url> <key> <password>\n\nExample:\n list-tasks.tcl localhost:4001 550e8400-e29b-41d4-a716-446655440000 foo"
+	output "Usage:\n list-tasks.tcl <url> <key> <password>\n\nExample:\n list-tasks.tcl localhost:8081 550e8400-e29b-41d4-a716-446655440000 foo"
 	exit
 }
 
