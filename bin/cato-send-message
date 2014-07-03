@@ -19,7 +19,7 @@
 import os
 import sys
 if "CSK_HOME" in os.environ:
-    sys.path.append(os.path.join(os.environ["CSK_HOME"], "cato", "lib"))
+    sys.path.append(os.path.join(os.environ["CSK_HOME"], "automate", "lib"))
 import catoclient.commands.sendmessage
 
 if __name__ == '__main__':

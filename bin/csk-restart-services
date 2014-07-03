@@ -35,7 +35,7 @@ if __name__ == '__main__':
         else:
             exit()
             
-    os.system("$CSK_HOME/cato/services/restart_services.sh")
-    os.system("$CSK_HOME/maestro/services/restart_services.sh")
+    os.system("$CSK_HOME/automate/services/restart_services.sh")
+    os.system("$CSK_HOME/deploy/services/restart_services.sh")
     os.system("$CSK_HOME/canvas/services/restart_services.sh")
-    os.system("$CSK_HOME/legato/services/restart_services.sh")
+    os.system("$CSK_HOME/flow/services/restart_services.sh")

@@ -34,7 +34,7 @@ if __name__ == '__main__':
             exit()
         else:
             svcs = " ".join(sys.argv[1:])
-            os.system("$CSK_HOME/cato/services/restart_specific.sh %s" % (svcs))
+            os.system("$CSK_HOME/automate/services/restart_specific.sh %s" % (svcs))
             exit()
     else:
         print("Please specify at least one service name.")
