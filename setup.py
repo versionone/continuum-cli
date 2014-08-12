@@ -22,13 +22,13 @@ for f in os.listdir("bin"):
     binscripts.append("bin/"+f)
 
 setuptools.setup(
-    name='catoclient',
+    name='cskclient',
     version='1.33',
     description='Cloud Sidekick Client Tools',
     license='Apache License (2.0)',
     author='Patrick Dunnigan',
     author_email='patrick.dunnigan@cloudsidekick.com',
-    url='https://github.com/cloudsidekick/catoclient',
+    url='https://github.com/cloudsidekick/client',
     packages=setuptools.find_packages(exclude=['bin']),
     include_package_data=True,
     classifiers=[
