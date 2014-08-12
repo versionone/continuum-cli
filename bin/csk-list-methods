@@ -21,9 +21,9 @@ import sys
 if "CSK_HOME" in os.environ:
     sys.path.append(os.path.join(os.environ["CSK_HOME"], "common", "lib"))
 
-import commands.automate.listmethods
+import commands.admin.listmethods
 
 if __name__ == '__main__':
-    cmd = commands.automate.listmethods.ListMethods()
+    cmd = commands.admin.listmethods.ListMethods()
     cmd.main()
 
