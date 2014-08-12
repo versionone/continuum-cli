@@ -13,39 +13,39 @@ Python 2.6+
 ## Installation
 
 ```
-pip install https://github.com/cloudsidekick/catoclient/archive/latest.zip
+pip install https://github.com/cloudsidekick/client/archive/latest.zip
 ```
 
 If you already have Client and want the latest version:
 
 ```
-pip install --upgrade https://github.com/cloudsidekick/catoclient/archive/latest.zip
+pip install --upgrade https://github.com/cloudsidekick/client/archive/latest.zip
 ```
 
 ## Repository and Download
 
-https://github.com/cloudsidekick/catoclient
+https://github.com/cloudsidekick/client
 
 To download _the latest_ source:
 
 ```
-curl -Lk --output catoclient.tar.gz https://github.com/cloudsidekick/catoclient/tarball/master
+curl -Lk --output client.tar.gz https://github.com/cloudsidekick/client/tarball/master
 ```
 
 Specific release tarballs are here:
 
-https://github.com/cloudsidekick/catoclient/tags
+https://github.com/cloudsidekick/client/tags
 
 or clone in git:
 
 ```
-git clone git://github.com/cloudsidekick/catoclient.git
+git clone git://github.com/cloudsidekick/client.git
 ```
 
 ## Bug and Feature Requests
 
-https://github.com/cloudsidekick/catoclient/issues
+https://github.com/cloudsidekick/client/issues
 
 ## Documentation
 
-Visit the [Cloud Sidekick Documentation](http://docs.cloudsidekick.com/docs/cato/restapi/cato-client.html) for more information.
+Visit the [Cloud Sidekick Documentation](http://docs.cloudsidekick.com/docs/velocity/restapi/client.html) for more information.
