@@ -35,6 +35,7 @@ if __name__ == '__main__':
         else:
             exit()
             
+    os.system("$CSK_HOME/velocity/services/restart_services.sh")
     os.system("$CSK_HOME/automate/services/restart_services.sh")
     if os.path.exists(os.path.join(os.environ["CSK_HOME"], "deploy")):
         os.system("$CSK_HOME/deploy/services/restart_services.sh")

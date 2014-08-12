@@ -30,11 +30,12 @@ if __name__ == '__main__':
     if len(sys.argv) > 1:
         # if there's an argument, simply switch on it.  It'll only be asking for the api or dumpdoc.
         if sys.argv[1] == "--dumpdoc" or sys.argv[1] == "-H":
-            print """STart ALL Cloud Sidekick services.  Accepts no arguments."""
+            print """Start ALL Cloud Sidekick services.  Accepts no arguments."""
             exit()
         else:
             exit()
             
+    os.system("$CSK_HOME/velocity/services/start_services.sh")
     os.system("$CSK_HOME/automate/services/start_services.sh")
     if os.path.exists(os.path.join(os.environ["CSK_HOME"], "deploy")):
         os.system("$CSK_HOME/deploy/services/start_services.sh")
