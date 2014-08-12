@@ -29,7 +29,7 @@ import sys
 if __name__ == '__main__':
     if len(sys.argv) > 1:
         # if there's an argument, simply switch on it.  It'll only be asking for the api or dumpdoc.
-        if sys.argv[1] == "--dumpdoc" or sys.argv[1] == "-H":
+        if sys.argv[1] == "--api" or sys.argv[1] == "--dumpdoc" or sys.argv[1] == "-H":
             print """Restart one or more Cloud Sidekick services, specified as space delimited arguments."""
             exit()
         else:
