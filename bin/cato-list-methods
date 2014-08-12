@@ -21,9 +21,9 @@ import sys
 if "CSK_HOME" in os.environ:
     sys.path.append(os.path.join(os.environ["CSK_HOME"], "common", "lib"))
 
-import catoclient.commands.listmethods
+import commands.automate.listmethods
 
 if __name__ == '__main__':
-    cmd = catoclient.commands.listmethods.ListMethods()
+    cmd = commands.automate.listmethods.ListMethods()
     cmd.main()
 

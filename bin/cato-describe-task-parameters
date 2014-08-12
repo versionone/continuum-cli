@@ -20,9 +20,9 @@ import os
 import sys
 if "CSK_HOME" in os.environ:
     sys.path.append(os.path.join(os.environ["CSK_HOME"], "common", "lib"))
-import catoclient.commands.describetaskparameters
+import commands.automate.describetaskparameters
 
 if __name__ == '__main__':
-    cmd = catoclient.commands.describetaskparameters.DescribeTaskParameters()
+    cmd = commands.automate.describetaskparameters.DescribeTaskParameters()
     cmd.main()
 

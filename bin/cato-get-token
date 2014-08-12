@@ -20,9 +20,9 @@ import os
 import sys
 if "CSK_HOME" in os.environ:
     sys.path.append(os.path.join(os.environ["CSK_HOME"], "common", "lib"))
-import catoclient.commands.gettoken
+import commands.automate.gettoken
 
 if __name__ == '__main__':
-    cmd = catoclient.commands.gettoken.GetToken()
+    cmd = commands.automate.gettoken.GetToken()
     cmd.main()
 

@@ -20,9 +20,9 @@ import os
 import sys
 if "CSK_HOME" in os.environ:
     sys.path.append(os.path.join(os.environ["CSK_HOME"], "common", "lib"))
-import catoclient.commands.version
+import commands.automate.version
 
 if __name__ == '__main__':
-    cmd = catoclient.commands.version.Version()
+    cmd = commands.automate.version.Version()
     cmd.main()
 

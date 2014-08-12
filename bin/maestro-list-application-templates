@@ -24,9 +24,9 @@ import sys
 if "CSK_HOME" in os.environ:
     sys.path.append(os.path.join(os.environ["CSK_HOME"], "common", "lib"))
     sys.path.append(os.path.join(os.environ["CSK_HOME"], "deploy", "lib"))
-import maestroclient.commands.listapplicationtemplates
+import commands.deploy.listapplicationtemplates
 
 if __name__ == '__main__':
-    cmd = maestroclient.commands.listapplicationtemplates.ListApplicationTemplates()
+    cmd = commands.deploy.listapplicationtemplates.ListApplicationTemplates()
     cmd.main()
 

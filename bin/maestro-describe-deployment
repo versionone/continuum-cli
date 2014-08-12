@@ -24,9 +24,9 @@ import sys
 if "CSK_HOME" in os.environ:
     sys.path.append(os.path.join(os.environ["CSK_HOME"], "common", "lib"))
     sys.path.append(os.path.join(os.environ["CSK_HOME"], "deploy", "lib"))
-import maestroclient.commands.describedeployment
+import commands.deploy.describedeployment
 
 if __name__ == '__main__':
-    cmd = maestroclient.commands.describedeployment.DescribeDeployment()
+    cmd = commands.deploy.describedeployment.DescribeDeployment()
     cmd.main()
 
