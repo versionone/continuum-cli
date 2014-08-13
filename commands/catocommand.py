@@ -121,7 +121,7 @@ class CatoCommand(object):
         try:
             # VERSION 1.33+ - we renamed the catoclient.conf file.
             # if the old name is encountered, rename it
-            if os.path.isfile(cfn):
+            if os.path.isfile("%s/.catoclient.conf" % os.path.expanduser("~")):
                 print("INFO - encountered '.catoclient.conf'.  This version uses '.cskclient.conf'.  The file has been renamed as a convenience, and this message should not appear again.")
                 os.rename(cfn, cfn.replace("cato", "csk"))
                 
