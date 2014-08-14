@@ -123,7 +123,14 @@ class CatoCommand(object):
             # if the old name is encountered, rename it
             if os.path.isfile("%s/.catoclient.conf" % os.path.expanduser("~")):
                 print("INFO - encountered '.catoclient.conf'.  This version uses '.cskclient.conf'.  The file has been renamed as a convenience, and this message should not appear again.")
-                os.rename(cfn, cfn.replace("cato", "csk"))
+                try:
+                    old = "%s/.catoclient.conf" % os.path.expanduser("~")
+                    os.rename(old, old.replace("cato", "csk"))
+                except Exception as ex:
+                    # trying to rename the conf file failed... write a nice warning
+                    print("Unable to rename .catoclient.conf.  Please check the permissions and/or rename it manually.")
+                    print(ex.__str__())
+                    self.error_exit()
                 
             with open(cfn, 'r') as f_in:
                 if f_in:
