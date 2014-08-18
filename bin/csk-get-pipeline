@@ -23,9 +23,9 @@ import os
 import sys
 if "CSK_HOME" in os.environ:
     sys.path.append(os.path.join(os.environ["CSK_HOME"], "common", "lib"))
-import commands.flow.getpipeline
+import cskcommands.flow.getpipeline
 
 if __name__ == '__main__':
-    cmd = commands.flow.getpipeline.GetPipeline()
+    cmd = cskcommands.flow.getpipeline.GetPipeline()
     cmd.main()
 

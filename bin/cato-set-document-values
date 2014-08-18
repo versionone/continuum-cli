@@ -20,9 +20,9 @@ import os
 import sys
 if "CSK_HOME" in os.environ:
     sys.path.append(os.path.join(os.environ["CSK_HOME"], "common", "lib"))
-import commands.automate.setdocumentvalues
+import cskcommands.automate.setdocumentvalues
 
 if __name__ == '__main__':
-    cmd = commands.automate.setdocumentvalues.SetDocumentValues()
+    cmd = cskcommands.automate.setdocumentvalues.SetDocumentValues()
     cmd.main()
 

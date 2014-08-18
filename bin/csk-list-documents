@@ -22,9 +22,9 @@ if "CSK_HOME" in os.environ:
     sys.path.append(os.path.join(os.environ["CSK_HOME"], "common", "lib"))
 
 
-import commands.automate.listdocuments
+import cskcommands.automate.listdocuments
 
 if __name__ == '__main__':
-    cmd = commands.automate.listdocuments.ListDocuments()
+    cmd = cskcommands.automate.listdocuments.ListDocuments()
     cmd.main()
 

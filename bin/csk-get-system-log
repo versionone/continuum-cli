@@ -20,9 +20,9 @@ import os
 import sys
 if "CSK_HOME" in os.environ:
     sys.path.append(os.path.join(os.environ["CSK_HOME"], "common", "lib"))
-import commands.admin.getsystemlog
+import cskcommands.admin.getsystemlog
 
 if __name__ == '__main__':
-    cmd = commands.admin.getsystemlog.GetSystemLog()
+    cmd = cskcommands.admin.getsystemlog.GetSystemLog()
     cmd.main()
 

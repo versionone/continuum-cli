@@ -20,9 +20,9 @@ import os
 import sys
 if "CSK_HOME" in os.environ:
     sys.path.append(os.path.join(os.environ["CSK_HOME"], "common", "lib"))
-import commands.admin.updateuser
+import cskcommands.admin.updateuser
 
 if __name__ == '__main__':
-    cmd = commands.admin.updateuser.UpdateUser()
+    cmd = cskcommands.admin.updateuser.UpdateUser()
     cmd.main()
 

@@ -20,9 +20,9 @@ import os
 import sys
 if "CSK_HOME" in os.environ:
     sys.path.append(os.path.join(os.environ["CSK_HOME"], "common", "lib"))
-import commands.automate.updatecloud
+import cskcommands.automate.updatecloud
 
 if __name__ == '__main__':
-    cmd = commands.automate.updatecloud.UpdateCloud()
+    cmd = cskcommands.automate.updatecloud.UpdateCloud()
     cmd.main()
 

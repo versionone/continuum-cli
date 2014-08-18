@@ -20,9 +20,9 @@ import os
 import sys
 if "CSK_HOME" in os.environ:
     sys.path.append(os.path.join(os.environ["CSK_HOME"], "common", "lib"))
-import commands.automate.gettaskschedules
+import cskcommands.automate.gettaskschedules
 
 if __name__ == '__main__':
-    cmd = commands.automate.gettaskschedules.GetTaskSchedules()
+    cmd = cskcommands.automate.gettaskschedules.GetTaskSchedules()
     cmd.main()
 
