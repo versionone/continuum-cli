@@ -30,14 +30,14 @@ if args:
 else:
     argstr = ""
 
-#timestamp
+# timestamp
 ts = datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%S')
 ts = ts.replace(":", "%3A")
 
-#string to sign
+# string to sign
 string_to_sign = "{0}?key={1}&timestamp={2}".format(method, access_key, ts)
 
-#encoded signature
+# encoded signature
 sig = base64.b64encode(hmac.new(str(secret_key), msg=string_to_sign, digestmod=hashlib.sha256).digest())
 sig = "&signature=" + urllib.quote_plus(sig)
 

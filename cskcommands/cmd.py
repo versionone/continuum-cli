@@ -397,7 +397,7 @@ class CSKCommand(object):
         
     def display_error_and_exit(self, exc):
         try:
-            print '%s: %s' % (exc.error_code, exc.error_message, exc.error_detail)
+            print '%s: %s, %s' % (exc.error_code, exc.error_message, exc.error_detail)
         except:
             print '%s' % exc
         finally:
