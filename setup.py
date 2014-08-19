@@ -19,7 +19,7 @@ import setuptools
 
 binscripts = []
 for f in os.listdir("bin"):
-    binscripts.append("bin/"+f)
+    binscripts.append("bin/" + f)
 
 setuptools.setup(
     name='cskclient',

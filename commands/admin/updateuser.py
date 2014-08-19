@@ -60,7 +60,7 @@ class UpdateUser(commands.catocommand.CatoCommand):
                      doc='The new password.'),
                Param(name='generate', long_name='generate',
                      optional=True, ptype='boolean',
-                     doc='Generate a new, random password.')               ]
+                     doc='Generate a new, random password.')]
 
     def main(self):
         go = False

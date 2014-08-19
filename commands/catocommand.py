@@ -51,8 +51,7 @@ class CatoCommand(object):
     API = ''
     Examples = ''
     Info = ''
-    StandardOptions = [
-                       Param(name='access_key',
+    StandardOptions = [Param(name='access_key',
                              short_name='A', long_name='access-key',
                              doc="A defined username.",
                              optional=True),
@@ -91,8 +90,7 @@ class CatoCommand(object):
                              optional=True, ptype='boolean'),
                        Param(name='api', long_name='api',
                              doc='Identifies the API endpoint associated with this command.',
-                             optional=True, ptype='boolean')
-                       ]
+                             optional=True, ptype='boolean')]
     Options = []
     Args = []
 
@@ -258,16 +256,16 @@ class CatoCommand(object):
         return l
 
     def required(self):
-        return [ opt for opt in self.StandardOptions + self.Options if not opt.optional ]
+        return [opt for opt in self.StandardOptions + self.Options if not opt.optional]
 
     def required_args(self):
-        return [ arg for arg in self.Args if not arg.optional ]
+        return [arg for arg in self.Args if not arg.optional]
 
     def optional(self):
-        return [ opt for opt in self.StandardOptions + self.Options if opt.optional ]
+        return [opt for opt in self.StandardOptions + self.Options if opt.optional]
 
     def optional_args(self):
-        return [ arg for arg in self.Args if arg.optional ]
+        return [arg for arg in self.Args if arg.optional]
 
     def handle_defaults(self):
         for option in self.Options + self.Args:
@@ -358,11 +356,11 @@ class CatoCommand(object):
     def usage(self):
         print '    %s\n' % self.Description
         # self.synopsis()
-        self.param_usage([ opt for opt in self.Options if not opt.optional ],
+        self.param_usage([opt for opt in self.Options if not opt.optional],
                          'REQUIRED PARAMETERS')
-        self.param_usage([ opt for opt in self.Options if opt.optional ],
+        self.param_usage([opt for opt in self.Options if opt.optional],
                          'OPTIONAL PARAMETERS')
-        self.param_usage([ opt for opt in self.StandardOptions ],
+        self.param_usage([opt for opt in self.StandardOptions],
                          'STANDARD PARAMETERS')
 
         if self.Info:
@@ -373,9 +371,9 @@ class CatoCommand(object):
         print '{:#%s}' % self.cmd_name
         print '\n%s\n' % self.Description
 
-        self.param_usage([ opt for opt in self.Options if not opt.optional ],
+        self.param_usage([opt for opt in self.Options if not opt.optional],
                          'REQUIRED PARAMETERS')
-        self.param_usage([ opt for opt in self.Options if opt.optional ],
+        self.param_usage([opt for opt in self.Options if opt.optional],
                          'OPTIONAL PARAMETERS')
         if self.Info:
             print self.Info
@@ -459,7 +457,7 @@ class CatoCommand(object):
         
         args = {}
         for param in parameters:
-            #if hasattr(self, param):
+            # if hasattr(self, param):
             if getattr(self, param, None):
                 args[param] = getattr(self, param)
 
@@ -469,14 +467,14 @@ class CatoCommand(object):
         else:
             argstr = ""
 
-        #timestamp
+        # timestamp
         ts = datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%S')
         ts = ts.replace(":", "%3A")
 
-        #string to sign
+        # string to sign
         string_to_sign = "{0}?key={1}&timestamp={2}".format(method, key, ts)
 
-        #encoded signature
+        # encoded signature
         sig = base64.b64encode(hmac.new(str(pw), msg=string_to_sign, digestmod=hashlib.sha256).digest())
         sig = "&signature=" + urllib.quote_plus(sig)
 

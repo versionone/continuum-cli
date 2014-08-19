@@ -59,8 +59,8 @@ class Converter(object):
     @classmethod
     def convert(cls, param, value):
         try:
-            if hasattr(cls, 'convert_'+param.ptype):
-                mthd = getattr(cls, 'convert_'+param.ptype)
+            if hasattr(cls, 'convert_' + param.ptype):
+                mthd = getattr(cls, 'convert_' + param.ptype)
             else:
                 mthd = cls.convert_string
             return mthd(param, value)

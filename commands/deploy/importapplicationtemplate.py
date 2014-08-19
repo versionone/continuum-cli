@@ -199,19 +199,19 @@ but the Template creation will complete.""")
         
         # a flat list of all the details
         everything = []
-        projects = [ d for d in os.listdir(reportdir) if os.path.isdir(os.path.join(reportdir, d)) ]
+        projects = [d for d in os.listdir(reportdir) if os.path.isdir(os.path.join(reportdir, d))]
         # filter out any invalid dirs
-        projects = [ p for p in projects if "proj_" in p]
+        projects = [p for p in projects if "proj_" in p]
         if projects:
             for p in projects:
                 pdir = os.path.join(reportdir, p)
-                components = [ d for d in os.listdir(pdir) if os.path.isdir(os.path.join(pdir, d)) ]
-                components = [ c for c in components if "comp_" in c]
+                components = [d for d in os.listdir(pdir) if os.path.isdir(os.path.join(pdir, d))]
+                components = [c for c in components if "comp_" in c]
                 if components:
                     for c in components:
                         cdir = os.path.join(pdir, c)
-                        files = [ f for f in os.listdir(cdir) if os.path.isfile(os.path.join(cdir, f)) ]
-                        files = [ f for f in files if "item_" in f]
+                        files = [f for f in os.listdir(cdir) if os.path.isfile(os.path.join(cdir, f))]
+                        files = [f for f in files if "item_" in f]
                         for f in files:
                             # open each file ...
                             fn = os.path.join(cdir, f)

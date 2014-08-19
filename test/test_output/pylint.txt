@@ -1,0 +1,13 @@
+************* Module commands.automate.runtask
+commands/automate/runtask.py:84: [E0203(access-member-before-definition), RunTask.main] Access to member 'parameters' before its definition line 99
+commands/automate/runtask.py:95: [E0203(access-member-before-definition), RunTask.main] Access to member 'parameters' before its definition line 99
+************* Module commands.catocommand
+commands/catocommand.py:389: [E1305(too-many-format-args), CatoCommand.display_error_and_exit] Too many arguments for format string
+************* Module commands.deploy.runaction
+commands/deploy/runaction.py:74: [E0203(access-member-before-definition), RunAction.main] Access to member 'parameters' before its definition line 89
+commands/deploy/runaction.py:85: [E0203(access-member-before-definition), RunAction.main] Access to member 'parameters' before its definition line 89
+************* Module commands.deploy.runsequence
+commands/deploy/runsequence.py:67: [E0203(access-member-before-definition), RunSequence.main] Access to member 'parameters' before its definition line 82
+commands/deploy/runsequence.py:78: [E0203(access-member-before-definition), RunSequence.main] Access to member 'parameters' before its definition line 82
+************* Module commands.param
+commands/param.py:68: [E0602(undefined-variable), Converter.convert] Undefined variable 'ValidationException'

@@ -35,8 +35,7 @@ _Get all scheduled execution plans for a specific verions of a task_
                      doc='The ID or Name of a Task.'),
                Param(name='version', short_name='v', long_name='version',
                      optional=True, ptype='string',
-                     doc='An optional specific Task Version. (Default if omitted.)'),
-              ]
+                     doc='An optional specific Task Version. (Default if omitted.)')]
 
     def main(self):
         results = self.call_api(self.API, ['task', 'version'])

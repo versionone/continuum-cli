@@ -42,12 +42,12 @@ args = {}
 files = {}
 
 if methodargs:
-    host = methodargs["url"] if methodargs.has_key("url") and not cmdlineargs.host else cmdlineargs.host
-    method = methodargs["method"] if methodargs.has_key("method") and not cmdlineargs.method else cmdlineargs.method
-    access_key = methodargs["access_key"] if methodargs.has_key("access_key") and not cmdlineargs.accesskey else cmdlineargs.accesskey
-    secret_key = methodargs["secret_key"] if methodargs.has_key("secret_key") and not cmdlineargs.secretkey else cmdlineargs.secretkey
-    args = methodargs["args"] if methodargs.has_key("args") else {}
-    files = methodargs["files"] if methodargs.has_key("files") else {}
+    host = methodargs["url"] if "url" in methodargs and not cmdlineargs.host else cmdlineargs.host
+    method = methodargs["method"] if "method" in methodargs and not cmdlineargs.method else cmdlineargs.method
+    access_key = methodargs["access_key"] if "access_key" in methodargs and not cmdlineargs.accesskey else cmdlineargs.accesskey
+    secret_key = methodargs["secret_key"] if "secret_key" in methodargs and not cmdlineargs.secretkey else cmdlineargs.secretkey
+    args = methodargs["args"] if "args" in methodargs else {}
+    files = methodargs["files"] if "files" in methodargs else {}
 
 # Some API calls require one or more big arguments, too much to pass in
 # the method file.  So, anything in the 'files' section of the method file is opened
@@ -130,21 +130,21 @@ def call_api(host, method, key, pw, args):
         else:
             argstr = ""
         
-        #timestamp
+        # timestamp
         ts = datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%S')
         ts = ts.replace(":", "%3A")
 
-        #string to sign
+        # string to sign
         string_to_sign = "{0}?key={1}&timestamp={2}".format(method, key, ts)
         
-        #encoded signature
+        # encoded signature
         sig = base64.b64encode(hmac.new(str(pw), msg=string_to_sign, digestmod=hashlib.sha256).digest())
         sig = "&signature=" + urllib.quote_plus(sig)
         
 
         url = "%s/%s%s%s" % (host, string_to_sign, sig, argstr)
         
-        #NOTE: if a --querystring was passed on the command line, we just use it, no questions asked
+        # NOTE: if a --querystring was passed on the command line, we just use it, no questions asked
         if querystring:
             url += "&%s" % querystring
             
