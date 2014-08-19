@@ -64,8 +64,8 @@ class Converter(object):
             else:
                 mthd = cls.convert_string
             return mthd(param, value)
-        except:
-            raise ValidationException(param, '')
+        except Exception as e:
+            raise Exception(e)
         
 class Param(object):
 

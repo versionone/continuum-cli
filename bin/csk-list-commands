@@ -33,7 +33,7 @@ if __name__ == '__main__':
         else:
             exit()
             
-    ccdir = os.path.dirname(os.path.realpath( __file__ ))
+    ccdir = os.path.dirname(os.path.realpath(__file__))
     os.chdir(ccdir)
     for fname in sorted(glob.glob("csk-*")):
         print fname
