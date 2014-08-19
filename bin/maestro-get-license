@@ -24,9 +24,9 @@ import sys
 if "CSK_HOME" in os.environ:
     sys.path.append(os.path.join(os.environ["CSK_HOME"], "common", "lib"))
     sys.path.append(os.path.join(os.environ["CSK_HOME"], "deploy", "lib"))
-import commands.deploy.getlicense
+import cskcommands.deploy.getlicense
 
 if __name__ == '__main__':
-    cmd = commands.deploy.getlicense.GetLicense()
+    cmd = cskcommands.deploy.getlicense.GetLicense()
     cmd.main()
 

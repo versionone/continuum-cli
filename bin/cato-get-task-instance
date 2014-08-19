@@ -20,9 +20,9 @@ import os
 import sys
 if "CSK_HOME" in os.environ:
     sys.path.append(os.path.join(os.environ["CSK_HOME"], "common", "lib"))
-import commands.automate.gettaskinstance
+import cskcommands.automate.gettaskinstance
 
 if __name__ == '__main__':
-    cmd = commands.automate.gettaskinstance.GetTaskInstance()
+    cmd = cskcommands.automate.gettaskinstance.GetTaskInstance()
     cmd.main()
 

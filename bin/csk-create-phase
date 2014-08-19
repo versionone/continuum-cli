@@ -23,9 +23,9 @@ import os
 import sys
 if "CSK_HOME" in os.environ:
     sys.path.append(os.path.join(os.environ["CSK_HOME"], "common", "lib"))
-import commands.flow.createphase
+import cskcommands.flow.createphase
 
 if __name__ == '__main__':
-    cmd = commands.flow.createphase.CreatePhase()
+    cmd = cskcommands.flow.createphase.CreatePhase()
     cmd.main()
 
