@@ -54,6 +54,7 @@ class ExportCanvas(cskcommands.cmd.CSKCommand):
         NOTE: all dirs and files have a csk_ prefix.  This is so import operations
             will ignore junk files.
         """
+        
         # if no outputdirectory was provided, we will just print the results
         if self.printoutput:
             results = self.call_api(self.API, ['project', 'component'])
@@ -77,6 +78,10 @@ class ExportCanvas(cskcommands.cmd.CSKCommand):
             projs = json.loads(results)
         except:
             print results
+            return
+        
+        if not projs:
+            print "No results found."
             return
         
         for p in projs:
@@ -104,4 +109,6 @@ class ExportCanvas(cskcommands.cmd.CSKCommand):
                         if not f_out:
                             print("Unable to open file [%s]." % fn)
                         f_out.write(i["Data"].encode("utf-8", "ignore") if i["Data"] else "")
+                        
+        print "Project(s) successfully backed up to [%s]." % (rootdir)
             
