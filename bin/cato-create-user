@@ -20,9 +20,9 @@ import os
 import sys
 if "CSK_HOME" in os.environ:
     sys.path.append(os.path.join(os.environ["CSK_HOME"], "common", "lib"))
-import cskcommands.automate.createuser
+import cskcommands.admin.createuser
 
 if __name__ == '__main__':
-    cmd = cskcommands.automate.createuser.CreateUser()
+    cmd = cskcommands.admin.createuser.CreateUser()
     cmd.main()
 

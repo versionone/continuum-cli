@@ -24,9 +24,9 @@ import sys
 if "CSK_HOME" in os.environ:
     sys.path.append(os.path.join(os.environ["CSK_HOME"], "common", "lib"))
     sys.path.append(os.path.join(os.environ["CSK_HOME"], "deploy", "lib"))
-import cskcommands.deploy.exportcanvas
+import cskcommands.canvas.exportcanvas
 
 if __name__ == '__main__':
-    cmd = cskcommands.deploy.exportcanvas.ExportCanvas()
+    cmd = cskcommands.canvas.exportcanvas.ExportCanvas()
     cmd.main()
 
