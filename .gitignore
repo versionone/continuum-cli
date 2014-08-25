@@ -37,3 +37,5 @@ nosetests.xml
 
 test/test_output/*.txt
 *.swp
+
+.DS_Store
