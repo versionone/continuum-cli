@@ -33,5 +33,15 @@ class DeletePipeline(cskcommands.cmd.CSKCommand):
                      doc='Value can be either a Pipeline ID or Name.')]
 
     def main(self):
-        results = self.call_api(self.API, ['pipeline'])
-        print(results)
+        go = False
+        if self.force:
+            go = True
+        else:
+            answer = raw_input("Are you sure (y/n)? ")
+            if answer:
+                if answer.lower() in ['y', 'yes']:
+                    go = True
+
+        if go:
+            results = self.call_api(self.API, ['pipeline'])
+            print(results)

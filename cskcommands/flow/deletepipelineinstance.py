@@ -24,7 +24,7 @@ from cskcommands.param import Param
 class DeletePipelineInstance(cskcommands.cmd.CSKCommand):
 
     Description = """Permanently deletes a Pipeline Instance.
-    
+
 NOTE: at the moment, requires the '_id' of the Pipeline Instance.
 
 Returns success or failure."""
@@ -37,5 +37,15 @@ Returns success or failure."""
                ]
 
     def main(self):
-        results = self.call_api(self.API, ['pi'])
-        print(results)
+        go = False
+        if self.force:
+            go = True
+        else:
+            answer = raw_input("Are you sure (y/n)? ")
+            if answer:
+                if answer.lower() in ['y', 'yes']:
+                    go = True
+
+        if go:
+            results = self.call_api(self.API, ['pi'])
+            print(results)
