@@ -31,9 +31,12 @@ Returns a Project Object."""
     Examples = ''''''
     Options = [Param(name='name', short_name='n', long_name='name',
                      optional=False, ptype='string',
-                     doc='A name for the Project.')
+                     doc='A name for the Project.'),
+               Param(name='description', short_name='d', long_name='description',
+                     optional=True, ptype='string',
+                     doc='A description for the Project.')
                ]
 
     def main(self):
-        results = self.call_api(self.API, ['name'])
+        results = self.call_api(self.API, ['name', 'description'])
         print(results)
