@@ -28,7 +28,7 @@ class DeleteProject(cskcommands.cmd.CSKCommand):
     Examples = '''
     csk-delete-project -p "ProjectName"
 '''
-    Options = [Param(name='project', short_name='p', long_name='pipeline',
+    Options = [Param(name='project', short_name='p', long_name='project',
                      optional=False, ptype='string',
                      doc='Value can be either a Project ID or Name.')]
 

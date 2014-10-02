@@ -23,14 +23,14 @@ from cskcommands.param import Param
 
 class DeletePipeline(cskcommands.cmd.CSKCommand):
 
-    Description = 'Delete a Pipeline object.'
+    Description = 'Delete a Pipeline Definition.'
     API = 'delete_pipeline'
     Examples = '''
     csk-delete-pipeline -p "PipelineName"
 '''
     Options = [Param(name='pipeline', short_name='p', long_name='pipeline',
                      optional=False, ptype='string',
-                     doc='Value can be either a Pipeline ID or Name.')]
+                     doc='Value can be either a Definition ID or Name.')]
 
     def main(self):
         go = False

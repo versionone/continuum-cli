@@ -23,7 +23,7 @@ from cskcommands.param import Param
 
 class ListPipelines(cskcommands.cmd.CSKCommand):
 
-    Description = 'Lists all Pipelines.'
+    Description = 'Lists all Pipeline Definitions.'
     API = 'list_pipelines'
     Examples = '''
 _List all Pipelines_
