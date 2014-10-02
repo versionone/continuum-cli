@@ -23,7 +23,7 @@ for f in os.listdir("bin"):
 
 setuptools.setup(
     name='cskclient',
-    version='1.33',
+    version='1.35',
     description='Cloud Sidekick Client Tools',
     license='Apache License (2.0)',
     author='Patrick Dunnigan',
