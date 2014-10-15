@@ -21,14 +21,14 @@ import cskcommands.cmd
 from cskcommands.param import Param
 
 
-class ListPipelineInstances(cskcommands.cmd.CSKCommand):
+class ListPipelineGroups(cskcommands.cmd.CSKCommand):
 
-    Description = 'Lists all Pipeline Instances (Stories).'
-    API = 'list_pipelineinstances'
+    Description = 'Lists all Pipeline Instance Groups.'
+    API = 'list_pipelinegroups'
     Examples = '''
-_List all Pipeline Instances
+_List all Pipeline Instance Groups
 
-    csk-list-pipelineinstances
+    csk-list-pipelinegroups
 '''
     Options = [Param(name='pipeline', short_name='p', long_name='pipeline',
                      optional=True, ptype='string',

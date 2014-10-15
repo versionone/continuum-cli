@@ -21,19 +21,19 @@ import cskcommands.cmd
 from cskcommands.param import Param
 
 
-class DeletePipelineInstance(cskcommands.cmd.CSKCommand):
+class DeletePipelineGroup(cskcommands.cmd.CSKCommand):
 
-    Description = """Permanently deletes a Pipeline Instance.
+    Description = """Permanently deletes a Pipeline Instance Group.
 
-NOTE: at the moment, requires the '_id' of the Pipeline Instance.
+Requires the '_id' of the Pipeline Instance Group.
 
 Returns success or failure."""
 
-    API = 'delete_pipelineinstance'
+    API = 'delete_pipelinegroup'
     Examples = ''''''
-    Options = [Param(name='pi', short_name='i', long_name='i',
+    Options = [Param(name='pig_id', short_name='i', long_name='pig_id',
                      optional=False, ptype='string',
-                     doc='ID of a Pipeline Instance.')
+                     doc='ID of a Pipeline Instance Group.')
                ]
 
     def main(self):
