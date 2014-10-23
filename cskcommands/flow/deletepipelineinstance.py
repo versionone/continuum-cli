@@ -21,19 +21,17 @@ import cskcommands.cmd
 from cskcommands.param import Param
 
 
-class CancelReleaseCandidate(cskcommands.cmd.CSKCommand):
+class DeletePipelineInstance(cskcommands.cmd.CSKCommand):
 
-    Description = """Cancels a processing Release Candidate.
-    
-    Sets all Processing or Pending statuses to 'Canceled'.
+    Description = """Permanently deletes a Pipeline Instance.
 
 Returns success or failure."""
 
-    API = 'cancel_releasecandidate'
+    API = 'delete_pipelineinstance'
     Examples = ''''''
     Options = [Param(name='rc', short_name='r', long_name='rc',
                      optional=False, ptype='string',
-                     doc='Name or ID of a Release Candidate.')
+                     doc='Name or ID of a Pipeline Instance.')
                ]
 
     def main(self):

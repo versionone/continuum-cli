@@ -25,7 +25,7 @@ class InitiatePipeline(cskcommands.cmd.CSKCommand):
 
     Description = """Initiate a Pipeline Definition with matching 'key' information.
 
-Returns a Release Candidate Object."""
+Returns a Pipeline Instance Object."""
 
     API = 'initiate_pipeline'
     Examples = ''''''

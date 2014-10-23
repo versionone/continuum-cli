@@ -23,7 +23,7 @@ from cskcommands.param import Param
 
 class GetWorklist(cskcommands.cmd.CSKCommand):
 
-    Description = 'Gets a list of pending Release Candidates.'
+    Description = 'Gets a list of pending Pipeline Instances.'
     API = 'get_worklist'
     Examples = '''
     csk-get-worklist -f "key:value"
