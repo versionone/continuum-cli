@@ -35,10 +35,4 @@ if __name__ == '__main__':
         else:
             exit()
             
-    os.system("$CSK_HOME/velocity/services/start_services.sh")
-    os.system("$CSK_HOME/automate/services/start_services.sh")
-    if os.path.exists(os.path.join(os.environ["CSK_HOME"], "deploy")):
-        os.system("$CSK_HOME/deploy/services/start_services.sh")
-        os.system("$CSK_HOME/canvas/services/start_services.sh")
-        os.system("$CSK_HOME/flow/services/start_services.sh")
-    
+    os.system("$CSK_HOME/common/bin/start_services.sh")
