@@ -1,6 +1,5 @@
 # Cloud Sidekick - Client Tools
 
-
 ## Description
 
 Cloud Sidekick Client is a command line toolset for accessing the Cloud Sidekick  
