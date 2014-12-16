@@ -22,7 +22,7 @@ class GetCloud(cskcommands.cmd.CSKCommand):
     Description = 'Prints the properties of a Cloud endpoint'
     API = 'get_cloud'
     Examples = '''
-    cato-get-cloud -n "us-east-1"
+    csk-get-cloud -n "us-east-1"
 '''
     Options = [Param(name='name', short_name='n', long_name='name',
                      optional=False, ptype='string',

@@ -22,7 +22,7 @@ class CreateAsset(cskcommands.cmd.CSKCommand):
     Description = 'Creates a new fixed address Asset.'
     API = 'create_asset'
     Examples = '''
-    cato-create-asset -n "Test 123" -s "Active" -a "10.10.2.2" -d "test02" -t "1433" -u "appuser" -p "passw0rd"
+    csk-create-asset -n "Test 123" -s "Active" -a "10.10.2.2" -d "test02" -t "1433" -u "appuser" -p "passw0rd"
 '''
     Options = [Param(name='name', short_name='n', long_name='name',
                      optional=False, ptype='string',

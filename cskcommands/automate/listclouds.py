@@ -24,11 +24,11 @@ class ListClouds(cskcommands.cmd.CSKCommand):
     Examples = '''
 _List all cloud endpoints_
 
-    cato-list-clouds
+    csk-list-clouds
 
 _List all vcloud cloud endpoints_
 
-    cato-list-clouds -f "vCloud"
+    csk-list-clouds -f "vCloud"
 '''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',

@@ -24,35 +24,35 @@ class RunTask(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To submit a particular task_
 
-    cato-run-task -t "mytask01" 
+    csk-run-task -t "mytask01" 
 
 _To submit a particular version of a task_
 
-    cato-run-task -t "mytask01" -v "2.000"
+    csk-run-task -t "mytask01" -v "2.000"
 
 _To submit a task the most verbose logging level_
 
-    cato-run-task -t "mytask01" -l 10
+    csk-run-task -t "mytask01" -l 10
 
 _To submit a task logging on critical errors only_
 
-    cato-run-task -t "mytask01" -l 50
+    csk-run-task -t "mytask01" -l 50
 
 _To submit a task with a certain Cloud Account_
 
-    cato-run-task -t "mytask01" -a "vcloudaccount01"
+    csk-run-task -t "mytask01" -a "vcloudaccount01"
 
 _To submit a task to run one time in the future_
 
-    cato-run-task -t "mytask01" -r "1/16/2014 9:40"
+    csk-run-task -t "mytask01" -r "1/16/2014 9:40"
 
 _To submit a task with parameters as a json string, notice double quotes inside, single quote outside_
 
-    cato-run-task -t "mytask01" -p '[{"name":"param1","values":["hello"]},{"name":"param2","values":["world"]}]'
+    csk-run-task -t "mytask01" -p '[{"name":"param1","values":["hello"]},{"name":"param2","values":["world"]}]'
 
 _To submit a task with parameters in a json file_
 
-    cato-run-task -t "mytask01" -p "~/mytask01_params.json"
+    csk-run-task -t "mytask01" -p "~/mytask01_params.json"
 
 '''
     Options = [Param(name='task', short_name='t', long_name='task',

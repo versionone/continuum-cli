@@ -28,7 +28,7 @@ class GetDocument(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To get the json document from a collection based on a specific query_
 
-    cato-get-document -c "workflow_stages" -q '{"stage" : "stage 1"}'
+    csk-get-document -c "workflow_stages" -q '{"stage" : "stage 1"}'
 '''
     Options = [Param(name='query', short_name='q', long_name='query',
                      optional=False, ptype='string',

@@ -22,7 +22,7 @@ class UpdateUser(cskcommands.cmd.CSKCommand):
     Description = 'Updates a User account.'
     API = 'update_user'
     Examples = '''
-    cato-update-user -u "dave.thomas" -s "disabled"  --force
+    csk-update-user -u "dave.thomas" -s "disabled"  --force
 '''
     Options = [Param(name='user', short_name='u', long_name='user',
                      optional=False, ptype='string',

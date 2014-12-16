@@ -22,7 +22,7 @@ class DeleteCredential(cskcommands.cmd.CSKCommand):
     Description = 'Deletes a Shared Credential.'
     API = 'delete_credential'
     Examples = '''
-    cato-delete-credential -c "adminuser"
+    csk-delete-credential -c "adminuser"
 '''
     Options = [Param(name='credential', short_name='c', long_name='credential',
                      optional=False, ptype='string',

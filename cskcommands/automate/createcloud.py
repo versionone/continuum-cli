@@ -24,7 +24,7 @@ class CreateCloud(cskcommands.cmd.CSKCommand):
     Examples = '''
 _Create vCloud endpoint_
 
-    cato-create-cloud -n "vcloud-test" -p "HTTP" -v "vCloud" -u "iad.vcloudservice.vmware.com" -d "vcloudtest"
+    csk-create-cloud -n "vcloud-test" -p "HTTP" -v "vCloud" -u "iad.vcloudservice.vmware.com" -d "vcloudtest"
 '''
     Options = [Param(name='provider', short_name='v', long_name='provider',
                      optional=False, ptype='string',

@@ -24,11 +24,11 @@ class ListAssets(cskcommands.cmd.CSKCommand):
     Examples = '''
 _List all Assets with test in the name_
 
-    cato-list-assets -f "test"
+    csk-list-assets -f "test"
 
 _List all Assets that are active_
 
-    cato-list-assets -f "Active"
+    csk-list-assets -f "Active"
 '''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',

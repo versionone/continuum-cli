@@ -22,7 +22,7 @@ class ListProcesses(cskcommands.cmd.CSKCommand):
     Description = 'Lists server processes (poller, messenger, etc.) along with heartbeat information.'
     API = 'list_processes'
     Examples = '''
-    cato-list-processes
+    csk-list-processes
 '''
     Options = []
 

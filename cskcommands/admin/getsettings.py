@@ -24,19 +24,19 @@ class GetSettings(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To get all config settings in text format_
 
-    cato-get-settings
+    csk-get-settings
 
 _To get all config settings in json format_
 
-    cato-get-settings -F "json"
+    csk-get-settings -F "json"
 
 _To get the settings only for the messenger module_
 
-    cato-get-settings -m "Messenger"
+    csk-get-settings -m "Messenger"
 
 _To get a list of the module names available in the settings configurations_
    
-    cato-get-settings |grep -v "^ "|grep -v "^$"
+    csk-get-settings |grep -v "^ "|grep -v "^$"
 '''
     Options = [Param(name='module', short_name='m', long_name='module',
                      optional=True, ptype='string',

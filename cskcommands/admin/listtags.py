@@ -24,11 +24,11 @@ class ListTags(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To print all tags_
 
-    cato-list-tags
+    csk-list-tags
 
 _To print all tags containing a specific string in the name or description_
 
-    cato-list-tags -f "development"
+    csk-list-tags -f "development"
 '''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                     optional=True, ptype='string',

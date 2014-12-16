@@ -24,11 +24,11 @@ class ListUsers(cskcommands.cmd.CSKCommand):
     Examples = '''
 _List all users_
 
-    cato-list-users
+    csk-list-users
 
 _List all users with Administrator role_
 
-    cato-list-users -f "Administrator"
+    csk-list-users -f "Administrator"
 '''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',

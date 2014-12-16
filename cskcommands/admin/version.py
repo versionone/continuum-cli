@@ -22,7 +22,7 @@ class Version(cskcommands.cmd.CSKCommand):
     Description = 'Displays the Version by request from the API.'
     API = 'version'
     Examples = '''
-    cato-version
+    csk-version
 '''
     Options = []
 

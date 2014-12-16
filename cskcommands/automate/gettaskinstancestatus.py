@@ -22,7 +22,7 @@ class GetTaskInstanceStatus(cskcommands.cmd.CSKCommand):
     Description = 'Get the status of a Task Instance.'
     API = 'get_task_instance_status'
     Examples = '''
-    cato-get-task-instance-status -i 43668
+    csk-get-task-instance-status -i 43668
 '''
     Options = [Param(name='instance', short_name='i', long_name='instance',
                      optional=False, ptype='string',

@@ -22,7 +22,7 @@ class ResubmitTaskInstance(cskcommands.cmd.CSKCommand):
     Description = 'Resubmit an Errored or Cancelled Task Instance, for another attempt at completion.  Only valid on Instances that ended with Error or were Cancelled.'
     API = 'resubmit_task_instance'
     Examples = '''
-    cato-resubmit-task-instance -i 43667
+    csk-resubmit-task-instance -i 43667
 '''
     Options = [Param(name='instance', short_name='i', long_name='instance',
                      optional=False, ptype='string',

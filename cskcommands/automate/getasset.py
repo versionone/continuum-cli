@@ -22,7 +22,7 @@ class GetAsset(cskcommands.cmd.CSKCommand):
     Description = 'Prints the properties of an Asset'
     API = 'get_asset'
     Examples = '''
-    cato-get-asset -a "database001"
+    csk-get-asset -a "database001"
 '''
     Options = [Param(name='asset', short_name='a', long_name='asset',
                      optional=False, ptype='string',

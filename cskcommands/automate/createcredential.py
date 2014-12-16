@@ -22,7 +22,7 @@ class CreateCredential(cskcommands.cmd.CSKCommand):
     Description = 'Creates a new set of Shared Credentials that can be used to log into other systems.'
     API = 'create_credential'
     Examples = '''
-    cato-create-credential -n "adminuser" -d "Administrator User" -u "root" -p "passw0rd"
+    csk-create-credential -n "adminuser" -d "Administrator User" -u "root" -p "passw0rd"
 '''
     Options = [Param(name='name', short_name='n', long_name='name',
                      optional=False, ptype='string',

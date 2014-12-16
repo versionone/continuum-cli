@@ -24,15 +24,15 @@ class GetTaskParameters(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To get the parameters of the default version of a task and redirect to a file_
 
-    cato-get-task-parameters -t "mytask01" > mytask01_params.json
+    csk-get-task-parameters -t "mytask01" > mytask01_params.json
 
 _To get the parameters of a specific version of a task_
 
-    cato-get-task-parameters -t "new example" -v "2.000"
+    csk-get-task-parameters -t "new example" -v "2.000"
 
 _To get the most basic parameter template of a task, minus descriptions and defaults_
 
-    cato-get-task-parameters -t "new example" -b
+    csk-get-task-parameters -t "new example" -b
 '''
     Options = [Param(name='task', short_name='t', long_name='task',
                      optional=False, ptype='string',

@@ -22,7 +22,7 @@ class DeleteTag(cskcommands.cmd.CSKCommand):
     Description = 'Deletes a Tag.'
     API = 'delete_tag'
     Examples = '''
-    cato-delete-tag -n "staging01"
+    csk-delete-tag -n "staging01"
 '''
     Options = [Param(name='name', short_name='n', long_name='name',
                      optional=False, ptype='string',

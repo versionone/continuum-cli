@@ -24,7 +24,7 @@ class UpdateCloud(cskcommands.cmd.CSKCommand):
     Examples = '''
 _Update the address of a vCloud cloud endpoint_
 
-    cato-update-cloud -n "vcloud-test" -u "iad2.vcloudservice.vmware.com"
+    csk-update-cloud -n "vcloud-test" -u "iad2.vcloudservice.vmware.com"
 '''
     Options = [Param(name='name', short_name='n', long_name='name',
                      optional=False, ptype='string',

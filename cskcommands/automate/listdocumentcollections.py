@@ -27,11 +27,11 @@ class ListDocumentCollections(cskcommands.cmd.CSKCommand):
     Examples = '''
 _List all datastore collections_
 
-    cato-list-document-collections
+    csk-list-document-collections
 
 _List all datastore collections, with workflow in the name_
 
-    cato-list-document-collections -f "workflow"
+    csk-list-document-collections -f "workflow"
 '''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',

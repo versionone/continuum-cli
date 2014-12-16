@@ -22,7 +22,7 @@ class DeletePlan(cskcommands.cmd.CSKCommand):
     Description = 'Deletes a specific queued execution plan for a scheduled task.'
     API = 'delete_plan'
     Examples = '''
-    cato-delete-plan -p 55
+    csk-delete-plan -p 55
 '''
     Options = [Param(name='plan_id', short_name='p', long_name='plan_id',
                      optional=False, ptype='string',

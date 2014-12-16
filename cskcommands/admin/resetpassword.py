@@ -24,11 +24,11 @@ class ResetPassword(cskcommands.cmd.CSKCommand):
     Examples = '''
 _Reset a User's password to a random password which will be emailed to the user_
 
-    cato-reset-password -u "username1" bob -g
+    csk-reset-password -u "username1" bob -g
 
 _Reset a User's password to a specified password_
 
-    cato-reset-password -u "username1" -p "passw0rd"
+    csk-reset-password -u "username1" -p "passw0rd"
 '''
     Options = [Param(name='password', short_name='p', long_name='password',
                      optional=True, ptype='string',

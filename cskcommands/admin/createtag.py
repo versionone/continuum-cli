@@ -22,7 +22,7 @@ class CreateTag(cskcommands.cmd.CSKCommand):
     Description = 'Creates a new Tag to be used to associate objects with one another.'
     API = 'create_tag'
     Examples = '''
-    cato-create-tag -n "staging01" -d "staging environment 1"
+    csk-create-tag -n "staging01" -d "staging environment 1"
 '''
     Options = [Param(name='name', short_name='n', long_name='name',
                      optional=False, ptype='string',

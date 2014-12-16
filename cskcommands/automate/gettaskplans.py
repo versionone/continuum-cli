@@ -24,11 +24,11 @@ class GetTaskPlans(cskcommands.cmd.CSKCommand):
     Examples = '''
 _Get all scheduled execution plans for a particular task_
 
-    cato-get-task-plans -t "mytask01"
+    csk-get-task-plans -t "mytask01"
 
 _Get all scheduled execution plans for a specific verions of a task_
 
-    cato-get-task-plans -t "mytask01" -v "2.000"
+    csk-get-task-plans -t "mytask01" -v "2.000"
 '''
     Options = [Param(name='task', short_name='t', long_name='task',
                      optional=False, ptype='string',

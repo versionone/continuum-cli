@@ -22,7 +22,7 @@ class DeleteSchedule(cskcommands.cmd.CSKCommand):
     Description = 'Deletes a Task Schedule and all queued execution plans.'
     API = 'delete_schedule'
     Examples = '''
-    cato-delete-schedule -s "157545d8-7df9-11e3-ab87-da5f4e6a2990"
+    csk-delete-schedule -s "157545d8-7df9-11e3-ab87-da5f4e6a2990"
 '''
     Options = [Param(name='schedule_id', short_name='s', long_name='schedule_id',
                      optional=False, ptype='string',

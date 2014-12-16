@@ -22,7 +22,7 @@ class DeleteAsset(cskcommands.cmd.CSKCommand):
     Description = 'Deletes an asset.'
     API = 'delete_asset'
     Examples = '''
-    cato-delete-asset -a "testdb"
+    csk-delete-asset -a "testdb"
 '''
     Options = [Param(name='asset', short_name='a', long_name='asset',
                      optional=False, ptype='string',

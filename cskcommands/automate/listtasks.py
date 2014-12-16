@@ -24,11 +24,11 @@ class ListTasks(cskcommands.cmd.CSKCommand):
     Examples = '''
 _List all tasks_
 
-    cato-list-tasks
+    csk-list-tasks
 
 _List all tasks with a particular string in the name, all versions_
 
-    cato-list-tasks -f "Test Logging Level" -v
+    csk-list-tasks -f "Test Logging Level" -v
 '''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                     optional=True, ptype='string',

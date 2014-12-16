@@ -27,11 +27,11 @@ class CreateDocument(cskcommands.cmd.CSKCommand):
     Examples = r'''
 _Single quotes wrapping the json document, double inside_
 
-    cato-create-document -c "inventory" -t '{ "type": "book", "item": "notebook", "qty": 40 }'
+    csk-create-document -c "inventory" -t '{ "type": "book", "item": "notebook", "qty": 40 }'
 
 _Double quotes wrapping the json document, double quotes escaped inside_
 
-    cato-create-document -c "inventory" -t "{ \"type\": \"book\", \"item\": \"notebook\", \"qty\": 40 }"
+    csk-create-document -c "inventory" -t "{ \"type\": \"book\", \"item\": \"notebook\", \"qty\": 40 }"
 '''
     Options = [Param(name='collection', short_name='c', long_name='collection',
                      optional=True, ptype='string',

@@ -22,7 +22,7 @@ class GetCloudAccount(cskcommands.cmd.CSKCommand):
     Description = 'Prints the properties of a Cloud Account'
     API = 'get_account'
     Examples = '''
-    cato-get-cloud-account -n "vclouddev"
+    csk-get-cloud-account -n "vclouddev"
 '''
     Options = [Param(name='name', short_name='n', long_name='name',
                      optional=False, ptype='string',

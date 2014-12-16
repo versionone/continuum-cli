@@ -22,7 +22,7 @@ class CreateCloudAccount(cskcommands.cmd.CSKCommand):
     Description = 'Creates new Cloud Account credentials used to access a cloud endpoint.'
     API = 'create_account'
     Examples = '''
-    cato-create-cloud-account -name "vcloudtest" -v "vCloud" -l "tom.thumb@example.com" -p "passw0rd" -d "vcloud-test"
+    csk-create-cloud-account -name "vcloudtest" -v "vCloud" -l "tom.thumb@example.com" -p "passw0rd" -d "vcloud-test"
 '''
     Options = [Param(name='provider', short_name='v', long_name='provider',
                      optional=False, ptype='string',

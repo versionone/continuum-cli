@@ -28,11 +28,11 @@ This command accepts a JSON object representing the settings for a module.
     Examples = '''
 _To change the SMTPServerAddress of the Messenger_
     
-    cato-update-settings -m Messenger -s '{"SMTPServerAddress":"smtp.gmail.com"}'
+    csk-update-settings -m Messenger -s '{"SMTPServerAddress":"smtp.gmail.com"}'
     
 _To update all settings for a particular module using a json formatted settings file__
     
-    cato-update-settings -m Messenger -f /tmp/messenger_settings.json
+    csk-update-settings -m Messenger -f /tmp/messenger_settings.json
 '''
     Options = [Param(name='module', short_name='m', long_name='module',
                      optional=False, ptype='string',

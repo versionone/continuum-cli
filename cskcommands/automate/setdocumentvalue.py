@@ -25,7 +25,7 @@ class SetDocumentValue(cskcommands.cmd.CSKCommand):
     Description = 'Sets the value for a given key in a document in the MongoDB datastore.'
     API = 'set_document_value'
     Examples = '''
-    cato-set-document-value -c "workflow_stages" -q '{"stage" : "stage 1"}' -k "status" -v "running"
+    csk-set-document-value -c "workflow_stages" -q '{"stage" : "stage 1"}' -k "status" -v "running"
 '''
     Options = [Param(name='query', short_name='q', long_name='query',
                      optional=False, ptype='string',
