@@ -27,7 +27,7 @@ class CopyApplicationTemplate(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To copy an application template to a new version, same name_
 
-    maestro-copy-application-template -t "MyApp" -v "1" -n "MyApp" -r "2"
+    csk-copy-application-template -t "MyApp" -v "1" -n "MyApp" -r "2"
 '''
     Options = [Param(name='template', short_name='t', long_name='template',
                      optional=False, ptype='string',

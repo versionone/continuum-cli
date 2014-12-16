@@ -27,11 +27,11 @@ class ExportDeployment(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To export a json representation of a deloyed application to a file_
 
-    maestro-export-deployment -d "MyApp20" > myapp.json 
+    csk-export-deployment -d "MyApp20" > myapp.json 
 
 _To create a new application template from a deployed application and immediately make it available in the app store_
 
-    maestro-export-deployment -d "MyApp20" -v "3" -a
+    csk-export-deployment -d "MyApp20" -v "3" -a
 '''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',

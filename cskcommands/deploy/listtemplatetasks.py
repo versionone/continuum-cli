@@ -27,7 +27,7 @@ class ListTemplateTasks(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To list all tasks associated with an application template and version_
 
-    maestro-list-application-template-tasks -t "Sample Application" -v 5 
+    csk-list-application-template-tasks -t "Sample Application" -v 5 
 '''
     Options = [Param(name='template', short_name='t', long_name='template',
                      optional=False, ptype='string',

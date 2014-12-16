@@ -27,15 +27,15 @@ class GetDeploymentServices(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To get all service names on a deployment_
 
-    maestro-get-deployment-services  -d "Spring Petclinic 11"
+    csk-get-deployment-services  -d "Spring Petclinic 11"
 
 _To get all service names on a deployment with Balancer in the service name_
 
-    maestro-get-deployment-services  -d "Spring Petclinic 11" -f "Balancer"
+    csk-get-deployment-services  -d "Spring Petclinic 11" -f "Balancer"
 
 _To get all service names on a deployment associated with a particular host_
 
-    maestro-get-deployment-services  -d "Spring Petclinic 11" -h "i-a653e588"
+    csk-get-deployment-services  -d "Spring Petclinic 11" -h "i-a653e588"
 '''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',

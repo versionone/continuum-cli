@@ -27,15 +27,15 @@ class GetApplicationTemplate(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To get the high level properties of an application template_
 
-    maestro-get-application-template -t "Spring Petclinic" -v 1
+    csk-get-application-template -t "Spring Petclinic" -v 1
 
 _To get the json formatted definition for the application template and redirect to a file_
 
-    maestro-get-application-template -t "Spring Petclinic" -v 1 -d > petclinic.json
+    csk-get-application-template -t "Spring Petclinic" -v 1 -d > petclinic.json
 
 _To get retrieve a base64 encoded icon file for an application template and decode it_
 
-    maestro-get-application-template -t "Spring Petclinic" -v 1 -i | base64 --decode > petclinic.png
+    csk-get-application-template -t "Spring Petclinic" -v 1 -i | base64 --decode > petclinic.png
 
 
 

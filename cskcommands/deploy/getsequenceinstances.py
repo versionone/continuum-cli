@@ -27,19 +27,19 @@ class GetSequenceInstances(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To get all past and present sequence instances for a given deployment_
 
-    maestro-get-sequence-instances -d "MyApp20"
+    csk-get-sequence-instances -d "MyApp20"
 
 _To get only completed sequence instances_
 
-    maestro-get-sequence-instances -d "MyApp20" -s "completed"
+    csk-get-sequence-instances -d "MyApp20" -s "completed"
 
 _To get all sequence instances for a particular sequence name_
 
-    maestro-get-sequence-instances -d "MyApp20" -f "Start"
+    csk-get-sequence-instances -d "MyApp20" -f "Start"
 
 _To get any sequence instance between two dates_
 
-    maestro-get-sequence-instances -d "MyApp20" --from "1/16/14" --to "0/17/14"
+    csk-get-sequence-instances -d "MyApp20" --from "1/16/14" --to "0/17/14"
 '''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',

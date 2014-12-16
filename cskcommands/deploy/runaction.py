@@ -27,11 +27,11 @@ class RunAction(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To run an action on a service instance without parameters, no confirmation prompt_
 
-    maestro-run-action -d "MyApp20" -a "Trim Logfiles" -v "Weblogic" -i "Weblogic 1" --force
+    csk-run-action -d "MyApp20" -a "Trim Logfiles" -v "Weblogic" -i "Weblogic 1" --force
 
 _To run an action on a service instance with a parameters file, no confirmation prompt_
 
-    maestro-run-action -d "MyApp20" -a "Trim Logfiles" -v "Weblogic" -i "Weblogic 1" -p "trimlog.json" --force
+    csk-run-action -d "MyApp20" -a "Trim Logfiles" -v "Weblogic" -i "Weblogic 1" -p "trimlog.json" --force
 
 '''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',

@@ -25,7 +25,7 @@ class GetDeployment(cskcommands.cmd.CSKCommand):
     Description = 'Prints the high level properties of a deployment such as state and health'
     API = 'get_deployment'
     Examples = '''
-    maestro-get-deployment -d "MyApp20"
+    csk-get-deployment -d "MyApp20"
 '''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',

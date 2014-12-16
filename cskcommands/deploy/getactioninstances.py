@@ -27,31 +27,31 @@ class GetActionInstances(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To get all action instances for a given deployment_
 
-    maestro-get-action-instances -d "MyApp10"
+    csk-get-action-instances -d "MyApp10"
 
 _To get all action instances for a given service on a deployment_
 
-    maestro-get-action-instances -d "MyApp10" -v "Service A"
+    csk-get-action-instances -d "MyApp10" -v "Service A"
 
 _To get all action instances for a given service instance on a deployment_
 
-    maestro-get-action-instances -d "MyApp10" -i "Service A 1"
+    csk-get-action-instances -d "MyApp10" -i "Service A 1"
 
 _To get all action instances for a specific action on a deployment_
 
-    maestro-get-action-instances -d "MyApp10" -a "Clean Logfiles"
+    csk-get-action-instances -d "MyApp10" -a "Clean Logfiles"
 
 _To get all action instances that are Submitted or Processing on a deployment_
 
-    maestro-get-action-instances -d "MyApp10" -s "Submitted,Processing"
+    csk-get-action-instances -d "MyApp10" -s "Submitted,Processing"
 
 _To get all action instances on a deployment between two dates_
 
-    maestro-get-action-instances -d "MyApp10" --from "1/12/2014" --to "1/19/2014"
+    csk-get-action-instances -d "MyApp10" --from "1/12/2014" --to "1/19/2014"
 
 _To get all action instances for a given deployment, limited to 10 records_
 
-    maestro-get-action-instances -d "MyApp10 -r 10"
+    csk-get-action-instances -d "MyApp10 -r 10"
 '''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',

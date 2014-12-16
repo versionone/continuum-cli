@@ -27,7 +27,7 @@ class GetServiceInstanceDocument(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To get the datastore document for a service instance and output to a file_
 
-    maestro-get-instance-document -d "MyApp20" -i "Weblogic 3" > weblogic3.json
+    csk-get-instance-document -d "MyApp20" -i "Weblogic 3" > weblogic3.json
 '''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',

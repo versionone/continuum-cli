@@ -27,11 +27,11 @@ class DeployApplication(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To create the deployment from an application template and give it a specific name_
 
-    maestro-deploy-application -t "MyApp" -v "1" -n "Test Actions Dev 12"
+    csk-deploy-application -t "MyApp" -v "1" -n "Test Actions Dev 12"
 
 _To create the deployment from an application template accept the default name, with description_
 
-    maestro-deploy-application -t "MyApp" -v "1" -d "My Application"
+    csk-deploy-application -t "MyApp" -v "1" -d "My Application"
 '''
     Options = [Param(name='template', short_name='t', long_name='template',
                      optional=False, ptype='string',

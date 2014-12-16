@@ -27,7 +27,7 @@ class DeleteDeployment(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To delete a deployment without confirmation prompt_
 
-    maestro-delete-deployment -d "Test 66" --force
+    csk-delete-deployment -d "Test 66" --force
 '''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',

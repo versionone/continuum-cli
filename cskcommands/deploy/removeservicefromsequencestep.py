@@ -25,7 +25,7 @@ class RemoveServiceFromSequenceStep(cskcommands.cmd.CSKCommand):
     Description = 'Removes a Service from a Deployment Sequence Step on a deployed application.'
     API = 'remove_service_from_sequence_step'
     Examples = '''
-    maestro-remove-service-from-sequence-step -d "MyApp" -s "Terminate" -t 1 -v "Database"
+    csk-remove-service-from-sequence-step -d "MyApp" -s "Terminate" -t 1 -v "Database"
 '''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',

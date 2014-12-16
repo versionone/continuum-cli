@@ -27,7 +27,7 @@ class GetSequenceParameters(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To get the json formatted parameters for a particular sequence and redirect to a file_
 
-    maestro-get-sequence-parameters -d "MyApp20" -s "Start" > myapp_parms.json
+    csk-get-sequence-parameters -d "MyApp20" -s "Start" > myapp_parms.json
 '''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',

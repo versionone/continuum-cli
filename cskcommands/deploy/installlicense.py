@@ -25,7 +25,7 @@ class InstallLicense(cskcommands.cmd.CSKCommand):
     Description = 'Installs or updates the Cloud Sidekick license by importing a license file'
     API = 'install_license'
     Examples = '''
-    maestro-install-license -i "~/maestro_license.lic"
+    csk-install-license -i "~/csk_license.lic"
 '''
     Options = [Param(name='inputfile', short_name='i', long_name='inputfile',
                      optional=False, ptype='string',

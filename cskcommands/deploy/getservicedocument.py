@@ -27,7 +27,7 @@ class GetServiceDocument(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To retieve the datastore document for a service and output it to a file_
 
-    maestro-get-service-document -d "MyApp20" -s "Weblogic" > weblogic.json
+    csk-get-service-document -d "MyApp20" -s "Weblogic" > weblogic.json
 '''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',

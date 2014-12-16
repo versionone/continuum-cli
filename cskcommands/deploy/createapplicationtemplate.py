@@ -34,7 +34,7 @@ If no Template is provided, the Application Template will be created with an emp
     Examples = '''
 _To create an application template from an existing json definition and icon file_
 
-    maestro-create-application-template -n "MyApp" -v "1" -d "MyApp description goes here" -t "myapp.json" -i "myapp.png"
+    csk-create-application-template -n "MyApp" -v "1" -d "MyApp description goes here" -t "myapp.json" -i "myapp.png"
 '''
     Options = [Param(name='name', short_name='n', long_name='name',
                      optional=False, ptype='string',
