@@ -397,10 +397,11 @@ class CSKCommand(object):
         
     def display_error_and_exit(self, exc):
         try:
-            print '%s: %s, %s' % (exc.error_code, exc.error_message, exc.error_detail)
+            print('\n%s: %s, %s\n' % (exc.error_code, exc.error_message, exc.error_detail))
         except:
-            print '%s' % exc
+            print('\n%s\n' % exc)
         finally:
+            self.usage()
             sys.exit(1)
 
     def error_exit(self):
@@ -412,7 +413,7 @@ class CSKCommand(object):
                 return "URL not provided."
 
             if self.debug:
-                print "Trying an HTTP GET to %s" % url
+                print("Trying an HTTP GET to %s" % url)
 
             # for now, just use the url directly
             u = urlparse(url)
