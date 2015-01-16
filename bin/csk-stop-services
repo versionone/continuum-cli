@@ -30,7 +30,7 @@ if __name__ == '__main__':
     if len(sys.argv) > 1:
         # if there's an argument, simply switch on it.  It'll only be asking for the api or dumpdoc.
         if sys.argv[1] == "--dumpdoc" or sys.argv[1] == "-H":
-            print """Stop ALL Cloud Sidekick services.  Accepts no arguments."""
+            print """Stop ALL ClearCode services.  Accepts no arguments."""
             exit()
         else:
             exit()

@@ -1,8 +1,8 @@
-# Cloud Sidekick - Client Tools
+# ClearCode - Client Tools
 
 ## Description
 
-Cloud Sidekick Client is a command line toolset for accessing the Cloud Sidekick  
+ClearCode Client is a command line toolset for accessing the ClearCode  
 REST API. It also provides a Python SDK for programmatically 
 interacting with the web service.
 
@@ -48,4 +48,4 @@ https://github.com/cloudsidekick/client/issues
 
 ## Documentation
 
-Visit the [Cloud Sidekick Documentation](http://docs.cloudsidekick.com/docs/velocity/restapi/client.html) for more information.
+Visit the [ClearCode Documentation](http://docs.cloudsidekick.com/docs/velocity/restapi/client.html) for more information.

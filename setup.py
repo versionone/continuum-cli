@@ -24,10 +24,10 @@ for f in os.listdir("bin"):
 setuptools.setup(
     name='cskclient',
     version='1.35',
-    description='Cloud Sidekick Client Tools',
+    description='ClearCode Client Tools',
     license='Apache License (2.0)',
     author='Patrick Dunnigan',
-    author_email='patrick.dunnigan@cloudsidekick.com',
+    author_email='patrick.dunnigan@clearcodelabs.com',
     url='https://github.com/cloudsidekick/client',
     packages=setuptools.find_packages(exclude=['bin']),
     include_package_data=True,

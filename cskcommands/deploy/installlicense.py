@@ -6,14 +6,14 @@
 #  All Rights Reserved.
 # 
 # NOTICE:  All information contained herein is, and remains
-# the property of Cloud Sidekick and its suppliers,
+# the property of ClearCode Labs and its suppliers,
 # if any.  The intellectual and technical concepts contained
-# herein are proprietary to Cloud Sidekick
+# herein are proprietary to ClearCode Labs
 # and its suppliers and may be covered by U.S. and Foreign Patents,
 # patents in process, and are protected by trade secret or copyright law.
 # Dissemination of this information or reproduction of this material
 # is strictly forbidden unless prior written permission is obtained
-# from Cloud Sidekick.
+# from ClearCode Labs.
 #
 #########################################################################
 
@@ -22,7 +22,7 @@ from cskcommands.param import Param
 
 class InstallLicense(cskcommands.cmd.CSKCommand):
 
-    Description = 'Installs or updates the Cloud Sidekick license by importing a license file'
+    Description = 'Installs or updates the ClearCode license by importing a license file'
     API = 'install_license'
     Examples = '''
     csk-install-license -i "~/csk_license.lic"

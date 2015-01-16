@@ -1,4 +1,4 @@
-# Cloud Sidekick Client Tools
+# ClearCode Client Tools
 
 ## Examples
 
