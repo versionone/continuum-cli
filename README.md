@@ -48,4 +48,4 @@ https://github.com/cloudsidekick/client/issues
 
 ## Documentation
 
-Visit the [ClearCode Documentation](http://docs.cloudsidekick.com/docs/velocity/restapi/client.html) for more information.
+Visit the [ClearCode Documentation](http://docs.clearcodelabs.com/docs/velocity/restapi/client.html) for more information.
