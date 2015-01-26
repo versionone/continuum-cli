@@ -19,7 +19,7 @@ Returns success or failure."""
 
     API = 'delete_pipelineinstance'
     Examples = ''''''
-    Options = [Param(name='rc', short_name='r', long_name='rc',
+    Options = [Param(name='pi', short_name='i', long_name='pi',
                      optional=False, ptype='string',
                      doc='Name or ID of a Pipeline Instance.')
                ]
@@ -35,5 +35,5 @@ Returns success or failure."""
                     go = True
 
         if go:
-            results = self.call_api(self.API, ['rc'])
+            results = self.call_api(self.API, ['pi'])
             print(results)

@@ -21,7 +21,7 @@ Returns success or failure."""
 
     API = 'delete_pipelinegroup'
     Examples = ''''''
-    Options = [Param(name='pig_id', short_name='i', long_name='pig_id',
+    Options = [Param(name='pg', short_name='i', long_name='pg',
                      optional=False, ptype='string',
                      doc='ID of a Pipeline Instance Group.')
                ]
@@ -37,5 +37,5 @@ Returns success or failure."""
                     go = True
 
         if go:
-            results = self.call_api(self.API, ['pi'])
+            results = self.call_api(self.API, ['pg'])
             print(results)
