@@ -16,9 +16,9 @@ class GetPipelineInstance(cskcommands.cmd.CSKCommand):
     Description = 'Gets a Pipeline Instance object.'
     API = 'get_pipelineinstance'
     Examples = '''
-    csk-get-pipelineinstance -r "Pipeline Instance Name or ID"
+    csk-get-pipelineinstance -i "Pipeline Instance Name or ID"
 '''
-    Options = [Param(name='rc', short_name='r', long_name='rc',
+    Options = [Param(name='pi', short_name='i', long_name='pi',
                      optional=False, ptype='string',
                      doc='Value can be either a Pipeline Instance ID or Name.'),
                Param(name='include_stages', short_name='s', long_name='include_stages',
@@ -26,5 +26,5 @@ class GetPipelineInstance(cskcommands.cmd.CSKCommand):
                      doc='If provided, include the Stages, Steps and Plugins - the whole enchilada.')]
 
     def main(self):
-        results = self.call_api(self.API, ['rc', 'include_stages'])
+        results = self.call_api(self.API, ['pi', 'include_stages'])
         print(results)
