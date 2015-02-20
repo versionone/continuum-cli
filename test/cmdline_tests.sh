@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# this script should be run from the CSK_HOME/cato directory, not from the test directory
+# this script should be run from the CCL_HOME/cato directory, not from the test directory
 
 #set -e
 

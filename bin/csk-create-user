@@ -8,8 +8,8 @@
 
 import os
 import sys
-if "CSK_HOME" in os.environ:
-    sys.path.append(os.path.join(os.environ["CSK_HOME"], "common", "lib"))
+if "CCL_HOME" in os.environ:
+    sys.path.append(os.path.join(os.environ["CCL_HOME"], "common", "lib"))
 import cskcommands.admin.createuser
 
 if __name__ == '__main__':
