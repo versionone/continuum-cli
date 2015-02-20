@@ -18,7 +18,7 @@ _To add a private key to the us-east-1 cloud endpoint_
 
 _To add a private key with a passphrase to the cloud endpoint_
 
-    csk-add-cloud-keypair -c "us-east-1" -n "privatekey01" -k ~/.ssh/csk_www.pem -p "passw0rd"
+    csk-add-cloud-keypair -c "us-east-1" -n "privatekey01" -k ~/privatekey01.pem -p "passw0rd"
 """
     Options = [Param(name='cloud', short_name='c', long_name='cloud',
                      optional=False, ptype='string',
