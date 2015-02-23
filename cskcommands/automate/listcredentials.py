@@ -14,11 +14,11 @@ class ListCredentials(cskcommands.cmd.CSKCommand):
     Examples = '''
 _List all shared credentials_
 
-    csk-list-credentials
+    ccl-list-credentials
 
 _List all shared credentials with root in the name or description_
 
-    csk-list-credentials -f "root"
+    ccl-list-credentials -f "root"
 '''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',

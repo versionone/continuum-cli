@@ -16,7 +16,7 @@ class DeletePipeline(cskcommands.cmd.CSKCommand):
     Description = 'Delete a Pipeline Definition.'
     API = 'delete_pipeline'
     Examples = '''
-    csk-delete-pipeline -p "PipelineName"
+    ccl-delete-pipeline -p "PipelineName"
 '''
     Options = [Param(name='pipeline', short_name='p', long_name='pipeline',
                      optional=False, ptype='string',

@@ -14,11 +14,11 @@ class ListMethods(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To print a full listing of all api commands with documentation_
 
-    csk-list-methods
+    ccl-list-methods
 
 _To print only the names with the api commands sorted_
 
-    csk-list-methods -l
+    ccl-list-methods -l
 '''
     Options = [Param(name='listonly', short_name='l', long_name='listonly',
                      optional=True, ptype='boolean',

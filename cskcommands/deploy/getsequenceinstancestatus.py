@@ -17,7 +17,7 @@ class GetSequenceInstanceStatus(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To get the status of a particular sequence instance_
 
-    csk-get-sequence-instance-status -i 501
+    ccl-get-sequence-instance-status -i 501
 '''
     Options = [Param(name='instance', short_name='i', long_name='instance',
                      optional=False, ptype='string',

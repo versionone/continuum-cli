@@ -17,11 +17,11 @@ class GetServiceInstances(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To list all service instances for a deployment_
 
-    csk-get-service-instances -d "MyApp20"
+    ccl-get-service-instances -d "MyApp20"
 
 _To list all service instances for a service on a deployment_
 
-    csk-get-service-instances -d "MyApp20" -s "Weblogic
+    ccl-get-service-instances -d "MyApp20" -s "Weblogic
 '''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',

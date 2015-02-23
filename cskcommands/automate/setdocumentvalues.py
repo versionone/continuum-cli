@@ -15,7 +15,7 @@ class SetDocumentValues(cskcommands.cmd.CSKCommand):
     Description = 'Sets the value for set of provided keys in a document in the MongoDB datastore.'
     API = 'set_document_values'
     Examples = '''
-    csk-set-document-values -c "workflow_stages" -q '{"stage" : "stage 1"}' -u '{"status" : "running", "foo.bar" : "baz"}'
+    ccl-set-document-values -c "workflow_stages" -q '{"stage" : "stage 1"}' -u '{"status" : "running", "foo.bar" : "baz"}'
 '''
     Options = [Param(name='query', short_name='q', long_name='query',
                      optional=False, ptype='string',

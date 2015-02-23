@@ -18,7 +18,7 @@ class ListPhases(cskcommands.cmd.CSKCommand):
     Examples = '''
 _List all Phases
 
-    csk-list-phases
+    ccl-list-phases
 '''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',

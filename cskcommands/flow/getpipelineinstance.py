@@ -16,7 +16,7 @@ class GetPipelineInstance(cskcommands.cmd.CSKCommand):
     Description = 'Gets a Pipeline Instance object.'
     API = 'get_pipelineinstance'
     Examples = '''
-    csk-get-pipelineinstance -i "Pipeline Instance Name or ID"
+    ccl-get-pipelineinstance -i "Pipeline Instance Name or ID"
 '''
     Options = [Param(name='pi', short_name='i', long_name='pi',
                      optional=False, ptype='string',

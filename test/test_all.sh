@@ -3,5 +3,5 @@
 # We can do semi-intelligent manual testing on a number of these commands.
 
 x=`./getrandomname.py asset-`
-result=`csk-create-asset -n$x | grep $x`
+result=`ccl-create-asset -n$x | grep $x`
 echo $result

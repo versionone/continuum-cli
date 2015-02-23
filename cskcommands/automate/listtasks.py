@@ -14,11 +14,11 @@ class ListTasks(cskcommands.cmd.CSKCommand):
     Examples = '''
 _List all tasks_
 
-    csk-list-tasks
+    ccl-list-tasks
 
 _List all tasks with a particular string in the name, all versions_
 
-    csk-list-tasks -f "Test Logging Level" -v
+    ccl-list-tasks -f "Test Logging Level" -v
 '''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                     optional=True, ptype='string',

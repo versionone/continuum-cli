@@ -17,15 +17,15 @@ class RunSequence(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To run a sequence with no parameters_
 
-    csk-run-sequence -d "MyApp20" -s "Start"
+    ccl-run-sequence -d "MyApp20" -s "Start"
 
 _To run a sequence while passing in parameters stored in a file_
 
-    csk-run-sequence -d "MyApp20" -s "Start" -p "./myapp_parms.json"
+    ccl-run-sequence -d "MyApp20" -s "Start" -p "./myapp_parms.json"
 
 _To run a sequence that should halt instead of pause on error, also not prompt to continue_
 
-    csk-run-sequence -d "MyApp20" -s "Start" -e "halt" --force
+    ccl-run-sequence -d "MyApp20" -s "Start" -e "halt" --force
     
 '''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',

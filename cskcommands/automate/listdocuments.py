@@ -17,11 +17,11 @@ class ListDocuments(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To list all documents in a specific collection_
 
-    csk-list-documents -c "workflow_stages"
+    ccl-list-documents -c "workflow_stages"
 
 _To list all documents in a specific collection that have a string match_
 
-    csk-list-documents -c "workflow_stages" -f "stage 1"
+    ccl-list-documents -c "workflow_stages" -f "stage 1"
 '''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',

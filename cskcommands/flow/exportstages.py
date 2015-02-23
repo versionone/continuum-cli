@@ -18,7 +18,7 @@ class ExportStages(cskcommands.cmd.CSKCommand):
     Examples = '''
 _Export all Stages
 
-    csk-export-stages
+    ccl-export-stages
 '''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',

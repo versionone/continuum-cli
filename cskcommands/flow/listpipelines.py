@@ -18,7 +18,7 @@ class ListPipelines(cskcommands.cmd.CSKCommand):
     Examples = '''
 _List all Pipelines_
 
-    csk-list-pipelines
+    ccl-list-pipelines
 '''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',

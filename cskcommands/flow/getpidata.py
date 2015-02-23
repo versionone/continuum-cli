@@ -16,7 +16,7 @@ class GetPIData(cskcommands.cmd.CSKCommand):
     Description = 'Gets a Pipeline Instance Data object.'
     API = 'get_pi_data'
     Examples = '''
-    csk-get-pidata -i "Pipeline Instance Name or ID"
+    ccl-get-pidata -i "Pipeline Instance Name or ID"
 '''
     Options = [Param(name='pi', short_name='i', long_name='pi',
                      optional=False, ptype='string',

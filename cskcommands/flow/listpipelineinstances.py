@@ -18,7 +18,7 @@ class ListPipelineInstances(cskcommands.cmd.CSKCommand):
     Examples = '''
 _List all Pipeline Instances
 
-    csk-list-pipelineinstances
+    ccl-list-pipelineinstances
 '''
     Options = [Param(name='definition', short_name='d', long_name='definition',
                      optional=True, ptype='string',

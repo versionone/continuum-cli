@@ -18,7 +18,7 @@ class ExportPhases(cskcommands.cmd.CSKCommand):
     Examples = '''
 _Export all Phases
 
-    csk-export-phases
+    ccl-export-phases
 '''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',

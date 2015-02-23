@@ -14,11 +14,11 @@ class ListClouds(cskcommands.cmd.CSKCommand):
     Examples = '''
 _List all cloud endpoints_
 
-    csk-list-clouds
+    ccl-list-clouds
 
 _List all vcloud cloud endpoints_
 
-    csk-list-clouds -f "vCloud"
+    ccl-list-clouds -f "vCloud"
 '''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',

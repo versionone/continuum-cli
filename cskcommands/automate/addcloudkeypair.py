@@ -14,11 +14,11 @@ class AddCloudKeypair(cskcommands.cmd.CSKCommand):
     Examples = """
 _To add a private key to the us-east-1 cloud endpoint_ 
 
-    csk-add-cloud-keypair -c "us-east-1" -n "privatekey01" -k ~/privatekey01.pem
+    ccl-add-cloud-keypair -c "us-east-1" -n "privatekey01" -k ~/privatekey01.pem
 
 _To add a private key with a passphrase to the cloud endpoint_
 
-    csk-add-cloud-keypair -c "us-east-1" -n "privatekey01" -k ~/privatekey01.pem -p "passw0rd"
+    ccl-add-cloud-keypair -c "us-east-1" -n "privatekey01" -k ~/privatekey01.pem -p "passw0rd"
 """
     Options = [Param(name='cloud', short_name='c', long_name='cloud',
                      optional=False, ptype='string',

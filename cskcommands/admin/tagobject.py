@@ -14,7 +14,7 @@ class TagObject(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To tag a task using task uuid and the task object type_
     
-    csk-tag-object -t "development" -o "7f17e600-794f-11e3-bb4c-c8bcc89d4845" -y 3
+    ccl-tag-object -t "development" -o "7f17e600-794f-11e3-bb4c-c8bcc89d4845" -y 3
 '''
     Options = [Param(name='tag', short_name='t', long_name='tag',
                      optional=False, ptype='string',

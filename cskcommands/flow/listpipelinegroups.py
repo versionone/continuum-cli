@@ -18,7 +18,7 @@ class ListPipelineGroups(cskcommands.cmd.CSKCommand):
     Examples = '''
 _List all Pipeline Instance Groups
 
-    csk-list-pipelinegroups
+    ccl-list-pipelinegroups
 '''
     Options = [Param(name='pipeline', short_name='p', long_name='pipeline',
                      optional=True, ptype='string',

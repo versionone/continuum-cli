@@ -17,11 +17,11 @@ class GetSequenceParameters(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To get the json formatted parameters for a particular sequence and redirect to a file_
 
-    csk-get-sequence-parameters -d "MyApp20" -s "Start" > myapp_parms.json
+    ccl-get-sequence-parameters -d "MyApp20" -s "Start" > myapp_parms.json
     
     or 
 
-    csk-get-sequence-parameters -t "MyTemplate" -v "1" -s "Start" > myapp_parms.json
+    ccl-get-sequence-parameters -t "MyTemplate" -v "1" -s "Start" > myapp_parms.json
 '''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=True, ptype='string',

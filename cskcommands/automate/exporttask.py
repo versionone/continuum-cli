@@ -14,19 +14,19 @@ class ExportTask(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To export the default version of a task in the default xml format_
 
-    csk-export-task -t "mytask01"
+    ccl-export-task -t "mytask01"
 
 _To export a specific version of a task in json format_
 
-    csk-export-task -t "mytask01" -v "2.000" -F "json"
+    ccl-export-task -t "mytask01" -v "2.000" -F "json"
 
 _To export the default version of a task and redirect to a file_
 
-    csk-export-task -t "mytask01" > mytask01.xml
+    ccl-export-task -t "mytask01" > mytask01.xml
 
 _To export the default version of a task, include all subtask references and put results in a file_
 
-    csk-export-task -t "mytask01" -r -f "~/mytask01.xml"
+    ccl-export-task -t "mytask01" -r -f "~/mytask01.xml"
 '''
     Options = [Param(name='task', short_name='t', long_name='task',
                      optional=False, ptype='string',

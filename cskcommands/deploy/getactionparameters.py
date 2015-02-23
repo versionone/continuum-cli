@@ -14,7 +14,7 @@ class GetActionParameters(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To get a parameters template file for a particular action on a deployment, redirecting to a file_
 
-    csk-get-action-parameters -d "MyApp10" -v "Weblogic" -a "Trim Logfiles" > trim_logfiles.json
+    ccl-get-action-parameters -d "MyApp10" -v "Weblogic" -a "Trim Logfiles" > trim_logfiles.json
 '''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',

@@ -12,7 +12,7 @@ class UpdateUser(cskcommands.cmd.CSKCommand):
     Description = 'Updates a User account.'
     API = 'update_user'
     Examples = '''
-    csk-update-user -u "dave.thomas" -s "disabled"  --force
+    ccl-update-user -u "dave.thomas" -s "disabled"  --force
 '''
     Options = [Param(name='user', short_name='u', long_name='user',
                      optional=False, ptype='string',

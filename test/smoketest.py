@@ -26,5 +26,5 @@ def eval_commands(listcmd):
             
 
 print "Testing commands..."
-eval_commands("csk-list-commands")
+eval_commands("ccl-list-commands")
 print "SUCCESS"

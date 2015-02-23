@@ -14,11 +14,11 @@ class ListAssets(cskcommands.cmd.CSKCommand):
     Examples = '''
 _List all Assets with test in the name_
 
-    csk-list-assets -f "test"
+    ccl-list-assets -f "test"
 
 _List all Assets that are active_
 
-    csk-list-assets -f "Active"
+    ccl-list-assets -f "Active"
 '''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',

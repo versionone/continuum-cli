@@ -14,19 +14,19 @@ class GetSettings(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To get all config settings in text format_
 
-    csk-get-settings
+    ccl-get-settings
 
 _To get all config settings in json format_
 
-    csk-get-settings -F "json"
+    ccl-get-settings -F "json"
 
 _To get the settings only for the messenger module_
 
-    csk-get-settings -m "Messenger"
+    ccl-get-settings -m "Messenger"
 
 _To get a list of the module names available in the settings configurations_
    
-    csk-get-settings |grep -v "^ "|grep -v "^$"
+    ccl-get-settings |grep -v "^ "|grep -v "^$"
 '''
     Options = [Param(name='module', short_name='m', long_name='module',
                      optional=True, ptype='string',

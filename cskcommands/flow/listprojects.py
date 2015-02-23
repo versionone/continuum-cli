@@ -18,7 +18,7 @@ class ListProjects(cskcommands.cmd.CSKCommand):
     Examples = '''
 _List all Projects
 
-    csk-list-projects
+    ccl-list-projects
 '''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',

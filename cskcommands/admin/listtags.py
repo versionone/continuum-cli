@@ -14,11 +14,11 @@ class ListTags(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To print all tags_
 
-    csk-list-tags
+    ccl-list-tags
 
 _To print all tags containing a specific string in the name or description_
 
-    csk-list-tags -f "development"
+    ccl-list-tags -f "development"
 '''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                     optional=True, ptype='string',

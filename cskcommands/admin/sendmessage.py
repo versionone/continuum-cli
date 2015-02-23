@@ -14,11 +14,11 @@ class SendMessage(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To send an email to an email address_
 
-    csk-send-message -t "bob.thomas@example.com" -s "hello world" -m "this is a test message"
+    ccl-send-message -t "bob.thomas@example.com" -s "hello world" -m "this is a test message"
 
 _To send an email to a list of email addresses with a blind copy_
 
-    csk-send-message -t "bob.thomas@example.com,tom.thumb@example.com" -b "hellen.hunt@example.com -s "hello world" -m "this is a test message"
+    ccl-send-message -t "bob.thomas@example.com,tom.thumb@example.com" -b "hellen.hunt@example.com -s "hello world" -m "this is a test message"
 '''
     Options = [Param(name='to', short_name='t', long_name='to',
                      optional=False, ptype='string',

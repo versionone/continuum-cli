@@ -14,11 +14,11 @@ class GetTask(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To print the high level properties of a specific Task version_
 
-    csk-get-task -t "mytask01" -v "2.000"
+    ccl-get-task -t "mytask01" -v "2.000"
 
 _To print the properties and code of the default version of a Task_
 
-    csk-get-task -t "new example" -i
+    ccl-get-task -t "new example" -i
 '''
     Options = [Param(name='task', short_name='t', long_name='task',
                      optional=False, ptype='string',

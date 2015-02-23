@@ -17,15 +17,15 @@ class GetApplicationTemplate(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To get the high level properties of an application template_
 
-    csk-get-application-template -t "Spring Petclinic" -v 1
+    ccl-get-application-template -t "Spring Petclinic" -v 1
 
 _To get the json formatted definition for the application template and redirect to a file_
 
-    csk-get-application-template -t "Spring Petclinic" -v 1 -d > petclinic.json
+    ccl-get-application-template -t "Spring Petclinic" -v 1 -d > petclinic.json
 
 _To get retrieve a base64 encoded icon file for an application template and decode it_
 
-    csk-get-application-template -t "Spring Petclinic" -v 1 -i | base64 --decode > petclinic.png
+    ccl-get-application-template -t "Spring Petclinic" -v 1 -i | base64 --decode > petclinic.png
 
 
 

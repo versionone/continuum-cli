@@ -12,7 +12,7 @@ class StopTask(cskcommands.cmd.CSKCommand):
     Description = 'Cancels a task instance in a runnning status'
     API = 'stop_task'
     Examples = '''
-    csk-stop-task -i 43675
+    ccl-stop-task -i 43675
 '''
     Options = [Param(name='instance', short_name='i', long_name='instance',
                      optional=False, ptype='string',

@@ -12,7 +12,7 @@ class DeleteCloudKeypair(cskcommands.cmd.CSKCommand):
     Description = 'Removes a key pair (ssh private key) from a Cloud endpoint definition.'
     API = 'delete_cloud_keypair'
     Examples = '''
-    csk-delete-cloud-keypair -c "us-east-1" -n "privatekey001"
+    ccl-delete-cloud-keypair -c "us-east-1" -n "privatekey001"
 '''
     Options = [Param(name='cloud', short_name='c', long_name='cloud',
                      optional=False, ptype='string',

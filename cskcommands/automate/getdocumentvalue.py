@@ -17,7 +17,7 @@ class GetDocumentValue(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To get a value from a document based on a specific query_
 
-    csk-get-document-value -c "workflow_stages" -q '{"stage" : "stage 1"}' -k "status"
+    ccl-get-document-value -c "workflow_stages" -q '{"stage" : "stage 1"}' -k "status"
 '''
     Options = [Param(name='query', short_name='q', long_name='query',
                      optional=False, ptype='string',

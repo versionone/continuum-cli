@@ -14,11 +14,11 @@ class GetTaskPlans(cskcommands.cmd.CSKCommand):
     Examples = '''
 _Get all scheduled execution plans for a particular task_
 
-    csk-get-task-plans -t "mytask01"
+    ccl-get-task-plans -t "mytask01"
 
 _Get all scheduled execution plans for a specific verions of a task_
 
-    csk-get-task-plans -t "mytask01" -v "2.000"
+    ccl-get-task-plans -t "mytask01" -v "2.000"
 '''
     Options = [Param(name='task', short_name='t', long_name='task',
                      optional=False, ptype='string',

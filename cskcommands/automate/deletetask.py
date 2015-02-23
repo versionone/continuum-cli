@@ -14,11 +14,11 @@ class DeleteTask(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To delete a task that does not have any runtime history_
 
-    csk-delete-task -t "mytask01"
+    ccl-delete-task -t "mytask01"
 
 _To force a delete of a task that has runtime history_
 
-    csk-delete-task -f "mytask01" -f
+    ccl-delete-task -f "mytask01" -f
 '''
     Options = [Param(name='task', short_name='t', long_name='task',
                      optional=False, ptype='string',

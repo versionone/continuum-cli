@@ -12,7 +12,7 @@ class ListProcesses(cskcommands.cmd.CSKCommand):
     Description = 'Lists server processes (poller, messenger, etc.) along with heartbeat information.'
     API = 'list_processes'
     Examples = '''
-    csk-list-processes
+    ccl-list-processes
 '''
     Options = []
 

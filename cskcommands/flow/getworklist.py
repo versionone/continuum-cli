@@ -16,7 +16,7 @@ class GetWorklist(cskcommands.cmd.CSKCommand):
     Description = 'Gets a list of pending Pipeline Instances.'
     API = 'get_worklist'
     Examples = '''
-    csk-get-worklist -f "key:value"
+    ccl-get-worklist -f "key:value"
 '''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',

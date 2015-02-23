@@ -14,7 +14,7 @@ class ListCloudKeyPairs(cskcommands.cmd.CSKCommand):
     Examples = '''
 _List all keypair names associated with the AWS us-east-1 cloud endpoint_
 
-    csk-list-cloud-keypairs -c "us-east-1"
+    ccl-list-cloud-keypairs -c "us-east-1"
 '''
     Options = [Param(name='cloud', short_name='c', long_name='cloud',
                      optional=False, ptype='string',

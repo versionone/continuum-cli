@@ -12,7 +12,7 @@ class GetTaskInstance(cskcommands.cmd.CSKCommand):
     Description = 'Get the properties of a Task Instance such as status, submitted and completed dates, etc.'
     API = 'get_task_instance'
     Examples = '''
-    csk-get-task-instance -i 43669
+    ccl-get-task-instance -i 43669
 '''
     Options = [Param(name='instance', short_name='i', long_name='instance',
                      optional=False, ptype='string',

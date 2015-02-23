@@ -21,11 +21,11 @@ class DeleteApplicationTemplate(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To delete an application template_
     
-    csk-delete-application-template -t "Test Actions 2" -v "1"
+    ccl-delete-application-template -t "Test Actions 2" -v "1"
 
 _To delete an application template and also delete any referenced tasks_
     
-    csk-delete-application-template -t "Test Actions 2" -v "1" --deletetasks
+    ccl-delete-application-template -t "Test Actions 2" -v "1" --deletetasks
 '''
     Info = '''
 If `--deletetasks` is provided, the command will delete Tasks *directly referenced* by the definition file.

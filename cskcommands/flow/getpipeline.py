@@ -16,7 +16,7 @@ class GetPipeline(cskcommands.cmd.CSKCommand):
     Description = 'Gets a Pipeline Definition.'
     API = 'get_pipeline'
     Examples = '''
-    csk-get-pipeline -p "PipelineName"
+    ccl-get-pipeline -p "PipelineName"
 '''
     Options = [Param(name='pipeline', short_name='p', long_name='pipeline',
                      optional=False, ptype='string',

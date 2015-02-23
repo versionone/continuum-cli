@@ -14,7 +14,7 @@ class ListCloudAccounts(cskcommands.cmd.CSKCommand):
     Examples = '''
 _List all cloud accounts with AWS in the name or cloud type_
 
-    csk-list-cloud-accounts -f "AWS"
+    ccl-list-cloud-accounts -f "AWS"
 '''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',

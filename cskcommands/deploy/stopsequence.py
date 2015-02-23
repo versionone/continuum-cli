@@ -17,7 +17,7 @@ class StopSequence(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To stop a running sequence instance without confirmation prompt_
 
-    csk-stop-sequence -i 514 --force
+    ccl-stop-sequence -i 514 --force
 
 '''
     Options = [Param(name='instance', short_name='i', long_name='instance',

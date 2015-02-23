@@ -17,11 +17,11 @@ class GetDeploymentSequence(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To display the sequence steps in plain text_
 
-    csk-get-deployment-sequence -d "Spring Petclinic 11" -s "Start"
+    ccl-get-deployment-sequence -d "Spring Petclinic 11" -s "Start"
 
 _To display the sequence steps in json format_
 
-    csk-get-deployment-sequence -d "Spring Petclinic 11" -s "Start" -F json
+    ccl-get-deployment-sequence -d "Spring Petclinic 11" -s "Start" -F json
 '''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',

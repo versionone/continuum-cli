@@ -17,23 +17,23 @@ class ListDeployments(cskcommands.cmd.CSKCommand):
     Examples = '''
 _List all non-archived deployments_
 
-    csk-list-deployments
+    ccl-list-deployments
 
 _List all deployments including archived deployments_
 
-    csk-list-deployments -a
+    ccl-list-deployments -a
 
 _Limit results by name_
 
-    csk-list-deployments -f "My App 4"
+    ccl-list-deployments -f "My App 4"
 
 _List only deployments in a particular deployment group_
 
-    csk-list-deployments -g "test"
+    ccl-list-deployments -g "test"
 
 _List deployments created between two dates_
 
-    csk-list-deployments --from "01/16/2014" --to "01/18/2014"
+    ccl-list-deployments --from "01/16/2014" --to "01/18/2014"
 '''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',

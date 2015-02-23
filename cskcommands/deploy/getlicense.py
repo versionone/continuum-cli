@@ -15,7 +15,7 @@ class GetLicense(cskcommands.cmd.CSKCommand):
     Description = 'Prints the license information including expiration date'
     API = 'get_license'
     Examples = '''
-    csk-get-license
+    ccl-get-license
 '''
     Options = []
 

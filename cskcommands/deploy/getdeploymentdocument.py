@@ -17,7 +17,7 @@ class GetDeploymentDocument(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To retrieve the data for a deployment and redirect to a file_
 
-    csk-get-deployment-document -d "Spring Petclinic 11" > petclinic11.json
+    ccl-get-deployment-document -d "Spring Petclinic 11" > petclinic11.json
 '''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',

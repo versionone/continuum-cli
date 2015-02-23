@@ -14,23 +14,23 @@ class GetTaskInstances(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To retrieve the the last 200 task instances_
 
-    csk-get-task-instances
+    ccl-get-task-instances
 
 _To get all Processing and Submitted task instances, max 200_
 
-    csk-get-task-instances -s "Processing,Submitted"
+    ccl-get-task-instances -s "Processing,Submitted"
 
 _To get a set of task instances between two dates_
 
-    csk-get-task-instances --from "01/14/2014" --to "01/16/2014"
+    ccl-get-task-instances --from "01/14/2014" --to "01/16/2014"
 
 _To get the last 1000 task instances, overriding the default max of 200_
 
-    csk-get-task-instances -r 1000
+    ccl-get-task-instances -r 1000
 
 _To get the last 10 task instance for any tasks with a particular string in the name_
 
-    csk-get-task-instances -r 10 -f "mytask01"
+    ccl-get-task-instances -r 10 -f "mytask01"
 '''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',

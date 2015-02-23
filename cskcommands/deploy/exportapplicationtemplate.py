@@ -21,7 +21,7 @@ class ExportApplicationTemplate(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To export an application template to a directory_
 
-    csk-export-application-template -t "MyApp" -v "1" -o "./myapp"
+    ccl-export-application-template -t "MyApp" -v "1" -o "./myapp"
 '''
     Options = [Param(name='template', short_name='t', long_name='template',
                      optional=False, ptype='string',

@@ -15,7 +15,7 @@ class DeleteSequence(cskcommands.cmd.CSKCommand):
     Description = 'Deletes a sequence from a deployed application.'
     API = 'delete_sequence'
     Examples = '''
-    csk-delete-sequence -d "MyApp20" -s "Restore DB from Backup"
+    ccl-delete-sequence -d "MyApp20" -s "Restore DB from Backup"
 '''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',

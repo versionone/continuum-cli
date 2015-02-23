@@ -14,35 +14,35 @@ class RunTask(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To submit a particular task_
 
-    csk-run-task -t "mytask01" 
+    ccl-run-task -t "mytask01" 
 
 _To submit a particular version of a task_
 
-    csk-run-task -t "mytask01" -v "2.000"
+    ccl-run-task -t "mytask01" -v "2.000"
 
 _To submit a task the most verbose logging level_
 
-    csk-run-task -t "mytask01" -l 10
+    ccl-run-task -t "mytask01" -l 10
 
 _To submit a task logging on critical errors only_
 
-    csk-run-task -t "mytask01" -l 50
+    ccl-run-task -t "mytask01" -l 50
 
 _To submit a task with a certain Cloud Account_
 
-    csk-run-task -t "mytask01" -a "vcloudaccount01"
+    ccl-run-task -t "mytask01" -a "vcloudaccount01"
 
 _To submit a task to run one time in the future_
 
-    csk-run-task -t "mytask01" -r "1/16/2014 9:40"
+    ccl-run-task -t "mytask01" -r "1/16/2014 9:40"
 
 _To submit a task with parameters as a json string, notice double quotes inside, single quote outside_
 
-    csk-run-task -t "mytask01" -p '[{"name":"param1","values":["hello"]},{"name":"param2","values":["world"]}]'
+    ccl-run-task -t "mytask01" -p '[{"name":"param1","values":["hello"]},{"name":"param2","values":["world"]}]'
 
 _To submit a task with parameters in a json file_
 
-    csk-run-task -t "mytask01" -p "~/mytask01_params.json"
+    ccl-run-task -t "mytask01" -p "~/mytask01_params.json"
 
 '''
     Options = [Param(name='task', short_name='t', long_name='task',

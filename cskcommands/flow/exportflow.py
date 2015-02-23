@@ -18,7 +18,7 @@ class ExportFlow(cskcommands.cmd.CSKCommand):
     Examples = '''
 _Export everything.
 
-    csk-export-flow
+    ccl-export-flow
 '''
     Options = []
 

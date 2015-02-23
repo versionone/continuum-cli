@@ -18,7 +18,7 @@ class GetDocument(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To get the json document from a collection based on a specific query_
 
-    csk-get-document -c "workflow_stages" -q '{"stage" : "stage 1"}'
+    ccl-get-document -c "workflow_stages" -q '{"stage" : "stage 1"}'
 '''
     Options = [Param(name='query', short_name='q', long_name='query',
                      optional=False, ptype='string',

@@ -17,7 +17,7 @@ class GetSequenceInstance(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To get the properties, status of a sequence instance_
 
-   csk-get-sequence-instance -i 501 
+   ccl-get-sequence-instance -i 501 
 '''
     Options = [Param(name='instance', short_name='i', long_name='instance',
                      optional=False, ptype='string',

@@ -17,7 +17,7 @@ class RemoveServiceInstance(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To delete a service instance from a deployment without confirmation prompt_
 
-    csk-remove-service-instance -d "MyApp20" -i "Weblogic 2" --force
+    ccl-remove-service-instance -d "MyApp20" -i "Weblogic 2" --force
 '''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',

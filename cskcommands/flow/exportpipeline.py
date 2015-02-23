@@ -17,7 +17,7 @@ class ExportPipeline(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To export a Pipeline backup file._
 
-    csk-export-pipeline -p "MyPipeline" > mypipeline.json 
+    ccl-export-pipeline -p "MyPipeline" > mypipeline.json 
 '''
     Options = [Param(name='pipeline', short_name='p', long_name='pipeline',
                      optional=False, ptype='string',

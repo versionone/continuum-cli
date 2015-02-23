@@ -16,7 +16,7 @@ class DeleteProject(cskcommands.cmd.CSKCommand):
     Description = 'Delete a Project object.'
     API = 'delete_project'
     Examples = '''
-    csk-delete-project -p "ProjectName"
+    ccl-delete-project -p "ProjectName"
 '''
     Options = [Param(name='project', short_name='p', long_name='project',
                      optional=False, ptype='string',

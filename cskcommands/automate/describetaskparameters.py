@@ -14,11 +14,11 @@ class DescribeTaskParameters(cskcommands.cmd.CSKCommand):
     Examples = '''
 _Print the parameters of the default version of a task_
 
-    csk-describe-task-parameters -t "mytask01"
+    ccl-describe-task-parameters -t "mytask01"
 
 _Print the parameters of a specific version of a task_
 
-    csk-describe-task-parameters -t "new example" -v "2.000"
+    ccl-describe-task-parameters -t "new example" -v "2.000"
 '''
     Options = [Param(name='task', short_name='t', long_name='task',
                      optional=False, ptype='string',

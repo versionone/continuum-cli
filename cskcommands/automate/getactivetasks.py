@@ -14,19 +14,19 @@ class GetActiveTasks(cskcommands.cmd.CSKCommand):
     Examples = '''
 _Get all active task instances_
 
-    csk-get-active-tasks
+    ccl-get-active-tasks
 
 _Get all active task instances that have a status of Processing_
 
-    csk-get-active-tasks -f "Processing"
+    ccl-get-active-tasks -f "Processing"
 
 _Get all active task instance with a particular string in the name_
 
-    csk-get-active-tasks -f "mytask01"
+    ccl-get-active-tasks -f "mytask01"
 
 _Limit the number of task instances returned_
 
-    csk-get-active-tasks -r 10
+    ccl-get-active-tasks -r 10
 '''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',

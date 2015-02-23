@@ -25,6 +25,6 @@ if __name__ == '__main__':
             
     ccdir = os.path.dirname(os.path.realpath(__file__))
     os.chdir(ccdir)
-    for fname in sorted(glob.glob("csk-*")):
+    for fname in sorted(glob.glob("ccl-*")):
         print fname
         

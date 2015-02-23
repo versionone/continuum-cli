@@ -13,7 +13,7 @@ class InstallLicense(cskcommands.cmd.CSKCommand):
     Description = 'Installs or updates the ClearCode license by importing a license file'
     API = 'install_license'
     Examples = '''
-    csk-install-license -i "~/csk_license.lic"
+    ccl-install-license -i "~/csk_license.lic"
 '''
     Options = [Param(name='inputfile', short_name='i', long_name='inputfile',
                      optional=False, ptype='string',

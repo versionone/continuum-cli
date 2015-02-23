@@ -14,15 +14,15 @@ class GetSystemLog(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To get the last 100 denied login attempts_
 
-    csk-get-system-log -l "Security" -a "UserLoginAttempt"
+    ccl-get-system-log -l "Security" -a "UserLoginAttempt"
 
 _To get any log entries attributed to the administrator user between two dates_
 
-    csk-get-system-log -u "administrator" -l "Object" --from "1/6/2014" --to "1/7/2014"
+    ccl-get-system-log -u "administrator" -l "Object" --from "1/6/2014" --to "1/7/2014"
 
 _To get the last 300 task modifications_
 
-    csk-get-system-log -t 3 -r 300
+    ccl-get-system-log -t 3 -r 300
 '''
     Options = [Param(name='object_id', short_name='i', long_name='object_id',
                      optional=True, ptype='string',

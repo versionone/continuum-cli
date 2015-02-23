@@ -14,11 +14,11 @@ class GetTaskSchedules(cskcommands.cmd.CSKCommand):
     Examples = '''
 _To list the schedules for a particular task_
 
-    csk-get-task-schedules -t "mytask01"
+    ccl-get-task-schedules -t "mytask01"
 
 _To list the schedules for a particular version of a task_
 
-    csk-get-task-schedules -t "new example" -v "2.000"
+    ccl-get-task-schedules -t "new example" -v "2.000"
 '''
     Options = [Param(name='task', short_name='t', long_name='task',
                      optional=False, ptype='string',

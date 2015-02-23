@@ -16,10 +16,10 @@ class GetDeploymentSequences(cskcommands.cmd.CSKCommand):
     API = 'get_deployment_sequences'
     Examples = '''
 _To retrieve all sequences and their steps and display in text format_
-    csk-get-deployment-sequences -d "Spring Petclinic 11"
+    ccl-get-deployment-sequences -d "Spring Petclinic 11"
 
 _To retrieve all sequences  and their steps filtered by sequence name_
-    csk-get-deployment-sequences -d "Spring Petclinic 11" -f "Terminate"
+    ccl-get-deployment-sequences -d "Spring Petclinic 11" -f "Terminate"
 '''
     Options = [Param(name='deployment', short_name='d', long_name='deployment',
                      optional=False, ptype='string',

@@ -13,7 +13,7 @@ class ScheduleTasks(cskcommands.cmd.CSKCommand):
     Description = 'Schedules one or more Tasks using a json template file.'
     API = 'schedule_tasks'
     Examples = '''
-    csk-schedule-tasks -s ./schedule_template.json
+    ccl-schedule-tasks -s ./schedule_template.json
 '''
     Options = [Param(name='schedulefile', short_name='s', long_name='schedulefile',
                      optional=False, ptype='string',

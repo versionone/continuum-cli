@@ -18,7 +18,7 @@ class ListStages(cskcommands.cmd.CSKCommand):
     Examples = '''
 _List all Stages
 
-    csk-list-stages
+    ccl-list-stages
 '''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                      optional=True, ptype='string',
