@@ -11,4 +11,4 @@ tar -czf ${FILENAME}.tar.gz ${PRODUCT}
 . ~/.awscreds
 s3put -b builds.clearcodelabs.com --grant public-read --prefix ${PWD}/ ${FILENAME}.tar.gz
 set +x
-echo "[CSKARTIFACT:{\"name\": \"${PRODUCT}\", \"location\": \"https://s3.amazonaws.com/builds.clearcodelabs.com/${FILENAME}.tar.gz\"}]"
+echo "[CCLARTIFACT:{\"name\": \"${PRODUCT}\", \"location\": \"https://s3.amazonaws.com/builds.clearcodelabs.com/${FILENAME}.tar.gz\"}]"
