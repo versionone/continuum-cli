@@ -12,8 +12,8 @@ for f in os.listdir("bin"):
     binscripts.append("bin/" + f)
 
 setuptools.setup(
-    name='cskclient',
-    version='1.35',
+    name='cclclient',
+    version='1.42',
     description='ClearCode Client Tools',
     license='Apache License (2.0)',
     author='Patrick Dunnigan',
