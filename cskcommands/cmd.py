@@ -98,22 +98,22 @@ class CSKCommand(object):
         # if there's a config file, we read it.
         # any required values not explicitly specified on the command line,
         # are read from the config file.
-        # there's a default file ".cskclient.conf", and you can override with the "config_file" argument
+        # there's a default file ".cclclient.conf", and you can override with the "config_file" argument
         configargs = None
         cfn = None
         if self.config_file_name:
             cfn = self.config_file_name
         else:
-            cfn = "%s/.cskclient.conf" % os.path.expanduser("~")
+            cfn = "%s/.cclclient.conf" % os.path.expanduser("~")
         
         try:
             # VERSION 1.33+ - we renamed the catoclient.conf file.
             # if the old name is encountered, rename it
             if os.path.isfile("%s/.catoclient.conf" % os.path.expanduser("~")):
-                print("INFO - encountered '.catoclient.conf'.  This version uses '.cskclient.conf'.  The file has been renamed as a convenience, and this message should not appear again.")
+                print("INFO - encountered '.catoclient.conf'.  This version uses '.cclclient.conf'.  The file has been renamed as a convenience, and this message should not appear again.")
                 try:
                     old = "%s/.catoclient.conf" % os.path.expanduser("~")
-                    os.rename(old, old.replace("cato", "csk"))
+                    os.rename(old, old.replace("cato", "ccl"))
                 except Exception as ex:
                     # trying to rename the conf file failed... write a nice warning
                     print("Unable to rename .catoclient.conf.  Please check the permissions and/or rename it manually.")
@@ -125,7 +125,7 @@ class CSKCommand(object):
                     configargs = json.loads(f_in.read())
         except IOError:
             # if the file doesn't exist, warn and exit (but continue if there's no default config file).
-            if cfn != "%s/.cskclient.conf" % os.path.expanduser("~"):
+            if cfn != "%s/.cclclient.conf" % os.path.expanduser("~"):
                 print("The specified config file (%s) could not be found." % cfn)
                 self.error_exit()
             else:
