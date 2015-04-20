@@ -13,7 +13,7 @@ for f in os.listdir("bin"):
 
 setuptools.setup(
     name='cclclient',
-    version='1.43',
+    version='1.44',
     description='ClearCode Client Tools',
     license='Apache License (2.0)',
     author='Patrick Dunnigan',
