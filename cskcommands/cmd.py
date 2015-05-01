@@ -49,6 +49,10 @@ class CSKCommand(object):
                              short_name='S', long_name='secret-key',
                              doc="A valid password.",
                              optional=True),
+                       Param(name='token',
+                             short_name='T', long_name='token',
+                             doc="A defined user UUID 'token'.",
+                             optional=True),
                        Param(name='config_file',
                              short_name='C', long_name='config',
                              doc="""Read credentials and URL from the specified json formatted config file. If a config file and 
@@ -87,6 +91,7 @@ class CSKCommand(object):
     def __init__(self, debug=False):
         self.access_key = None
         self.secret_key = None
+        self.token = None
         self.url = None
         self.config_file_name = None
         self.debug = 0
@@ -148,12 +153,14 @@ class CSKCommand(object):
         if not self.url:
             print("URL is required, either via --url or in a config file.")
             self.error_exit()
-        if not self.access_key:
-            print("Access Key is required, either via --access-key or in a config file.")
-            self.error_exit()
-        if not self.secret_key:
-            print("Secret Key is required, either via --secret-key or in a config file.")
-            self.error_exit()
+        # token OR access_key/secret_key is required
+        if not self.token:
+            if not self.access_key:
+                print("Access Key is required, either via --access-key or in a config file.")
+                self.error_exit()
+            if not self.secret_key:
+                print("Secret Key is required, either via --secret-key or in a config file.")
+                self.error_exit()
 
     def set_debug(self, debug=False):
         if debug:
@@ -438,6 +445,7 @@ class CSKCommand(object):
         host = self.url
         key = self.access_key
         pw = self.secret_key
+        token = self.token
         outfmt = "text"
         outdel = ""
         noheader = None
@@ -456,8 +464,6 @@ class CSKCommand(object):
         # hide the headers in text mode?
         if outfmt == "text":
             noheader = getattr(self, "noheader", None)
-        
-
         
         args = {}
         for param in parameters:
@@ -478,9 +484,13 @@ class CSKCommand(object):
         # string to sign
         string_to_sign = "{0}?key={1}&timestamp={2}".format(method, key, ts)
 
-        # encoded signature
-        sig = base64.b64encode(hmac.new(str(pw), msg=string_to_sign, digestmod=hashlib.sha256).digest())
-        sig = "&signature=" + urllib.quote_plus(sig)
+        # if the 'token' is provided, we don't need to sign the request
+        if token:
+            sig = "&token=%s" % (token)
+        else:
+            # encoded signature
+            sig = base64.b64encode(hmac.new(str(pw), msg=string_to_sign, digestmod=hashlib.sha256).digest())
+            sig = "&signature=" + urllib.quote_plus(sig)
 
         of = "&output_format=%s" % outfmt
         od = "&output_delimiter=%s" % urllib.quote_plus(outdel)
