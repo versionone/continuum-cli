@@ -1,176 +1,51 @@
-                                 Apache License
-                           Version 2.0, January 2004
-                        http://www.apache.org/licenses/
+ClearCode Labs Software Agreement
 
-   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
 
-   1. Definitions.
+PLEASE READ THIS SOFTWARE AGREEMENT ("AGREEMENT") CAREFULLY BEFORE ACCESSING, DOWNLOADING OR OTHERWISE USING CLEARCODE ("SOFTWARE"). BY CLICKING THE "I ACCEPT" BUTTON OR BY ACCESSING, DOWNLOADING OR OTHERWISE USING THE SOFTWARE, YOU SIGNIFY YOUR AGREEMENT TO AND ACCEPTANCE OF THIS AGREEMENT AND ACKNOWLEDGE THAT YOU HAVE READ, UNDERSTAND AND AGREE TO BE BOUND BY ITS TERMS. IF YOU ARE AN INDIVIDUAL ACTING ON BEHALF OF AN ENTITY, YOU REPRESENT AND WARRANT THAT YOU HAVE THE AUTHORITY TO ENTER INTO THIS AGREEMENT ON BEHALF OF THAT ENTITY AND TO LEGALLY BIND THAT ENTITY. IF YOU DO NOT ACCEPT THE TERMS OF THIS AGREEMENT, THEN YOU ARE NOT PERMITTED TO, AND YOU MUST NOT ACCESS, DOWNLOAD OR OTHERWISE USE THE SOFTWARE.
 
-      "License" shall mean the terms and conditions for use, reproduction,
-      and distribution as defined by Sections 1 through 9 of this document.
 
-      "Licensor" shall mean the copyright owner or entity authorized by
-      the copyright owner that is granting the License.
+This Agreement, including all referenced appendices and documents located at the URLs listed below, is between ClearCode Labs, Inc. ("ClearCode") and the purchaser of the Software ("Customer"). This Agreement is effective ("Effective Date") the earlier of the date that Customer signs or accepts this Agreement and the date that Customer begins using the Software. This Agreement applies upon download of the Software or where ClearCode Labs refers to it in a proposal or quote.
+ 
+1. REGISTRATION; ORDERS.
 
-      "Legal Entity" shall mean the union of the acting entity and all
-      other entities that control, are controlled by, or are under common
-      control with that entity. For the purposes of this definition,
-      "control" means (i) the power, direct or indirect, to cause the
-      direction or management of such entity, whether by contract or
-      otherwise, or (ii) ownership of fifty percent (50%) or more of the
-      outstanding shares, or (iii) beneficial ownership of such entity.
+1.1 Registration. Before being permitted to access, download and use the Software, Customer must register with ClearCode Labs. Customer must provide truthful and accurate information during the registration process and keep such information current.
 
-      "You" (or "Your") shall mean an individual or Legal Entity
-      exercising permissions granted by this License.
+1.2 Orders. Customer may purchase the Software by submitting a purchase order to ClearCode Labs (an "Order"), which must correspond to a valid ClearCode Labs quote. This Agreement supersedes any additional or conflicting provisions on an Order, and ClearCode Labs rejects any additional provisions that it has not expressly agreed to in writing.
 
-      "Source" form shall mean the preferred form for making modifications,
-      including but not limited to software source code, documentation
-      source, and configuration files.
+2. LICENSE.  Subject to Customer's compliance with this Agreement, ClearCode Labs grants to Customer a worldwide, limited, non-transferrable, revocable license to use and copy the Software for the purpose of discovering, configuring and managing Customer's internal and cloud-based IT infrastructure.  Some components of the Software may be subject instead to the terms of an "open source" license (the "Open Source Components").  In addition, ClearCode Labs may provide third party software to Customer as part of Customer's download of the Software; such third party software is subject to the terms of their accompanying licenses.  Please email support@clearcodelabs.com for more details.  Customer will not and will not knowingly allow any unauthorized third party to: (a) download, copy, reverse engineer, reverse assemble, decompile or otherwise attempt to discover the source code of all or any portion of the Software; (b) reproduce, modify, translate, or create derivative works of any portion of the Software; (c) make the Software available to anyone other than its own internal users; (d) sell, resell, rent or lease the Software; (e) use the Software to store or transmit data in violation of law or third-party privacy rights.
 
-      "Object" form shall mean any form resulting from mechanical
-      transformation or translation of a Source form, including but
-      not limited to compiled object code, generated documentation,
-      and conversions to other media types.
+3. INTELLECTUAL PROPERTY RIGHTS.  Other than as granted in Section 2, ClearCode Labs and its licensors retain all right, title and interest in and to the Software and all modifications, improvements and extensions thereof, including, without limitation, all patent, copyright, trademark, and trade secret rights, whether such rights are registered or unregistered, and wherever in the world those rights may exist (collectively,  the "ClearCode Labs Rights"). Customer shall not commit any act or omission, or permit or induce any third party to commit any act or omission, inconsistent with the ClearCode Labs Rights. ClearCode Labs or its licensors own all graphics, user and visual interfaces, images, code, applications, and text, as well as the design, structure, selection, coordination, expression, "look and feel", and arrangement of the Software and its content, and the trademarks, service marks, proprietary logos and other distinctive brand features found in the Software (collectively, the "ClearCode Labs Marks"). This Agreement does not permit Customer to distribute any product or service using the ClearCode Labs Marks, including in connection with any Open Source Components. ClearCode Labs shall retain title to all copies of the Software provided to Customer or made by Customer. There are no implied rights or licenses in this Agreement. All rights are expressly reserved by ClearCode Labs.
 
-      "Work" shall mean the work of authorship, whether in Source or
-      Object form, made available under the License, as indicated by a
-      copyright notice that is included in or attached to the work
-      (an example is provided in the Appendix below).
+4. FEES AND PAYMENT. A "Concurrent Service Instance" is one single implementation of a grouping of customer software components configured within the ClearCode Labs application. A Concurrent Service Instance may or may not be running on a physical server, however, it will be considered a Concurrent Service Instance as long as it is defined within the ClearCode Labs application and attached to an active ClearCode Labs Deployment. ClearCode Labs provides a current reporting of Concurrent Services Instances active and Customer may release or de-activate any given Service Instance by deleting it via the ClearCode Labs admin tools. Customer may manage up to 10 Concurrent Service Instances perpetually, at no charge (a "Free License").  Alternatively, Customer may manage more than 10 Concurrent Service Instances for a specific term listed in an Order in exchange for a fee; the specific fee, number of Concurrent Service Instances allowed and term will be stated in Customer's Order or in a license file sent to Customer by ClearCode Labs (a "Paid License"). The default subscription term is one year. Unless otherwise stated in the Order, the subscription term will automatically renew unless either party elects to not renew it upon 30 days notice prior to the end of the then-current term. Customer agrees to pay ClearCode Labs all fees annually in advance within 30 days of invoice date. All payments shall be made in currently available funds payable at the address set forth on ClearCode Labs' invoice.  All amounts payable shall be in US Dollars and specifically exclude (and Customer is responsible for) any and all applicable sales, use and other taxes (other than taxes based on ClearCode Labs income). Any overdue amounts are subject to a late payment charge of the lower of 1.5% per month and the highest interest rate permitted by applicable law. All fees are non-refundable.
 
-      "Derivative Works" shall mean any work, whether in Source or Object
-      form, that is based on (or derived from) the Work and for which the
-      editorial revisions, annotations, elaborations, or other modifications
-      represent, as a whole, an original work of authorship. For the purposes
-      of this License, Derivative Works shall not include works that remain
-      separable from, or merely link (or bind by name) to the interfaces of,
-      the Work and Derivative Works thereof.
+5. SUPPORT; CHANGES; WARRANTY; DISCLAIMER. 
 
-      "Contribution" shall mean any work of authorship, including
-      the original version of the Work and any modifications or additions
-      to that Work or Derivative Works thereof, that is intentionally
-      submitted to Licensor for inclusion in the Work by the copyright owner
-      or by an individual or Legal Entity authorized to submit on behalf of
-      the copyright owner. For the purposes of this definition, "submitted"
-      means any form of electronic, verbal, or written communication sent
-      to the Licensor or its representatives, including but not limited to
-      communication on electronic mailing lists, source code control systems,
-      and issue tracking systems that are managed by, or on behalf of, the
-      Licensor for the purpose of discussing and improving the Work, but
-      excluding communication that is conspicuously marked or otherwise
-      designated in writing by the copyright owner as "Not a Contribution."
+5. 1  Support and Maintenance.  ClearCode Labs does not provide support or maintenance for Free Licenses. For Paid; Licenses, ClearCode Labs will provide Customer the support and maintenance services listed at www.clearcodelabs.com. Customer and ClearCode Labs may mutually agree to a custom support agreement and if so, the specific terms shall be defined in the Order.
 
-      "Contributor" shall mean Licensor and any individual or Legal Entity
-      on behalf of whom a Contribution has been received by Licensor and
-      subsequently incorporated within the Work.
+5.2  Changes.  Any changes that Customer makes to the Software may result in such software failing to operate as expected. ClearCode Labs is not responsible or liable for any such failure.
 
-   2. Grant of Copyright License. Subject to the terms and conditions of
-      this License, each Contributor hereby grants to You a perpetual,
-      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
-      copyright license to reproduce, prepare Derivative Works of,
-      publicly display, publicly perform, sublicense, and distribute the
-      Work and such Derivative Works in Source or Object form.
+5.3 General Warranty. Each party represents and warrants that it has the full power and authority to enter into this Agreement.
 
-   3. Grant of Patent License. Subject to the terms and conditions of
-      this License, each Contributor hereby grants to You a perpetual,
-      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
-      (except as stated in this section) patent license to make, have made,
-      use, offer to sell, sell, import, and otherwise transfer the Work,
-      where such license applies only to those patent claims licensable
-      by such Contributor that are necessarily infringed by their
-      Contribution(s) alone or by combination of their Contribution(s)
-      with the Work to which such Contribution(s) was submitted. If You
-      institute patent litigation against any entity (including a
-      cross-claim or counterclaim in a lawsuit) alleging that the Work
-      or a Contribution incorporated within the Work constitutes direct
-      or contributory patent infringement, then any patent licenses
-      granted to You under this License for that Work shall terminate
-      as of the date such litigation is filed.
+5.4 Limited Warranty. For Paid Licenses, ClearCode Labs warrants that the Software will perform in all material respects as specified in its accompanying documentation under normal use for a period of thirty (30) calendar days from initial receipt or access.  This warranty extends only to Customer. To the maximum extent permitted by applicable law, Customer's exclusive remedy for a breach of this limited warranty is to return any allegedly defective Software and ClearCode Labs, at its option, will replace it or refund any fee paid for the Software.  ClearCode Labs provides all Free Licenses "AS IS" and without any warranties of any type.
 
-   4. Redistribution. You may reproduce and distribute copies of the
-      Work or Derivative Works thereof in any medium, with or without
-      modifications, and in Source or Object form, provided that You
-      meet the following conditions:
+5.5 Disclaimer.  EXCEPT AS EXPRESSLY  SET FORTH IN SECTIONS 5.3 (GENERAL WARRANTY) AND 5.4 (LIMITED WARRANTY), ClearCode Labs DISCLAIMS ANY AND ALL WARRANTIES AND REPRESENTATIONS WITH RESPECT TO THE SOFTWARE, INCLUDING THE WARRANTIES (WHETHER EXPRESS, IMPLIED OR STATUTORY) OF FITNESS FOR A PARTICULAR PURPOSE, QUIET ENJOYMENT, ACCURACY, NON-INFRINGEMENT, TITLE, MERCHANTABILITY AND THOSE THAT MAY ARISE FROM ANY COURSE OF DEALING OR PERFORMANCE.
 
-      (a) You must give any other recipients of the Work or
-          Derivative Works a copy of this License; and
+ 6. INDEMNIFICATION BY ClearCode Labs.  This Section 6 only applies to Paid Licenses.  ClearCode Labs agrees to defend Customer from and against any causes of action, suits or claims of a third party (collectively "Claims") that the Software actually or allegedly infringes or misappropriates any United States copyright, trademark or trade secret.  ClearCode Labs will pay all damages awarded against Customer directly resulting from such Claims ("Losses").  The foregoing obligation is conditioned on Customer notifying ClearCode Labs promptly in writing of such Claim, Customer giving ClearCode Labs sole control of the defense thereof and any related settlement negotiations, and Customer cooperating and, at ClearCode Labs' reasonable request and expense, assisting in such defense. If, as a result of a Claim, or a Claim that is reasonably anticipated by ClearCode Labs, Customer's use of the Software is or may be temporarily or permanently enjoined or otherwise legally prevented or prohibited, ClearCode Labs will, at ClearCode Labs' sole option, either: (a) procure for Customer the right to continue using the affected materials in accordance with the terms of this Agreement; (b) modify the materials so as to make them non- infringing, provided that the modified materials continue to substantially conform to all applicable documentation; or (c) if neither of the foregoing are reasonably available or commercially practical in ClearCode Labs's sole opinion, ClearCode Labs will refund any portion of the fees paid by Customer for unused periods of the subscription term (or, if a perpetual Paid License, those portions attributable to the unused part of a five (5) year straight line depreciation schedule). Notwithstanding the foregoing, ClearCode Labs will have no obligation, under this Section 6 or otherwise, with respect to any infringement claim based upon or otherwise relating to: (i) any unauthorized use, reproduction, or distribution of any the Software; (ii) any use of the Software in combination with other products, services, equipment, software, or data not supplied by ClearCode Labs; (iii) any modification of the Software by any person other than ClearCode Labs or its authorized agents or contractors; or (iv) any software not licensed by ClearCode Labs.  This Section 6 states ClearCode Labs' entire liability and Customer's sole and exclusive remedy for infringement Claims and Losses.
 
-      (b) You must cause any modified files to carry prominent notices
-          stating that You changed the files; and
+7. LIMITATION OF LIABILITY.
 
-      (c) You must retain, in the Source form of any Derivative Works
-          that You distribute, all copyright, patent, trademark, and
-          attribution notices from the Source form of the Work,
-          excluding those notices that do not pertain to any part of
-          the Derivative Works; and
+7.1 INDIRECT DAMAGES. IN NO EVENT SHALL CLEARCODE LABS, ITS AFFILIATES, LICENSORS, OR THEIR RESPECTIVE OFFICERS, DIRECTORS, EMPLOYEES, CONTRACTORS, OR AGENTS (COLLECTIVELY, THE "CLEARCODE LABS PARTIES") BE LIABLE TO CUSTOMER OR TO ANY THIRD PARTY, WHETHER UNDER THEORY OF CONTRACT, TORT OR OTHERWISE, FOR ANY INDIRECT, INCIDENTAL, PUNITIVE, CONSEQUENTIAL, RELIANCE, OR SPECIAL DAMAGES (INCLUDING ANY DAMAGE TO BUSINESS REPUTATION, LOST PROFITS, LOST DATA OR LOST SAVINGS), ARISING OUT OF OR RELATED TO THE SOFTWARE, WHETHER FORESEEABLE OR NOT AND WHETHER OR NOT THE CLEARCODE LABS PARTIES ARE ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 
-      (d) If the Work includes a "NOTICE" text file as part of its
-          distribution, then any Derivative Works that You distribute must
-          include a readable copy of the attribution notices contained
-          within such NOTICE file, excluding those notices that do not
-          pertain to any part of the Derivative Works, in at least one
-          of the following places: within a NOTICE text file distributed
-          as part of the Derivative Works; within the Source form or
-          documentation, if provided along with the Derivative Works; or,
-          within a display generated by the Derivative Works, if and
-          wherever such third-party notices normally appear. The contents
-          of the NOTICE file are for informational purposes only and
-          do not modify the License. You may add Your own attribution
-          notices within Derivative Works that You distribute, alongside
-          or as an addendum to the NOTICE text from the Work, provided
-          that such additional attribution notices cannot be construed
-          as modifying the License.
+7.2 AGGREGATE LIABILITY.  WITHOUT LIMITING THE FOREGOING, IN NO EVENT SHALL THE CLEARCODE LABS PARTIES' TOTAL CUMULATIVE LIABILITY TO CUSTOMER IN CONNECTION WITH THE SOFTWARE EXCEED, IN THE AGGREGATE AND REGARDLESS OF WHETHER UNDER THEORY OF CONTRACT, TORT OR OTHERWISE, THE GREATER OF: (A) THE FEES ACTUALLY PAID TO CLEARCODE LABS BY CUSTOMER FOR SUCH SOFTWARE, AND (B) TWO HUNDRED DOLLARS ($200).
 
-      You may add Your own copyright statement to Your modifications and
-      may provide additional or different license terms and conditions
-      for use, reproduction, or distribution of Your modifications, or
-      for any such Derivative Works as a whole, provided Your use,
-      reproduction, and distribution of the Work otherwise complies with
-      the conditions stated in this License.
+7.3 GENERAL. THESE LIMITATIONS APPLY EVEN IF THIS SECTION 7 IS FOUND TO HAVE FAILED OF ITS ESSENTIAL PURPOSE. SOME JURISDICTIONS MAY NOT ALLOW THE EXCLUSION OR LIMITATION OF INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR OTHER DAMAGES, SO THE ABOVE LIMITATIONS OR EXCLUSIONS MAY NOT APPLY. IN SUCH EVENT, THE LIABILITY OF THE CLEARCODE LABS PARTIES WILL BE LIMITED TO THE GREATEST EXTENT PERMITTED BY APPLICABLE LAW.
 
-   5. Submission of Contributions. Unless You explicitly state otherwise,
-      any Contribution intentionally submitted for inclusion in the Work
-      by You to the Licensor shall be under the terms and conditions of
-      this License, without any additional terms or conditions.
-      Notwithstanding the above, nothing herein shall supersede or modify
-      the terms of any separate license agreement you may have executed
-      with Licensor regarding such Contributions.
+8. INSPECTION.  During the term of this Agreement and for one year thereafter, ClearCode Labs or its designated agent may inspect Customer's facilities and records to verify Customer's compliance with this Agreement. Any such inspection will take place only during normal business hours and upon not less than ten business day's written notice. Customer shall reasonably cooperate with the inspection, making such personnel and records available as ClearCode Labs may reasonably request. If the inspection reveals that Customer has been using the Software beyond Customer's license under this Agreement, Customer will pay ClearCode Labs immediately for such excess use. If such additional payment exceeds ten percent (10%) of the fees previously paid by Customer for the period during which such excess use occurred, Customer will also pay ClearCode Labs for the cost of the inspection.
 
-   6. Trademarks. This License does not grant permission to use the trade
-      names, trademarks, service marks, or product names of the Licensor,
-      except as required for reasonable and customary use in describing the
-      origin of the Work and reproducing the content of the NOTICE file.
+9. EXPORT CONTROL. As required by the laws of the United States and other countries, Customer represent and warrant that Customer: (a) understands that the Software and its components may be subject to export controls under the U.S. Commerce Department's Export Administration Regulations ("EAR"); (b) is not located in a prohibited destination country under the EAR or U.S. sanctions regulations; (c) will not export, re-export, or transfer the Software to any prohibited destination or persons or entities on the U.S. Bureau of Industry and Security Denied Parties List or Entity List, or the U.S. Office of Foreign Assets Control list of Specially Designated Nationals and Blocked Persons, or any similar lists maintained by other countries, without the necessary export license(s) or authorization(s); (d) will not use or transfer the Software for use in connection with any nuclear, chemical or biological weapons, missile technology, or military end-uses where prohibited by an applicable arms embargo, unless authorized by the relevant government agency by regulation or specific license; (e) understands and agrees that if Customer is in the United States and exports or transfers the Software to eligible end users, Customer will, to the extent required by EAR Section 740.17(e), submit semi-annual reports to the Commerce Department's Bureau of Industry and Security, which include the name and address (including country) of each transferee; and (f) understands that countries including the United States may restrict the import, use, or export of encryption products (which may include the Software and the components) and agrees that Customer shall be solely responsible for compliance with any such import, use, or export restrictions.
 
-   7. Disclaimer of Warranty. Unless required by applicable law or
-      agreed to in writing, Licensor provides the Work (and each
-      Contributor provides its Contributions) on an "AS IS" BASIS,
-      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
-      implied, including, without limitation, any warranties or conditions
-      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
-      PARTICULAR PURPOSE. You are solely responsible for determining the
-      appropriateness of using or redistributing the Work and assume any
-      risks associated with Your exercise of permissions under this License.
+10. GOVERNMENT USERS.  The Software contains "commercial computer software" as that term is described in DEAR 252.227-7014(a) (1). If acquired by or on behalf of a civilian agency, the U.S. Government acquires this commercial computer software and/or commercial computer software documentation subject to the terms of this Agreement as specified in 48 C.F.R. 12.212 (Computer Software) and 12.11 (Technical Data) of the Federal Acquisition Regulations and its successors. If acquired by or on behalf of any agency within the Department of Defense, the U.S. Government acquires this commercial computer software and/or commercial computer software documentation subject to the terms of this Agreement as specified in 48 C.F.R. 227.7202 of the DOD FAR Supplement and its successors.
 
-   8. Limitation of Liability. In no event and under no legal theory,
-      whether in tort (including negligence), contract, or otherwise,
-      unless required by applicable law (such as deliberate and grossly
-      negligent acts) or agreed to in writing, shall any Contributor be
-      liable to You for damages, including any direct, indirect, special,
-      incidental, or consequential damages of any character arising as a
-      result of this License or out of the use or inability to use the
-      Work (including but not limited to damages for loss of goodwill,
-      work stoppage, computer failure or malfunction, or any and all
-      other commercial damages or losses), even if such Contributor
-      has been advised of the possibility of such damages.
+11. TERMINATION. This Agreement lasts until one of the following occurs: (a) Customer or ClearCode Labs elects to terminate it in writing due to the other party's material breach, provided that the terminating party gives the breaching party at least 30 days written notice and opportunity to cure; or (b) Customer stops using the Software and uninstalls it from Customer's computer systems. ClearCode Labs is not required to refund any amount for an unused subscription term. Upon termination, Customer must uninstall the Software from Customer's computer systems. The following terms survive termination: 3, 5.5, 7, 8, 10, 11, and 12.
 
-   9. Accepting Warranty or Additional Liability. While redistributing
-      the Work or Derivative Works thereof, You may choose to offer,
-      and charge a fee for, acceptance of support, warranty, indemnity,
-      or other liability obligations and/or rights consistent with this
-      License. However, in accepting such obligations, You may act only
-      on Your own behalf and on Your sole responsibility, not on behalf
-      of any other Contributor, and only if You agree to indemnify,
-      defend, and hold each Contributor harmless for any liability
-      incurred by, or claims asserted against, such Contributor by reason
-      of your accepting any such warranty or additional liability.
-
-   END OF TERMS AND CONDITIONS
+12. GENERAL. The laws of the State of Georgia, U.S.A., govern this Agreement (without regard to Georgia conflict of laws rules and excluding the United Nations Convention on Contracts for the International Sale of Goods and the Uniform Computer Information Transactions Act (UCITA) or any other act derived from or related to UCITA). Customer agrees that exclusive jurisdiction for all disputes, claims and controversies arising from or relating to this Agreement is in the state or federal courts located in Fulton County, Georgia, and Customer irrevocably waives any objection to such exclusive jurisdiction.  Customer agrees that any breach of Section 3 or other infringement or misappropriation of the ClearCode Labs Rights will result in immediate and irreparable damage to ClearCode Labs for which there is no adequate remedy at law. Customer is not allowed to assign or otherwise transfer this Agreement or Customer's rights hereunder, whether by merger, acquisition, sale of assets, operation of law, or otherwise, without in each and every case, the prior written consent of ClearCode Labs.  ClearCode Labs may freely assign this Agreement or any or all rights hereunder.  Any attempted assignment, transfer or delegation in violation of the foregoing shall be null and void. This Agreement shall be binding upon, and inure to the benefit of, the successors and assigns of the parties. Excluding any changes to the URLs (which ClearCode Labs may change from time to time, for which and Customer's continued use or access of the Software constitutes agreement to such modified terms), Customer and ClearCode Labs may only amend or modify this Agreement in a writing that is signed by both parties and that expressly references this Agreement. In the event that any court holds any provision of this Agreement as null, void or otherwise ineffective or invalid, such provision shall be deemed to be restated to reflect as nearly as possible the original intentions of the parties in accordance with applicable law, and the remaining provisions shall remain in full force and effect. No waiver of any breach of any provision of this Agreement shall constitute a waiver of any prior, concurrent or subsequent breach of the same or any other provisions. Headings are used in this Agreement for reference only and will not be considered when interpreting this Agreement. As used in this Agreement, "includes" (or "including") means without limitation. This Agreement constitutes the entire agreement between the parties with respect to the subject matter hereof and supersedes all prior and contemporaneous agreements or communications.
