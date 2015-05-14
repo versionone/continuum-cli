@@ -7,16 +7,16 @@
 import cskcommands.cmd
 from cskcommands.param import Param
 
-class TestJenkins(cskcommands.cmd.CSKCommand):
+class TestTeamCity(cskcommands.cmd.CSKCommand):
 
-    Description = "Test Jenkins connectivity"
-    API = "test_jenkins"
+    Description = "Test TeamCity connectivity"
+    API = "test_teamcity"
     Examples = """
-    ccl-testjenkins -i instancename
+    ccl-testteamcity -i instancename
 """
     Options = [Param(name='instance', short_name='i', long_name='instance',
                      optional=True, ptype='string',
-                     doc='Jenkins instance name in the ClearCode configuration. Optional, do not use if testing default Jenkins instance.'),
+                     doc='TeamCity instance name in the ClearCode configuration. Optional, do not use if testing default TeamCity instance.'),
                ]
 
     def main(self):
