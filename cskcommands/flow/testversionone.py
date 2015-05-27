@@ -12,9 +12,13 @@ class TestVersionOne(cskcommands.cmd.CSKCommand):
     Description = "Test VersionOne connectivity"
     API = "test_versionone"
     Examples = """
-    ccl-testversionone
+    ccl-testversionone -i instancename
 """
+    Options = [Param(name='instance', short_name='i', long_name='instance',
+                     optional=True, ptype='string',
+                     doc='VersionOne instance name in the ClearCode configuration. Optional, do not use if testing default Jira instance.'),
+               ]
 
     def main(self):
-        results = self.call_api(self.API, [])
+        results = self.call_api(self.API, ['instance'])
         print(results)
