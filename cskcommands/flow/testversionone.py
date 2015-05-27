@@ -16,7 +16,7 @@ class TestVersionOne(cskcommands.cmd.CSKCommand):
 """
     Options = [Param(name='instance', short_name='i', long_name='instance',
                      optional=True, ptype='string',
-                     doc='VersionOne instance name in the ClearCode configuration. Optional, do not use if testing default Jira instance.'),
+                     doc='VersionOne instance name in the ClearCode configuration. Optional, do not use if testing default VersionOne instance.'),
                ]
 
     def main(self):
