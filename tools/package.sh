@@ -20,3 +20,4 @@ s3put -b builds.clearcodelabs.com --grant public-read --prefix ${PWD}/ ${PRODUCT
 set +x
 echo "[CCLARTIFACT:{\"name\": \"${PRODUCT}\", \"location\": \"https://s3.amazonaws.com/builds.clearcodelabs.com/${PRODUCT}/${FILENAME}.tar.gz\"}]"
 echo "[CCLARTIFACT:{\"name\": \"${PRODUCT}-win\", \"location\": \"https://s3.amazonaws.com/builds.clearcodelabs.com/${PRODUCT}/${FILENAME}-win.tar.gz\"}]"
+echo "done"
