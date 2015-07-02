@@ -1,0 +1,22 @@
+#!/usr/bin/env python
+
+#########################################################################
+# 
+# Copyright 2015 ClearCode Labs
+# All Rights Reserved.
+# http://www.clearcodelabs.com/license.html
+# 
+# 
+#########################################################################
+
+import os
+import sys
+if "CCL_HOME" in os.environ:
+    sys.path.append(os.path.join(os.environ["CCL_HOME"], "common", "lib"))
+    sys.path.append(os.path.join(os.environ["CCL_HOME"], "automate", "lib"))
+import cskcommands.automate.runtask
+
+if __name__ == '__main__':
+    cmd = cskcommands.automate.runtask.RunTask()
+    cmd.main()
+
