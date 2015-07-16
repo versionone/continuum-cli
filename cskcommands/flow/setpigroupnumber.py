@@ -26,7 +26,7 @@ Returns success or failure."""
                      doc='ID of a Pipeline Instance Group.'),
                Param(name='newnumber', short_name='n', long_name='newnumber',
                      optional=False, ptype='string',
-                     doc='ID of a Pipeline Instance Group.')               
+                     doc='New Number to set.')               
                ]
 
     def main(self):
