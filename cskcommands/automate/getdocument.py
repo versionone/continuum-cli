@@ -24,7 +24,7 @@ _To get the json document from a collection based on a specific query_
                      optional=False, ptype='string',
                      doc='A query in JSON format.'),
                Param(name='collection', short_name='c', long_name='collection',
-                     optional=True, ptype='string',
+                     optional=False, ptype='string',
                      doc='A document collection.  "Default" if omitted.')]
 
     def main(self):
