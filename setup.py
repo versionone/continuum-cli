@@ -13,7 +13,7 @@ for f in os.listdir("bin"):
 
 setuptools.setup(
     name='cclclient',
-    version='1.45',
+    version='1.46',
     description='ClearCode Client Tools',
     author='Patrick Dunnigan',
     author_email='patrick.dunnigan@clearcodelabs.com',
