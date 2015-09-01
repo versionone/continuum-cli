@@ -24,6 +24,7 @@ import hmac
 import urllib
 import urllib2
 import httplib
+import ssl
 import json
 from urlparse import urlparse
 from datetime import datetime
@@ -415,7 +416,7 @@ class CSKCommand(object):
             # for now, just use the url directly
             u = urlparse(url)
             if u.scheme.lower() == "https":
-                conn = httplib.HTTPSConnection(u.netloc, timeout=timeout)
+                conn = httplib.HTTPSConnection(u.netloc, timeout=timeout, context=ssl._create_unverified_context())
             else:
                 conn = httplib.HTTPConnection(u.netloc, timeout=timeout)
                 
@@ -437,7 +438,7 @@ class CSKCommand(object):
             return "No results from request."
         except httplib.ssl.SSLError as ex:
             # a friendlier message if it was a protocol error.
-            raise Exception("The protocol specified in the API url property is 'https'.  Is the API really running in SSL mode?")
+            raise Exception("The protocol specified in the API url property is 'https'.  Is the API really running in SSL mode?\n%s" % (ex.__str__()))
         except Exception as ex:
             raise ex
 
