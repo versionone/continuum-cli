@@ -154,6 +154,9 @@ class CSKCommand(object):
         if not self.url:
             print("URL is required, either via --url or in a config file.")
             self.error_exit()
+        if not self.url.endswith("/api"):
+            # 9-3-15 per Patrick
+            self.url = "%s/api" % (self.url)
         # token OR access_key/secret_key is required
         if not self.token:
             if not self.access_key:
