@@ -419,6 +419,8 @@ class CSKCommand(object):
             # for now, just use the url directly
             u = urlparse(url)
             if u.scheme.lower() == "https":
+                # py lint is barking about 'context' but it is a valid argument.
+                # pylint: disable=E1123
                 conn = httplib.HTTPSConnection(u.netloc, timeout=timeout, context=ssl._create_unverified_context())
             else:
                 conn = httplib.HTTPConnection(u.netloc, timeout=timeout)
