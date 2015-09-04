@@ -6,7 +6,7 @@ require "openssl"
 require "base64"
 
 
-host = "http://localhost:8081"
+host = "http://localhost:8080/api"
 method = "list_tasks"
 access_key = ""
 secret_key = ""

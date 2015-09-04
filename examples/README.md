@@ -46,10 +46,10 @@ Now that we have a signature, we can construct a complete URL.
 Once completed, a typical URL will look like this:
 
 ```
-http://<host:port>/<string_to_sign>&signature=<signature>&<call specific arguments>
+http://<host:port>/api/<string_to_sign>&signature=<signature>&<call specific arguments>
 ```
 
-* <host:port> = for example, localhost:8081. (8081 is the default port for the REST API service, unless customized.)
+* <host:port>/api = for example, localhost:8080/api. (/api is the url that handles api requests.)
 * <string_to_sign> - the source string used to create the signature.  Nicely, this includes the method, key and timestamp.
 * <signature> - the signature completed in the previous steps.
 * <call specific arguments> - any additional arguments, in standard _&key=value_ URL format, URL encoded of course!
