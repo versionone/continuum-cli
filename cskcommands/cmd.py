@@ -4,10 +4,10 @@
 # http://www.clearcodelabs.com/license.html
 #########################################################################
 
-# This file is a derived work from Eucalyptus 
+# This file is a derived work from Eucalyptus
 # euca2ools/euca2ools/commands/eucacommands.py
 # released under the BSD license
-# original copyright: 
+# original copyright:
 #        (c) 2009-2011, Eucalyptus Systems, Inc.`
 # original authors:
 #       Neil Soman neil@eucalyptus.com
@@ -17,16 +17,12 @@ import getopt
 import os
 import sys
 import textwrap
-import urlparse
 import hashlib
 import base64
 import hmac
 import urllib
-import urllib2
-import httplib
-import ssl
 import json
-from urlparse import urlparse
+import requests
 from datetime import datetime
 from param import Param
 
@@ -100,7 +96,7 @@ class CSKCommand(object):
         self.set_debug(debug)
         self.cmd_name = os.path.basename(sys.argv[0])
         self.process_cli_args()
-        
+
         # if there's a config file, we read it.
         # any required values not explicitly specified on the command line,
         # are read from the config file.
@@ -111,7 +107,7 @@ class CSKCommand(object):
             cfn = self.config_file_name
         else:
             cfn = "%s/.cclclient.conf" % os.path.expanduser("~")
-        
+
         try:
             # VERSION 1.33+ - we renamed the catoclient.conf file.
             # if the old name is encountered, rename it
@@ -125,7 +121,7 @@ class CSKCommand(object):
                     print("Unable to rename .catoclient.conf.  Please check the permissions and/or rename it manually.")
                     print(ex.__str__())
                     self.error_exit()
-                
+
             with open(cfn, 'r') as f_in:
                 if f_in:
                     configargs = json.loads(f_in.read())
@@ -137,19 +133,19 @@ class CSKCommand(object):
             else:
                 if self.debug:
                     print("The default config file (%s) could not be found." % cfn)
-                    
+
         except ValueError:
             # if the format of either file is bad, bark about it
             print("The specified config file (%s) json format is invalid." % cfn)
             self.error_exit()
- 
+
         if configargs:
             # loop through the settings
             for k, v in configargs.items():
                 if hasattr(self, k):
                     if not getattr(self, k):
                         setattr(self, k, v)
-                        
+
         # since the args can come from different sources, we have to explicitly check the required ones.
         if not self.url:
             print("URL is required, either via --url or in a config file.")
@@ -366,7 +362,7 @@ class CSKCommand(object):
         print s, lines[0]
         for line in lines[1:]:
             print '%s%s' % (' ' * n, line)
-                
+
     def usage(self):
         print '    %s\n' % self.Description
         # self.synopsis()
@@ -379,7 +375,7 @@ class CSKCommand(object):
 
         if self.Info:
             print self.Info
-            
+
     def dumpdoc(self):
         print '## %s' % self.cmd_name
         print '{:#%s}' % self.cmd_name
@@ -391,11 +387,11 @@ class CSKCommand(object):
                          'OPTIONAL PARAMETERS')
         if self.Info:
             print self.Info
-            
+
         if self.Examples:
             print "**Examples**"
             print self.Examples
-        
+
     def display_error_and_exit(self, exc):
         try:
             print('\n%s: %s, %s\n' % (exc.error_code, exc.error_message, exc.error_detail))
@@ -409,43 +405,23 @@ class CSKCommand(object):
         sys.exit(1)
 
     def http_get(self, url, timeout=10):
+        if not url:
+            return "URL not provided."
+
+        if self.debug:
+            print("Trying an HTTP GET to %s" % url)
+
         try:
-            if not url:
-                return "URL not provided."
+            r = requests.request("GET", url, verify=False)
+            r.raise_for_status()
+            return r.content
+        except requests.exceptions.Timeout as e:
+            m = "Timeout attempting to access [%s]" % url
+            raise Exception(m, e)
+        except requests.exceptions.ConnectionError as e:
+            m = "HTTP connection error. Check http or https, server address and port"
+            raise Exception(m, e)
 
-            if self.debug:
-                print("Trying an HTTP GET to %s" % url)
-
-            # for now, just use the url directly
-            u = urlparse(url)
-            if u.scheme.lower() == "https":
-                # py lint is barking about 'context' but it is a valid argument.
-                # pylint: disable=E1123
-                conn = httplib.HTTPSConnection(u.netloc, timeout=timeout, context=ssl._create_unverified_context())
-            else:
-                conn = httplib.HTTPConnection(u.netloc, timeout=timeout)
-                
-            conn.request("GET", u.path + "?" + u.query)
-            response = conn.getresponse()
-            result = response.read()
-            if result:
-                return result
-
-#            except httplib.HTTPException as ex:
-#                if hasattr(ex, "reason"):
-#                    print "HTTPGet: failed to reach a server."
-#                    return ex.reason
-#                elif hasattr(ex, "code"):
-#                    print "HTTPGet: The server couldn\'t fulfill the request."
-#                return ex.__str__()
-
-            # if all was well, we won't get here.
-            return "No results from request."
-        except httplib.ssl.SSLError as ex:
-            # a friendlier message if it was a protocol error.
-            raise Exception("The protocol specified in the API url property is 'https'.  Is the API really running in SSL mode?\n%s" % (ex.__str__()))
-        except Exception as ex:
-            raise ex
 
     def call_api(self, method, parameters):
         host = self.url
@@ -470,7 +446,7 @@ class CSKCommand(object):
         # hide the headers in text mode?
         if outfmt == "text":
             noheader = getattr(self, "noheader", None)
-        
+
         args = {}
         for param in parameters:
             # if hasattr(self, param):
@@ -502,11 +478,11 @@ class CSKCommand(object):
         od = "&output_delimiter=%s" % urllib.quote_plus(outdel)
         nh = "&header=false" if noheader else ""
         url = "%s/%s%s%s%s%s%s" % (host, string_to_sign, sig, argstr, of, od, nh)
-        
+
         response = self.http_get(url)
         if self.debug:
             print(response)
-            
+
         if response:
             if outfmt == "json":
                 try:
@@ -551,7 +527,7 @@ class CSKCommand(object):
                     raise ex
             else:
                 return response
-                
+
     def get_relative_filename(self, filename):
         return os.path.split(filename)[-1]
 
