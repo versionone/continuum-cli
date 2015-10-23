@@ -12,14 +12,15 @@ for f in os.listdir("bin"):
     binscripts.append("bin/" + f)
 
 setuptools.setup(
-    name='cclclient',
+    name='v1devopsclient',
     version='1.47',
-    description='ClearCode Client Tools',
+    description='VersionOne Client Tools',
     author='Patrick Dunnigan',
     author_email='patrick.dunnigan@clearcodelabs.com',
     url='https://github.com/cloudsidekick/client',
     packages=setuptools.find_packages(exclude=['bin']),
     include_package_data=True,
+    install_requires=['requests'],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'License :: License :: Other/Proprietary License',
