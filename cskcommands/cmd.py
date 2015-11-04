@@ -413,7 +413,6 @@ class CSKCommand(object):
 
         try:
             r = requests.request("GET", url, verify=False)
-            r.raise_for_status()
             return r.content
         except requests.exceptions.Timeout as e:
             m = "Timeout attempting to access [%s]" % url
@@ -421,7 +420,6 @@ class CSKCommand(object):
         except requests.exceptions.ConnectionError as e:
             m = "HTTP connection error. Check http or https, server address and port"
             raise Exception(m, e)
-
 
     def call_api(self, method, parameters):
         host = self.url
