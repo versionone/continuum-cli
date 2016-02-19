@@ -49,13 +49,13 @@ Are you sure? """)
             _file = "/tmp/continuum-installer.sh"
             if self.version:
                 print("Downloading official release %s..." % (self.version))
-                _url = "http://downloads.clearcodelabs.com.s3.amazonaws.com/clearcode-%s-installer.sh" % (self.version)
+                _url = "http://downloads.continuum.versionone.com.s3.amazonaws.com/continuum-%s-installer.sh" % (self.version)
             elif self.development:
                 print("Downloading development build %s..." % (self.development))
-                _url = "https://s3.amazonaws.com/builds.clearcodelabs.com/installer/clearcode-%s-x86_64-installer.sh" % (self.development)
+                _url = "http://builds.continuum.versionone.com.s3.amazonaws.com/installer/continuum-%s-installer.sh" % (self.development)
             else:
                 print("Downloading the latest release...")
-                _url = "http://downloads.clearcodelabs.com.s3.amazonaws.com/clearcode-latest-installer.sh"
+                _url = "http://downloads.continuum.versionone.com.s3.amazonaws.com/continuum-latest-installer.sh"
                 
             r = requests.get(_url, stream=True)
             if r.status_code == 200:
