@@ -13,7 +13,7 @@ for f in os.listdir("bin"):
 
 setuptools.setup(
     name='v1devopsclient',
-    version='1.47',
+    version='16.0.422',
     description='VersionOne Client Tools',
     author='Patrick Dunnigan',
     author_email='patrick.dunnigan@clearcodelabs.com',
