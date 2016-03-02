@@ -86,8 +86,6 @@ class CSKCommand(object):
     Args = []
 
     def __init__(self, debug=False):
-        self.access_key = None
-        self.secret_key = None
         self.token = None
         self.url = None
         self.config_file_name = None
@@ -153,14 +151,10 @@ class CSKCommand(object):
         if not self.url.endswith("/api"):
             # 9-3-15 per Patrick
             self.url = "%s/api" % (self.url)
-        # token OR access_key/secret_key is required
+        # token is required
         if not self.token:
-            if not self.access_key:
-                print("Access Key is required, either via --access-key or in a config file.")
-                self.error_exit()
-            if not self.secret_key:
-                print("Secret Key is required, either via --secret-key or in a config file.")
-                self.error_exit()
+            print("Token is required, either via --token or in a config file.")
+            self.error_exit()
 
     def set_debug(self, debug=False):
         if debug:
@@ -234,16 +228,6 @@ class CSKCommand(object):
                 if len(args) > 1:
                     msg = 'Only 1 argument (%s) permitted' % arg.name
                     self.display_error_and_exit(msg)
-
-#    def check_for_conflict(self):
-#        for option in self.Options:
-#            if option.short_name == 'a' or option.short_name == 's':
-#                self.access_key_short_name = '-A'
-#                self.secret_key_short_name = '-S'
-#                opt = self.find_option('--access-key')
-#                opt.short_name = 'A'
-#                opt = self.find_option('--secret-key')
-#                opt.short_name = 'S'
 
     def find_option(self, op_name):
         for option in self.StandardOptions + self.Options:
@@ -404,15 +388,19 @@ class CSKCommand(object):
     def error_exit(self):
         sys.exit(1)
 
-    def http_get(self, url, timeout=10):
+    def http_get(self, url, token, timeout=10):
         if not url:
             return "URL not provided."
 
         if self.debug:
             print("Trying an HTTP GET to %s" % url)
 
+        hdrs = {
+            "Authorization": "Token %s" % (token)
+        }
+        
         try:
-            r = requests.request("GET", url, verify=False)
+            r = requests.request("GET", url, headers=hdrs, verify=False)
             return r.content
         except requests.exceptions.Timeout as e:
             m = "Timeout attempting to access [%s]" % url
@@ -423,8 +411,6 @@ class CSKCommand(object):
 
     def call_api(self, method, parameters):
         host = self.url
-        key = self.access_key
-        pw = self.secret_key
         token = self.token
         outfmt = "text"
         outdel = ""
@@ -457,27 +443,12 @@ class CSKCommand(object):
         else:
             argstr = ""
 
-        # timestamp
-        ts = datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%S')
-        ts = ts.replace(":", "%3A")
-
-        # string to sign
-        string_to_sign = "{0}?key={1}&timestamp={2}".format(method, key, ts)
-
-        # if the 'token' is provided, we don't need to sign the request
-        if token:
-            sig = "&token=%s" % (token)
-        else:
-            # encoded signature
-            sig = base64.b64encode(hmac.new(str(pw), msg=string_to_sign, digestmod=hashlib.sha256).digest())
-            sig = "&signature=" + urllib.quote_plus(sig)
-
         of = "&output_format=%s" % outfmt
         od = "&output_delimiter=%s" % urllib.quote_plus(outdel)
         nh = "&header=false" if noheader else ""
-        url = "%s/%s%s%s%s%s%s" % (host, string_to_sign, sig, argstr, of, od, nh)
+        url = "%s/%s?%s%s%s%s" % (host, method, argstr, of, od, nh)
 
-        response = self.http_get(url)
+        response = self.http_get(url, token)
         if self.debug:
             print(response)
 
