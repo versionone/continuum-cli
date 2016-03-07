@@ -388,30 +388,8 @@ class CSKCommand(object):
     def error_exit(self):
         sys.exit(1)
 
-    def http_get(self, url, token, timeout=10):
-        if not url:
-            return "URL not provided."
-
-        if self.debug:
-            print("Trying an HTTP GET to %s" % url)
-
-        hdrs = {
-            "Authorization": "Token %s" % (token)
-        }
-        
-        try:
-            r = requests.request("GET", url, headers=hdrs, verify=False)
-            return r.content
-        except requests.exceptions.Timeout as e:
-            m = "Timeout attempting to access [%s]" % url
-            raise Exception(m, e)
-        except requests.exceptions.ConnectionError as e:
-            m = "HTTP connection error. Check http or https, server address and port"
-            raise Exception(m, e)
-
-    def call_api(self, method, parameters):
+    def call_api(self, method, parameters, verb="GET"):
         host = self.url
-        token = self.token
         outfmt = "text"
         outdel = ""
         noheader = None
@@ -432,30 +410,53 @@ class CSKCommand(object):
             noheader = getattr(self, "noheader", None)
 
         args = {}
+        argstr = ""
         for param in parameters:
-            # if hasattr(self, param):
             if getattr(self, param, None):
                 args[param] = getattr(self, param)
 
-        if len(args):
-            arglst = ["&%s=%s" % (k, urllib.quote_plus(str(v))) for k, v in args.items()]
-            argstr = "".join(arglst)
-        else:
-            argstr = ""
+            # if post then args are a dict, if get args are qs
+        if verb == "GET":
+            if len(args):
+                arglst = ["&%s=%s" % (k, urllib.quote_plus(str(v))) for k, v in args.items()]
+                argstr = "".join(arglst)
 
-        of = "&output_format=%s" % outfmt
         od = "&output_delimiter=%s" % urllib.quote_plus(outdel)
         nh = "&header=false" if noheader else ""
-        url = "%s/%s?%s%s%s%s" % (host, method, argstr, of, od, nh)
+        url = "%s/%s?%s%s%s" % (host, method, argstr, od, nh)
 
-        response = self.http_get(url, token)
+        if not url:
+            return "URL not provided."
+
+        if self.debug:
+            print("Trying an HTTP %s to %s" % (verb, url))
+
+        hdrs = {
+            "Authorization": "Token %s" % (self.token)
+        }
+        if outfmt == "json":
+            hdrs["Accept"] = "application/json"
+        elif outfmt == "xml":
+            hdrs["Accept"] = "application/xml"
+        else:
+            hdrs["Accept"] = "text/plain"
+
+        try:
+            response = requests.request(verb, url, headers=hdrs, data=args, verify=False, timeout=10)
+        except requests.exceptions.Timeout as e:
+            m = "Timeout attempting to access [%s]" % url
+            raise Exception(m, e)
+        except requests.exceptions.ConnectionError as e:
+            m = "HTTP connection error. Check http or https, server address and port"
+            raise Exception(m, e)
+
         if self.debug:
             print(response)
 
         if response:
             if outfmt == "json":
                 try:
-                    d = json.loads(response)
+                    d = response.json()
                     if d["ErrorCode"]:
                         code = d["ErrorCode"]
                         detail = d["ErrorDetail"]
@@ -470,12 +471,12 @@ class CSKCommand(object):
                         return json.dumps(d["Response"], indent=4)
                 except ValueError:
                     print("Response JSON could not be parsed.")
-                    return response
+                    return response.content
                 except Exception as ex:
                     raise ex
             elif outfmt == "xml":
                 try:
-                    xRoot = ET.fromstring(response)
+                    xRoot = ET.fromstring(response.content)
                     if xRoot.findtext("error/code", None):
                         code = xRoot.findtext("error/code", "")
                         detail = xRoot.findtext("error/detail", "")
@@ -495,7 +496,7 @@ class CSKCommand(object):
                 except Exception as ex:
                     raise ex
             else:
-                return response
+                return response.content
 
     def get_relative_filename(self, filename):
         return os.path.split(filename)[-1]
