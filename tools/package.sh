@@ -5,7 +5,7 @@ set -e
 PRODUCT=client
 FILENAME=${PRODUCT}-${BUILD_NUMBER}
 mkdir -p artifact/${PRODUCT}
-cp -R  README.md LICENSE bin cskcommands setup.py artifact/${PRODUCT}
+cp -R  README.md LICENSE bin ctmcommands setup.py artifact/${PRODUCT}
 cd artifact
 tar -czf ${FILENAME}.tar.gz ${PRODUCT}
 find ${PRODUCT}/bin -type f -exec mv {} {}.py \;
