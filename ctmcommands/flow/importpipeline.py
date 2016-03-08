@@ -38,5 +38,5 @@ Returns a Pipeline Object."""
                     print("Unable to open file [%s]." % fn)
                 self.backup = f_in.read()
 
-        results = self.call_api(self.API, ['backup', 'overwrite'])
+        results = self.call_api(self.API, ['backup', 'overwrite'], verb='POST')
         print(results)
