@@ -1,0 +1,21 @@
+#!/usr/bin/env python
+
+#########################################################################
+# 
+# Copyright 2016 VersionOne
+# All Rights Reserved.
+# http://www.versionone.com
+# 
+# 
+#########################################################################
+
+import os
+import sys
+if "CCL_HOME" in os.environ:
+    sys.path.append(os.path.join(os.environ["CCL_HOME"], "common", "lib"))
+import ctmcommands.flow.listphases
+
+if __name__ == '__main__':
+    cmd = ctmcommands.flow.listphases.ListPhases()
+    cmd.main()
+

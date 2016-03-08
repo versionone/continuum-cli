@@ -1,8 +1,8 @@
-# ClearCode Client Tools
+# VersionOne Continuum Client Tools
 
 ## Examples
 
-The ClearCode Client interacts with the ClearCode platform via a REST API.  Command line tools are provided, 
+The VersionOne Continuum Client interacts with the VersionOne Continuum platform via a REST API.  Command line tools are provided, 
 but any of the API calls can be made directly from any technology capable of making HTTP requests.
 
 Included here are several basic examples in selected languages.

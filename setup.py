@@ -1,7 +1,7 @@
 #########################################################################
-# Copyright 2015 ClearCode Labs
+# Copyright 2016 VersionOne
 # All Rights Reserved.
-# http://www.clearcodelabs.com/license.html
+# http://www.versionone.com
 #########################################################################
 
 import os
@@ -12,12 +12,11 @@ for f in os.listdir("bin"):
     binscripts.append("bin/" + f)
 
 setuptools.setup(
-    name='v1devopsclient',
+    name='continuumclient',
     version='16.0.422',
     description='VersionOne Client Tools',
     author='Patrick Dunnigan',
-    author_email='patrick.dunnigan@clearcodelabs.com',
-    url='https://github.com/cloudsidekick/client',
+    author_email='patrick.dunnigan@versionone.com',
     packages=setuptools.find_packages(exclude=['bin']),
     include_package_data=True,
     install_requires=['requests'],

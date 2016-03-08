@@ -3,7 +3,7 @@
 #########################################################################
 # Copyright 2015 ClearCode Labs
 # All Rights Reserved.
-# http://www.clearcodelabs.com/license.html
+# http://www.versionone.com
 #########################################################################
 
 package require base64
