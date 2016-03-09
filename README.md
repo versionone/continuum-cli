@@ -16,12 +16,6 @@ Python 2.6+
 pip install https://github.com/versionone/client/archive/latest.zip
 ```
 
-If you already have Client and want the latest version:
-
-```
-pip install --upgrade https://github.com/versionone/client/archive/latest.zip
-```
-
 ## Repository and Download
 
 https://github.com/versionone/client
