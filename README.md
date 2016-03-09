@@ -42,10 +42,6 @@ or clone in git:
 git clone git://github.com/versionone/client.git
 ```
 
-## Bug and Feature Requests
-
-https://github.com/versionone/client/issues
-
 ## Documentation
 
 Visit the [VersionOne Continuum Documentation](http://continuumdocs.versionone.com/docs/admin/client/command-reference.html) for more information.
