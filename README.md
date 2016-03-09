@@ -16,16 +16,6 @@ Python 2.6+
 pip install https://github.com/versionone/client/archive/latest.zip
 ```
 
-## Repository and Download
-
-https://github.com/versionone/client
-
-To download _the latest_ source:
-
-```
-curl -Lk --output client.tar.gz https://github.com/versionone/client/tarball/master
-```
-
 Specific release tarballs are here:
 
 https://github.com/versionone/client/tags
