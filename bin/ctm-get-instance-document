@@ -11,9 +11,9 @@
 
 import os
 import sys
-if "CCL_HOME" in os.environ:
-    sys.path.append(os.path.join(os.environ["CCL_HOME"], "common", "lib"))
-    sys.path.append(os.path.join(os.environ["CCL_HOME"], "deploy", "lib"))
+if "CONTINUUM_HOME" in os.environ:
+    sys.path.append(os.path.join(os.environ["CONTINUUM_HOME"], "common", "lib"))
+    sys.path.append(os.path.join(os.environ["CONTINUUM_HOME"], "deploy", "lib"))
 import ctmcommands.deploy.getserviceinstancedocument
 
 if __name__ == '__main__':

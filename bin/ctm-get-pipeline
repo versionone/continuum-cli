@@ -11,8 +11,8 @@
 
 import os
 import sys
-if "CCL_HOME" in os.environ:
-    sys.path.append(os.path.join(os.environ["CCL_HOME"], "common", "lib"))
+if "CONTINUUM_HOME" in os.environ:
+    sys.path.append(os.path.join(os.environ["CONTINUUM_HOME"], "common", "lib"))
 import ctmcommands.flow.getpipeline
 
 if __name__ == '__main__':

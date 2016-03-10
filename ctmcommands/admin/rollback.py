@@ -20,10 +20,10 @@ class Rollback(ctmcommands.cmd.CSKCommand):
             print "\nRollback version is required.\n"
             exit()
 
-        _newlink = "/opt/ccl/ctm-%s-x86_64" % (self.version)
+        _newlink = "/opt/continuum/ctm-%s-x86_64" % (self.version)
         # is it a valid target directory?
         if not os.path.isdir(_newlink):
-            print("\nSpecified version [%s] is not installed.\n\nCheck /opt/ccl for available versions to rollback.\n" % (self.version))
+            print("\nSpecified version [%s] is not installed.\n\nCheck /opt/continuum for available versions to rollback.\n" % (self.version))
             exit()
 
         go = False
@@ -48,11 +48,11 @@ Are you sure? """)
             print(e)
             
             # relink
-            p = Popen(["rm", "/opt/ccl/clearcode"], stdout=PIPE, stderr=PIPE)
+            p = Popen(["rm", "/opt/continuum/clearcode"], stdout=PIPE, stderr=PIPE)
             o, e = p.communicate()
             print(o)
             print(e)
-            p = Popen(["ln", "-s", _newlink, "/opt/ccl/clearcode"], stdout=PIPE, stderr=PIPE)
+            p = Popen(["ln", "-s", _newlink, "/opt/continuum/clearcode"], stdout=PIPE, stderr=PIPE)
             o, e = p.communicate()
             print(o)
             print(e)

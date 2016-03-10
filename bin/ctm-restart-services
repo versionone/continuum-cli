@@ -25,4 +25,4 @@ if __name__ == '__main__':
         else:
             exit()
             
-    os.system("$CCL_HOME/common/bin/restart_services.sh")
+    os.system("$CONTINUUM_HOME/common/bin/restart_services.sh")
