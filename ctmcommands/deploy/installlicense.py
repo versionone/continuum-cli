@@ -10,7 +10,7 @@ from ctmcommands.param import Param
 
 class InstallLicense(ctmcommands.cmd.CSKCommand):
 
-    Description = 'Installs or updates the ClearCode license by importing a license file'
+    Description = 'Installs or updates the Continuum license by importing a license file'
     API = 'install_license'
     Examples = '''
     ctm-install-license -i "~/license.lic"
