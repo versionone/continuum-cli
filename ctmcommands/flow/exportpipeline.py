@@ -1,14 +1,6 @@
-#########################################################################
-# 
-# Copyright 2016 VersionOne
-# All Rights Reserved.
-# http://www.versionone.com
-# 
-# 
-#########################################################################
-
 import ctmcommands.cmd
 from ctmcommands.param import Param
+
 
 class ExportPipeline(ctmcommands.cmd.CSKCommand):
 

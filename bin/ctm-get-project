@@ -4,9 +4,8 @@ import os
 import sys
 if "CONTINUUM_HOME" in os.environ:
     sys.path.append(os.path.join(os.environ["CONTINUUM_HOME"], "common", "lib"))
-import ctmcommands.flow.importpipeline
+import ctmcommands.flow.getproject
 
 if __name__ == '__main__':
-    cmd = ctmcommands.flow.importpipeline.ImportPipeline()
+    cmd = ctmcommands.flow.getproject.GetProject()
     cmd.main()
-
