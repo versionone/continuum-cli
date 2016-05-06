@@ -1,0 +1,5 @@
+projectKey=net.versionone.continuum:client
+serverUrl=http://localhost:9000
+dashboardUrl=http://localhost:9000/dashboard/index/net.versionone.continuum:client
+ceTaskId=AVSHMAp80AKqJFPdDpBG
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AVSHMAp80AKqJFPdDpBG
