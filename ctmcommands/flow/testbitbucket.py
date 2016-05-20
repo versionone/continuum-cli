@@ -5,7 +5,7 @@ from ctmcommands.param import Param
 class TestBitBucket(ctmcommands.cmd.CSKCommand):
 
     Description = "Test BitBucket connectivity"
-    API = "test_bitbucket"
+    API = "test_plugin_connection"
     Examples = """
     ctm-testbitbucket -i instancename
 """
@@ -15,5 +15,6 @@ class TestBitBucket(ctmcommands.cmd.CSKCommand):
                ]
 
     def main(self):
-        results = self.call_api(self.API, ['instance'])
+        self.plugin = "bitbucket.bitbucket"
+        results = self.call_api(self.API, ['plugin', 'instance'])
         print(results)

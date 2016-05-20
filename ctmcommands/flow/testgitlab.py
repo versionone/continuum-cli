@@ -5,7 +5,7 @@ from ctmcommands.param import Param
 class TestGitlab(ctmcommands.cmd.CSKCommand):
 
     Description = "Test GitLab connectivity"
-    API = "test_gitlab"
+    API = "test_plugin_connection"
     Examples = """
     ctm-testgitlab -i instancename
 """
@@ -15,5 +15,6 @@ class TestGitlab(ctmcommands.cmd.CSKCommand):
                ]
 
     def main(self):
-        results = self.call_api(self.API, ['instance'])
+        self.plugin = "gitlab.gitlab"
+        results = self.call_api(self.API, ['plugin', 'instance'])
         print(results)

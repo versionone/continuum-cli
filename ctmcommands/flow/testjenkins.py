@@ -1,16 +1,11 @@
-#########################################################################
-# Copyright 2016 VersionOne
-# All Rights Reserved.
-# http://www.versionone.com
-#########################################################################
-
 import ctmcommands.cmd
 from ctmcommands.param import Param
+
 
 class TestJenkins(ctmcommands.cmd.CSKCommand):
 
     Description = "Test Jenkins connectivity"
-    API = "test_jenkins"
+    API = "test_plugin_connection"
     Examples = """
     ctm-testjenkins -i instancename
 """
@@ -20,5 +15,6 @@ class TestJenkins(ctmcommands.cmd.CSKCommand):
                ]
 
     def main(self):
-        results = self.call_api(self.API, ['instance'])
+        self.plugin = "jenkins.job"
+        results = self.call_api(self.API, ['plugin', 'instance'])
         print(results)

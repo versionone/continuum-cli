@@ -1,16 +1,11 @@
-#########################################################################
-# Copyright 2016 VersionOne
-# All Rights Reserved.
-# http://www.versionone.com
-#########################################################################
-
 import ctmcommands.cmd
 from ctmcommands.param import Param
+
 
 class TestHipChat(ctmcommands.cmd.CSKCommand):
 
     Description = "Test HipChat Server connectivity"
-    API = "test_hipchat"
+    API = "test_plugin_connection"
     Examples = """
     ctm-testhipchat -i instancename
 """
@@ -20,5 +15,6 @@ class TestHipChat(ctmcommands.cmd.CSKCommand):
                ]
 
     def main(self):
-        results = self.call_api(self.API, ['instance'])
+        self.plugin = "hipchatplugin.notification"
+        results = self.call_api(self.API, ['plugin', 'instance'])
         print(results)

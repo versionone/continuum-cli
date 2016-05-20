@@ -1,16 +1,11 @@
-#########################################################################
-# Copyright 2016 VersionOne
-# All Rights Reserved.
-# http://www.versionone.com
-#########################################################################
-
 import ctmcommands.cmd
 from ctmcommands.param import Param
+
 
 class TestTeamCity(ctmcommands.cmd.CSKCommand):
 
     Description = "Test TeamCity connectivity"
-    API = "test_teamcity"
+    API = "test_plugin_connection"
     Examples = """
     ctm-testteamcity -i instancename
 """
@@ -20,5 +15,6 @@ class TestTeamCity(ctmcommands.cmd.CSKCommand):
                ]
 
     def main(self):
-        results = self.call_api(self.API, ['instance'])
+        self.plugin = "teamcity.job"
+        results = self.call_api(self.API, ['plugin', 'instance'])
         print(results)
