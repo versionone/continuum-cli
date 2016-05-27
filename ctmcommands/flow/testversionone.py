@@ -1,16 +1,11 @@
-#########################################################################
-# Copyright 2016 VersionOne
-# All Rights Reserved.
-# http://www.versionone.com
-#########################################################################
-
 import ctmcommands.cmd
 from ctmcommands.param import Param
+
 
 class TestVersionOne(ctmcommands.cmd.CSKCommand):
 
     Description = "Test VersionOne connectivity"
-    API = "test_versionone"
+    API = "test_plugin_connection"
     Examples = """
     ctm-testversionone -i instancename
 """
@@ -20,5 +15,6 @@ class TestVersionOne(ctmcommands.cmd.CSKCommand):
                ]
 
     def main(self):
-        results = self.call_api(self.API, ['instance'])
+        self.plugin = "v1plugin.main"
+        results = self.call_api(self.API, ['plugin', 'instance'])
         print(results)

@@ -1,16 +1,11 @@
-#########################################################################
-# Copyright 2016 VersionOne
-# All Rights Reserved.
-# http://www.versionone.com
-#########################################################################
-
 import ctmcommands.cmd
 from ctmcommands.param import Param
+
 
 class TestOctopus(ctmcommands.cmd.CSKCommand):
 
     Description = "Test Octopus connectivity"
-    API = "test_octopus"
+    API = "test_plugin_connection"
     Examples = """
     ctm-testoctopus -i instancename
 """
@@ -20,5 +15,6 @@ class TestOctopus(ctmcommands.cmd.CSKCommand):
                ]
 
     def main(self):
-        results = self.call_api(self.API, ['instance'])
+        self.plugin = "octopus.octo"
+        results = self.call_api(self.API, ['plugin', 'instance'])
         print(results)

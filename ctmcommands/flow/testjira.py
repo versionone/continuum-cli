@@ -1,16 +1,11 @@
-#########################################################################
-# Copyright 2016 VersionOne
-# All Rights Reserved.
-# http://www.versionone.com
-#########################################################################
-
 import ctmcommands.cmd
 from ctmcommands.param import Param
+
 
 class TestJira(ctmcommands.cmd.CSKCommand):
 
     Description = "Test Jira connectivity"
-    API = "test_jira"
+    API = "test_plugin_connection"
     Examples = """
     ctm-testjira -i instancename
 """
@@ -20,5 +15,6 @@ class TestJira(ctmcommands.cmd.CSKCommand):
                ]
 
     def main(self):
-        results = self.call_api(self.API, ['instance'])
+        self.plugin = "jiraplugin.issue"
+        results = self.call_api(self.API, ['plugin', 'instance'])
         print(results)
