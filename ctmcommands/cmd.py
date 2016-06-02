@@ -443,11 +443,26 @@ class CSKCommand(object):
 
         try:
             response = requests.request(verb, url, headers=hdrs, data=args, verify=False, timeout=10)
+            rj = response.json()
+            if rj.get("ErrorCode"):
+                raise Exception(rj["ErrorCode"], rj.get("ErrorDetail"))
+            response.raise_for_status()
+        except requests.exceptions.HTTPError as e:
+            if response.status_code == 401 or response.status_code == 403:
+                m = "API connection error. Most likely a credentials problem."
+            elif response.status_code == 404:
+                m = "API connection error. Requested path not found."
+            else:
+                m = "API error"
+            raise Exception(m, e)
         except requests.exceptions.Timeout as e:
             m = "Timeout attempting to access [%s]" % url
             raise Exception(m, e)
         except requests.exceptions.ConnectionError as e:
-            m = "HTTP connection error. Check http or https, server address and port"
+            m = "API connection error. Check http or https, server address and port."
+            raise Exception(m, e)
+        except Exception as e:
+            m = "API error."
             raise Exception(m, e)
 
         if self.debug:
