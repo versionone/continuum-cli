@@ -443,9 +443,14 @@ class CSKCommand(object):
 
         try:
             response = requests.request(verb, url, headers=hdrs, data=args, verify=False, timeout=10)
-            rj = response.json()
-            if rj.get("ErrorCode"):
-                raise Exception(rj["ErrorCode"], rj.get("ErrorDetail"))
+            # so, may be a little confusing...
+            # IF the response is JSON, it's our own API response format...
+            # and IF it's JSON, there *might* be an error inside it.
+            if outfmt == "json":
+                rj = response.json()
+                if rj.get("ErrorCode"):
+                    raise Exception(rj["ErrorCode"], rj.get("ErrorDetail"))
+                
             response.raise_for_status()
         except requests.exceptions.HTTPError as e:
             if response.status_code == 401 or response.status_code == 403:
