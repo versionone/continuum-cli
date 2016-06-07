@@ -48,11 +48,14 @@ class CreateUser(ctmcommands.cmd.CSKCommand):
                Param(name='groups', short_name='g', long_name='groups',
                      optional=True, ptype='string',
                      doc='A list of groups the user belongs to. Group names cannot contain spaces. Comma delimited list.'),
+               Param(name='contributors', short_name='c', long_name='contributors',
+                     optional=True, ptype='string',
+                     doc='A list of contributors the user is mapped to. Contributors cannot contain spaces. Comma delimited list.'),
                Param(name='get_token', long_name='get_token',
                      optional=True, ptype='boolean',
                      doc='Include a login token in the response. (Used for passthru login.)')
                ]
 
     def main(self):
-        results = self.call_api(self.API, ['user', 'name', 'role', 'password', 'email', 'authtype', 'forcechange', 'expires', 'status', 'groups', 'get_token'])
+        results = self.call_api(self.API, ['user', 'name', 'role', 'password', 'email', 'authtype', 'forcechange', 'expires', 'status', 'groups', 'contributors', 'get_token'])
         print(results)
