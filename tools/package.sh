@@ -18,6 +18,4 @@ cd $WORKSPACE
 s3put -b builds.continuum.versionone.com --grant public-read --prefix ${PWD}/ ${PRODUCT}/${FILENAME}.tar.gz
 s3put -b builds.continuum.versionone.com --grant public-read --prefix ${PWD}/ ${PRODUCT}/${FILENAME}-win.tar.gz
 set +x
-echo "[V1ARTIFACT:{\"name\": \"${PRODUCT}\", \"location\": \"https://s3.amazonaws.com/builds.continuum.versionone.com/${PRODUCT}/${FILENAME}.tar.gz\"}]"
-echo "[V1ARTIFACT:{\"name\": \"${PRODUCT}-win\", \"location\": \"https://s3.amazonaws.com/builds.continuum.versionone.com/${PRODUCT}/${FILENAME}-win.tar.gz\"}]"
 echo "done"
