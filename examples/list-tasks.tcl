@@ -1,11 +1,5 @@
 #!/usr/bin/env tclsh
 
-#########################################################################
-# Copyright 2015 ClearCode Labs
-# All Rights Reserved.
-# http://www.versionone.com
-#########################################################################
-
 package require base64
 package require sha256  1.0.2
 package require tdom
@@ -32,7 +26,7 @@ proc output {args} {
 
 proc http_get {url} {
 	catch {set token [::http::geturl $url -timeout [expr 60 * 1000]]} error_code
-	
+
 	if {[string match "::http::*" $error_code] == 0} {
 		set output_buffer "<error>$error_code</error>"
 		#output "\n\nHTTP Error:\n$error_code" 1
@@ -42,10 +36,10 @@ proc http_get {url} {
 		} else {
 			set output_buffer [::http::data $token]
 		}
-		
+
 	}
 	if {[info exists token] == 1} {
-		::http::cleanup $token 
+		::http::cleanup $token
 	}
 
 	set ::RESULT $output_buffer
@@ -84,7 +78,7 @@ set signature [::sha2::hmac -bin $::PASSWORD $string_to_sign]
 set signature [base64::encode -wrapchar "" $signature]
 
 # then, url encode it.
-# replace occurences of http reserved characters in the base64 encoding, 
+# replace occurences of http reserved characters in the base64 encoding,
 # because a base64 string can include three invalid HTTP chars (+, / and =).
 # + becomes %2B
 # / becomes %2F
