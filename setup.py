@@ -13,7 +13,7 @@ for f in os.listdir("bin"):
 
 setuptools.setup(
     name='continuumclient',
-    version='16.1.6',
+    version='16.2.0',
     description='VersionOne Client Tools',
     author='Patrick Dunnigan',
     author_email='patrick.dunnigan@versionone.com',
