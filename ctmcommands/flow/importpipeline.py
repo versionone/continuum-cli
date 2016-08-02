@@ -21,7 +21,7 @@ Returns a Pipeline Object."""
     Examples = ''''''
     Options = [Param(name='backupfile', short_name='b', long_name='backupfile',
                      optional=False, ptype='string',
-                     doc='A JSON document formatted as a complete CSK Pipeline Definition backup.'),
+                     doc='A JSON document formatted as a complete Pipeline Definition backup.'),
                Param(name='overwrite', short_name='o', long_name='overwrite',
                      optional=True, ptype='string',
                      doc="""Valid values: pipeline|phases|all|none (default).""")
