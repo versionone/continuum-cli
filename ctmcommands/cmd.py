@@ -443,23 +443,21 @@ class CSKCommand(object):
 
         try:
             response = requests.request(verb, url, headers=hdrs, data=args, verify=False, timeout=10)
-            # so, may be a little confusing...
-            # IF the response is JSON, it's our own API response format...
-            # and IF it's JSON, there *might* be an error inside it.
-            if outfmt == "json":
-                rj = response.json()
-                if rj.get("ErrorCode"):
-                    raise Exception(rj["ErrorCode"], rj.get("ErrorDetail"))
-                
             response.raise_for_status()
         except requests.exceptions.HTTPError as e:
-            if response.status_code == 401 or response.status_code == 403:
+            # 400 level errors don't all raise an exception ... some
+            # actually do have a response.
+            if response.status_code == 400:
+                pass
+            elif response.status_code == 401 or response.status_code == 403:
                 m = "API connection error. Most likely a credentials problem."
+                raise Exception(m, e)
             elif response.status_code == 404:
                 m = "API connection error. Requested path not found."
+                raise Exception(m, e)
             else:
                 m = "API error"
-            raise Exception(m, e)
+                raise Exception(m, e)
         except requests.exceptions.Timeout as e:
             m = "Timeout attempting to access [%s]" % url
             raise Exception(m, e)
@@ -473,16 +471,12 @@ class CSKCommand(object):
         if self.debug:
             print(response)
 
-        if response:
+        if response is not None:
             if outfmt == "json":
                 try:
                     d = response.json()
                     if d["ErrorCode"]:
-                        code = d["ErrorCode"]
-                        detail = d["ErrorDetail"]
-                        message = d["ErrorMessage"]
-                        msg = "%s, %s, %s" % (code, message, detail)
-                        self.display_error_and_exit(msg)
+                        return json.dumps(d, indent=4)
                     else:
                         # JSON is a bit confusing...
                         # the entire 'payload' is json formatted, so by using json.loads above,
@@ -498,12 +492,7 @@ class CSKCommand(object):
                 try:
                     xRoot = ET.fromstring(response.content)
                     if xRoot.findtext("error/code", None):
-                        code = xRoot.findtext("error/code", "")
-                        detail = xRoot.findtext("error/detail", "")
-                        message = xRoot.findtext("error/message", "")
-
-                        msg = "%s, %s, %s" % (code, message, detail)
-                        self.display_error_and_exit(msg)
+                        return ET.tostring(xRoot)
                     else:
                         # the response might have inner content, or it might have just text
                         try:
