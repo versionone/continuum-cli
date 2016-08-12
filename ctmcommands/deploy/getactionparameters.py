@@ -7,6 +7,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class GetActionParameters(ctmcommands.cmd.CSKCommand):
 
     Description = 'Retreives a json formatted Parameters template for an Action.'
@@ -28,9 +29,7 @@ _To get a parameters template file for a particular action on a deployment, redi
                Param(name='basic', short_name='b', long_name='basic',
                      optional=True, ptype='boolean',
                      doc='Get a basic template with no descriptive details or default values.')]
-               
 
     def main(self):
         results = self.call_api(self.API, ['deployment', 'action', 'service', 'basic'])
         print(results)
-

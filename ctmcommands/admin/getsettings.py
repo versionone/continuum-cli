@@ -7,6 +7,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class GetSettings(ctmcommands.cmd.CSKCommand):
 
     Description = 'Gets all the configuration settings from the database in json format'

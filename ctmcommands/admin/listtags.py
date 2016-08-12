@@ -7,6 +7,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class ListTags(ctmcommands.cmd.CSKCommand):
 
     Description = 'Lists Tags and indicates whether they are in use or not.'
@@ -27,4 +28,3 @@ _To print all tags containing a specific string in the name or description_
     def main(self):
         results = self.call_api(self.API, ['filter'])
         print(results)
-

@@ -8,7 +8,7 @@
 #########################################################################
 
 import ctmcommands.cmd
-from ctmcommands.param import Param
+
 
 class GetLicense(ctmcommands.cmd.CSKCommand):
 

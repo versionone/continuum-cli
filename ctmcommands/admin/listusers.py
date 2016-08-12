@@ -7,6 +7,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class ListUsers(ctmcommands.cmd.CSKCommand):
 
     Description = 'Lists Users'
@@ -27,4 +28,3 @@ _List all users with Administrator role_
     def main(self):
         results = self.call_api(self.API, ['filter'])
         print(results)
-

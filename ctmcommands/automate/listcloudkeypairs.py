@@ -7,6 +7,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class ListCloudKeyPairs(ctmcommands.cmd.CSKCommand):
 
     Description = 'Lists cloud endpoint key pairs (ssh private keys)'
@@ -24,4 +25,3 @@ _List all keypair names associated with the AWS us-east-1 cloud endpoint_
     def main(self):
         results = self.call_api(self.API, ['cloud'])
         print(results)
-

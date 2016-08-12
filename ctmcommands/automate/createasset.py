@@ -7,6 +7,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class CreateAsset(ctmcommands.cmd.CSKCommand):
 
     Description = 'Creates a new fixed address Asset.'

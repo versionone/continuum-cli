@@ -10,6 +10,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class GetURL(ctmcommands.cmd.CSKCommand):
 
     Description = 'Gets a URL to a specific page in the "deploy" UI.'
@@ -40,4 +41,3 @@ class GetURL(ctmcommands.cmd.CSKCommand):
     def main(self):
         results = self.call_api(self.API, ['page', 'user', 'deployment', 'service', 'task_instance', 'service_instance', 'sequence_instance'])
         print(results)
-

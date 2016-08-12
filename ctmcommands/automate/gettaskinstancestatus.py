@@ -7,6 +7,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class GetTaskInstanceStatus(ctmcommands.cmd.CSKCommand):
 
     Description = 'Get the status of a Task Instance.'

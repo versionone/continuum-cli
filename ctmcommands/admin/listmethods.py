@@ -7,6 +7,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class ListMethods(ctmcommands.cmd.CSKCommand):
 
     Description = 'Retrieves a list of all REST API methods and their documentation.'
@@ -23,7 +24,6 @@ _To print only the names with the api commands sorted_
     Options = [Param(name='listonly', short_name='l', long_name='listonly',
                      optional=True, ptype='boolean',
                      doc='List the methods without documentation.')]
-               
 
     def main(self):
         # output format for this command is limited to text
@@ -31,4 +31,3 @@ _To print only the names with the api commands sorted_
         
         results = self.call_api(self.API, ['listonly'])
         print(results)
-

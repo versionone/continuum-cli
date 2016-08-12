@@ -7,6 +7,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class GetAsset(ctmcommands.cmd.CSKCommand):
 
     Description = 'Prints the properties of an Asset'

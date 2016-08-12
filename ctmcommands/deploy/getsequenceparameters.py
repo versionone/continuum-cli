@@ -10,6 +10,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class GetSequenceParameters(ctmcommands.cmd.CSKCommand):
 
     Description = 'Gets the Parameters template for a Sequence which can be used to pass to a sequence.'

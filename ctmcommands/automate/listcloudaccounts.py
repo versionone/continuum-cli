@@ -7,6 +7,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class ListCloudAccounts(ctmcommands.cmd.CSKCommand):
 
     Description = 'Lists Cloud Accounts.'
@@ -23,4 +24,3 @@ _List all cloud accounts with AWS in the name or cloud type_
     def main(self):
         results = self.call_api(self.API, ['filter'])
         print(results)
-

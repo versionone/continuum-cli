@@ -7,6 +7,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class GetTaskParameters(ctmcommands.cmd.CSKCommand):
 
     Description = 'Gets a json formatted parameters template for a task.'
@@ -33,9 +34,7 @@ _To get the most basic parameter template of a task, minus descriptions and defa
                Param(name='basic', short_name='b', long_name='basic',
                      optional=True, ptype='boolean',
                      doc='Get a basic template with no descriptive details or default values.')]
-               
 
     def main(self):
         results = self.call_api(self.API, ['task', 'version', 'basic'])
         print(results)
-

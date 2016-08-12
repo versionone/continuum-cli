@@ -5,7 +5,7 @@
 #########################################################################
 
 import ctmcommands.cmd
-from ctmcommands.param import Param
+
 
 class ListProcesses(ctmcommands.cmd.CSKCommand):
 
@@ -23,4 +23,3 @@ class ListProcesses(ctmcommands.cmd.CSKCommand):
     def main_cli(self):
         results = self.main()
         print(results)
-

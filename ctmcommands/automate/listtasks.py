@@ -7,6 +7,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class ListTasks(ctmcommands.cmd.CSKCommand):
 
     Description = 'Lists Tasks'
@@ -30,4 +31,3 @@ _List all tasks with a particular string in the name, all versions_
     def main(self):
         results = self.call_api(self.API, ['filter', 'show_all_versions'])
         print(results)
-

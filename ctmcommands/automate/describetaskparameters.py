@@ -7,6 +7,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class DescribeTaskParameters(ctmcommands.cmd.CSKCommand):
 
     Description = 'Describes the parameters defined for a task in a text readable format.'
@@ -30,4 +31,3 @@ _Print the parameters of a specific version of a task_
     def main(self):
         results = self.call_api(self.API, ['task', 'version'])
         print(results)
-

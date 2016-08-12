@@ -16,6 +16,7 @@ one for issuing a Windows remote POWERSHELL command.
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class WinRM(ctmcommands.cmd.CSKCommand):
 
     Description = 'Test WinRM connections and issue commands.'
@@ -81,4 +82,3 @@ class WinRMPS(ctmcommands.cmd.CSKCommand):
         
         results = self.call_api(self.API, ['server', 'user', 'password', 'asset', 'kerberos', 'powershell', 'command'])
         print(results)
-

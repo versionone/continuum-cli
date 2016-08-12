@@ -7,6 +7,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class CreateTag(ctmcommands.cmd.CSKCommand):
 
     Description = 'Creates a new Tag to be used to associate objects with one another.'

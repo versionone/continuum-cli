@@ -10,6 +10,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class GetDocumentValue(ctmcommands.cmd.CSKCommand):
 
     Description = 'Gets the value for a given key in a Datastore document stored in the MongoDB datastore.'

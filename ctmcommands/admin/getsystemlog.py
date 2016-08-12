@@ -7,6 +7,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class GetSystemLog(ctmcommands.cmd.CSKCommand):
 
     Description = 'Get the System Log.'

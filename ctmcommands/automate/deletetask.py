@@ -7,6 +7,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class DeleteTask(ctmcommands.cmd.CSKCommand):
 
     Description = 'Deletes a Task.'

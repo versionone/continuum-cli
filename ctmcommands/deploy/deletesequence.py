@@ -10,6 +10,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class DeleteSequence(ctmcommands.cmd.CSKCommand):
 
     Description = 'Deletes a sequence from a deployed application.'

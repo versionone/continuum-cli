@@ -10,6 +10,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class CopyApplicationTemplate(ctmcommands.cmd.CSKCommand):
 
     Description = 'Copies an Application Template to a new name or version.'

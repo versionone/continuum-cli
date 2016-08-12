@@ -7,6 +7,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class CreateCredential(ctmcommands.cmd.CSKCommand):
 
     Description = 'Creates a new set of Shared Credentials that can be used to log into other systems.'

@@ -22,6 +22,7 @@
 
 import os
 
+
 class Converter(object):
     
     @classmethod
@@ -66,7 +67,8 @@ class Converter(object):
             return mthd(param, value)
         except Exception as e:
             raise Exception(e)
-        
+
+
 class Param(object):
 
     def __init__(self, name=None, ptype='string', optional=True,
@@ -143,5 +145,3 @@ class Param(object):
                       be a string.
         """
         return Converter.convert(self, value)
-
-

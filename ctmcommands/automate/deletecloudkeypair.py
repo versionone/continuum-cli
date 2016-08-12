@@ -7,6 +7,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class DeleteCloudKeypair(ctmcommands.cmd.CSKCommand):
 
     Description = 'Removes a key pair (ssh private key) from a Cloud endpoint definition.'

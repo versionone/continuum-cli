@@ -13,6 +13,7 @@ import json
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class ExportCanvas(ctmcommands.cmd.CSKCommand):
 
     Description = 'Exports Canvas items to a directory.'
@@ -99,4 +100,3 @@ class ExportCanvas(ctmcommands.cmd.CSKCommand):
                         f_out.write(i["Data"].encode("utf-8", "ignore") if i["Data"] else "")
                         
         print "Project(s) successfully backed up to [%s]." % (rootdir)
-            

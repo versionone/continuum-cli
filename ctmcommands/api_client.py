@@ -79,7 +79,6 @@ if randomargs:
             args[k] = v
 
 
-
 def http_get(url, timeout=10):
     try:
         if not url:
@@ -109,6 +108,7 @@ def http_get(url, timeout=10):
         
     except Exception as ex:
         raise ex
+
 
 def call_api(host, method, key, pw, args):
     try:
@@ -140,7 +140,6 @@ def call_api(host, method, key, pw, args):
         # encoded signature
         sig = base64.b64encode(hmac.new(str(pw), msg=string_to_sign, digestmod=hashlib.sha256).digest())
         sig = "&signature=" + urllib.quote_plus(sig)
-        
 
         url = "%s/%s%s%s" % (host, string_to_sign, sig, argstr)
         
@@ -151,6 +150,7 @@ def call_api(host, method, key, pw, args):
         return http_get(url)
     except Exception as ex:
         raise ex
+
 
 def packData(sIn):
     # NOTE: this encoding scheme must match what's defined in the server code.

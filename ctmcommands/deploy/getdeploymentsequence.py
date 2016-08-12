@@ -10,6 +10,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class GetDeploymentSequence(ctmcommands.cmd.CSKCommand):
 
     Description = 'Displays a deployment sequences steps in an readable format'

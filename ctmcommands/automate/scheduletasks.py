@@ -6,7 +6,7 @@
 
 import ctmcommands.cmd
 from ctmcommands.param import Param
-import json
+
 
 class ScheduleTasks(ctmcommands.cmd.CSKCommand):
 

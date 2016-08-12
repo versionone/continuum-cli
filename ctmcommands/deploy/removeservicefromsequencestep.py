@@ -10,6 +10,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class RemoveServiceFromSequenceStep(ctmcommands.cmd.CSKCommand):
 
     Description = 'Removes a Service from a Deployment Sequence Step on a deployed application.'

@@ -10,6 +10,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class ListDocumentCollections(ctmcommands.cmd.CSKCommand):
 
     Description = 'List all collections in the MongoDB datastore.'

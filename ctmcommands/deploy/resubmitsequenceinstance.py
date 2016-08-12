@@ -10,6 +10,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class ResubmitSequenceInstance(ctmcommands.cmd.CSKCommand):
 
     Description = 'Resubmit a halted Sequence Instance.'

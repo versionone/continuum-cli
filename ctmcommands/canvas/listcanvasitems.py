@@ -10,6 +10,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class ListCanvasItems(ctmcommands.cmd.CSKCommand):
 
     Description = 'Lists Canvas Items'

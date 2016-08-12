@@ -10,6 +10,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class GetApplicationTemplate(ctmcommands.cmd.CSKCommand):
 
     Description = 'Retrieves the properties of an application template'

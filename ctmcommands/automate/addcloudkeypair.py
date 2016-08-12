@@ -7,6 +7,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class AddCloudKeypair(ctmcommands.cmd.CSKCommand):
 
     Description = 'Adds a key pair (ssh private key) to a defined cloud endpoint'

@@ -7,6 +7,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class UpdateUser(ctmcommands.cmd.CSKCommand):
 
     Description = 'Updates a User account.'

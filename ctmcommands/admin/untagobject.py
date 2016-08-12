@@ -7,6 +7,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class UntagObject(ctmcommands.cmd.CSKCommand):
 
     Description = 'Removes a security Tag from an object.'

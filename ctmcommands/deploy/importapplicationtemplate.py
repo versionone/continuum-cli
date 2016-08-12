@@ -15,6 +15,7 @@ import base64
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class ImportApplicationTemplate(ctmcommands.cmd.CSKCommand):
 
     Description = 'Imports an Application Template from a properly formatted directory.'
@@ -69,7 +70,6 @@ but the Template creation will complete.""")
         taskdir = os.path.join(rootdir, "tasks")
         reportdir = os.path.join(rootdir, "reports")
 
-        
         app_details = None
         fn = os.path.expanduser(os.path.join(rootdir, "application.json"))
         with open(fn, 'r') as f_in:
@@ -82,8 +82,7 @@ but the Template creation will complete.""")
         if not app_details:
             print "Unable to read the Application Template details from application.json."
             return
-        
-        
+
         """
         OK, let's keep this clear in our heads... making an API call from a command
             assumes that all the properties of the call are defined as attributes of 'self'.
@@ -94,7 +93,6 @@ but the Template creation will complete.""")
         # we're gonna be taking all API responses as JSON
         self.output_format = "json"
 
-        
         # this might seem backwards, but to keep it clean...
         # spin every task FIRST and stop if any of them exist, unless the plow flag is set.
         
@@ -139,7 +137,6 @@ but the Template creation will complete.""")
             print "One or more Tasks in this Application Template already exist:"
             print "\n".join(["[%s] Version [%s]" % (t[0], t[1]) for t in conflicts])
             return
-
 
         # BUT, if ignoreconflicts WAS provided, we will plow tasks in even if they exist.
         # we did a return up above, so if we get here... we're plowing!
@@ -220,6 +217,3 @@ but the Template creation will complete.""")
             print response
         
         print "Success!"
-        
-
-            

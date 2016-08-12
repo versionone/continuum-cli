@@ -10,6 +10,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class ListApplicationTemplates(ctmcommands.cmd.CSKCommand):
 
     Description = 'Lists application deployment template and their high level properties'
