@@ -7,6 +7,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class GetActiveTasks(ctmcommands.cmd.CSKCommand):
 
     Description = 'Gets a list of active Task Instances (Submitted, Staged, Pending, Processing).'

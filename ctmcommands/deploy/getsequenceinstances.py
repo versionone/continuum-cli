@@ -10,6 +10,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class GetSequenceInstances(ctmcommands.cmd.CSKCommand):
 
     Description = 'Get a list of Deployment Sequence Instances.'

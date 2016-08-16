@@ -14,6 +14,7 @@ import glob
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class DeleteApplicationTemplate(ctmcommands.cmd.CSKCommand):
 
     Description = """Deletes an Application Template."""

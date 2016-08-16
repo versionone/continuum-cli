@@ -10,6 +10,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class CreateDocument(ctmcommands.cmd.CSKCommand):
 
     Description = 'Creates a new Datastore document in the MongoDB datastore.'

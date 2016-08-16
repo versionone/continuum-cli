@@ -7,6 +7,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class DeleteCredential(ctmcommands.cmd.CSKCommand):
 
     Description = 'Deletes a Shared Credential.'

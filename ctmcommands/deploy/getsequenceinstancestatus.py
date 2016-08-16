@@ -10,6 +10,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class GetSequenceInstanceStatus(ctmcommands.cmd.CSKCommand):
 
     Description = 'Get a Deployment Sequence Instance Status.'

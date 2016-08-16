@@ -7,6 +7,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class GetTaskInstances(ctmcommands.cmd.CSKCommand):
 
     Description = 'Get a list of Task Instances and their properties (status, dates, etc.).'

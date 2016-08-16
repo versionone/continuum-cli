@@ -8,6 +8,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class InstallLicense(ctmcommands.cmd.CSKCommand):
 
     Description = 'Installs or updates the Continuum license by importing a license file'

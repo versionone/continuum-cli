@@ -5,7 +5,7 @@
 #########################################################################
 
 import ctmcommands.cmd
-from ctmcommands.param import Param
+
 
 class GetToken(ctmcommands.cmd.CSKCommand):
 

@@ -10,6 +10,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class RunSequence(ctmcommands.cmd.CSKCommand):
 
     Description = 'Runs a Deployment Sequence'

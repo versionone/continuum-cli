@@ -7,6 +7,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class StopTask(ctmcommands.cmd.CSKCommand):
 
     Description = 'Cancels a task instance in a runnning status'

@@ -10,6 +10,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class GetDeploymentDocument(ctmcommands.cmd.CSKCommand):
 
     Description = 'Retrieves the datastore data for a deployment in json format'

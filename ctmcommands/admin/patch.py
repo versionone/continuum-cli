@@ -7,6 +7,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class Patch(ctmcommands.cmd.CSKCommand):
 
     Description = """If enabled, allows remote patching of a source or configuration file."""

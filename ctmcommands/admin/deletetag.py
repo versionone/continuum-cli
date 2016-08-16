@@ -7,6 +7,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class DeleteTag(ctmcommands.cmd.CSKCommand):
 
     Description = 'Deletes a Tag.'

@@ -7,6 +7,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class UpdateSettings(ctmcommands.cmd.CSKCommand):
 
     Description = """Update the configuration settings of a specific module.

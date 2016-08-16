@@ -10,6 +10,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class GetServiceDocument(ctmcommands.cmd.CSKCommand):
 
     Description = 'Retrieves a json formatted datastore document for a service on a deployment'

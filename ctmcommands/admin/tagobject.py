@@ -7,6 +7,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class TagObject(ctmcommands.cmd.CSKCommand):
 
     Description = 'Applies a security Tag to an object.'

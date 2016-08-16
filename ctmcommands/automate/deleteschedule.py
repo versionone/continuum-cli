@@ -7,6 +7,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class DeleteSchedule(ctmcommands.cmd.CSKCommand):
 
     Description = 'Deletes a Task Schedule and all queued execution plans.'

@@ -7,6 +7,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class ResetPassword(ctmcommands.cmd.CSKCommand):
 
     Description = "Resets a User's login password."

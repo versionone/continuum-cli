@@ -7,6 +7,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class CreateTask(ctmcommands.cmd.CSKCommand):
 
     Description = 'Creates a new blank Task object.'

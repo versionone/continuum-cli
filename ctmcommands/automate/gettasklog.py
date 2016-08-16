@@ -7,6 +7,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class GetTaskLog(ctmcommands.cmd.CSKCommand):
 
     Description = 'Retrieve the task instance log from the database'

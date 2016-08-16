@@ -7,6 +7,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class DeleteAsset(ctmcommands.cmd.CSKCommand):
 
     Description = 'Deletes an asset.'

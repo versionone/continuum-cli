@@ -10,6 +10,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class GetDeployment(ctmcommands.cmd.CSKCommand):
 
     Description = 'Prints the high level properties of a deployment such as state and health'
@@ -24,4 +25,3 @@ class GetDeployment(ctmcommands.cmd.CSKCommand):
     def main(self):
         results = self.call_api(self.API, ['deployment'])
         print(results)
-

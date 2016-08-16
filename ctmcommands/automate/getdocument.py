@@ -10,6 +10,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class GetDocument(ctmcommands.cmd.CSKCommand):
 
     Description = '''Gets a datastore document based on a MongoDB query. For query syntax, see the 

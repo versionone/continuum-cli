@@ -10,6 +10,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class StopSequence(ctmcommands.cmd.CSKCommand):
 
     Description = 'Stops a running Sequence Instance.'

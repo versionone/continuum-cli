@@ -7,6 +7,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class DeletePlan(ctmcommands.cmd.CSKCommand):
 
     Description = 'Deletes a specific queued execution plan for a scheduled task.'

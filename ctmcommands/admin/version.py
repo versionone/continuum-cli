@@ -5,7 +5,7 @@
 #########################################################################
 
 import ctmcommands.cmd
-from ctmcommands.param import Param
+
 
 class Version(ctmcommands.cmd.CSKCommand):
 
@@ -19,4 +19,3 @@ class Version(ctmcommands.cmd.CSKCommand):
     def main(self):
         results = self.call_api(self.API, [])
         print(results)
-

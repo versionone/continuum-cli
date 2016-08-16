@@ -7,6 +7,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class GetTask(ctmcommands.cmd.CSKCommand):
 
     Description = 'Prints the properties of a Task'
@@ -33,4 +34,3 @@ _To print the properties and code of the default version of a Task_
     def main(self):
         results = self.call_api(self.API, ['task', 'version', 'include_code'])
         print(results)
-

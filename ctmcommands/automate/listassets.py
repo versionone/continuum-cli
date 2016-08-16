@@ -7,6 +7,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class ListAssets(ctmcommands.cmd.CSKCommand):
 
     Description = 'Lists Assets'
@@ -27,4 +28,3 @@ _List all Assets that are active_
     def main(self):
         results = self.call_api(self.API, ['filter'])
         print(results)
-

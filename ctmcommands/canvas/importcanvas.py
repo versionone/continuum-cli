@@ -12,6 +12,7 @@ import os
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class ImportCanvas(ctmcommands.cmd.CSKCommand):
 
     Description = 'Imports Canvas items from a properly formatted directory.'

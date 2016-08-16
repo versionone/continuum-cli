@@ -7,6 +7,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class SendMessage(ctmcommands.cmd.CSKCommand):
 
     Description = 'Sends a message to an email address using the messenger.'

@@ -10,6 +10,7 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+
 class CreateApplicationTemplate(ctmcommands.cmd.CSKCommand):
 
     Description = """Creates a new Application Template.
