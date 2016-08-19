@@ -22,7 +22,7 @@ if not access_key:
 if not secret_key:
     raise Exception("SECRET_KEY not provided.")
 
-args = {} # a dictionary of any arguments required for the method
+args = {}  # a dictionary of any arguments required for the method
 if args:
     arglst = ["&%s=%s" % (k, urllib.quote_plus(v)) for k, v in args.items()]
     argstr = "".join(arglst)

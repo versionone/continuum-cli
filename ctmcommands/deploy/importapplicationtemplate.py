@@ -135,7 +135,7 @@ but the Template creation will complete.""")
         if not self.ignoreconflicts and len(conflicts):
             # spin the full tasks2import looking 
             print "One or more Tasks in this Application Template already exist:"
-            print "\n".join(["[%s] Version [%s]" % (t[0], t[1]) for t in conflicts])
+            print "\n".join(["[%s] Version [%s]" % (conflict[0], conflict[1]) for conflict in conflicts])
             return
 
         # BUT, if ignoreconflicts WAS provided, we will plow tasks in even if they exist.
