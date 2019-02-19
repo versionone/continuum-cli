@@ -1,19 +1,6 @@
 #!/usr/bin/env python
-
-#########################################################################
-# Copyright 2016 VersionOne
-# All Rights Reserved.
-# http://www.versionone.com
-#########################################################################
-
-import os
-import sys
-if "CONTINUUM_HOME" in os.environ:
-    sys.path.append(os.path.join(os.environ["CONTINUUM_HOME"], "common", "lib"))
-
 import ctmcommands.automate.listtasks
 
 if __name__ == '__main__':
     cmd = ctmcommands.automate.listtasks.ListTasks()
     cmd.main()
-

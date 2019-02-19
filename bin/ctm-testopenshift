@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+import ctmcommands.flow.testopenshift
+
+if __name__ == '__main__':
+    cmd = ctmcommands.flow.testopenshift.TestOpenShift()
+    cmd.main()

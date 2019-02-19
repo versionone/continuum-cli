@@ -1,10 +1,7 @@
 #########################################################################
-# 
-# Copyright 2016 VersionOne
+# Copyright 2019 VersionOne
 # All Rights Reserved.
 # http://www.versionone.com
-# 
-# 
 #########################################################################
 
 import os
@@ -39,11 +36,11 @@ class ExportCanvas(ctmcommands.cmd.CSKCommand):
     def main(self):
         """
         The API call will return a list of project items.
-        
+
         Save them all in the proper directory structure.
-        
+
         """
-        
+
         # if no outputdirectory was provided, we will just print the results
         if self.printoutput:
             results = self.call_api(self.API, ['project', 'component'])
@@ -59,7 +56,7 @@ class ExportCanvas(ctmcommands.cmd.CSKCommand):
         if not os.path.exists(rootdir):
             print "The directory [%s] does not exist." % (rootdir)
             return
-            
+
         results = self.call_api(self.API, ['project', 'component', 'repository'])
 
         # the result MIGHT be an error!!! in which case the json.loads will fail
@@ -68,22 +65,22 @@ class ExportCanvas(ctmcommands.cmd.CSKCommand):
         except:
             print results
             return
-        
+
         if not projs:
             print "No results found."
             return
-        
+
         for p in projs:
             # create the project dir
             print "Project: %s" % (p["Name"])
             pdir = os.path.join(rootdir, "proj_%s" % (p["Name"]))
             if not os.path.exists(pdir):
                 os.makedirs(pdir)
-                
+
             # Components
             for c in p["Components"]:
                 print "    Component: %s" % (c["Name"])
-                # create the category dir 
+                # create the category dir
                 cdir = os.path.join(pdir, "comp_%s" % (c["Name"]))
                 if not os.path.exists(cdir):
                     os.makedirs(cdir)
@@ -98,5 +95,5 @@ class ExportCanvas(ctmcommands.cmd.CSKCommand):
                         if not f_out:
                             print("Unable to open file [%s]." % fn)
                         f_out.write(i["Data"].encode("utf-8", "ignore") if i["Data"] else "")
-                        
+
         print "Project(s) successfully backed up to [%s]." % (rootdir)

@@ -1,5 +1,5 @@
 #########################################################################
-# Copyright 2016 VersionOne
+# Copyright 2019 VersionOne
 # All Rights Reserved.
 # http://www.versionone.com
 #########################################################################
@@ -25,6 +25,15 @@ class UpdateUser(ctmcommands.cmd.CSKCommand):
                      optional=True, ptype='string',
                      doc='The users role.  (Valid values: Administrator, Developer, User)',
                      choices=["Administrator", "Developer", "User"]),
+               Param(name='teams', short_name='t', long_name='teams',
+                     optional=True, ptype='string',
+                     doc='A list of teams the user belongs to, along with a role for each team. Teams and roles are separated by a colon. Team/role pairs are separated by commas.'),
+               Param(name='is_system_administrator', long_name='is-sys-admin',
+                     optional=True, ptype='string',
+                     doc="Whether the user should have system administrator privileges. (Valid values: True or False)"),
+               Param(name='is_shared_asset_manager', long_name='is-shared-asset-mgr',
+                     optional=True, ptype='string',
+                     doc="Whether the user should have shared asset manager privileges. (Valid values: True or False)"),
                Param(name='email', short_name='e', long_name='email',
                      optional=True, ptype='string',
                      doc='Email address for the user.  Required if "password" is omitted.'),
@@ -46,6 +55,9 @@ class UpdateUser(ctmcommands.cmd.CSKCommand):
                Param(name='groups', short_name='g', long_name='groups',
                      optional=True, ptype='string',
                      doc='A list of groups the user belongs to. Group names cannot contain spaces. Comma delimited list.'),
+               Param(name='contributors', short_name='c', long_name='contributors',
+                     optional=True, ptype='string',
+                     doc='Usernames in source control management systems related to an user. Comma delimited list.'),
                Param(name='password', short_name='p', long_name='password',
                      optional=True, ptype='string',
                      doc='The new password.'),
@@ -64,5 +76,5 @@ class UpdateUser(ctmcommands.cmd.CSKCommand):
                     go = True
 
         if go:
-            results = self.call_api(self.API, ['user', 'name', 'role', 'email', 'authtype', 'forcechange', 'status', 'expires', 'groups', 'password', 'generate'])
+            results = self.call_api(self.API, ['user', 'name', 'role', 'teams', 'email', 'authtype', 'forcechange', 'status', 'expires', 'groups', 'contributors', 'password', 'generate', 'is_system_administrator', 'is_shared_asset_manager'])
             print(results)

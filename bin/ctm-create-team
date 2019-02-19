@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+import ctmcommands.admin.createteam
+
+if __name__ == '__main__':
+    cmd = ctmcommands.admin.createteam.CreateTeam()
+    cmd.main()

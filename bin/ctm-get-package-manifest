@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+import ctmcommands.flow.getpackagemanifest
+
+if __name__ == '__main__':
+    cmd = ctmcommands.flow.getpackagemanifest.GetPackageManifest()
+    cmd.main()

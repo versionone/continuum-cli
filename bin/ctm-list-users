@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+import ctmcommands.admin.listusers
+
+if __name__ == '__main__':
+    cmd = ctmcommands.admin.listusers.ListUsers()
+    cmd.main()

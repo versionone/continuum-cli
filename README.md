@@ -8,24 +8,14 @@ interacting with the web service.
 
 ## Requirements
 
-Python 2.6+ 
+Python 2.6+ and pip for installation
 
 ## Installation
 
 ```
-pip install https://github.com/versionone/client/archive/latest.zip
-```
-
-Specific release tarballs are here:
-
-https://github.com/versionone/client/tags
-
-or clone in git:
-
-```
-git clone git://github.com/versionone/client.git
+pip install tarballorzipfile
 ```
 
 ## Documentation
 
-Visit the [VersionOne Continuum Documentation](http://continuumdocs.versionone.com/docs/admin/client/command-reference.html) for more information.
+Visit the [VersionOne Continuum Documentation](https://community.versionone.com/VersionOne_Continuum/REST_API_and_Command_Line_Tools/Client_Tools) for more information.

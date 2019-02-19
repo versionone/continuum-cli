@@ -1,6 +1,6 @@
 #########################################################################
 #
-# Copyright 2016 VersionOne
+# Copyright 2019 VersionOne
 # All Rights Reserved.
 # http://www.versionone.com
 #
@@ -28,8 +28,11 @@ _List all Pipeline Instances
                      doc='Limit the results to a specific project.'),
                Param(name='group', short_name='g', long_name='group',
                      optional=True, ptype='string',
-                     doc='Limit the results to a specific group.')]
+                     doc='Limit the results to a specific group.'),
+               Param(name='since', short_name='s', long_name='since',
+                     optional=True, ptype='string',
+                     doc='Limit the results to Instances after the provided timestamp.')]
 
     def main(self):
-        results = self.call_api(self.API, ['definition', 'project', 'group'])
+        results = self.call_api(self.API, ['definition', 'project', 'group', 'since'])
         print(results)

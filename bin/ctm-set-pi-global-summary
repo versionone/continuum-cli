@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+import ctmcommands.flow.setpiglobalsummary
+
+if __name__ == '__main__':
+    cmd = ctmcommands.flow.setpiglobalsummary.SetPIGlobalSummary()
+    cmd.main()

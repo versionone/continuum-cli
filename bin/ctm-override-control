@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+import ctmcommands.flow.overridecontrol
+
+if __name__ == '__main__':
+    cmd = ctmcommands.flow.overridecontrol.OverrideControl()
+    cmd.main()

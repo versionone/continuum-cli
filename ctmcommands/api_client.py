@@ -95,6 +95,7 @@ def packData(sIn):
     sOut = base64.b64encode(str(sIn))
     return sOut.replace("/", "%2F").replace("+", "%2B")
 
+
 parser = argparse.ArgumentParser(description='Connect to the API.')
 parser.add_argument('--host', help='The host url of the API service.')
 parser.add_argument('--method', '-m', help='The method to call.')

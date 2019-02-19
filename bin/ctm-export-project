@@ -1,9 +1,4 @@
 #!/usr/bin/env python
-
-import os
-import sys
-if "CONTINUUM_HOME" in os.environ:
-    sys.path.append(os.path.join(os.environ["CONTINUUM_HOME"], "common", "lib"))
 import ctmcommands.flow.exportproject
 
 if __name__ == '__main__':

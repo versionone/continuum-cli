@@ -1,6 +1,6 @@
 #########################################################################
 #
-# Copyright 2016 VersionOne
+# Copyright 2019 VersionOne
 # All Rights Reserved.
 # http://www.versionone.com
 #
@@ -22,11 +22,14 @@ Returns a Project Object."""
     Options = [Param(name='name', short_name='n', long_name='name',
                      optional=False, ptype='string',
                      doc='A name for the Project.'),
+               Param(name='team', short_name='t', long_name='team',
+                     optional=False, ptype='string',
+                     doc='Team which the project should belong to'),
                Param(name='description', short_name='d', long_name='description',
                      optional=True, ptype='string',
                      doc='A description for the Project.')
                ]
 
     def main(self):
-        results = self.call_api(self.API, ['name', 'description'])
+        results = self.call_api(self.API, ['name', 'team', 'description'])
         print(results)

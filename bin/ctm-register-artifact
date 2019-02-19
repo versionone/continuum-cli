@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+import ctmcommands.flow.registerartifact
+
+if __name__ == '__main__':
+    cmd = ctmcommands.flow.registerartifact.RegisterArtifact()
+    cmd.main()

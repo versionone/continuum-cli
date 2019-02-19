@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+import ctmcommands.flow.completeactivity
+
+if __name__ == '__main__':
+    cmd = ctmcommands.flow.completeactivity.CompleteActivity()
+    cmd.main()

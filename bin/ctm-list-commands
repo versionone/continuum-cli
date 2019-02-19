@@ -1,14 +1,7 @@
 #!/usr/bin/env python
 
-#########################################################################
-# Copyright 2016 VersionOne
-# All Rights Reserved.
-# http://www.versionone.com
-#########################################################################
-
-
-# This command does not have an API counterpart.  
-# It simply lists all the 'maestro' commands in the directory where it is installed.
+# This command does not have an API counterpart.
+# It simply lists all the commands in the path where Continuum tools are installed.
 
 import os
 import glob
@@ -18,7 +11,7 @@ if __name__ == '__main__':
     if len(sys.argv) > 1:
         # if there's an argument, simply switch on it.  It'll only be asking for the api or dumpdoc.
         if sys.argv[1] == "--dumpdoc" or sys.argv[1] == "-H":
-            print """Lists all installed 'flow' commands.  Accepts no arguments."""
+            print """Lists all installed Continuum commands.  Accepts no arguments."""
             exit()
         else:
             exit()
@@ -27,4 +20,3 @@ if __name__ == '__main__':
     os.chdir(ccdir)
     for fname in sorted(glob.glob("ctm-*")):
         print fname
-        

@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+import ctmcommands.admin.updateuser
+
+if __name__ == '__main__':
+    cmd = ctmcommands.admin.updateuser.UpdateUser()
+    cmd.main()

@@ -1,5 +1,5 @@
 #########################################################################
-# Copyright 2016 VersionOne
+# Copyright 2019 VersionOne
 # All Rights Reserved.
 # http://www.versionone.com
 #########################################################################
@@ -13,7 +13,7 @@ class CreateUser(ctmcommands.cmd.CSKCommand):
     Description = 'Creates a new User.'
     API = 'create_user'
     Examples = '''
-    ctm-create-user -u "dave.thomas" -n "Dave Thomas" -r "User" -e "dave.thomas@example.com" -p "passw0rd" -a "local" -s "enabled"
+    ctm-create-user -u "dave.thomas" -n "Dave Thomas" -r "User" -t "dev" -e "dave.thomas@example.com" -p "passw0rd" -a "local" -s "enabled"
 '''
     Options = [Param(name='user', short_name='u', long_name='user',
                      optional=False, ptype='string',
@@ -21,6 +21,9 @@ class CreateUser(ctmcommands.cmd.CSKCommand):
                Param(name='name', short_name='n', long_name='name',
                      optional=False, ptype='string',
                      doc='The full name of the user.'),
+               Param(name='teams', short_name='t', long_name='teams',
+                     optional=False, ptype='string',
+                     doc='A list of teams the user belongs to, along with a role for each team. Teams and roles are separated by a colon. Team/role pairs are separated by commas.'),
                Param(name='role', short_name='r', long_name='role',
                      optional=False, ptype='string',
                      doc='The users role.  (Valid values: Administrator, Developer, User)',
@@ -58,5 +61,5 @@ class CreateUser(ctmcommands.cmd.CSKCommand):
                ]
 
     def main(self):
-        results = self.call_api(self.API, ['user', 'name', 'role', 'password', 'email', 'authtype', 'forcechange', 'expires', 'status', 'groups', 'contributors', 'get_token'])
+        results = self.call_api(self.API, ['user', 'name', 'role', 'teams', 'password', 'email', 'authtype', 'forcechange', 'expires', 'status', 'groups', 'contributors', 'get_token'])
         print(results)

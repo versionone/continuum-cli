@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+import ctmcommands.flow.deletepackage
+
+if __name__ == '__main__':
+    cmd = ctmcommands.flow.deletepackage.DeletePackage()
+    cmd.main()

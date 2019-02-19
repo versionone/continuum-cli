@@ -1,10 +1,7 @@
 #########################################################################
-# 
-# Copyright 2016 VersionOne
+# Copyright 2019 VersionOne
 # All Rights Reserved.
 # http://www.versionone.com
-# 
-# 
 #########################################################################
 
 import ctmcommands.cmd

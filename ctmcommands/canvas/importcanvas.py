@@ -1,6 +1,6 @@
 #########################################################################
 #
-# Copyright 2016 VersionOne
+# Copyright 2019 VersionOne
 # All Rights Reserved.
 # http://www.versionone.com
 #
@@ -16,27 +16,27 @@ from ctmcommands.param import Param
 class ImportCanvas(ctmcommands.cmd.CSKCommand):
 
     Description = 'Imports Canvas items from a properly formatted directory.'
-    API = ''
+    API = 'create_canvas_item'
     Examples = ''''''
     Options = [Param(name='inputdirectory', short_name='i', long_name='inputdirectory',
                      optional=True, ptype='string',
                      doc='Directory where the Canvas files exist.  Current directory if omitted.'),
                Param(name='repository', short_name='r', long_name='repository',
                      optional=True, ptype='string',
-                     doc=""""Specify either "file" or "db" repository. "db" if omitted. 
+                     doc=""""Specify either "file" or "db" repository. "db" if omitted.
                          Only Administrators are allowed to use the "file" option."""),
                Param(name='ignoreconflicts', long_name='ignoreconflicts',
                      optional=True, ptype='boolean',
-                     doc="""If provided, the import process will handle Name conflicts aggressively.  
+                     doc="""If provided, the import process will handle Name conflicts aggressively.
 If Canvas items with the same Project/Component/Name exist, they will be overwritten.""")
                ]
 
     def main(self):
         """
         This command will make multiple API calls.
-        
+
         Rollback on error requires additional API calls.
-        
+
         Basic premise:
         1) spin all the files and create database objects
         2) be happy
@@ -64,7 +64,7 @@ If Canvas items with the same Project/Component/Name exist, they will be overwri
         """
         OK, let's keep this clear in our heads... making an API call from a command
             assumes that all the properties of the call are defined as attributes of 'self'.
-        
+
         Some of these property names will be reused across several calls, so be extra sure to keep them updated in context.
         """
 
@@ -103,8 +103,8 @@ If Canvas items with the same Project/Component/Name exist, they will be overwri
 
         # finally, make the api call for each row (suboptimal I know, but whatever)
         for row in everything:
-            self.project, self.component, self.name, self.data = row[:]
-            response = self.call_api('create_canvas_item', ['project', 'component', 'name', 'data', 'repository', 'ignoreconflicts'])
+            self.project, self.component, self.name, self.resourcedata = row[:]
+            response = self.call_api(self.API, ['project', 'component', 'name', 'resourcedata', 'repository', 'ignoreconflicts'], verb='POST')
             print response
 
         print "Success!"

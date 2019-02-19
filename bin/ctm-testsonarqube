@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+import ctmcommands.flow.testsonarqube
+
+if __name__ == '__main__':
+    cmd = ctmcommands.flow.testsonarqube.TestSonarqube()
+    cmd.main()

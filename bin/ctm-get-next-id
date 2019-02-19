@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+import ctmcommands.flow.getnextid
+
+if __name__ == '__main__':
+    cmd = ctmcommands.flow.getnextid.GetNextId()
+    cmd.main()

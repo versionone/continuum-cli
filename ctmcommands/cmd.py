@@ -1,5 +1,5 @@
 #########################################################################
-# Copyright 2016 VersionOne
+# Copyright 2019 VersionOne
 # All Rights Reserved.
 # http://www.versionone.com
 #########################################################################
@@ -17,19 +17,21 @@ import getopt
 import os
 import sys
 import textwrap
-import hashlib
-import base64
-import hmac
 import urllib
 import json
 import requests
-from datetime import datetime
 from param import Param
 
 try:
     import xml.etree.cElementTree as ET
 except (AttributeError, ImportError):
     import xml.etree.ElementTree as ET
+
+try:
+    from requests.packages import urllib3
+    urllib3.disable_warnings()
+except (ImportError):
+    pass
 
 
 class CSKCommand(object):
@@ -38,28 +40,22 @@ class CSKCommand(object):
     API = ''
     Examples = ''
     Info = ''
-    StandardOptions = [Param(name='access_key',
-                             short_name='A', long_name='access-key',
-                             doc="A defined username.",
-                             optional=True),
-                       Param(name='secret_key',
-                             short_name='S', long_name='secret-key',
-                             doc="A valid password.",
+    StandardOptions = [Param(name='url', short_name='U', long_name='url',
+                             doc='URL of the REST API endpoint. For example: http://address:port',
                              optional=True),
                        Param(name='token',
                              short_name='T', long_name='token',
-                             doc="A defined user UUID 'token'.",
+                             doc='A valid users API token.',
                              optional=True),
                        Param(name='config_file',
                              short_name='C', long_name='config',
-                             doc="""Read credentials and URL from the specified json formatted config file. If a config file and 
-                                    -A, -U or -S flags are used on the same command, the flag option parameters take precendence""",
+                             doc='Read token and url from the specified json formatted config file.',
                              optional=True),
                        Param(name='output_format', short_name='F', long_name='format',
-                             doc='The output format.  (default=text, values=xml/json.)',
+                             doc='The output format.  (default=text)',
                              optional=True, ptype='string', choices=['text', 'json', 'xml']),
                        Param(name='output_delimiter', short_name='L', long_name='output_delimiter',
-                             doc='Delimiter for "Text" output format. (Default is TAB)',
+                             doc='Delimiter for "text" output format. (default=TAB)',
                              optional=True, ptype='string'),
                        Param(name='debug', short_name='D', long_name='debug',
                              doc='Turn on debugging output.',
@@ -67,9 +63,6 @@ class CSKCommand(object):
                        Param(name='help', short_name='H', long_name='help',
                              doc='Display this help message.',
                              optional=True, ptype='boolean'),
-                       Param(name='url', short_name='U', long_name='url',
-                             doc='URL of the REST API endpoint. E.g.: http://address:port',
-                             optional=True),
                        Param(name='force', long_name='force',
                              doc='Force "yes" on "Are you sure?" prompts.',
                              optional=True, ptype='boolean'),
@@ -86,75 +79,70 @@ class CSKCommand(object):
     Args = []
 
     def __init__(self, debug=False):
-        self.token = None
-        self.url = None
         self.config_file_name = None
         self.debug = 0
         self.force = False
         self.set_debug(debug)
         self.cmd_name = os.path.basename(sys.argv[0])
+        self.token = os.environ.get("CONTINUUM_TOKEN")
+        self.url = os.environ.get("CONTINUUM_URL")
         self.process_cli_args()
 
-        # if there's a config file, we read it.
-        # any required values not explicitly specified on the command line,
-        # are read from the config file.
-        # there's a default file ".ctmclient.conf", and you can override with the "config_file" argument
-        configargs = None
-        cfn = None
-        if self.config_file_name:
-            cfn = self.config_file_name
-        else:
-            cfn = "%s/.ctmclient.conf" % os.path.expanduser("~")
-
-        try:
-            # VERSION 1.33+ - we renamed the catoclient.conf file.
-            # if the old name is encountered, rename it
-            if os.path.isfile("%s/.catoclient.conf" % os.path.expanduser("~")):
-                print("INFO - encountered '.catoclient.conf'.  This version uses '.ctmclient.conf'.  The file has been renamed as a convenience, and this message should not appear again.")
-                try:
-                    old = "%s/.catoclient.conf" % os.path.expanduser("~")
-                    os.rename(old, old.replace("cato", "ctm"))
-                except Exception as ex:
-                    # trying to rename the conf file failed... write a nice warning
-                    print("Unable to rename .catoclient.conf.  Please check the permissions and/or rename it manually.")
-                    print(ex.__str__())
-                    self.error_exit()
-
-            with open(cfn, 'r') as f_in:
-                if f_in:
-                    configargs = json.loads(f_in.read())
-        except IOError:
-            # if the file doesn't exist, warn and exit (but continue if there's no default config file).
-            if cfn != "%s/.ctmclient.conf" % os.path.expanduser("~"):
-                print("The specified config file (%s) could not be found." % cfn)
-                self.error_exit()
+        # if we can find CONTINUUM_URL and CONTINUUM_TOKEN in the environment, don't bother with the file
+        if not self.token or not self.url:
+            # if there's a config file, we read it.
+            # any required values not explicitly specified on the command line,
+            # are read from the config file.
+            # there's a default file ".ctmclient.conf", and you can override with the "config_file" argument
+            config_doc = None
+            cfn = None
+            if self.config_file_name:
+                cfn = self.config_file_name
             else:
-                if self.debug:
-                    print("The default config file (%s) could not be found." % cfn)
+                cfn = "%s/.ctmclient.conf" % os.path.expanduser("~")
 
-        except ValueError:
-            # if the format of either file is bad, bark about it
-            print("The specified config file (%s) json format is invalid." % cfn)
-            self.error_exit()
+            try:
+                with open(cfn, 'r') as f_in:
+                    if f_in:
+                        config_doc = json.loads(f_in.read())
+            except IOError:
+                # if the file doesn't exist, warn and exit (but continue if there's no default config file).
+                if cfn != "%s/.ctmclient.conf" % os.path.expanduser("~"):
+                    raise Exception("The specified config file (%s) could not be found." % cfn)
+                else:
+                    if self.debug:
+                        print("The default config file (%s) could not be found." % cfn)
 
-        if configargs:
-            # loop through the settings
-            for k, v in configargs.items():
-                if hasattr(self, k):
-                    if not getattr(self, k):
-                        setattr(self, k, v)
+            except ValueError:
+                # if the format of either file is bad, bark about it
+                print("The specified config file (%s) json format is invalid." % cfn)
+                self.error_exit()
 
-        # since the args can come from different sources, we have to explicitly check the required ones.
+            if config_doc:
+                # loop through the settings
+                # comments because this is a little hard to grok
+                # for every key in the config file
+                for k, v in config_doc.items():
+                    # if 'self' has the key
+                    if hasattr(self, k):
+                        # and self.key is not set
+                        if not getattr(self, k):
+                            # set it with the value from the file
+                            setattr(self, k, v)
+
         if not self.url:
-            print("URL is required, either via --url or in a config file.")
+            print("URL is required, either via `--url` argument, `CONTINUUM_URL` environment variable or in a config file.")
             self.error_exit()
         if not self.url.endswith("/api"):
-            # 9-3-15 per Patrick
             self.url = "%s/api" % (self.url)
-        # token is required
         if not self.token:
-            print("Token is required, either via --token or in a config file.")
+            print("Token is required, either via `--token`, `CONTINUUM_TOKEN` environment variable or in a config file.")
             self.error_exit()
+
+        if self.debug:
+            print("Using CONTINUUM_URL: %s" % self.url)
+        if self.debug:
+            print("Using CONTINUUM_TOKEN: %s" % self.token)
 
     def set_debug(self, debug=False):
         if debug:
@@ -388,7 +376,7 @@ class CSKCommand(object):
     def error_exit(self):
         sys.exit(1)
 
-    def call_api(self, method, parameters, verb="GET"):
+    def call_api(self, method, parameters=[], data={}, verb="GET", content_type=None, timeout=10):
         host = self.url
         outfmt = "text"
         outdel = ""
@@ -409,21 +397,30 @@ class CSKCommand(object):
         if outfmt == "text":
             noheader = getattr(self, "noheader", None)
 
-        args = {}
+        args = data
         argstr = ""
         for param in parameters:
             if getattr(self, param, None):
                 args[param] = getattr(self, param)
 
-            # if post then args are a dict, if get args are qs
+        # if post then args are a dict, if get args are qs
         if verb == "GET":
             if len(args):
                 arglst = ["&%s=%s" % (k, urllib.quote_plus(str(v))) for k, v in args.items()]
                 argstr = "".join(arglst)
 
-        od = "&output_delimiter=%s" % urllib.quote_plus(outdel)
-        nh = "&header=false" if noheader else ""
-        url = "%s/%s?%s%s%s" % (host, method, argstr, od, nh)
+        url = host
+
+        if method:
+            url = "%s/%s" % (host, method)
+        if argstr:
+            url = "%s/%s?%s" % (host, method, argstr)
+
+        if outdel:
+            url = "%s&output_delimiter=%s" % (url, urllib.quote_plus(outdel))
+
+        if noheader:
+            url = "%s&header=false" % (url)
 
         if not url:
             return "URL not provided."
@@ -441,8 +438,11 @@ class CSKCommand(object):
         else:
             hdrs["Accept"] = "text/plain"
 
+        if content_type:
+            hdrs["Content-Type"] = content_type
+
         try:
-            response = requests.request(verb, url, headers=hdrs, data=args, verify=False, timeout=10)
+            response = requests.request(verb, url, headers=hdrs, data=args, verify=False, timeout=timeout)
             response.raise_for_status()
         except requests.exceptions.HTTPError as e:
             # 400 level errors don't all raise an exception ... some

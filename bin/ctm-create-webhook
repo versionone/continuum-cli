@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+import ctmcommands.admin.createwebhook
+
+if __name__ == '__main__':
+    cmd = ctmcommands.admin.createwebhook.CreateWebhook()
+    cmd.main()

@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+import ctmcommands.flow.reversionpackagerevision
+
+if __name__ == '__main__':
+    cmd = ctmcommands.flow.reversionpackagerevision.ReversionPackageRevision()
+    cmd.main()

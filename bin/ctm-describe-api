@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+import ctmcommands.admin.listmethods
+
+if __name__ == '__main__':
+    cmd = ctmcommands.admin.listmethods.ListMethods()
+    cmd.main()

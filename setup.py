@@ -1,5 +1,5 @@
 #########################################################################
-# Copyright 2016 VersionOne
+# Copyright 2019 VersionOne
 # All Rights Reserved.
 # http://www.versionone.com
 #########################################################################
@@ -13,10 +13,10 @@ for f in os.listdir("bin"):
 
 setuptools.setup(
     name='continuumclient',
-    version='16.2.5',
+    version='19.0.1',
     description='VersionOne Client Tools',
-    author='Patrick Dunnigan',
-    author_email='patrick.dunnigan@versionone.com',
+    author='VersionOne',
+    author_email='ContinuumAdmin@versionone.com',
     packages=setuptools.find_packages(exclude=['bin']),
     include_package_data=True,
     install_requires=['requests'],

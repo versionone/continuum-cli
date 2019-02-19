@@ -1,5 +1,5 @@
 #########################################################################
-# Copyright 2016 VersionOne
+# Copyright 2019 VersionOne
 # All Rights Reserved.
 # http://www.versionone.com
 #########################################################################
@@ -40,7 +40,7 @@ _Limit the number of task instances returned_
     def main(self):
         try:
             self.status = "Processing"
-            
+
             results = self.call_api(self.API, ['filter', 'status', 'records'])
             print(results)
         except Exception as ex:

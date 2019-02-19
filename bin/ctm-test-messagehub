@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+import ctmcommands.admin.testmsghub
+
+if __name__ == '__main__':
+    cmd = ctmcommands.admin.testmsghub.TestMessageHub()
+    cmd.main()

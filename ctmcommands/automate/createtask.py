@@ -1,5 +1,5 @@
 #########################################################################
-# Copyright 2016 VersionOne
+# Copyright 2019 VersionOne
 # All Rights Reserved.
 # http://www.versionone.com
 #########################################################################
@@ -13,11 +13,14 @@ class CreateTask(ctmcommands.cmd.CSKCommand):
     Description = 'Creates a new blank Task object.'
     API = 'create_task'
     Examples = '''
-    ctm-create-task -n "mytask" -d "This is a sample task" -c "test2001"
+    ctm-create-task -n "mytask" -d "This is a sample task" -c "test2001" -t "myteam"
 '''
     Options = [Param(name='name', short_name='n', long_name='name',
                      optional=False, ptype='string',
                      doc='A name for the new Task.'),
+               Param(name='team', short_name='t', long_name='team',
+                     optional=False, ptype='string',
+                     doc='Team which the task belongs to'),
                Param(name='desc', short_name='d', long_name='desc',
                      optional=True, ptype='string',
                      doc='A description of the new Task.'),
@@ -27,5 +30,5 @@ class CreateTask(ctmcommands.cmd.CSKCommand):
                ]
 
     def main(self):
-        results = self.call_api(self.API, ['name', 'code', 'desc'])
+        results = self.call_api(self.API, ['name', 'team', 'code', 'desc'])
         print(results)

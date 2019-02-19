@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+import ctmcommands.flow.promoterevision
+
+if __name__ == '__main__':
+    cmd = ctmcommands.flow.promoterevision.PromoteRevision()
+    cmd.main()

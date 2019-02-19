@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+import ctmcommands.flow.listchanges
+
+if __name__ == "__main__":
+    cmd = ctmcommands.flow.listchanges.ListChanges()
+    cmd.main()

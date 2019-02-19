@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+import ctmcommands.flow.exportpackage
+
+if __name__ == '__main__':
+    cmd = ctmcommands.flow.exportpackage.ExportPackage()
+    cmd.main()

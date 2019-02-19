@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+import ctmcommands.flow.deliverpackagerevision
+
+if __name__ == '__main__':
+    cmd = ctmcommands.flow.deliverpackagerevision.DeliverPackageRevision()
+    cmd.main()

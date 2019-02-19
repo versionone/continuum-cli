@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+import ctmcommands.flow.listprogressions
+
+if __name__ == '__main__':
+    cmd = ctmcommands.flow.listprogressions.ListProgressions()
+    cmd.main()
