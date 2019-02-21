@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 set -e
-VERSION=$1
 WORKSPACE=$PWD
 OUTDIR=${WORKSPACE}/tmp
 mkdir -p ${OUTDIR}
