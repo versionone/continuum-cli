@@ -2,20 +2,19 @@
 
 ## Description
 
-VersionOne Continuum Client is a command line toolset for accessing the Continuum  
-REST API. It also provides a Python SDK for programmatically 
-interacting with the web service.
+The VersionOne Continuum Client is a command line toolset for accessing the Continuum  
+REST API. It also provides a Python SDK for programmatically interacting with the web service.
 
 ## Requirements
 
-Python 2.6+ and pip for installation
+`Python 2.7+` and `pip` for installation
 
 ## Installation
 
 ```
-pip install tarballorzipfile
+pip install https://s3.amazonaws.com/downloads.continuum.versionone.com/continuum-client-latest.tar.gz
 ```
 
 ## Documentation
 
-Visit the [VersionOne Continuum Documentation](https://community.versionone.com/VersionOne_Continuum/REST_API_and_Command_Line_Tools/Client_Tools) for more information.
+Visit the [VersionOne Continuum API Documentation](https://versionone.github.io/continuum-api-docs/docs/client/client-tools) for more information.
