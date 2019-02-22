@@ -16,18 +16,11 @@ class GetTaskPlans(ctmcommands.cmd.CSKCommand):
 _Get all scheduled execution plans for a particular task_
 
     ctm-get-task-plans -t "mytask01"
-
-_Get all scheduled execution plans for a specific verions of a task_
-
-    ctm-get-task-plans -t "mytask01" -v "2.000"
 '''
     Options = [Param(name='task', short_name='t', long_name='task',
                      optional=False, ptype='string',
-                     doc='The ID or Name of a Task.'),
-               Param(name='version', short_name='v', long_name='version',
-                     optional=True, ptype='string',
-                     doc='An optional specific Task Version. (Default if omitted.)')]
+                     doc='The ID or Name of a Task.')]
 
     def main(self):
-        results = self.call_api(self.API, ['task', 'version'])
+        results = self.call_api(self.API, ['task'])
         print(results)
