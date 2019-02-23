@@ -17,10 +17,6 @@ _To submit a particular task_
 
     ctm-run-task -t "mytask01"
 
-_To submit a particular version of a task_
-
-    ctm-run-task -t "mytask01" -v "2.000"
-
 _To submit a task the most verbose logging level_
 
     ctm-run-task -t "mytask01" -l 10
@@ -45,9 +41,6 @@ _Initial runtime data in a JSON file_
     Options = [Param(name='task', short_name='t', long_name='task',
                      optional=False, ptype='string',
                      doc='The ID or Name of the Task to run.'),
-               Param(name='version', short_name='v', long_name='version',
-                     optional=True, ptype='string',
-                     doc='An optional specific Task Version. (Default if omitted.)'),
                Param(name='log_level', short_name='l', long_name='log_level',
                      optional=True, ptype='string',
                      doc='An optional Logging level.  One of 10,20 (default),30,40,50 with 10 most verbose, 50 no logging'),
@@ -105,7 +98,7 @@ _Initial runtime data in a JSON file_
                         except:  # well, nothing worked so let's just whine
                             print ("'parameters' argument was provided, but unable to reconcile parameters as JSON, XML or a valid and existing file.")
 
-            results = self.call_api(self.API, ['task', 'version', 'log_level', 'options', 'parameters', 'run_later', 'initialdata'])
+            results = self.call_api(self.API, ['task', 'log_level', 'options', 'parameters', 'run_later', 'initialdata'])
             print(results)
         except ValueError:
             # the results could not be parsed as JSON, just return them

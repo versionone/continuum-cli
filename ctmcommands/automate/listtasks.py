@@ -17,17 +17,14 @@ _List all tasks_
 
     ctm-list-tasks
 
-_List all tasks with a particular string in the name, all versions_
+_List all tasks with a particular string in the name
 
-    ctm-list-tasks -f "Test Logging Level" -v
+    ctm-list-tasks -f "Test Logging Level"
 '''
     Options = [Param(name='filter', short_name='f', long_name='filter',
                     optional=True, ptype='string',
-                    doc='''A string to use to filter the resulting data. Any row of data that has one field contains the string will be returned.'''),
-              Param(name='show_all_versions', short_name='v', long_name='show_all_versions',
-                     optional=True, ptype='boolean',
-                     doc='Show all Versions, not just the "default".')]
+                    doc='''A string to use to filter the resulting data. Any row of data that has one field contains the string will be returned.''')]
 
     def main(self):
-        results = self.call_api(self.API, ['filter', 'show_all_versions'])
+        results = self.call_api(self.API, ['filter'])
         print(results)

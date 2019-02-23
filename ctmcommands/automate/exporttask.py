@@ -17,24 +17,13 @@ _To export the default version of a task in the default xml format_
 
     ctm-export-task -t "mytask01"
 
-_To export a specific version of a task in json format_
-
-    ctm-export-task -t "mytask01" -v "2.000" -F "json"
-
-_To export the default version of a task and redirect to a file_
-
-    ctm-export-task -t "mytask01" > mytask01.xml
-
-_To export the default version of a task, include all subtask references and put results in a file_
+_To export the of a task, include all subtask references and put results in a file_
 
     ctm-export-task -t "mytask01" -r -f "~/mytask01.xml"
 '''
     Options = [Param(name='task', short_name='t', long_name='task',
                      optional=False, ptype='string',
                      doc='The ID or Name of the Task to export.'),
-               Param(name='version', short_name='v', long_name='version',
-                     optional=True, ptype='string',
-                     doc='An optional specific Task Version. (Default if omitted.)'),
                Param(name='include_refs', short_name='r', long_name='include_refs',
                      optional=True, ptype='boolean',
                      doc='If provided, will include all referenced subtasks.'),
@@ -45,7 +34,7 @@ _To export the default version of a task, include all subtask references and put
 
     def main(self):
         try:
-            results = self.call_api(self.API, ['task', 'version', 'include_refs'])
+            results = self.call_api(self.API, ['task', 'include_refs'])
 
             if self.output_file:
                 import os

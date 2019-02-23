@@ -97,7 +97,7 @@ _To export a catalog of backup files._
         for asset in assets:
             if asset_type == "tasks":
                 team_name = format_teamname_to_dirname(asset.get("Team"))
-                asset_name = "{}_{}".format(asset.get("Name"), asset.get("Version"))
+                asset_name = asset.get("Name")
             else:
                 team_name = format_teamname_to_dirname(asset.get("team"))
                 asset_name = asset.get("name")
