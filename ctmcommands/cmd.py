@@ -349,8 +349,7 @@ class CSKCommand(object):
             print self.Info
 
     def dumpdoc(self):
-        print '## %s' % self.cmd_name
-        print '{:#%s}' % self.cmd_name
+        print '<h3 id="{0}" title="Permalink">{0}&nbsp;<a href="#{0}" style="display: margin-left: 1em;">&para;</a></h3>\n'.format(self.cmd_name)
         print '\n%s\n' % self.Description
 
         self.param_usage([opt for opt in self.Options if not opt.optional],
