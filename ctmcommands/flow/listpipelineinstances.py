@@ -31,8 +31,11 @@ _List all Pipeline Instances
                      doc='Limit the results to a specific group.'),
                Param(name='since', short_name='s', long_name='since',
                      optional=True, ptype='string',
-                     doc='Limit the results to Instances after the provided timestamp.')]
+                     doc='Limit the results to Instances after the provided timestamp.'),
+               Param(name='limit', short_name='l', long_name='limit',
+                     optional=True, ptype='integer',
+                     doc='Limit the number of results.  (0 for all results, 100 if omitted.')]
 
     def main(self):
-        results = self.call_api(self.API, ['definition', 'project', 'group', 'since'])
+        results = self.call_api(self.API, ['definition', 'project', 'group', 'since', 'limit'])
         print(results)
