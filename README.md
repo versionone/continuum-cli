@@ -7,12 +7,12 @@ REST API. It also provides a Python SDK for programmatically interacting with th
 
 ## Requirements
 
-`Python 2.7+` and `pip` for installation
+`Python 2.7.x` and `pip` for installation. (Note: at this time Python 3 is not supported.)
 
 ## Installation
 
 ```
-pip install https://s3.amazonaws.com/downloads.continuum.versionone.com/continuum-client-latest.tar.gz
+pip install https://versionone-downloads.s3.amazonaws.com/continuum/continuum-client-latest.tar.gz
 ```
 
 ## Documentation
