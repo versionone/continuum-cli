@@ -21,7 +21,7 @@ class ImportBackup(ctmcommands.cmd.CSKCommand):
                      doc='The file name of the backup file.'),
                Param(name='on_conflict', short_name='c', long_name='on_conflict',
                      optional=True, ptype='string',
-                     doc='Action to take if one or more Tasks have a conflict. "replace", "minor", "major", "cancel".')]
+                     doc='Action to take if one or more Tasks have a conflict. "replace", "cancel".')]
 
     def main(self):
         self.import_text = None
