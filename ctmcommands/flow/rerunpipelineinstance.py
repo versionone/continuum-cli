@@ -17,12 +17,18 @@ class RerunPipelineInstance(ctmcommands.cmd.CSKCommand):
 
 Returns a Pipeline Instance object."""
 
-    API = 'rerun_pipelineinstance'
-    Examples = ''''''
-    Options = [Param(name='pi', short_name='i', long_name='pi',
-                     optional=False, ptype='string',
-                     doc='Name or ID of a Pipeline Instance.')
-               ]
+    API = "rerun_pipelineinstance"
+    Examples = """"""
+    Options = [
+        Param(
+            name="pi",
+            short_name="i",
+            long_name="pi",
+            optional=False,
+            ptype="string",
+            doc="Name or ID of a Pipeline Instance.",
+        )
+    ]
 
     def main(self):
         go = False
@@ -31,9 +37,9 @@ Returns a Pipeline Instance object."""
         else:
             answer = raw_input("Are you sure (y/n)? ")
             if answer:
-                if answer.lower() in ['y', 'yes']:
+                if answer.lower() in ["y", "yes"]:
                     go = True
 
         if go:
-            results = self.call_api(self.API, ['pi'])
+            results = self.call_api(self.API, ["pi"])
             print(results)
