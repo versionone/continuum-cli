@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import ctmcommands.flow.retrypipelineinstance
+import ctmcommands.flow.rerunpipelineinstance
 
 if __name__ == "__main__":
     cmd = ctmcommands.flow.rerunpipelineinstance.RerunPipelineInstance()
