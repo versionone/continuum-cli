@@ -10,7 +10,7 @@ from ctmcommands.param import Param
 
 class UpdateUser(ctmcommands.cmd.CSKCommand):
 
-    Description = 'Updates a User account.'
+    Description = 'Updates a User account, Authentication type will be set to SSO if SSO is enabled in this instance'
     API = 'update_user'
     Examples = '''
     ctm-update-user -u "dave.thomas" -s "disabled"  --force

@@ -10,7 +10,7 @@ from ctmcommands.param import Param
 
 class CreateUser(ctmcommands.cmd.CSKCommand):
 
-    Description = 'Creates a new User.'
+    Description = 'Creates a new User, Authentication type will be set to SSO if SSO is enabled in this instance'
     API = 'create_user'
     Examples = '''
     ctm-create-user -u "dave.thomas" -n "Dave Thomas" -r "User" -t "dev" -e "dave.thomas@example.com" -p "passw0rd" -a "local" -s "enabled"
