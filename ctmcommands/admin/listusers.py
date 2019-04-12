@@ -10,7 +10,7 @@ from ctmcommands.param import Param
 
 class ListUsers(ctmcommands.cmd.CSKCommand):
 
-    Description = 'Lists Users'
+    Description = 'Lists Users, Authentication type will be set to SSO if SSO is enabled in this instance'
     API = 'list_users'
     Examples = '''
 _List all users_
