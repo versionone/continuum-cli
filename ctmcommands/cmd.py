@@ -17,10 +17,12 @@ import getopt
 import os
 import sys
 import textwrap
+from future.standard_library import install_aliases
+install_aliases()
 import urllib.request, urllib.parse, urllib.error
 import json
 import requests
-from .param import Param
+from ctmcommands.param import Param
 
 try:
     import xml.etree.cElementTree as ET
@@ -122,7 +124,7 @@ class CSKCommand(object):
                 # loop through the settings
                 # comments because this is a little hard to grok
                 # for every key in the config file
-                for k, v in list(config_doc.items()):
+                for k, v in config_doc.items():
                     # if 'self' has the key
                     if hasattr(self, k):
                         # and self.key is not set
@@ -405,7 +407,7 @@ class CSKCommand(object):
         # if post then args are a dict, if get args are qs
         if verb == "GET":
             if len(args):
-                arglst = ["&%s=%s" % (k, urllib.parse.quote_plus(str(v))) for k, v in list(args.items())]
+                arglst = ["&%s=%s" % (k, urllib.parse.quote_plus(str(v))) for k, v in args.items()]
                 argstr = "".join(arglst)
 
         url = host

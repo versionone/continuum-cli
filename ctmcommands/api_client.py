@@ -3,6 +3,8 @@
 import os
 import sys
 import json
+from future.standard_library import install_aliases
+install_aliases()
 import urllib.request, urllib.parse, urllib.error
 import urllib.request, urllib.error, urllib.parse
 from datetime import datetime
@@ -62,7 +64,7 @@ def call_api(host, method, key, pw, args):
             host = host[:-1]
 
         if args:
-            arglst = ["&%s=%s" % (k, urllib.parse.quote_plus(v)) for k, v in list(args.items())]
+            arglst = ["&%s=%s" % (k, urllib.parse.quote_plus(v)) for k, v in args.items()]
             argstr = "".join(arglst)
         else:
             argstr = ""
@@ -137,7 +139,7 @@ if methodargs:
 # ... the receiving methods know which arguments to decode.
 
 if files:
-    for k, v in list(files.items()):
+    for k, v in files.items():
         with open(v, 'r') as f_in:
             if not f_in:
                 print(("Unable to open file [%s]." % v))

@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
-import urllib.request, urllib.parse, urllib.error
+from future.standard_library import install_aliases
+install_aliases()
 import urllib.request, urllib.error, urllib.parse
 from datetime import datetime
 import hashlib
@@ -24,7 +25,7 @@ if not secret_key:
 
 args = {}  # a dictionary of any arguments required for the method
 if args:
-    arglst = ["&%s=%s" % (k, urllib.parse.quote_plus(v)) for k, v in list(args.items())]
+    arglst = ["&%s=%s" % (k, urllib.parse.quote_plus(v)) for k, v in args.items()]
     argstr = "".join(arglst)
 else:
     argstr = ""
