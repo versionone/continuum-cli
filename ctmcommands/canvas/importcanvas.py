@@ -47,14 +47,14 @@ If Canvas items with the same Project/Component/Name exist, they will be overwri
             rootdir = os.path.expanduser(self.inputdirectory)
         # the directory must exist
         if not os.path.exists(rootdir):
-            print "The directory [%s] does not exist." % (rootdir)
+            print("The directory [%s] does not exist." % (rootdir))
             return
 
         go = False
         if self.force:
             go = True
         else:
-            answer = raw_input("\nImporting Canvas items could possibly overwrite existing items.\n\nAre you sure? ")
+            answer = input("\nImporting Canvas items could possibly overwrite existing items.\n\nAre you sure? ")
             if answer:
                 if answer.lower() in ['y', 'yes']:
                     go = True
@@ -96,7 +96,7 @@ If Canvas items with the same Project/Component/Name exist, they will be overwri
                             fn = os.path.join(cdir, f)
                             with open(fn, 'r') as f_in:
                                 if not f_in:
-                                    print("Unable to open file [%s]." % fn)
+                                    print(("Unable to open file [%s]." % fn))
                                 data = f_in.read()
 
                             everything.append((p.replace("proj_", ""), c.replace("comp_", ""), f.replace("item_", ""), data))
@@ -105,6 +105,6 @@ If Canvas items with the same Project/Component/Name exist, they will be overwri
         for row in everything:
             self.project, self.component, self.name, self.resourcedata = row[:]
             response = self.call_api(self.API, ['project', 'component', 'name', 'resourcedata', 'repository', 'ignoreconflicts'], verb='POST')
-            print response
+            print(response)
 
-        print "Success!"
+        print("Success!")

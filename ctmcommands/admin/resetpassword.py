@@ -37,7 +37,7 @@ _Reset a User's password to a specified password_
         if self.force:
             go = True
         else:
-            answer = raw_input("Are you sure? ")
+            answer = input("Are you sure? ")
             if answer:
                 if answer.lower() in ['y', 'yes']:
                     go = True

@@ -25,7 +25,7 @@ class DeleteCredential(ctmcommands.cmd.CSKCommand):
         if self.force:
             go = True
         else:
-            answer = raw_input("WARNING: This is a utility function.\n\nDeleting a Credential may affect automation connectivity and cannot be undone.\n\nAre you sure? ")
+            answer = input("WARNING: This is a utility function.\n\nDeleting a Credential may affect automation connectivity and cannot be undone.\n\nAre you sure? ")
             if answer:
                 if answer.lower() in ['y', 'yes']:
                     go = True

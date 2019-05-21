@@ -24,7 +24,7 @@ class InstallLicense(ctmcommands.cmd.CSKCommand):
         if self.force:
             go = True
         else:
-            answer = raw_input("WARNING: This is an administrative function.\n\nUpdating the license cannot be undone.\n\nAre you sure? ")
+            answer = input("WARNING: This is an administrative function.\n\nUpdating the license cannot be undone.\n\nAre you sure? ")
             if answer:
                 if answer.lower() in ['y', 'yes']:
                     go = True
@@ -36,7 +36,7 @@ class InstallLicense(ctmcommands.cmd.CSKCommand):
                 fn = os.path.expanduser(self.inputfile)
                 with open(fn, 'r') as f_in:
                     if not f_in:
-                        print("Unable to open file [%s]." % fn)
+                        print(("Unable to open file [%s]." % fn))
                     data = f_in.read()
                     if data:
                         self.license = data

@@ -27,7 +27,7 @@ class DeletePipeline(ctmcommands.cmd.CSKCommand):
         if self.force:
             go = True
         else:
-            answer = raw_input("Are you sure (y/n)? ")
+            answer = input("Are you sure (y/n)? ")
             if answer:
                 if answer.lower() in ['y', 'yes']:
                     go = True

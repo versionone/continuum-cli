@@ -42,7 +42,7 @@ _To add a private key with a passphrase to the cloud endpoint_
             fn = os.path.expanduser(self.keyfile)
             with open(fn, 'r') as f_in:
                 if not f_in:
-                    print("Unable to open file [%s]." % fn)
+                    print(("Unable to open file [%s]." % fn))
                 self.private_key = f_in.read()
 
         results = self.call_api(self.API, ['cloud', 'name', 'private_key', 'passphrase'])

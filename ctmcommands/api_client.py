@@ -3,8 +3,8 @@
 import os
 import sys
 import json
-import urllib
-import urllib2
+import urllib.request, urllib.parse, urllib.error
+import urllib.request, urllib.error, urllib.parse
 from datetime import datetime
 import hashlib
 import base64
@@ -21,23 +21,23 @@ def http_get(url, timeout=10):
         if not url:
             return "URL not provided."
         
-        print "Trying an HTTP GET to %s" % url
+        print("Trying an HTTP GET to %s" % url)
 
         # for now, just use the url directly
         try:
-            response = urllib2.urlopen(url, None, timeout)
+            response = urllib.request.urlopen(url, None, timeout)
             result = response.read()
             if result:
                 return result
 
-        except urllib2.URLError as ex:
+        except urllib.error.URLError as ex:
             if hasattr(ex, "reason"):
-                print "HTTPGet: failed to reach a server."
-                print ex.reason
+                print("HTTPGet: failed to reach a server.")
+                print(ex.reason)
                 return ex.reason
             elif hasattr(ex, "code"):
-                print "HTTPGet: The server couldn\'t fulfill the request."
-                print ex.__str__()
+                print("HTTPGet: The server couldn\'t fulfill the request.")
+                print(ex.__str__())
                 return ex.__str__()
         
         # if all was well, we won't get here.
@@ -62,7 +62,7 @@ def call_api(host, method, key, pw, args):
             host = host[:-1]
 
         if args:
-            arglst = ["&%s=%s" % (k, urllib.quote_plus(v)) for k, v in args.items()]
+            arglst = ["&%s=%s" % (k, urllib.parse.quote_plus(v)) for k, v in list(args.items())]
             argstr = "".join(arglst)
         else:
             argstr = ""
@@ -76,7 +76,7 @@ def call_api(host, method, key, pw, args):
         
         # encoded signature
         sig = base64.b64encode(hmac.new(str(pw), msg=string_to_sign, digestmod=hashlib.sha256).digest())
-        sig = "&signature=" + urllib.quote_plus(sig)
+        sig = "&signature=" + urllib.parse.quote_plus(sig)
 
         url = "%s/%s%s%s" % (host, string_to_sign, sig, argstr)
         
@@ -137,10 +137,10 @@ if methodargs:
 # ... the receiving methods know which arguments to decode.
 
 if files:
-    for k, v in files.items():
+    for k, v in list(files.items()):
         with open(v, 'r') as f_in:
             if not f_in:
-                print("Unable to open file [%s]." % v)
+                print(("Unable to open file [%s]." % v))
             data = f_in.read()
             if data:
                 args[k] = packData(data)
@@ -151,10 +151,10 @@ if files:
 # we will append them to our global 'args' dictionary
 # NOTE: if any values have the same key as something defined in the json file, 
 # these will take precedence, which is what we want.
-print randomargs
+print(randomargs)
 if randomargs:
     for pair in randomargs:
-        print pair
+        print(pair)
         if "=" in pair:
             k, v = pair.split("=", 1)
             args[k] = v
@@ -162,4 +162,4 @@ if randomargs:
 # make the call
 result = call_api(host, method, access_key, secret_key, args)
 
-print result
+print(result)

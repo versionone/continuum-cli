@@ -41,7 +41,7 @@ _To update all settings for a particular module using a json formatted settings 
         if self.force:
             go = True
         else:
-            answer = raw_input("WARNING: This is a Administrator function.\n\nUpdating settings will change the operation of the system.\n\nAre you sure? ")
+            answer = input("WARNING: This is a Administrator function.\n\nUpdating settings will change the operation of the system.\n\nAre you sure? ")
             if answer:
                 if answer.lower() in ['y', 'yes']:
                     go = True
@@ -52,7 +52,7 @@ _To update all settings for a particular module using a json formatted settings 
                 fn = os.path.expanduser(self.settingsfile)
                 with open(fn, 'r') as f_in:
                     if not f_in:
-                        print("Unable to open file [%s]." % fn)
+                        print(("Unable to open file [%s]." % fn))
                     self.settings = f_in.read()
             results = self.call_api(self.API, ['module', 'settings'])
             print(results)

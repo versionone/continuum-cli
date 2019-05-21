@@ -54,7 +54,7 @@ class ExportCanvas(ctmcommands.cmd.CSKCommand):
 
         # the directory must exist
         if not os.path.exists(rootdir):
-            print "The directory [%s] does not exist." % (rootdir)
+            print("The directory [%s] does not exist." % (rootdir))
             return
 
         results = self.call_api(self.API, ['project', 'component', 'repository'])
@@ -63,23 +63,23 @@ class ExportCanvas(ctmcommands.cmd.CSKCommand):
         try:
             projs = json.loads(results)
         except:
-            print results
+            print(results)
             return
 
         if not projs:
-            print "No results found."
+            print("No results found.")
             return
 
         for p in projs:
             # create the project dir
-            print "Project: %s" % (p["Name"])
+            print("Project: %s" % (p["Name"]))
             pdir = os.path.join(rootdir, "proj_%s" % (p["Name"]))
             if not os.path.exists(pdir):
                 os.makedirs(pdir)
 
             # Components
             for c in p["Components"]:
-                print "    Component: %s" % (c["Name"])
+                print("    Component: %s" % (c["Name"]))
                 # create the category dir
                 cdir = os.path.join(pdir, "comp_%s" % (c["Name"]))
                 if not os.path.exists(cdir):
@@ -87,13 +87,13 @@ class ExportCanvas(ctmcommands.cmd.CSKCommand):
 
                 # Files
                 for i in c["Items"]:
-                    print "        Item: %s" % (i["Name"])
+                    print("        Item: %s" % (i["Name"]))
                     # write this file into the category directory
                     filename = "item_%s" % (i["Name"])
                     fn = os.path.join(cdir, filename)
                     with open(fn, 'w+') as f_out:
                         if not f_out:
-                            print("Unable to open file [%s]." % fn)
+                            print(("Unable to open file [%s]." % fn))
                         f_out.write(i["Data"].encode("utf-8", "ignore") if i["Data"] else "")
 
-        print "Project(s) successfully backed up to [%s]." % (rootdir)
+        print("Project(s) successfully backed up to [%s]." % (rootdir))

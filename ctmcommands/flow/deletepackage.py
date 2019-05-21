@@ -27,7 +27,7 @@ class DeletePackage(ctmcommands.cmd.CSKCommand):
         if self.force:
             go = True
         else:
-            answer = raw_input("\nThis is a destructive operation.  All configuration and history of this Package, including references to other objects, will be removed.\n\nAre you sure (y/n)? ")
+            answer = input("\nThis is a destructive operation.  All configuration and history of this Package, including references to other objects, will be removed.\n\nAre you sure (y/n)? ")
             if answer:
                 if answer.lower() in ['y', 'yes']:
                     go = True

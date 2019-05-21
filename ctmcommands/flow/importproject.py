@@ -26,7 +26,7 @@ Returns a Project Object."""
             fn = os.path.expanduser(self.backupfile)
             with open(fn, 'r') as f_in:
                 if not f_in:
-                    print("Unable to open file [%s]." % fn)
+                    print(("Unable to open file [%s]." % fn))
                 self.backup = f_in.read()
 
         results = self.call_api(self.API, ['backup', 'overwrite'], verb='POST')

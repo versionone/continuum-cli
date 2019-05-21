@@ -41,7 +41,7 @@ _To export the of a task, include all subtask references and put results in a fi
                 fn = os.path.expanduser(self.output_file)
                 with open(fn, 'w') as f_out:
                     if not f_out:
-                        print("Unable to open file [%s]." % fn)
+                        print(("Unable to open file [%s]." % fn))
                     f_out.write(results)
             else:
                 print(results)

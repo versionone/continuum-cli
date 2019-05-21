@@ -32,7 +32,7 @@ Returns a Pipeline Object."""
             fn = os.path.expanduser(self.templatefile)
             with open(fn, 'r') as f_in:
                 if not f_in:
-                    print("Unable to open file [%s]." % fn)
+                    print(("Unable to open file [%s]." % fn))
                 self.template = f_in.read()
 
         results = self.call_api(self.API, ['template'])

@@ -28,7 +28,7 @@ class DeleteCloudKeypair(ctmcommands.cmd.CSKCommand):
         if self.force:
             go = True
         else:
-            answer = raw_input("WARNING: Deleting a Cloud Key Pair cannot be undone.\n\nAre you sure? ")
+            answer = input("WARNING: Deleting a Cloud Key Pair cannot be undone.\n\nAre you sure? ")
             if answer:
                 if answer.lower() in ['y', 'yes']:
                     go = True

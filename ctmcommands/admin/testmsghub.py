@@ -26,7 +26,7 @@ _To send an email to an email address_
 
     def main(self):
         _url = "%s/pub/admin" % (self.server)
-        print("Publishing a message to [%s]..." % (_url))
+        print(("Publishing a message to [%s]..." % (_url)))
         ws = websocket.WebSocket(sslopt={"cert_reqs": 0})
         ws.connect(_url)
         msg = '''{
@@ -35,5 +35,5 @@ _To send an email to an email address_
         }'''
         ws.send(msg)
         result = ws.recv()
-        print("Received %s" % result)
+        print(("Received %s" % result))
         ws.close()

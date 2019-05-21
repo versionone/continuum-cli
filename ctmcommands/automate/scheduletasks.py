@@ -29,7 +29,7 @@ class ScheduleTasks(ctmcommands.cmd.CSKCommand):
                 fn = os.path.expanduser(self.schedulefile)
                 with open(fn, 'r') as f_in:
                     if not f_in:
-                        print("Unable to open file [%s]." % fn)
+                        print(("Unable to open file [%s]." % fn))
                     self.tasks = f_in.read()
 
             results = self.call_api(self.API, ['tasks'])

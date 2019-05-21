@@ -32,7 +32,7 @@ class ImportBackup(ctmcommands.cmd.CSKCommand):
             fn = os.path.expanduser(self.file)
             with open(fn, 'r') as f_in:
                 if not f_in:
-                    print("Unable to open file [%s]." % fn)
+                    print(("Unable to open file [%s]." % fn))
                 data = f_in.read()
                 if data:
                     self.import_text = data
@@ -44,7 +44,7 @@ class ImportBackup(ctmcommands.cmd.CSKCommand):
         if self.force:
             go = True
         else:
-            answer = raw_input("\n\n\nDEPRECATION WARNING - This command is deprecated and will be removed soon.  Use `ctm-import-task` instead.\n\n\n\nImporting a backup file will add Tasks to your system, possibly updating existing Tasks.\n\nAre you sure? ")
+            answer = input("\n\n\nDEPRECATION WARNING - This command is deprecated and will be removed soon.  Use `ctm-import-task` instead.\n\n\n\nImporting a backup file will add Tasks to your system, possibly updating existing Tasks.\n\nAre you sure? ")
             if answer:
                 if answer.lower() in ['y', 'yes']:
                     go = True
