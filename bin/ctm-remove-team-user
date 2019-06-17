@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+import ctmcommands.admin.removeteamuser
+
+if __name__ == '__main__':
+    cmd = ctmcommands.admin.removeteamuser.RemoveTeamUser()
+    cmd.main()
