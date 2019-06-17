@@ -21,8 +21,11 @@ class RemoveTeamUser(ctmcommands.cmd.CSKCommand):
                Param(name='user', short_name='u', long_name='user',
                      optional=False, ptype='string',
                      doc='Name or ID of the User to remove.'),
+               Param(name='default', short_name='d', long_name='default',
+                     optional=True, ptype='string',
+                     doc='Users must be in at least one Team.  If the removal operation would leave this user Teamless, specify a new `Default` team for the User. Will attempt to use `Default` if omitted.'),
                ]
 
     def main(self):
-        results = self.call_api(self.API, ['name', 'user'])
+        results = self.call_api(self.API, ['team', 'user', 'default'])
         print(results)
