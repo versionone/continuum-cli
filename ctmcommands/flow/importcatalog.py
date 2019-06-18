@@ -60,7 +60,15 @@ _To import a catalog from backup files._
                                 Multiple teams can be specified using comma. E.g. "Dev Team","Test Team"'''),
                Param(name='overwrite', short_name='o', long_name='overwrite',
                      optional=True, ptype='string',
-                     doc="""Valid values: true|false (default).""")]
+                     doc="""Valid values: true|false (default)."""),
+               Param(name='human_readable', short_name='h', long_name='humanreadable',
+                     optional=True, ptype='string',
+                     doc="""Valid values: true (default)|false."""),
+               Param(name='import_into_team', short_name='I', long_name='import_into_team',
+                     optional=True, ptype='string',
+                     doc='''Team "name" or id. If specified, the catalog will be imported into the specified team, rather than the teams specified in the input files.
+                                This may be useful if you wish to import items from another team or Continuum instance'''),
+               ]
 
     def main(self):
         # if no inputdirectory is provided, use the current directory
@@ -76,7 +84,11 @@ _To import a catalog from backup files._
             print "The directory [%s] does not exist." % (rootdir)
             return
 
-        import_dict = {'overwrite': self.overwrite}
+        import_dict = {
+            'overwrite': self.overwrite,
+            'human_readable': self.human_readable,
+            'import_into_team': self.import_into_team,
+        }
         res_teams = json.loads(self.call_api(self.GetUserTeamsAPI)).get("teams")
         user_teams = {team["team_id"]: team["name"] for team in res_teams}
         team_dirs = []
