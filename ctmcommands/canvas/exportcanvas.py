@@ -43,7 +43,7 @@ class ExportCanvas(ctmcommands.cmd.CSKCommand):
 
         # if no outputdirectory was provided, we will just print the results
         if self.printoutput:
-            results = self.call_api(self.API, ['project', 'component'])
+            results = self.call_api(self.API, ['project', 'component', 'repository'])
             print(results)
             return
 
