@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+FAJITA_PACKAGE=$1
+FAJITA_URL="https://raw.githubusercontent.com/klmarsh4/Test/master/$FAJITA_PACKAGE/$FAJITA_PACKAGE.tgz" #"https://github.com/klmarsh4/Test/raw/master/$FAJITA_PACKAGE/$FAJITA_PACKAGE.tgz"
+echo $FAJITA_URL
+curl -o fajita_package.tgz $FAJITA_URL
+tar -xzf fajita_package.tgz
+#ctm-import-canvas -i src/canvas --force --ignoreconflicts
+CATALOG_RESULT=`ctm-import-catalog -i src/catalog/ -I $2 -o true -h false`
+ctm-register-fajita -n $FAJITA_PACKAGE -c "$CATALOG_RESULT"
+rm -rf src
+rm -rf fajita_package.tgz
