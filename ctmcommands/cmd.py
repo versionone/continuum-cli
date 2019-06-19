@@ -275,6 +275,8 @@ class CSKCommand(object):
         if plist:
             print('    %s' % label)
             for opt in plist:
+                if opt.secret:
+                    continue
                 names = []
                 if opt.short_name:
                     names.append(opt.synopsis_short_name)
