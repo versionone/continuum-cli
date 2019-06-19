@@ -28,7 +28,6 @@ class RegisterFajita(ctmcommands.cmd.CSKCommand):
                ]
 
     def main(self):
-        print("cat", self.catalog)
         catalog_results = json.loads(self.catalog)
 
         import_dict = {

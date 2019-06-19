@@ -28,7 +28,10 @@ class ImportCanvas(ctmcommands.cmd.CSKCommand):
                Param(name='ignoreconflicts', long_name='ignoreconflicts',
                      optional=True, ptype='boolean',
                      doc="""If provided, the import process will handle Name conflicts aggressively.
-If Canvas items with the same Project/Component/Name exist, they will be overwritten.""")
+If Canvas items with the same Project/Component/Name exist, they will be overwritten."""),
+               Param(name='fajita', long_name='fajita',
+                     optional=True, ptype='string', secret=True,
+                     doc='Name of the fajita this canvas belongs to'),
                ]
 
     def main(self):
@@ -104,7 +107,7 @@ If Canvas items with the same Project/Component/Name exist, they will be overwri
         # finally, make the api call for each row (suboptimal I know, but whatever)
         for row in everything:
             self.project, self.component, self.name, self.resourcedata = row[:]
-            response = self.call_api(self.API, ['project', 'component', 'name', 'resourcedata', 'repository', 'ignoreconflicts'], verb='POST')
+            response = self.call_api(self.API, ['project', 'component', 'name', 'resourcedata', 'repository', 'ignoreconflicts', 'fajita'], verb='POST')
             print response
 
         print "Success!"
