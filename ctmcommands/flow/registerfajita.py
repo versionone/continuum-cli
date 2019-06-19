@@ -32,7 +32,10 @@ class RegisterFajita(ctmcommands.cmd.CSKCommand):
 
         import_dict = {
             "name": self.name,
-            "tasks": [task_id for task_id, import_result in catalog_results["tasks"].viewitems() if import_result]
+            "tasks": [task_id for task_id, import_result in catalog_results["tasks"].viewitems() if import_result],
+            "packages": [package_id for package_id, import_result in catalog_results["packages"].viewitems() if import_result],
+            "projects": [project_id for project_id, import_result in catalog_results["projects"].viewitems() if import_result],
+            "pipelines": [pipeline_id for pipeline_id, import_result in catalog_results["pipelines"].viewitems() if import_result],
         }
         results = self.call_api(self.API, data=json.dumps(import_dict), verb='POST', content_type="application/json")
         print(results)
