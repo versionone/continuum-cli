@@ -2,11 +2,13 @@
 
 FAJITA_PACKAGE=$1
 TEAM=$2
-FAJITA_URL="https://raw.githubusercontent.com/klmarsh4/Test/master/$FAJITA_PACKAGE/$FAJITA_PACKAGE.tgz" #"https://github.com/klmarsh4/Test/raw/master/$FAJITA_PACKAGE/$FAJITA_PACKAGE.tgz"
+FAJITA_URL="https://raw.githubusercontent.com/klmarsh4/Test/master/$FAJITA_PACKAGE/$FAJITA_PACKAGE.tgz"
 curl -o fajita_package.tgz ${FAJITA_URL}
 tar -xzf fajita_package.tgz
 ctm-import-canvas -i src/canvas --force --ignoreconflicts --fajita ${FAJITA_PACKAGE}
 CATALOG_RESULT=`ctm-import-catalog -i src/catalog/ -I ${TEAM} -o true -h false`
+REGISTRY=`cat src/registry`
+ctm-set-registry -n ${FAJITA_PACKAGE} -v "$REGISTRY" -a 'merge' -c 'true'
 ctm-register-fajita -n ${FAJITA_PACKAGE} -c "$CATALOG_RESULT"
 rm -rf src
 rm -rf fajita_package.tgz

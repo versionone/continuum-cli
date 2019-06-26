@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+import ctmcommands.flow.setregistry
+
+if __name__ == '__main__':
+    cmd = ctmcommands.flow.setregistry.SetRegistry()
+    cmd.main()
