@@ -8,15 +8,13 @@ import ctmcommands.cmd
 from ctmcommands.param import Param
 
 
-class ImportBackup(ctmcommands.cmd.CSKCommand):
+class ImportTask(ctmcommands.cmd.CSKCommand):
 
-    Description = '''DEPRECATED: Please use `ctm-import-task`.
-    
-    Imports a task backup file into the system. This file can include one or
-                    more tasks within it and must be XML or JSON formatted'''
-    API = 'import_backup'
+    Description = '''Imports a Task backup file. This file can include one or
+                    more tasks within it and must be JSON formatted.'''
+    API = 'import_task'
     Examples = '''
-    ctm-import-backup -f ~/mytask01.xml
+    ctm-import-backup -f ~/mytask02.json
 '''
     Options = [Param(name='file', short_name='f', long_name='file',
                      optional=False, ptype='string',
@@ -26,7 +24,7 @@ class ImportBackup(ctmcommands.cmd.CSKCommand):
                      doc='Action to take if one or more Tasks have a conflict. "replace", "cancel".')]
 
     def main(self):
-        self.import_text = None
+        self.backup = None
         if self.file:
             import os
             fn = os.path.expanduser(self.file)
@@ -35,7 +33,7 @@ class ImportBackup(ctmcommands.cmd.CSKCommand):
                     print("Unable to open file [%s]." % fn)
                 data = f_in.read()
                 if data:
-                    self.import_text = data
+                    self.backup = data
                 else:
                     print("File is empty.")
                     return
@@ -44,11 +42,11 @@ class ImportBackup(ctmcommands.cmd.CSKCommand):
         if self.force:
             go = True
         else:
-            answer = raw_input("\n\n\nDEPRECATION WARNING - This command is deprecated and will be removed soon.  Use `ctm-import-task` instead.\n\n\n\nImporting a backup file will add Tasks to your system, possibly updating existing Tasks.\n\nAre you sure? ")
+            answer = raw_input("\nImporting a Task backup file will add Tasks to your system, possibly updating existing Tasks.\n\nAre you sure? ")
             if answer:
                 if answer.lower() in ['y', 'yes']:
                     go = True
 
         if go:
-            results = self.call_api(self.API, ['import_text', 'on_conflict'])
+            results = self.call_api(self.API, ['backup', 'on_conflict'])
             print(results)
