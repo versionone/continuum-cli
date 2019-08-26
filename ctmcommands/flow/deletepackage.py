@@ -1,10 +1,7 @@
 #########################################################################
-#
 # Copyright 2019 VersionOne
 # All Rights Reserved.
 # http://www.versionone.com
-#
-#
 #########################################################################
 
 import ctmcommands.cmd
@@ -20,7 +17,10 @@ class DeletePackage(ctmcommands.cmd.CSKCommand):
 '''
     Options = [Param(name='package', short_name='p', long_name='package',
                      optional=False, ptype='string',
-                     doc='Value can be either a Package ID or Name.')]
+                     doc='Value can be either a Package ID or Name.'),
+               Param(name='preserve', long_name='preserve',
+                     optional=True, ptype='boolean',
+                     doc='If provided, will still delete all data, but the actual Package definition will be preserved.')]
 
     def main(self):
         go = False
@@ -33,5 +33,5 @@ class DeletePackage(ctmcommands.cmd.CSKCommand):
                     go = True
 
         if go:
-            results = self.call_api(self.API, ['package'])
+            results = self.call_api(self.API, ['package', 'preserve'])
             print(results)
