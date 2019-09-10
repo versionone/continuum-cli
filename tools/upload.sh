@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+source /etc/environment
 set -e
 # branch will be nothing blank if master branch
 BRANCH=$1
