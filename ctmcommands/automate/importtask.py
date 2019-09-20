@@ -48,5 +48,5 @@ class ImportTask(ctmcommands.cmd.CSKCommand):
                     go = True
 
         if go:
-            results = self.call_api(self.API, ['backup', 'on_conflict'])
+            results = self.call_api(self.API, ['backup', 'on_conflict'], verb='POST')
             print(results)
