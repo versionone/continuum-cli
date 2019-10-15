@@ -21,7 +21,7 @@ Returns success or an error message."""
     Examples = ''''''
     Options = [Param(name='name', short_name='n', long_name='name',
                      optional=False, ptype='string',
-                     doc='The name of the add-on to uninstall from Continuum'),
+                     doc='The name of the Add-On to uninstall from Continuum'),
                ]
 
     def main(self):
