@@ -50,5 +50,5 @@ class ImportBackup(ctmcommands.cmd.CSKCommand):
                     go = True
 
         if go:
-            results = self.call_api(self.API, ['import_text', 'on_conflict'])
+            results = self.call_api(self.API, ['import_text', 'on_conflict'], verb='POST')
             print(results)
