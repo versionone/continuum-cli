@@ -22,13 +22,15 @@
 
 import os
 
+from past.builtins import basestring
+
 
 class Converter(object):
     
     @classmethod
     def convert_string(cls, param, value):
         # TODO: could do length validation, etc. here
-        if not isinstance(value, str):
+        if not isinstance(value, basestring):
             raise ValueError
         return value
 

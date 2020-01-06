@@ -113,11 +113,11 @@ class CSKCommand(object):
                     raise Exception("The specified config file (%s) could not be found." % cfn)
                 else:
                     if self.debug:
-                        print(("The default config file (%s) could not be found." % cfn))
+                        print("The default config file (%s) could not be found." % cfn)
 
             except ValueError:
                 # if the format of either file is bad, bark about it
-                print(("The specified config file (%s) json format is invalid." % cfn))
+                print("The specified config file (%s) json format is invalid." % cfn)
                 self.error_exit()
 
             if config_doc:
@@ -142,9 +142,9 @@ class CSKCommand(object):
             self.error_exit()
 
         if self.debug:
-            print(("Using CONTINUUM_URL: %s" % self.url))
+            print("Using CONTINUUM_URL: %s" % self.url)
         if self.debug:
-            print(("Using CONTINUUM_TOKEN: %s" % self.token))
+            print("Using CONTINUUM_TOKEN: %s" % self.token)
 
     def set_debug(self, debug=False):
         if debug:
@@ -275,7 +275,7 @@ class CSKCommand(object):
     def param_usage(self, plist, label, n=25):
         nn = 80 - n - 13
         if plist:
-            print(('    %s' % label))
+            print('    %s' % label)
             for opt in plist:
                 names = []
                 if opt.short_name:
@@ -290,9 +290,9 @@ class CSKCommand(object):
                     vv = 'Valid Values: %s' % '|'.join(["%s" % str(x) for x in opt.choices])
                     doclines += textwrap.wrap(vv, nn)
                 if doclines:
-                    print(('        %s%s' % (','.join(names).ljust(n), doclines[0])))
+                    print('        %s%s' % (','.join(names).ljust(n), doclines[0]))
                     for line in doclines[1:]:
-                        print(('%s%s' % (' ' * (n + 13), line)))
+                        print('%s%s' % (' ' * (n + 13), line))
 
     def option_synopsis(self, options):
         s = ''
@@ -367,9 +367,9 @@ class CSKCommand(object):
 
     def display_error_and_exit(self, exc):
         try:
-            print(('\n%s: %s, %s\n' % (exc.error_code, exc.error_message, exc.error_detail)))
+            print('\n%s: %s, %s\n' % (exc.error_code, exc.error_message, exc.error_detail))
         except:
-            print(('\n%s\n' % exc))
+            print('\n%s\n' % exc)
         finally:
             self.usage()
             sys.exit(1)
@@ -427,7 +427,7 @@ class CSKCommand(object):
             return "URL not provided."
 
         if self.debug:
-            print(("Trying an HTTP %s to %s" % (verb, url)))
+            print("Trying an HTTP %s to %s" % (verb, url))
 
         hdrs = {
             "Authorization": "Token %s" % (self.token)

@@ -142,7 +142,7 @@ if files:
     for k, v in files.items():
         with open(v, 'r') as f_in:
             if not f_in:
-                print(("Unable to open file [%s]." % v))
+                print("Unable to open file [%s]." % v)
             data = f_in.read()
             if data:
                 args[k] = packData(data)

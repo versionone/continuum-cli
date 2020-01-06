@@ -5,6 +5,8 @@ import sys
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+from future.utils import itervalues
+
 indent = "        "
 
 
@@ -23,13 +25,13 @@ def read_file(dir, file):
         with open(file_path, 'r') as f_in:
             print("%sFile: %s" % (indent, file))
             if not f_in:
-                print(("Unable to open file [%s]." % file))
+                print("Unable to open file [%s]." % file)
                 return None
             return json.loads(f_in.read())
     except Exception as ex:
-        print(("{0}{0}Error handling Item {1}".format(indent, file)))
-        print(("{0}{0}{1}".format(indent, ex)))
-        print(("{0}{0}Skipping...".format(indent)))
+        print("{0}{0}Error handling Item {1}".format(indent, file))
+        print("{0}{0}{1}".format(indent, ex))
+        print("{0}{0}Skipping...".format(indent))
 
 
 def get_dirname_for_team(team_name):
@@ -91,7 +93,7 @@ _To import a catalog from backup files._
                 try:
                     team_dirs.append(get_dirname_for_team(user_teams[teamname_or_id]))
                 except KeyError:
-                    for name in user_teams.values():
+                    for name in itervalues(user_teams):
                         if name == teamname_or_id:
                             team_dirs.append(get_dirname_for_team(teamname_or_id))
                             break

@@ -72,7 +72,7 @@ _Initial runtime data in a JSON file_
                         fn = os.path.expanduser(self.initialdata)
                         with open(fn, 'r') as f_in:
                             if not f_in:
-                                print(("Unable to open data file [%s]." % fn))
+                                print("Unable to open data file [%s]." % fn)
                             self.parameters = f_in.read()
                     except:
                         # well, nothing worked so let's just whine
@@ -93,7 +93,7 @@ _Initial runtime data in a JSON file_
                             fn = os.path.expanduser(self.parameters)
                             with open(fn, 'r') as f_in:
                                 if not f_in:
-                                    print(("Unable to open parameters file [%s]." % fn))
+                                    print("Unable to open parameters file [%s]." % fn)
                                 self.parameters = f_in.read()
                         except:  # well, nothing worked so let's just whine
                             print ("'parameters' argument was provided, but unable to reconcile parameters as JSON, XML or a valid and existing file.")

@@ -93,7 +93,7 @@ class ExportCanvas(ctmcommands.cmd.CSKCommand):
                     fn = os.path.join(cdir, filename)
                     with open(fn, 'w+') as f_out:
                         if not f_out:
-                            print(("Unable to open file [%s]." % fn))
+                            print("Unable to open file [%s]." % fn)
                         f_out.write(i["Data"].encode("utf-8", "ignore") if i["Data"] else "")
 
         print("Project(s) successfully backed up to [%s]." % (rootdir))

@@ -25,7 +25,7 @@ if not secret_key:
 
 args = {}  # a dictionary of any arguments required for the method
 if args:
-    arglst = ["&%s=%s" % (k, urllib.parse.quote_plus(v)) for k, v in list(args.items())]
+    arglst = ["&%s=%s" % (k, urllib.parse.quote_plus(v)) for k, v in args.items()]
     argstr = "".join(arglst)
 else:
     argstr = ""
@@ -44,7 +44,7 @@ sig = "&signature=" + urllib.parse.quote_plus(sig)
 
 url = "%s/%s%s%s" % (host, string_to_sign, sig, argstr)
 
-print(("Trying an HTTP GET to %s" % url))
+print("Trying an HTTP GET to %s" % url)
 
 response = urllib.request.urlopen(url, None, 10)
 result = response.read()

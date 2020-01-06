@@ -96,7 +96,7 @@ If Canvas items with the same Project/Component/Name exist, they will be overwri
                             fn = os.path.join(cdir, f)
                             with open(fn, 'r') as f_in:
                                 if not f_in:
-                                    print(("Unable to open file [%s]." % fn))
+                                    print("Unable to open file [%s]." % fn)
                                 data = f_in.read()
 
                             everything.append((p.replace("proj_", ""), c.replace("comp_", ""), f.replace("item_", ""), data))

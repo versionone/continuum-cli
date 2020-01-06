@@ -35,5 +35,5 @@ _To send an email to an email address_
         }'''
         ws.send(msg)
         result = ws.recv()
-        print(("Received %s" % result))
+        print("Received %s" % result)
         ws.close()

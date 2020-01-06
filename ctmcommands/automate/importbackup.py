@@ -32,7 +32,7 @@ class ImportBackup(ctmcommands.cmd.CSKCommand):
             fn = os.path.expanduser(self.file)
             with open(fn, 'r') as f_in:
                 if not f_in:
-                    print(("Unable to open file [%s]." % fn))
+                    print("Unable to open file [%s]." % fn)
                 data = f_in.read()
                 if data:
                     self.import_text = data

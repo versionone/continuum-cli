@@ -53,8 +53,8 @@ def create_file(dir, file_label, asset):
     print("%sItem: %s" % (indent, file_label))
 
     if "/" in file_label or "\\" in file_label:
-        print(("{0}{0}{1} contains a slash in its name. ".format(indent, file_label)))
-        print(("{0}{0}Skipping...".format(indent)))
+        print("{0}{0}{1} contains a slash in its name. ".format(indent, file_label))
+        print("{0}{0}Skipping...".format(indent))
         return
 
     valid_file_name, unique_str = remove_illegal_chars_in_filename(file_label)
@@ -67,12 +67,12 @@ def create_file(dir, file_label, asset):
         fn = os.path.join(dir, valid_file_name + ".json")
         with open(fn, 'w+') as f_out:
             if not f_out:
-                print(("Unable to open file [%s]." % fn))
+                print("Unable to open file [%s]." % fn)
             f_out.write(AsJSON(asset))
     except Exception as ex:
-        print(("{0}{0}Error handling Item {1}".format(indent, file_label)))
-        print(("{0}{0}{1}".format(indent, ex)))
-        print(("{0}{0}Skipping...".format(indent)))
+        print("{0}{0}Error handling Item {1}".format(indent, file_label))
+        print("{0}{0}{1}".format(indent, ex))
+        print("{0}{0}Skipping...".format(indent))
 
 
 class ExportCatalog(ctmcommands.cmd.CSKCommand):

@@ -52,7 +52,7 @@ _To update all settings for a particular module using a json formatted settings 
                 fn = os.path.expanduser(self.settingsfile)
                 with open(fn, 'r') as f_in:
                     if not f_in:
-                        print(("Unable to open file [%s]." % fn))
+                        print("Unable to open file [%s]." % fn)
                     self.settings = f_in.read()
             results = self.call_api(self.API, ['module', 'settings'])
             print(results)
