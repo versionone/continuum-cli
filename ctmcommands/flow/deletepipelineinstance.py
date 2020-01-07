@@ -10,6 +10,8 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+from builtins import input
+
 
 class DeletePipelineInstance(ctmcommands.cmd.CSKCommand):
 

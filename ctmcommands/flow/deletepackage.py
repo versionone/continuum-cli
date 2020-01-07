@@ -7,6 +7,8 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+from builtins import input
+
 
 class DeletePackage(ctmcommands.cmd.CSKCommand):
 

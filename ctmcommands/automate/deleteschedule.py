@@ -7,6 +7,8 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+from builtins import input
+
 
 class DeleteSchedule(ctmcommands.cmd.CSKCommand):
 
