@@ -6,7 +6,6 @@ import json
 from future.standard_library import install_aliases
 install_aliases()
 import urllib.request, urllib.parse, urllib.error
-import urllib.request, urllib.error, urllib.parse
 from datetime import datetime
 import hashlib
 import base64
