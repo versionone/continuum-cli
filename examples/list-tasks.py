@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 
-import urllib
-import urllib2
+from future.standard_library import install_aliases
+install_aliases()
+import urllib.request, urllib.error, urllib.parse
 from datetime import datetime
 import hashlib
 import base64
@@ -24,7 +25,7 @@ if not secret_key:
 
 args = {}  # a dictionary of any arguments required for the method
 if args:
-    arglst = ["&%s=%s" % (k, urllib.quote_plus(v)) for k, v in args.items()]
+    arglst = ["&%s=%s" % (k, urllib.parse.quote_plus(v)) for k, v in args.items()]
     argstr = "".join(arglst)
 else:
     argstr = ""
@@ -38,16 +39,16 @@ string_to_sign = "{0}?key={1}&timestamp={2}".format(method, access_key, ts)
 
 # encoded signature
 sig = base64.b64encode(hmac.new(str(secret_key), msg=string_to_sign, digestmod=hashlib.sha256).digest())
-sig = "&signature=" + urllib.quote_plus(sig)
+sig = "&signature=" + urllib.parse.quote_plus(sig)
 
 
 url = "%s/%s%s%s" % (host, string_to_sign, sig, argstr)
 
-print "Trying an HTTP GET to %s" % url
+print("Trying an HTTP GET to %s" % url)
 
-response = urllib2.urlopen(url, None, 10)
+response = urllib.request.urlopen(url, None, 10)
 result = response.read()
 if result:
-    print result
+    print(result)
 else:
-    print "No response."
+    print("No response.")

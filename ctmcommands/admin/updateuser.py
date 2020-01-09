@@ -7,6 +7,8 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+from builtins import input
+
 
 class UpdateUser(ctmcommands.cmd.CSKCommand):
 
@@ -70,7 +72,7 @@ class UpdateUser(ctmcommands.cmd.CSKCommand):
         if self.force:
             go = True
         else:
-            answer = raw_input("Updating a User could affect their ability to log in and use the system.\n\nAre you sure? ")
+            answer = input("Updating a User could affect their ability to log in and use the system.\n\nAre you sure? ")
             if answer:
                 if answer.lower() in ['y', 'yes']:
                     go = True

@@ -7,6 +7,8 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+from builtins import input
+
 
 class UpdateSettings(ctmcommands.cmd.CSKCommand):
 
@@ -41,7 +43,7 @@ _To update all settings for a particular module using a json formatted settings 
         if self.force:
             go = True
         else:
-            answer = raw_input("WARNING: This is a Administrator function.\n\nUpdating settings will change the operation of the system.\n\nAre you sure? ")
+            answer = input("WARNING: This is a Administrator function.\n\nUpdating settings will change the operation of the system.\n\nAre you sure? ")
             if answer:
                 if answer.lower() in ['y', 'yes']:
                     go = True

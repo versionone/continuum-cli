@@ -5,6 +5,8 @@ import sys
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+from future.utils import itervalues
+
 indent = "        "
 
 
@@ -21,7 +23,7 @@ def read_file(dir, file):
     file_path = os.path.join(dir, file)
     try:
         with open(file_path, 'r') as f_in:
-            print "%sFile: %s" % (indent, file)
+            print("%sFile: %s" % (indent, file))
             if not f_in:
                 print("Unable to open file [%s]." % file)
                 return None
@@ -73,7 +75,7 @@ _To import a catalog from backup files._
 
         # the directory must exist
         if not os.path.exists(rootdir):
-            print "The directory [%s] does not exist." % (rootdir)
+            print("The directory [%s] does not exist." % (rootdir))
             return
 
         import_dict = {'overwrite': self.overwrite}
@@ -91,7 +93,7 @@ _To import a catalog from backup files._
                 try:
                     team_dirs.append(get_dirname_for_team(user_teams[teamname_or_id]))
                 except KeyError:
-                    for name in user_teams.itervalues():
+                    for name in itervalues(user_teams):
                         if name == teamname_or_id:
                             team_dirs.append(get_dirname_for_team(teamname_or_id))
                             break
@@ -101,7 +103,7 @@ _To import a catalog from backup files._
                 sys.exit("Invalid Team(s)")
             elif len_valid_teamdirs < len(teamname_or_ids):
                 no_of_invalid_teams = len(teamname_or_ids) - len_valid_teamdirs
-                print "Found %d Invalid Team(s)" % int(no_of_invalid_teams)
+                print("Found %d Invalid Team(s)" % int(no_of_invalid_teams))
             else:
                 pass
         else:
@@ -155,4 +157,4 @@ _To import a catalog from backup files._
             import_dict['team'] = self.team
 
         response = self.call_api(self.API, data=json.dumps(import_dict), verb='POST', content_type="application/json")
-        print response
+        print(response)

@@ -22,6 +22,8 @@
 
 import os
 
+from past.builtins import basestring
+
 
 class Converter(object):
     

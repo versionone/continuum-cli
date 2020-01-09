@@ -21,10 +21,10 @@ def eval_commands(listcmd):
     # execute each command with the --dumpdoc flag
     for c in cmdlst:
         if c:
-            print "... testing [%s]" % (c)
+            print("... testing [%s]" % (c))
             subprocess.check_output("%s --dumpdoc" % (c), shell=True)
             
 
-print "Testing commands..."
+print("Testing commands...")
 eval_commands("ctm-list-commands")
-print "SUCCESS"
+print("SUCCESS")

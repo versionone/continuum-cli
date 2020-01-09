@@ -10,6 +10,8 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+from builtins import input
+
 
 class DeleteRegistry(ctmcommands.cmd.CSKCommand):
 
@@ -27,7 +29,7 @@ class DeleteRegistry(ctmcommands.cmd.CSKCommand):
         if self.force:
             go = True
         else:
-            answer = raw_input("\nThis is a destructive operation.  This Registry, including references to other objects, will be removed.\n\nAre you sure (y/n)? ")
+            answer = input("\nThis is a destructive operation.  This Registry, including references to other objects, will be removed.\n\nAre you sure (y/n)? ")
             if answer:
                 if answer.lower() in ['y', 'yes']:
                     go = True

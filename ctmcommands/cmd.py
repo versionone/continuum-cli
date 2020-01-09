@@ -17,10 +17,12 @@ import getopt
 import os
 import sys
 import textwrap
-import urllib
+from future.standard_library import install_aliases
+install_aliases()
+import urllib.request, urllib.parse, urllib.error
 import json
 import requests
-from param import Param
+from ctmcommands.param import Param
 
 try:
     import xml.etree.cElementTree as ET
@@ -157,7 +159,7 @@ class CSKCommand(object):
             (opts, args) = getopt.gnu_getopt(sys.argv[1:],
                                              self.short_options(),
                                              self.long_options())
-        except getopt.GetoptError, e:
+        except getopt.GetoptError as e:
             print(e)
             sys.exit(1)
         for (name, value) in opts:
@@ -168,7 +170,7 @@ class CSKCommand(object):
                 self.dumpdoc()
                 sys.exit()
             elif name == '--api':
-                print self.API
+                print(self.API)
                 sys.exit()
             elif name in ('-D', '--debug'):
                 self.set_debug(True)
@@ -331,12 +333,12 @@ class CSKCommand(object):
                 arg_names.append(name)
             t += ' '.join(arg_names)
         lines = textwrap.wrap(t, 80 - n)
-        print s, lines[0]
+        print(s, lines[0])
         for line in lines[1:]:
-            print '%s%s' % (' ' * n, line)
+            print('%s%s' % (' ' * n, line))
 
     def usage(self):
-        print '    %s\n' % self.Description
+        print('    %s\n' % self.Description)
         # self.synopsis()
         self.param_usage([opt for opt in self.Options if not opt.optional],
                          'REQUIRED PARAMETERS')
@@ -346,22 +348,22 @@ class CSKCommand(object):
                          'STANDARD PARAMETERS')
 
         if self.Info:
-            print self.Info
+            print(self.Info)
 
     def dumpdoc(self):
-        print '<h3 id="{0}" title="Permalink">{0}&nbsp;<a href="#{0}" style="display: margin-left: 1em;">&para;</a></h3>\n'.format(self.cmd_name)
-        print '\n%s\n' % self.Description
+        print('<h3 id="{0}" title="Permalink">{0}&nbsp;<a href="#{0}" style="display: margin-left: 1em;">&para;</a></h3>\n'.format(self.cmd_name))
+        print('\n%s\n' % self.Description)
 
         self.param_usage([opt for opt in self.Options if not opt.optional],
                          'REQUIRED PARAMETERS')
         self.param_usage([opt for opt in self.Options if opt.optional],
                          'OPTIONAL PARAMETERS')
         if self.Info:
-            print self.Info
+            print(self.Info)
 
         if self.Examples:
-            print "**Examples**"
-            print self.Examples
+            print("**Examples**")
+            print(self.Examples)
 
     def display_error_and_exit(self, exc):
         try:
@@ -405,7 +407,7 @@ class CSKCommand(object):
         # if post then args are a dict, if get args are qs
         if verb == "GET":
             if len(args):
-                arglst = ["&%s=%s" % (k, urllib.quote_plus(str(v))) for k, v in args.items()]
+                arglst = ["&%s=%s" % (k, urllib.parse.quote_plus(str(v))) for k, v in args.items()]
                 argstr = "".join(arglst)
 
         url = host
@@ -416,7 +418,7 @@ class CSKCommand(object):
             url = "%s/%s?%s" % (host, method, argstr)
 
         if outdel:
-            url = "%s&output_delimiter=%s" % (url, urllib.quote_plus(outdel))
+            url = "%s&output_delimiter=%s" % (url, urllib.parse.quote_plus(outdel))
 
         if noheader:
             url = "%s&header=false" % (url)

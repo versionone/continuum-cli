@@ -50,7 +50,7 @@ def remove_illegal_chars_in_filename(file_name):
 
 
 def create_file(dir, file_label, asset):
-    print "%sItem: %s" % (indent, file_label)
+    print("%sItem: %s" % (indent, file_label))
 
     if "/" in file_label or "\\" in file_label:
         print("{0}{0}{1} contains a slash in its name. ".format(indent, file_label))
@@ -125,7 +125,7 @@ _To export a catalog of backup files._
 
         # the directory must exist
         if not os.path.exists(rootdir):
-            print "The directory [%s] does not exist." % (rootdir)
+            print("The directory [%s] does not exist." % (rootdir))
             return
 
         response = self.call_api(self.API, ['team'], timeout=300)
@@ -133,11 +133,11 @@ _To export a catalog of backup files._
         try:
             results = json.loads(response)
         except:
-            print response
+            print(response)
             return
 
         if not results:
-            print "No results found."
+            print("No results found.")
             return
 
         team_dir_list = []

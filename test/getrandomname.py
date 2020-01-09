@@ -16,4 +16,4 @@ if len(sys.argv) > 1:
         suffix = sys.argv[2]
     
 # returns the provided name with a random hash added
-print "%s%s%s" % (prefix, os.urandom(8).encode('hex'), suffix)
+print("%s%s%s" % (prefix, os.urandom(8).encode('hex'), suffix))

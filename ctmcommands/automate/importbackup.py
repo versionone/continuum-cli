@@ -7,6 +7,8 @@
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
+from builtins import input
+
 
 class ImportBackup(ctmcommands.cmd.CSKCommand):
 
@@ -44,7 +46,7 @@ class ImportBackup(ctmcommands.cmd.CSKCommand):
         if self.force:
             go = True
         else:
-            answer = raw_input("\n\n\nDEPRECATION WARNING - This command is deprecated and will be removed soon.  Use `ctm-import-task` instead.\n\n\n\nImporting a backup file will add Tasks to your system, possibly updating existing Tasks.\n\nAre you sure? ")
+            answer = input("\n\n\nDEPRECATION WARNING - This command is deprecated and will be removed soon.  Use `ctm-import-task` instead.\n\n\n\nImporting a backup file will add Tasks to your system, possibly updating existing Tasks.\n\nAre you sure? ")
             if answer:
                 if answer.lower() in ['y', 'yes']:
                     go = True
