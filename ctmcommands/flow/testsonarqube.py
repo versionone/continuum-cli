@@ -15,6 +15,7 @@ class TestSonarqube(ctmcommands.cmd.CSKCommand):
                ]
 
     def main(self):
-        self.plugin = "sonarqube.sonarqube"
-        results = self.call_api(self.API, ['plugin', 'instance'])
+        print("Please wait ... this could take a while ...")
+        self.plugin_name = "sonarqube"
+        results = self.call_api(self.API, ['plugin_name', 'instance'], timeout=70)
         print(results)

@@ -15,6 +15,7 @@ class TestJenkins(ctmcommands.cmd.CSKCommand):
                ]
 
     def main(self):
-        self.plugin = "jenkins.job"
-        results = self.call_api(self.API, ['plugin', 'instance'])
+        print("Please wait ... this could take a while ...")
+        self.plugin_name = "jenkins"
+        results = self.call_api(self.API, ['plugin_name', 'instance'], timeout=70)
         print(results)
