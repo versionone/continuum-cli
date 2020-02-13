@@ -15,6 +15,7 @@ class TestGitlab(ctmcommands.cmd.CSKCommand):
                ]
 
     def main(self):
-        self.plugin = "gitlab.gitlab"
-        results = self.call_api(self.API, ['plugin', 'instance'])
+        print("Please wait ... this could take a while ...")
+        self.plugin_name = "gitlab"
+        results = self.call_api(self.API, ['plugin_name', 'instance'], timeout=70)
         print(results)

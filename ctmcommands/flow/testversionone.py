@@ -15,6 +15,7 @@ class TestVersionOne(ctmcommands.cmd.CSKCommand):
                ]
 
     def main(self):
-        self.plugin = "v1plugin.main"
-        results = self.call_api(self.API, ['plugin', 'instance'])
+        print("Please wait ... this could take a while ...")
+        self.plugin_name = "v1plugin"
+        results = self.call_api(self.API, ['plugin_name', 'instance'], timeout=70)
         print(results)
