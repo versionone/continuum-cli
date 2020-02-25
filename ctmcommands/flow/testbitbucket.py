@@ -15,6 +15,7 @@ class TestBitBucket(ctmcommands.cmd.CSKCommand):
                ]
 
     def main(self):
-        self.plugin = "bitbucket.bitbucket"
-        results = self.call_api(self.API, ['plugin', 'instance'])
+        print("Please wait ... this could take a while ...")
+        self.plugin_name = "bitbucket"
+        results = self.call_api(self.API, ['plugin_name', 'instance'], timeout=70)
         print(results)
