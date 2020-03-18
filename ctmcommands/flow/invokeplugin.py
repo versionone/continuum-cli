@@ -35,5 +35,5 @@ Defaults to plugins available to All Teams."""),
                ]
 
     def main(self):
-        results = self.call_api(self.API, ['plugin', 'method', 'args'])
+        results = self.call_api(self.API, ['plugin', 'method', 'args', 'team'])
         print(results)
