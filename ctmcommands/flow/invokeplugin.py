@@ -27,9 +27,13 @@ Response varies based on the specified Plugin."""
                      doc='Method to invoke. (ex "get_issue")'),
                Param(name='args', short_name='a', long_name='args',
                      optional=True, ptype='string',
-                     doc='A JSON object containing Plugin Function specific arguments.')
+                     doc='A JSON object containing Plugin Function specific arguments.'),
+               Param(name='team', short_name='t', long_name='team',
+                     optional=True, ptype='string',
+                     doc="""The Team to search for the Plugin Instance to use when invoking a Plugin Function that requires an Instance.
+Defaults to plugins available to All Teams."""),
                ]
 
     def main(self):
-        results = self.call_api(self.API, ['plugin', 'method', 'args'])
+        results = self.call_api(self.API, ['plugin', 'method', 'args', 'team'])
         print(results)
