@@ -12,7 +12,12 @@ class ReversionPackageRevision(ctmcommands.cmd.CSKCommand):
     - or -
 
     ctm-promote-revision -p "Some Package Name" -f "15.2.3.205" -v 15.1
-'''
+    
+    - or -
+
+    ctm-promote-revision -p "Some Package Name" -f "15.2.3.205" -v 15.1 -n 15.2.3.206
+    '''
+    
     Options = [Param(name='package', short_name='p', long_name='package',
                      optional=False, ptype='string',
                      doc='Name of the Package to promote to a Progression Phase.'),
@@ -24,9 +29,12 @@ class ReversionPackageRevision(ctmcommands.cmd.CSKCommand):
                      doc='Optional Full Version of package to promote, optional alternative selector to "revision".'),
                Param(name='new_version', short_name='v', long_name='new_version',
                      optional=False, ptype='string',
-                     doc='Optional "new version" for this and all prior revisions of this Package.')
+                     doc='Optional "new version" for this and all prior revisions of this Package.'),
+               Param(name='new_full_version', short_name='n', long_name='new_full_version',
+                     optional=True, ptype='string',
+                     doc='Optional "new full version" for this and all prior revisions of this Package.')     
                ]
 
     def main(self):
-        results = self.call_api(self.API, ['package', 'revision', 'full_version', 'new_version'])
+        results = self.call_api(self.API, ['package', 'revision', 'full_version', 'new_version', 'new_full_version'])
         print(results)
