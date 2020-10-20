@@ -13,7 +13,7 @@ from ctmcommands.param import Param
 
 class CreatePackage(ctmcommands.cmd.CSKCommand):
 
-    Description = """Creates a Package.
+    Description = """Creates a Package Definition.
 
 Returns a Package Definition Object."""
 
