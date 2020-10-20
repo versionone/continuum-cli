@@ -27,9 +27,13 @@ Returns a Package Definition Object."""
                      doc='Team which the Package Definition should belong to'),
                Param(name='description', short_name='d', long_name='description',
                      optional=True, ptype='string',
-                     doc='A description for the Package Definition.')
+                     doc='A description for the Package Definition.'),
+               Param(name='progression', short_name='p', long_name='progression',
+                     optional=True, ptype='string',
+                     doc='Value can be either a Progression ID or Name.')               
                ]
 
     def main(self):
-        results = self.call_api(self.API, ['name', 'team', 'description'])
+        results = self.call_api(self.API,
+                                ['name', 'team', 'description', 'progression'])
         print(results)
