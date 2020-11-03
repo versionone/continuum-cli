@@ -12,7 +12,7 @@ from builtins import input
 
 class DeletePackage(ctmcommands.cmd.CSKCommand):
 
-    Description = 'Delete a Project object.'
+    Description = 'Delete a Package Definition.'
     API = 'delete_package'
     Examples = '''
     ctm-delete-package -p "Package Name"
