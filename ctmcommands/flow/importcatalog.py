@@ -8,6 +8,13 @@ from ctmcommands.param import Param
 from future.utils import itervalues
 
 indent = "        "
+human_readable = "true"
+
+
+def log(msg, force=False):
+    global human_readable
+    if (human_readable.lower() != "false") or force:
+        print(msg)
 
 
 def read_dir(dir):
@@ -23,15 +30,15 @@ def read_file(dir, file):
     file_path = os.path.join(dir, file)
     try:
         with open(file_path, 'r') as f_in:
-            print("%sFile: %s" % (indent, file))
+            log("%sFile: %s" % (indent, file))
             if not f_in:
-                print("Unable to open file [%s]." % file)
+                log("Unable to open file [%s]." % file)
                 return None
             return json.loads(f_in.read())
     except Exception as ex:
-        print("{0}{0}Error handling Item {1}".format(indent, file))
-        print("{0}{0}{1}".format(indent, ex))
-        print("{0}{0}Skipping...".format(indent))
+        log("{0}{0}Error handling Item {1}".format(indent, file))
+        log("{0}{0}{1}".format(indent, ex))
+        log("{0}{0}Skipping...".format(indent))
 
 
 def get_dirname_for_team(team_name):
@@ -62,9 +69,21 @@ _To import a catalog from backup files._
                                 Multiple teams can be specified using comma. E.g. "Dev Team","Test Team"'''),
                Param(name='overwrite', short_name='o', long_name='overwrite',
                      optional=True, ptype='string',
-                     doc="""Valid values: true|false (default).""")]
+                     doc="""Valid values: true|false (default)."""),
+               Param(name='human_readable', short_name='h', long_name='humanreadable',
+                     optional=True, ptype='string',
+                     doc="""Valid values: true (default)|false."""),
+               Param(name='import_into_team', short_name='I', long_name='import_into_team',
+                     optional=True, ptype='string',
+                     doc='''Team "name" or id. If specified, the catalog will be imported into the specified team, rather than the teams specified in the input files.
+                                This may be useful if you wish to import items from another team or Continuum instance'''),
+               ]
 
     def main(self):
+        global human_readable
+        if self.human_readable:
+            human_readable = self.human_readable
+
         # if no inputdirectory is provided, use the current directory
         if self.inputdirectory:
             rootdir = os.path.expanduser(self.inputdirectory)
@@ -75,10 +94,14 @@ _To import a catalog from backup files._
 
         # the directory must exist
         if not os.path.exists(rootdir):
-            print("The directory [%s] does not exist." % (rootdir))
+            log("The directory [%s] does not exist." % (rootdir))
             return
 
-        import_dict = {'overwrite': self.overwrite}
+        import_dict = {
+            'overwrite': self.overwrite,
+            'human_readable': self.human_readable or "true",
+            'import_into_team': self.import_into_team,
+        }
         res_teams = json.loads(self.call_api(self.GetUserTeamsAPI)).get("teams")
         user_teams = {team["team_id"]: team["name"] for team in res_teams}
         team_dirs = []
@@ -103,13 +126,13 @@ _To import a catalog from backup files._
                 sys.exit("Invalid Team(s)")
             elif len_valid_teamdirs < len(teamname_or_ids):
                 no_of_invalid_teams = len(teamname_or_ids) - len_valid_teamdirs
-                print("Found %d Invalid Team(s)" % int(no_of_invalid_teams))
+                log("Found %d Invalid Team(s)" % int(no_of_invalid_teams))
             else:
                 pass
         else:
             team_dirs = os.listdir(rootdir)
 
-        print("Projects")
+        log("Projects")
         project_json = []
         for team_dir in team_dirs:
             # Read the projects dir
@@ -120,7 +143,7 @@ _To import a catalog from backup files._
         if project_json:
             import_dict["projects"] = project_json
 
-        print("Packages")
+        log("Packages")
         package_json = []
         for team_dir in team_dirs:
             # Read the packages dir
@@ -131,7 +154,7 @@ _To import a catalog from backup files._
         if package_json:
             import_dict["packages"] = package_json
 
-        print("Pipelines")
+        log("Pipelines")
         pipeline_json = []
         for team_dir in team_dirs:
             # Read the pipelines dir
@@ -142,7 +165,7 @@ _To import a catalog from backup files._
         if pipeline_json:
             import_dict["pipelines"] = pipeline_json
 
-        print("Tasks")
+        log("Tasks")
         task_json = []
         for team_dir in team_dirs:
             # Read the tasks dir
@@ -157,4 +180,4 @@ _To import a catalog from backup files._
             import_dict['team'] = self.team
 
         response = self.call_api(self.API, data=json.dumps(import_dict), verb='POST', content_type="application/json")
-        print(response)
+        log(response, force=True)
