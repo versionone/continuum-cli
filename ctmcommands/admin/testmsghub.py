@@ -21,7 +21,7 @@ _To send an email to an email address_
 '''
     Options = [Param(name='server', short_name='s', long_name='server',
                      optional=False, ptype='string',
-                     doc='URL of the Continuum server.  Use "wss" if Continuum is running in SSL mode, otherwise use "ws".  Use the port as configured, or the default of 8083.')
+                     doc='URL of the Agile Connect/Continuum server.  Use "wss" if server is running in SSL mode, otherwise use "ws".  Use the port as configured, or the default of 8083.')
                ]
 
     def main(self):
