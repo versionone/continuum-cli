@@ -11,7 +11,10 @@ if __name__ == '__main__':
     if len(sys.argv) > 1:
         # if there's an argument, simply switch on it.  It'll only be asking for the api or dumpdoc.
         if sys.argv[1] == "--dumpdoc" or sys.argv[1] == "-H":
-            print """Lists all installed Continuum commands.  Accepts no arguments."""
+            if sys.argv[1] == "--dumpdoc":
+                print('<h3 id="{0}" title="Permalink">{0}&nbsp;<a href="#{0}" style="display: margin-left: 1em;">&para;</a></h3>\n'.format('ctm-list-commands'))
+
+            print """Lists all installed ctm-* commands.  Accepts no arguments."""
             exit()
         else:
             exit()
