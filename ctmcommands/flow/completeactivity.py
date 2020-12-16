@@ -43,8 +43,14 @@ Returns: `success` on success, errors otherwise."""
                Param(name='failure', long_name='failure',
                      optional=True, ptype='boolean',
                      doc='Mark the Activity as a Failure. (Will default to `success` if omitted.)'),
+               Param(name='completion_time', short_name='t', long_name='completion_time',
+                     optional=True, ptype='string',
+                     doc='Mark the Activity complete at a specified time.'),
+               Param(name='timezone', short_name='z', long_name='timezone',
+                     optional=True, ptype='string',
+                     doc='Optional modifier for "completion_time".'),
                ]
 
     def main(self):
-        results = self.call_api(self.API, ['package', 'phase', 'activity', 'notes', 'revision', 'full_version', 'forcewith', 'failure'])
+        results = self.call_api(self.API, ['package', 'phase', 'activity', 'notes', 'revision', 'full_version', 'forcewith', 'failure', 'completion_time', 'timezone'])
         print(results)
