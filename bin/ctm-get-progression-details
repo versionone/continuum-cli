@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+import ctmcommands.flow.getprogressiondetails
+
+if __name__ == '__main__':
+    cmd = ctmcommands.flow.getprogressiondetails.GetProgressionDetails()
+    cmd.main()
