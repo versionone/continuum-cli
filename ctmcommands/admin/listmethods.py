@@ -15,11 +15,11 @@ class ListMethods(ctmcommands.cmd.CSKCommand):
     Examples = '''
 _To print a full listing of all api commands with documentation_
 
-    ctm-list-methods
+    ctm-describe-api
 
 _To print only the names with the api commands sorted_
 
-    ctm-list-methods -l
+    ctm-describe-api -l
 '''
     Options = [Param(name='listonly', short_name='l', long_name='listonly',
                      optional=True, ptype='boolean',
