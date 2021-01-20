@@ -1,3 +1,10 @@
+#########################################################################
+#
+# Copyright 2021 Digital.Ai
+# All Rights Reserved.
+# https://www.digital.ai
+#
+#########################################################################
 import ctmcommands.cmd
 from ctmcommands.param import Param
 
