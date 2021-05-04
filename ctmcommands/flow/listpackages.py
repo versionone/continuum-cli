@@ -25,7 +25,8 @@ _List all Package Definitions
                      doc='A filter.'),
                Param(name='limit', short_name='l', long_name='limit',
                      optional=True, ptype='string',
-                     doc='The number of packages to retrieve. Default limit is 100.')
+                     doc=('The maximum number of items to retrieve, or '
+                          '0 for unlimited. (Default is 100.)'))
                ]
 
     def main(self):

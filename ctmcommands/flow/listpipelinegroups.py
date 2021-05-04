@@ -28,8 +28,12 @@ _List all Pipeline Instance Groups
                      doc='Limit the results to a specific project.'),
                Param(name='group', short_name='g', long_name='group',
                      optional=True, ptype='string',
-                     doc='Limit the results to a specific group.')]
+                     doc='Limit the results to a specific group.'),
+               Param(name='limit', short_name='l', long_name='limit',
+                     optional=True, ptype='string',
+                     doc=('The maximum number of items to retrieve, or '
+                          '0 for unlimited. (Default is unlimited.)'))]
 
     def main(self):
-        results = self.call_api(self.API, ['pipeline', 'project', 'group'])
+        results = self.call_api(self.API, ['pipeline', 'project', 'group', 'limit'])
         print(results)
