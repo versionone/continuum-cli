@@ -44,7 +44,7 @@ class UpdateUser(ctmcommands.cmd.CSKCommand):
                      doc='"local" or "ldap".  Default is "local" if omitted.',
                      choices=["local", "ldap"]),
                Param(name='forcechange', short_name='f', long_name='forcechange',
-                     optional=True, ptype='integer',
+                     optional=True, ptype='integer', default=1,
                      doc='Require user to change password. Default is "true" (1) if omitted. (Valid values: 0 or 1).',
                      choices=[0, 1]),
                Param(name='status', short_name='s', long_name='status',
