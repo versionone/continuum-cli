@@ -19,7 +19,7 @@ setuptools.setup(
     author_email='ContinuumAdmin@versionone.com',
     packages=setuptools.find_packages(exclude=['bin']),
     include_package_data=True,
-    install_requires=['requests', 'future'],
+    install_requires=['requests<2.28', 'future'],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'License :: License :: Other/Proprietary License',
